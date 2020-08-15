@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>微服务框架 on Even - A super concise theme for Hugo</title>
+    <link>https://13277112287.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6/</link>
+    <description>Recent content in 微服务框架 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 03 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://13277112287.github.io/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RabbitMQ.md</title>
+      <link>https://13277112287.github.io/post/rabbitmq/</link>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/rabbitmq/</guid>
+      <description>第一章-Rabbit概述 cnds:https://blog.csdn.net/wangbing25307/article/details/80845641 1什么是Rabbit 消息队列（Message Queue，简称MQ），从字面意思上看，本质是个队列，FIFO先入先出</description>
+    </item>
+    
+    <item>
+      <title>SpringCloud_2018.md</title>
+      <link>https://13277112287.github.io/post/springcloud_2018/</link>
+      <pubDate>Wed, 29 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/springcloud_2018/</guid>
+      <description>第一章-xxx概述 1什么是xxx 2注册中心 1-eureka eureka包含了ribbon 1先写pom 2再写启动类 3最后写Yml 4localhost:端口号</description>
+    </item>
+    
+    <item>
+      <title>SpringCloud_2020.md</title>
+      <link>https://13277112287.github.io/post/springcloud_2020/</link>
+      <pubDate>Tue, 28 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/springcloud_2020/</guid>
+      <description>面试题一览 第一章-SpringCloud概述 视频教程：https://www.bilibili.com/video/BV18E411x7eT</description>
+    </item>
+    
+  </channel>
+</rss>

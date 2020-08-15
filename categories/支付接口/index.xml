@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>支付接口 on Even - A super concise theme for Hugo</title>
+    <link>https://13277112287.github.io/categories/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/</link>
+    <description>Recent content in 支付接口 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 04 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://13277112287.github.io/categories/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>微信支付接口.md</title>
+      <link>https://13277112287.github.io/post/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/</link>
+      <pubDate>Mon, 04 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/</guid>
+      <description>第一章-微信支付概述 1微信支付的分类 1公众号接入支付 公众号接入支付后，可以通过JSAPI支付产品来完成在公众号、朋友圈、聊天窗口等微信内的收</description>
+    </item>
+    
+  </channel>
+</rss>

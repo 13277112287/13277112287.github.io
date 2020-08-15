@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>JVM.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-类加载器和类加载过程 尚硅谷JVM周阳视频(简介).https://www.bilibili.com/video/BV1vE411D7" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/jvm/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="JVM.md" />
+<meta property="og:description" content="第一章-类加载器和类加载过程 尚硅谷JVM周阳视频(简介).https://www.bilibili.com/video/BV1vE411D7" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/jvm/" />
+<meta property="article:published_time" content="2020-07-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-03T00:00:00+00:00" />
+<meta itemprop="name" content="JVM.md">
+<meta itemprop="description" content="第一章-类加载器和类加载过程 尚硅谷JVM周阳视频(简介).https://www.bilibili.com/video/BV1vE411D7">
+<meta itemprop="datePublished" content="2020-07-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6607">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JVM.md"/>
+<meta name="twitter:description" content="第一章-类加载器和类加载过程 尚硅谷JVM周阳视频(简介).https://www.bilibili.com/video/BV1vE411D7"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">JVM.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-21 </span>
+        <div class="post-category">
+            <a href="/categories/java%E7%AC%94%E8%AE%B0/"> java笔记 </a>
+            </div>
+          <span class="more-meta"> 约 6607 字 </span>
+          <span class="more-meta"> 预计阅读 14 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-类加载器和类加载过程">第一章-类加载器和类加载过程</a>
+      <ul>
+        <li><a href="#1类的加载过程">1类的加载过程</a></li>
+        <li><a href="#1类加载器">1类加载器</a>
+          <ul>
+            <li><a href="#11类加载器的类型">1.1类加载器的类型</a></li>
+            <li><a href="#12双亲委派机制">1.2双亲委派机制</a></li>
+            <li><a href="#13沙箱安全机制">1.3沙箱安全机制</a></li>
+            <li><a href="#14补充">1.4补充</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第二章-运行时数据区">第二章-运行时数据区</a>
+      <ul>
+        <li><a href="#1程序计数器">1程序计数器</a></li>
+        <li><a href="#2java栈">2java栈</a></li>
+      </ul>
+    </li>
+    <li><a href="#----分割----">&mdash;-分割&mdash;-</a></li>
+    <li><a href="#第一章-jvm">第一章-JVM</a>
+      <ul>
+        <li><a href="#0jvm内存模型">0JVM内存模型</a></li>
+        <li><a href="#2内存调优">2内存调优</a></li>
+        <li><a href="#3gc">3GC</a>
+          <ul>
+            <li><a href="#1判断死亡2个">1判断死亡2个</a></li>
+            <li><a href="#2垃圾回收4个">2垃圾回收4个</a></li>
+          </ul>
+        </li>
+        <li><a href="#4jmm">4JMM</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="/typoraImg/JVM.assets/image-20200722221722548.png" alt="image-20200722221722548"></p>
+<h1 id="第一章-类加载器和类加载过程">第一章-类加载器和类加载过程</h1>
+<p>尚硅谷JVM周阳视频(简介).https://www.bilibili.com/video/BV1vE411D7KE?from=search&amp;seid=4436711570232529843</p>
+<p>尚硅谷JVM宋红康(详情)：https://www.bilibili.com/video/BV1PJ411n7xZ?p=49</p>
+<p>别人笔记：https://www.cnblogs.com/yanl55555/p/12610952.html</p>
+<h2 id="1类的加载过程">1类的加载过程</h2>
+<ul>
+<li>
+<p>1 加载
+类的加载阶段是将class文件中的二进制数据读取到内存中，然后将该字节流所代表的静态存储结构转化为方法区中运行时的数据结构，并且在堆内存中生成一个该类的java.lang.class对象，作为方法区数据结构的入口。</p>
+</li>
+<li>
+<p>2链接</p>
+<ul>
+<li>1验证<br>
+确保class文件的字节流所含信息符合当前虚拟机要求，保证被加载类的正确性。主要包括，文件格式，元数据，字节码验证，符合引用验证。</li>
+<li>2准备
+为类变量分配内存，并且设置类变量的初始默认值，即零值。
+不包含final修饰的static，因为final在编译时就会分配内存，准备阶段会直接赋值。
+类变量分配在方法区，实例变量会随着对象分配到Java堆中</li>
+<li>3解析
+把符号引用转化为直接引用</li>
+</ul>
+</li>
+<li>
+<p>3初始化
+就是执行类构造器方法<clinit>()的过程。此方法不需定义，是javac编译 器自动收集类中的所有类变量的赋值动作和静态代码块中的语句合并而来。
+构造器方法中指令按语句在源文件中出现的顺序执行。
+<clinit> ()不同于类的构造器。(关联: 构造器是虚拟机视角下的<init>())
+若该类具有父类，JVM会 保证子类的<clinit>()执行前，父类的<clinit> ()
+已经执行完毕。
+虚拟机必须保证一个 类的<clinit> ()方法在多线程下被同步加锁。</p>
+<p><img src="/typoraImg/JVM.assets/image-20200730223639890.png" alt="image-20200730223639890" style="zoom:80%;" /></p>
+</li>
+</ul>
+<p><img src="/typoraImg/JVM.assets/image-20200722222219415.png" alt="image-20200722222219415"></p>
+<blockquote>
+<p><strong>1加载</strong></p>
+<p>类的加载阶段是将class文件中的二进制数据读取到内存中，然后将该字节流所代表的静态存储结构转化为方法区中运行时的数据结构，并且在堆内存中生成一个该类的java.lang.class对象，作为方法区数据结构的入口。</p>
+</blockquote>
+<blockquote>
+<p><strong>2链接</strong></p>
+<ul>
+<li>1验证<br>
+确保class文件的字节流所含信息符合当前虚拟机要求，保证被加载类的正确性。主要包括，文件格式，元数据，字节码验证，符合引用验证。</li>
+<li>2准备
+为类变量分配内存，并且设置类变量的初始默认值，即零值。
+不包含final修饰的static，因为final在编译时就会分配内存，准备阶段会直接赋值。
+类变量分配在方法区，实例变量会随着对象分配到Java堆中</li>
+<li>3解析
+把符号引用转化为直接引用</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>3初始化</strong></p>
+<p>就是执行类构造器方法<clinit>()的过程。此方法不需定义，是javac编译器自动收集类中的所有类变量的赋值动作和静态代码块中的语句合并而来。(必须要有静态代码和静态代码块)
+构造器方法中指令按语句在源文件中出现的顺序执行。
+<clinit> ()不同于类的构造器。(关联: 构造器是虚拟机视角下的<init>())
+若该类具有父类，JVM会 保证子类的<clinit>()执行前，父类的<clinit> ()
+已经执行完毕。
+虚拟机必须保证一个 类的<clinit> ()方法在多线程下被同步加锁。</p>
+<hr>
+<p>idea插件 double shift收缩plugins 然后下载jClasslib。</p>
+<p>运行/build后，进入到class文件下<img src="/typoraImg/JVM.assets/image-20200729222814530.png" alt="image-20200729222814530" style="zoom:50%;" /></p>
+</blockquote>
+<p>两个线程同时加载一个类，是线程安全的。</p>
+<p><img src="/typoraImg/JVM.assets/image-20200729223119220.png" alt="image-20200729223119220" style="zoom:50%;" /></p>
+<h2 id="1类加载器">1类加载器</h2>
+<p>jvm类加载https://blog.csdn.net/qq_15237993/article/details/72916868</p>
+<p>负责加载class文件，class文件在 文件开头有特定的文件标示，
+将class文件字节码内容加载到内存中，并将这些内容转换成==方法区==中的
+==运行时数据结构==，并且ClassLoader只负责class文件的加载，至于它是否可以运行，则由Execution Engine决定。</p>
+<h3 id="11类加载器的类型">1.1类加载器的类型</h3>
+<ol>
+<li>
+<p><strong>启动类加载器</strong>（Bootstrap ClassLoader）</p>
+<p>作用：负责加载以下类。</p>
+<p>存放在<code>\lib</code>目录中的类(rt.jar下的com.java.util等等，所以一开始就可以用Object)</p>
+<p>被<code>-Xbootclasspath</code>参数所指定路径中、并且是被虚拟机识别的类库</p>
+<p>使用C++编写，加载Object等，但通过new Object().getClass().getClassLoader()获得的是Null，因为其是C++编写，不是Java对象。</p>
+</li>
+<li>
+<p><strong>扩展类加载器</strong>（Extension ClassLoader）</p>
+<p>作用：负责加载以下类：</p>
+<ol>
+<li><code>\lib\ext</code>目录中的类库(ext下的*.jar)</li>
+<li>被<code>java.ext.dirs</code>系统变量所指定的路径中的所有类库</li>
+</ol>
+<p>特别注意</p>
+<ol>
+<li>由<code>sum.misc.Launcher$ExtClassLoader</code>类实现</li>
+<li>开发者可以直接使用扩展类加载器</li>
+</ol>
+</li>
+<li>
+<p><strong>应用程序类加载器</strong>（Application ClassLoader）</p>
+<p>作用：负责加载 用户类路径（<code>ClassPath</code>）上所指定的类库</p>
+<p>特别注意</p>
+<ol>
+<li>也称为系统类加载器，因为该类加载器是<code>ClassLoader</code>中的<code>getSystemClassLoader()</code>方法的返回值</li>
+<li>由<code>sum.misc.Launcher$AppClassLoader</code>类实现</li>
+<li>开发者可以直接使用该类加载器</li>
+<li>若开发者 没 自定义类加载器，程序默认使用该类加载器</li>
+</ol>
+<p>==以上为Java虚拟机自带的类加载器==</p>
+<p>4.<strong>用户自定义加载器</strong>
+Java. lang. ClassLoader的子类，用户可以定制类的加载方式。</p>
+<p>使用自定义类加载器的原因：隔离加载类、修改类加载的方式、扩展加载源、防止源码泄露。</p>
+</li>
+</ol>
+<h3 id="12双亲委派机制">1.2双亲委派机制</h3>
+<p><strong>步骤总结</strong>：若一个类加载器收到了类加载请求</p>
+<ol>
+<li>把 该类加载请求 委派给 <strong>父类加载器</strong>去完成，而不会自己去加载该类</li>
+</ol>
+<blockquote>
+<p>每层的类加载器都是如此，因此所有的加载请求最终都应传送到顶层的启动类加载器中。</p>
+</blockquote>
+<ol>
+<li>只有当 父类加载器 反馈 自己无法完成该加载请求（它的搜索范围中没有找到所需的类）时，子加载器才会自己去加载</li>
+</ol>
+<p><strong>优点:</strong></p>
+<p><code>Java</code>类随着它的类加载器一起具备了一种带优先级的层次关系</p>
+<blockquote>
+<ol>
+<li>如：类 <code>java.lang.Object</code>（存放在<code>rt.jar</code>中）在加载过程中，无论哪一个类加载器要加载这个类，最终需委派给模型顶端的启动类加载器进行加载，因此<code>Object</code>类在程序的各种类加载器环境中都是同一个类。</li>
+<li>若没有使用双亲委派模型（即由各个类加载器自行去加载）、用户编写了一个<code>java.lang.Object</code>的类(放在<code>ClassPath</code>中），那系统中将出现多个不同的<code>Object</code>类，Java体系中最基础的行为就无法保证</li>
+</ol>
+</blockquote>
+<p><strong>保证java类的安全</strong></p>
+<p>大家所熟知的Object类，直接告诉大家，Object默认情况下是启动类加载器进行加载的。假设我也自定义一个Object，并且制定加载器为自定义加载器。现在你会发现自定义的Object可以正常编译，但是永远无法被加载运行。</p>
+<p>这是因为申请自定义Object加载时，总是启动类加载器，而不是自定义加载器，也不会是其他的加载器。</p>
+<h3 id="13沙箱安全机制">1.3沙箱安全机制</h3>
+<p>沙箱机制就是将 Java 代码限定在虚拟机(JVM)特定的运行范围中，并且严格限制代码对本地系统资源访问，通过这样的措施来保证对代码的有效隔离，防止对本地系统造成破坏。沙箱主要限制系统资源访问，那系统资源包括什么？——CPU、内存、文件系统、网络。不同级别的沙箱对这些资源访问的限制也可以不一样。</p>
+<h3 id="14补充">1.4补充</h3>
+<p>1.在jvm中表示两个class对象是否为同一个类存在的两个必要条件</p>
+<p>类的完整类名必须一致，包括包名</p>
+<p>即使类的完整类名一致，同时要求加载这个类的ClassLoader（指ClassLoader实例对象）必须相同；是引导类加载器、还是定义类加载器</p>
+<h1 id="第二章-运行时数据区">第二章-运行时数据区</h1>
+<p><img src="/typoraImg/JVM.assets/image-20200730223731276.png" alt="image-20200730223731276"></p>
+<p><img src="/typoraImg/JVM.assets/image-20200611220712194.png" alt="image-20200611220712194"></p>
+<p>==方法区和堆是进程(虚拟机)共享的==</p>
+<p>栈、程序计数器、本地方法栈是线程共享的</p>
+<h2 id="1程序计数器">1程序计数器</h2>
+<p>程序计数寄存器（Program Counter Register）中，Register的命名源于CPU的寄存器</p>
+<p>==它是当前线程所执行的字节码的行号指示器。==</p>
+<blockquote>
+<p>PC寄存器是用来存储指向下一条指令的地址，也即将将要执行的指令代码。由执行引擎读取下一条指令。</p>
+<p>1.它是一块很小的内存空间，几乎可以忽略不计。也是运行速度最快的存储区域</p>
+<p>2.在jvm规范中，每个线程都有它自己的程序计数器，是线程私有的，生命周期与线程的生命周期保持一致</p>
+<p>3.任何时间一个线程都只有一个方法在执行，也就是所谓的<strong>当前方法</strong>。程序计数器会存储当前线程正在执行的java方法的JVM指令地址；或者，如果是在执行native方法，则是未指定值（undefined）,因为程序计数器不负责本地方法栈。</p>
+<p>4.它是程序控制流的指示器，分支、循环、跳转、异常处理、线程恢复等基础功能都需要依赖这个计数器来完成</p>
+<p>5.字节码解释器工作时就是通过改变这个计数器的值来选取吓一跳需要执行的字节码指令</p>
+<p>6.它是唯一一个在java虚拟机规范中<strong>没有规定任何OOM（Out Of Memery）情况</strong>的区域,而且没有垃圾回收</p>
+<p><img src="/typoraImg/JVM.assets/image-20200801112940734.png" alt="image-20200801112940734" style="zoom:50%;" /></p>
+</blockquote>
+<blockquote>
+<p><strong>利用javap -verbose xxx.class查看编译后的字节码</strong></p>
+<p><img src="/typoraImg/JVM.assets/image-20200801161518608.png" alt="image-20200801161518608"></p>
+</blockquote>
+<p>1.<strong>使用PC寄存器存储字节码指令地址有什么用呢（为什么使用PC寄存器记录当前线程的执行地址呢）</strong></p>
+<p>（1）多线程宏观上是并行（多个事件在同一时刻同时发生）的，但实际上是并发交替执行的</p>
+<p>（2）因为CPU需要不停的切换各个线程，这时候切换回来以后，就得知道接着从哪开始继续执行
+（3）JVM的字节码解释器就需要通过改变PC寄存器的值来明确下一条应该执行什么样的字节码指令</p>
+<p>所以，众多线程在并发执行过程中，任何一个确定的时刻，一个处理器或者多核处理器中的一个内核，只会执行某个线程中的一条指令。这样必然导致经常中断或恢复，如何保证分毫无差呢？每个线程在创建后，都会产生自己的程序计数器和栈帧，程序计数器在各个线程之间互不影响。
+2.<strong>PC寄存器为什么会设定为线程私有？</strong>
+（1）我们都知道所谓的多线程在一个特定的时间段内只会执行其中某一个线程的方法，CPU会不停滴做任务切换，这样必然会导致经常中断或恢复，如何保证分毫无差呢？</p>
+<p>（2）为了能够准确地记录各个线程正在执行的当前字节码指令地址，最好的办法自然是**为每一个线程都分配一个PC寄存器,**这样一来各个线程之间便可以进行独立计算，从而不会出现相互干扰的情况。</p>
+<h2 id="2java栈">2java栈</h2>
+<p>栈是由多个栈帧组成，一个栈帧中存在：局部变量表、操作数栈、动态链接、方法返回值，一个栈帧对应一个方法。</p>
+<p>作用：主管java程序的运行，它保存方法的局部变量、8种基本数据类型、对象的引用地址、部分结果，并参与方法的调用和返回。</p>
+<ul>
+<li>
+<p>局部变量：相较于成员变量（成员变量或称属性）</p>
+</li>
+<li>
+<p>基本数据变量：8种基本数据类型</p>
+</li>
+<li>
+<p>引用类型变量：类，数组，接口</p>
+</li>
+</ul>
+<blockquote>
+<p>可以设置栈内存大小 -Xss</p>
+<p>我们可以使用参数-Xss选项来设置线程的最大栈空间，栈的大小直接决定了函数调用的最大可达深度。 （IDEA设置方法：Run-EditConfigurations-VM options 填入指定栈的大小-Xss256k）</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>** <strong>栈帧内部结构</strong>**</p>
+<p>每个栈帧中存储着</p>
+<p><strong>1.局部变量表</strong>（Local Variables）</p>
+<p><strong>2.操作数栈</strong>（Operand Stack）(或表达式栈)</p>
+<p><strong>3.动态链接</strong>（Dynamic Linking）(或执行&quot;运行时常量池&quot;的方法引用)&mdash;-深入理解Java多态特性必读！！</p>
+<p>4.方法返回地址（Return Adress）（或方法正常退出或者异常退出的定义）</p>
+<p>5.一些附加信息</p>
+<p><img src="/typoraImg/JVM.assets/image-20200801184725160.png" alt="image-20200801184725160"></p>
+</blockquote>
+<h1 id="----分割----">&mdash;-分割&mdash;-</h1>
+<h1 id="第一章-jvm">第一章-JVM</h1>
+<h2 id="0jvm内存模型">0JVM内存模型</h2>
+<p><img src="/typoraImg/JVM.assets/image-20200611220712194.png" alt="image-20200611220712194"></p>
+<p>本地方法库：非java语言编写的方法。
+本地方法栈：java中native关键字修饰的方法，表示这个方法不是用java编写的。
+执行引擎：负责具体的代码调用及执行过程</p>
+<p>程序计数器：它是当前线程所执行的字节码的行号指示器。</p>
+<blockquote>
+<p><strong>栈stack</strong></p>
+<p>栈数据线程独有，生命周期随着线程的死亡而结束。</p>
+<p>它用来存放，8种基本类型，对象的引用变量，实例方法，都是在栈内存中分配。</p>
+<p>java方法=栈帧。栈帧保存3类数据，
+本地变量：输入，输出参数。
+栈操作：记录出栈、入栈的操作
+栈帧数据：包括类文件，方法等。</p>
+<p>SatckOverFlowError栈内存溢出，出现原因，方法中调用本身，导致栈内存不足。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>线程共享</strong></p>
+<p>1方法区，2堆</p>
+<p><strong>1方法区</strong></p>
+<p>供各线程共享的运行时内存区域。<strong>它存储了每一个类的结构信息</strong>，例如运行时常量池( Runtime Constant Pool) 、字段和方法数据、构造函数和普通方法的字节码内容。上 面讲的是规范，在不同虚拟机里头实现是不一样的，最典型的就是永久代(PermGen space) 和元空间(Metaspace)。</p>
+<p>class类加载</p>
+<ul>
+<li>通过类全限定名获取定义此类的二进制字节流；</li>
+<li>将字节流代表的静态存储结构转换为方法区的运行时数据结构；</li>
+<li>在内存中生成此类的java.lang.Class对象，作为方法区这个类的各种数据的访问入口。</li>
+</ul>
+<p><img src="/typoraImg/JVM.assets/aHR0cHM6Ly91c2VyLWdvbGQtY2RuLnhpdHUuaW8vMjAyMC8yLzE1LzE3MDQ3YjVmMzZiYzc5OTA.jfif" alt="img"></p>
+<p>JVM规范并没有规定java.lang.Class类的实例要放到Java堆中，对于HotSpot虚拟机，是放到方法区里面的。这个class对象作为程序访问方法区中的这些类型数据的外部接口。</p>
+<p>/</p>
+</blockquote>
+<blockquote>
+<p><strong>2堆heap</strong></p>
+<p>判断对象是否已经死亡的算法：引用计数算法，可达性分析算法；
+四个垃圾收集算法：标记清除算法，复制算法，标记整理算法，分代收集算法；</p>
+<p><img src="/typoraImg/JDK%E5%AD%A6%E4%B9%A0.assets/image-20200619235729961.png" alt="image-20200619235729961" style="zoom:50%;" /></p>
+<p>JDK1.8永久区变成了元空间</p>
+<p>堆的比例大小。</p>
+<p><img src="/typoraImg/JVM.assets/image-20200620205028834.png" alt="image-20200620205028834"></p>
+</blockquote>
+<p><img src="/typoraImg/JVM.assets/image-20200614150645309.png" alt="image-20200614150645309"></p>
+<ol start="3">
+<li></li>
+</ol>
+<hr>
+<h2 id="2内存调优">2内存调优</h2>
+<p>在Java8中，永久代已经被移除，被一个称为<strong>元空间</strong>的区域所取代。元空间的本质和永久代类似。</p>
+<p>元空间与永久代之间最大的区别在于：</p>
+<p>永久带使用的JVM的堆内存，但是java8以后的<strong>元空间并不在虚拟机中而是使用本机物理内存</strong>。</p>
+<blockquote>
+<p>因此，默认情况下，元空间的大小仅受本地内存限制。类的元数据放入 native memory, 字符串池和类的静态变量放入 java 堆中，这样可以加载多少类的元数据就不再由MaxPermSize 控制, 而由系统的实际可用空间来控制。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">long</span> <span class="n">maxMemory</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">maxMemory</span><span class="o">()</span> <span class="o">;</span><span class="c1">//返回 Java 虚拟机试图使用的最大内存量。
+</span><span class="c1"></span><span class="kt">long</span> <span class="n">totalMemory</span> <span class="o">=</span> <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">totalMemory</span><span class="o">()</span> <span class="o">;</span><span class="c1">//返回 Java 虚拟机中的内存总量。
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;MAX_MEMORY = &#34;</span> <span class="o">+</span> <span class="n">maxMemory</span> <span class="o">+</span> <span class="s">&#34;（字节）、&#34;</span> <span class="o">+</span> <span class="o">(</span><span class="n">maxMemory</span> <span class="o">/</span> <span class="o">(</span><span class="kt">double</span><span class="o">)</span><span class="n">1024</span> <span class="o">/</span> <span class="n">1024</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34;MB&#34;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;TOTAL_MEMORY = &#34;</span> <span class="o">+</span> <span class="n">totalMemory</span> <span class="o">+</span> <span class="s">&#34;（字节）、&#34;</span> <span class="o">+</span> <span class="o">(</span><span class="n">totalMemory</span> <span class="o">/</span> <span class="o">(</span><span class="kt">double</span><span class="o">)</span><span class="n">1024</span> <span class="o">/</span> <span class="n">1024</span><span class="o">)</span> <span class="o">+</span> <span class="s">&#34;MB&#34;</span><span class="o">);</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>发现默认的情况下分配的内存是总内存的“1 / 4”、而初始化的内存为“1 / 64”</p>
+<p>VM参数： -Xms1024m -Xmx1024m -XX:+PrintGCDetails</p>
+<p>生产环境必须：初始内存Xms和 最大Xmx一致，避免内存忽高忽低。(避免GC和应用程序争抢内存)</p>
+<p>-XX:+PrintGCDetails打印GC信息。</p>
+<hr>
+<p>GC日志解读：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">GC产生原因 分配失败**
+<span class="o">[</span>GC <span class="o">(</span>Allocation Failure<span class="o">)</span>
+发生了YoungGen  **
+第一个箭头左边指Gc前的新生代内存大小 、GC后的新生代内存大小、GC区域新生代的总大小。**
+第二个箭头指的是发生了YoungGen前堆的大小，发生后的堆的大小。**
+<span class="o">[</span>PSYoungGen: 1519K-&gt;472K<span class="o">(</span>1536K<span class="o">)]</span> 6302K-&gt;6262K<span class="o">(</span>8704K<span class="o">)</span>, 0.0010356 secs<span class="o">]</span> 
+YoungGC用户耗时，YoungGC系统耗时 YoungGC总耗时**
+<span class="o">[</span>Times: <span class="nv">user</span><span class="o">=</span>0.00 <span class="nv">sys</span><span class="o">=</span>0.00, <span class="nv">real</span><span class="o">=</span>0.00 secs<span class="o">]</span> 
+
+
+
+<span class="o">[</span>Full GC <span class="o">(</span>Ergonomics<span class="o">)</span> <span class="o">[</span>PSYoungGen: 472K-&gt;0K<span class="o">(</span>1536K<span class="o">)]</span> <span class="o">[</span>ParOldGen: 5790K-&gt;1692K<span class="o">(</span>7168K<span class="o">)]</span> 6262K-&gt;1692K<span class="o">(</span>8704K<span class="o">)</span>, <span class="o">[</span>Metaspace: 3249K-&gt;3249K<span class="o">(</span>1056768K<span class="o">)]</span>, 0.0064030 secs<span class="o">]</span> <span class="o">[</span>Times: <span class="nv">user</span><span class="o">=</span>0.00 <span class="nv">sys</span><span class="o">=</span>0.00, <span class="nv">real</span><span class="o">=</span>0.01 secs<span class="o">]</span> 
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="3gc">3GC</h2>
+<p>GC是垃圾回收的意思，主要发生在堆内存中。</p>
+<p>GC是什么(分代收集算法)
+次数上频繁收集Young区
+次数上较少收集Old区
+基本不动元空间</p>
+<p>判断对象是否已经死亡的算法：引用计数算法，可达性分析算法；
+四个垃圾收集算法：标记清除算法，复制算法，标记整理算法，分代收集算法；</p>
+<h3 id="1判断死亡2个">1判断死亡2个</h3>
+<p>引用计数算法，可达性分析算法；</p>
+<h3 id="2垃圾回收4个">2垃圾回收4个</h3>
+<p>1复制算法、2标记清除算法，3标记整理算法，4分代收集算法；</p>
+<blockquote>
+<p><strong>1复制算法</strong></p>
+<p>因为<strong>年轻代</strong>中的对象基本都是朝生夕死的(90%以上)，所以在==年轻代的垃圾回收算法使用的是复制算法==，复制算法的基本思想就是将内存分为两块，每次只用其中一块，当这一块内存用完，就将还活着的对象复制到另外一块上面。复制算法<strong>不会产生内存碎片</strong>。</p>
+<p>但会浪费一半空间。</p>
+</blockquote>
+<blockquote>
+<p><strong>2标记清除算法</strong></p>
+<p>老年代一般是由标记清除或者是标记清除与标记整理的混合实现</p>
+<p><img src="/typoraImg/JVM.assets/image-20200620224454422.png" alt="image-20200620224454422" style="zoom:50%;" /></p>
+<p>首先，它的缺点就是效率比较低（递归与全堆对象遍历），而且在进行GC的时候，需要停止应用程序，这会导致用户体验非常差劲。
+其次，主要的缺点则是这种方式清理出来的空闲<strong>内存是不连续的</strong>，</p>
+<p>优点：不需要额外空间。</p>
+</blockquote>
+<blockquote>
+<p><strong>3标记整理算法</strong></p>
+<p>老年代一般是由标记清除或者是标记清除与标记整理的混合实现</p>
+<p><img src="/typoraImg/JVM.assets/image-20200620224826894.png" alt="image-20200620224826894" style="zoom:50%;" /></p>
+<p>标记整理，不再做垃圾回收，而是让所有存活对象都向一端移动，然后直接清除边界以外的内存。</p>
+<p>劣势：效率也不高，不仅要标记所有存活对象，还要整理所有存活对象的引用地址。</p>
+</blockquote>
+<h2 id="4jmm">4JMM</h2>
+<p>java memory model   Java内存模型</p>
+<p>JMM是一种抽象的概念并不真实存在，它描述的是一组规则或者规范，通过这组规范定义了程序中各个变量(包含实例成员变量，静态字段，构成数组对象的元素)的访问方式。</p>
+<p>特征：原子、可见、有序</p>
+<p>CPU&gt;内存&gt;硬盘</p>
+<p>类加载：</p>
+<p>静态构造块&gt;构造块&gt;构造方法</p>
+<p>静态代码块只加载一次</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">设计模式.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/webservice/">
+            <span class="next-text nav-default">WebService.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

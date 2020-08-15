@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="面试题一浏 Spring aop是什么以及它的底层原理 AOP(Aspect Oriented Programming)面向切面编程 AOP适合于那些具有横切逻辑的应用： 如性能监测，访问控制，事" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/spring/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring.md" />
+<meta property="og:description" content="面试题一浏 Spring aop是什么以及它的底层原理 AOP(Aspect Oriented Programming)面向切面编程 AOP适合于那些具有横切逻辑的应用： 如性能监测，访问控制，事" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/spring/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-03T00:00:00+00:00" />
+<meta itemprop="name" content="Spring.md">
+<meta itemprop="description" content="面试题一浏 Spring aop是什么以及它的底层原理 AOP(Aspect Oriented Programming)面向切面编程 AOP适合于那些具有横切逻辑的应用： 如性能监测，访问控制，事">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="18507">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring.md"/>
+<meta name="twitter:description" content="面试题一浏 Spring aop是什么以及它的底层原理 AOP(Aspect Oriented Programming)面向切面编程 AOP适合于那些具有横切逻辑的应用： 如性能监测，访问控制，事"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%A1%86%E6%9E%B6/"> 框架 </a>
+            </div>
+          <span class="more-meta"> 约 18507 字 </span>
+          <span class="more-meta"> 预计阅读 37 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#面试题一浏">面试题一浏</a></li>
+    <li><a href="#第一章-spring概述">第一章-Spring概述</a>
+      <ul>
+        <li><a href="#1什么是spring">1什么是Spring?</a></li>
+        <li><a href="#2七大模块">2七大模块</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-ioc思想">第二章-IOC思想</a>
+      <ul>
+        <li><a href="#1什么是ioc">1什么是IOC？</a></li>
+        <li><a href="#2-ioc的两种方式">2 IOC的两种方式</a>
+          <ul>
+            <li><a href="#21依赖查找dl">2.1依赖查找DL</a></li>
+            <li><a href="#22依赖注入di">2.2依赖注入DI</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第三章-ioc使用">第三章-IOC使用</a>
+      <ul>
+        <li><a href="#1入门">1入门</a>
+          <ul>
+            <li><a href="#10案例和知识点">1.0案例和知识点</a></li>
+            <li><a href="#11构造函数注入">1.1构造函数注入</a></li>
+            <li><a href="#12setter注入">1.2setter注入</a></li>
+            <li><a href="#13bean标签xml">1.3Bean标签(xml)</a></li>
+            <li><a href="#14自动装配">1.4自动装配</a></li>
+          </ul>
+        </li>
+        <li><a href="#2基于注解的开发">2基于注解的开发</a>
+          <ul>
+            <li><a href="#21autowired和resource">2.1@Autowired和@Resource</a></li>
+            <li><a href="#22扫描组件context">2.2扫描组件(context)</a></li>
+            <li><a href="#23bean注解分类">2.3Bean注解分类</a></li>
+          </ul>
+        </li>
+        <li><a href="#3完全注解">3完全注解</a></li>
+      </ul>
+    </li>
+    <li><a href="#第四章-aop">第四章-Aop</a>
+      <ul>
+        <li><a href="#1代理模式">1代理模式</a>
+          <ul>
+            <li><a href="#11静态代理">1.1静态代理</a></li>
+            <li><a href="#12动态代理">1.2动态代理</a></li>
+          </ul>
+        </li>
+        <li><a href="#2aop">2AOP</a>
+          <ul>
+            <li><a href="#21专业术语">2.1专业术语</a></li>
+            <li><a href="#22通知类">2.2通知类</a></li>
+            <li><a href="#23springapi接口实现">2.3SpringAPI接口实现</a></li>
+            <li><a href="#24自定义实现aop">2.4自定义实现AOP</a></li>
+            <li><a href="#25注解实现aop暂略">2.5注解实现AOP（暂略）</a></li>
+          </ul>
+        </li>
+        <li><a href="#3事务">3事务</a>
+          <ul>
+            <li><a href="#31事务及其有关概念">3.1事务及其有关概念</a></li>
+            <li><a href="#32spring配置事务方式">3.2Spring配置事务方式</a></li>
+            <li><a href="#33事务传播类型">3.3事务传播类型</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第五章-整合">第五章-整合</a>
+      <ul>
+        <li><a href="#2ssm框架整合">2SSM框架整合</a>
+          <ul>
+            <li><a href="#21pomxml依赖">2.1pom.xml依赖</a></li>
+            <li><a href="#22webxml配置">2.2web.xml配置</a></li>
+            <li><a href="#23xml配置书写">2.3xml配置书写</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#常见知识点">常见知识点</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+        <li><a href="#1spring中的事件管理">1Spring中的事件管理</a></li>
+        <li><a href="#2beanfactory和factorybean">2BeanFactory和FactoryBean</a></li>
+        <li><a href="#3refresh方法">3refresh方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="面试题一浏">面试题一浏</h1>
+<ol start="149">
+<li><strong>Spring aop是什么以及它的底层原理</strong></li>
+</ol>
+<blockquote>
+<p>AOP(Aspect Oriented Programming)面向切面编程  AOP适合于那些具有横切逻辑的应用：  如性能监测，访问控制，事务管理、缓存、对象池管理以及日志记录。AOP将这些分散在各个业务逻  辑中的代码通过横向切割的方式抽取到一个独立的模块中</p>
+<p>AOP（这里的AOP指的是面向切面编程思想，而不是Spring AOP）主要的的实现技术主要有Spring AOP和AspectJ /ˈæspekt/。</p>
+<p><strong>Aspectj</strong>： AspectJ的底层技术是静态代理，即用一种AspectJ支持的特定语言编写切面，   通过一个命令来编译，生成一个新的代理类，该代理类增强了业务类，这是在编译时增强，相对于下面说的运行时增强，编译时增强的性能更好。</p>
+<p><strong>Spring AOP</strong>：采用的是动态代理，在运行期间对业务方法进行增强，所以不会生成新类，对于动态代理技术，   Spring AOP提供了对JDK动态代理的支持以及CGLib的支持。    JDK动态代理只能为接口创建动态代理实例，而不能对类创建动态代理。需要获得被代理目标类的接口信息   （应用Java的反射技术），生成一个实现了代理接口的动态代理类（字节码），再通过反射机制获得动态代理类的构造函数，利用构造函数生成动态代理类的实例对象，在调用具体方法前调用实现了InvocationHandler接口的方法来处理。																		 		CGLib动态代理需要依赖asm包，把被代理对象类的class文件加载进来，修改其字节码生成子类。是针对类实现代理，主要是对指定的类生成一个子类，覆盖其中的方法 。 因为是继承，所以该类或方法最好不要声明成final ，final可以阻止继承和多态。</p>
+</blockquote>
+<ol start="150">
+<li>sping常用注解的原理</li>
+</ol>
+<blockquote>
+<p>启动spring容器，并且加载配置文件</p>
+<p>当解析到&lt;context:annotation-config&gt;&lt;/context:annotation-config&gt;</p>
+<p>会启动依赖注入的注解解析器</p>
+<p>会在纳入spring管理的bean的范围内查找看哪些bean的属性上有@Resource注解</p>
+<p>如果@Resource注解的name属性的值为&rdquo;&quot;,则会把注解所在的属性的名称和spring容器中bean的 id进行匹配</p>
+<p>如果匹配成功，则把id对应的对象赋值给该属性，如果匹配不成功，则按照类型进行匹配,如果再匹配不成功，则报错</p>
+<p>如果@Resource注解的name属性的值不为&rdquo;&quot;,会把name属性的值和spring容器中bean的id做匹配，  如果匹配</p>
+<p>成功，则赋值，如果匹配不成功 ，则直接报错</p>
+</blockquote>
+<ol start="151">
+<li>
+<p><strong>Spring 是如何管理事物的原理是什么</strong></p>
+<p>xmind</p>
+</li>
+<li>
+<p><strong>@resource和@autowire的区别是什么</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>@Resource默认按照名称(name=&quot;属性名&rdquo;)进行装配,名称可以通过@resource的name属性设定，当找不 到与名称匹配的bean才会按类型装配。	1name不正确，但类型正确。</p>
+<p>@Autowired按照默认类型(类名称)装配依赖对象，无法设置name，默认情况下它要求依赖对象必须存在，如果允许为  null,可以设置它的required属性为false。（Autowired有多个类型会报错，除非加入了@Qualifier(&ldquo;id/name&rdquo;)做限制，或者这个属性的名称可以匹配到容器中的Id/name否则在IDEA编译时就报错）</p>
+<p><code>@Qualifier(&quot;容器中的id/name&quot;)</code> ，是用来消除依赖注入冲突的，当@Autowired有多个相同类型时就会报错，这时可以用@Qulifier/ˈkwɑːlɪfaɪər/做一个限定。</p>
+</blockquote>
+<ol start="157">
+<li><strong>介绍spring</strong></li>
+</ol>
+<blockquote>
+<p>Spring framework是为了解决企业应用开发的复杂性而创建的一个开源框架。</p>
+<p>1、Spring的核心是一个轻量级（Lightweight）的、非入侵性（No intrusive）、 IOC（Inversion of Control） 容器（Container）。
+2、Spring提供AOP（Aspect-oriented programming）概念的实现方式、提供对持久层（Persistence）、事物（Transcation）的支持。
+3、Spring提供MVC Web框架的实现，并对一些常用的企业服务API（Application Interface）提供一致的模型封装。</p>
+<p>4、提供了对现有框架的支持，struts2，Hibernate，MyBatis，可以灵活的将它们整合在一起。</p>
+</blockquote>
+<ol start="158">
+<li>
+<p><strong>简单介绍下Spring的IOC的讲述</strong></p>
+<p>IOC—Inversion of Control，即“控制反转”，不是什么技术，而是一种设计思想，就是说，我们直接在对象内部通过new进行创建对象，是程序主动去创建依赖对象；而IoC是有专门一个容器来创建这些对象，即由Ioc容器来控制对象的创建，主要目的是为了实现代码之间的解耦。</p>
+<p>DI—Dependency Injection，即“依赖注入”：组件之间依赖关系由容器在运行期决定，即由容器动态的将某个依赖关系注入到组件之中（java反射原理）。</p>
+</li>
+<li>
+<p><strong>Spring IOC工作原理</strong></p>
+<p>同158</p>
+</li>
+<li>
+<p><strong>Spring aop介绍</strong></p>
+<p>同149</p>
+</li>
+<li>
+<p><strong>请解释SpringBean的生命周期？</strong></p>
+</li>
+<li>
+<p><strong>请介绍一下Spring框架中Bean的生命周期和作用域</strong></p>
+</li>
+<li>
+<p><strong>BeanFactory和ApplicationContext有什么区别？</strong></p>
+</li>
+<li>
+<p><strong>构造方法注入和设值注入有什么区别？</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>唯一的区别在于2种方式创建合作者的顺序不同。一般把一个Bean设计为构造函数接收依赖对象时，其实表达了2个对象间的一种强的聚合关系：组合关系。就比如一辆车如果没有轮子、引擎等部件那么车也就不存在了。
+如果你的应用中有这样类似的场景那么你应该使用“构造函数注 入”的方式管理他们的关系。“构造函数注入”可以保证合作者先创建，在后再创建自己。若是此时采用设值注入，而忘记设置某个值，这个值为Null，若没注意到这一点，那就等着改BUG吧。
+通过set方法注入的方式表达了2个对象间较弱的依赖关系：聚合关系。就像一辆车，如果没有车内音像车也时可以工作的。当你不要求合作者于自己被创建 时，“set方法注入”注入比较合适。
+使用构造函数依赖注入时，Spring保证所有一个对象所有依赖的对象先实例化后，才实例化这个对象。（没有他们就没有我原则）
+使用set方法依赖注入时，Spring首先实例化对象，然后才实例化所有依赖的对象。</p>
+</blockquote>
+<ol start="165">
+<li>
+<p><strong>Spring 框架中都用到了哪些设计模式？</strong></p>
+</li>
+<li>
+<p><strong>Spring支持的事务管理类型有哪些？你在项目中使用哪种方式？</strong></p>
+</li>
+<li>
+<p><strong>spring配置文件都写什么？</strong></p>
+</li>
+<li>
+<p><strong>Spring中自动装配的方式有哪些？</strong></p>
+</li>
+</ol>
+<p>171<strong>spring对多种ORM 框架提供了很好的支持，结合事务管理描述spring中使用Hibernate的方法。</strong></p>
+<h1 id="第一章-spring概述">第一章-Spring概述</h1>
+<h2 id="1什么是spring">1什么是Spring?</h2>
+<p>也可以这样说，Spring是用来做什么的？，简单介绍一下Spring。</p>
+<p>进入<a href="spring.io">Spring官网</a>，Spring有很多技术，点击上方的Projects，其中有叫<strong>framework</strong> [freɪmwɜːrk]的，通常我们所说的spring指的是Spring framework。</p>
+<p>答：</p>
+<p>Spring framework是为了解决企业应用开发的复杂性而创建的一个开源框架。</p>
+<p>1、Spring的核心是一个轻量级（Lightweight）的、非入侵性（No intrusive）、 IOC（Inversion of Control） 容器（Container）。
+2、Spring提供AOP（Aspect-oriented programming）概念的实现方式、提供对持久层（Persistence）、事物（Transcation）的支持。
+3、Spring提供MVC Web框架的实现，并对一些常用的企业服务API（Application Interface）提供一致的模型封装。</p>
+<p>4、提供了对现有框架的支持，struts2，Hibernate，MyBatis，可以灵活的将它们整合在一起。</p>
+<h2 id="2七大模块">2七大模块</h2>
+<p><img src="/typoraImg/Spring.assets/2e2eb9389b504fc245d07093e5dde71191ef6d9d.jpg" alt="img"></p>
+<ol>
+<li><strong>核心容器(Spring core)</strong></li>
+</ol>
+<p>核心容器提供Spring框架的基本功能。Spring以bean的方式组织和管理Java应用中的各个组件及其关系。Spring使用BeanFactory来产生和管理Bean，它是工厂模式的实现。BeanFactory使用控制反转(IoC)模式将应用的配置和依赖性规范与实际的应用程序代码分开。BeanFactory使用依赖注入的方式提供给组件依赖。</p>
+<ol start="2">
+<li><strong>Spring上下文(Spring context)</strong></li>
+</ol>
+<p>Spring上下文是一个配置文件，向Spring框架提供上下文信息。Spring上下文包括企业服务，如JNDI、EJB、电子邮件、国际化、校验和调度功能。</p>
+<ol start="3">
+<li><strong>Spring面向切面编程(Spring AOP)</strong></li>
+</ol>
+<p>通过配置管理特性，Spring AOP 模块直接将面向方面的编程功能集成到了 Spring框架中。所以，可以很容易地使 Spring框架管理的任何对象支持 AOP。Spring AOP 模块为基于 Spring 的应用程序中的对象提供了事务管理服务。通过使用 Spring AOP，不用依赖 EJB 组件，就可以将声明性事务管理集成到应用程序中。</p>
+<ol start="4">
+<li><strong>Spring DAO模块</strong></li>
+</ol>
+<p>DAO模式主要目的是将持久层相关问题与一般的的业务规则和工作流隔离开来。Spring 中的DAO提供一致的方式访问数据库，不管采用何种持久化技术，Spring都提供一直的编程模型。Spring还对不同的持久层技术提供一致的DAO方式的异常层次结构。</p>
+<ol start="5">
+<li><strong>Spring ORM模块</strong></li>
+</ol>
+<p>Spring 与所有的主要的ORM映射框架都集成的很好，包括Hibernate、JDO实现、TopLink和IBatis SQL Map等。Spring为所有的这些框架提供了模板之类的辅助类，达成了一致的编程风格。</p>
+<ol start="6">
+<li><strong>Spring Web模块</strong></li>
+</ol>
+<p>Web上下文模块建立在应用程序上下文模块之上，为基于Web的应用程序提供了上下文。Web层使用Web层框架，可选的，可以是Spring自己的MVC框架，或者提供的Web框架，如Struts、Webwork、tapestry和jsf。</p>
+<ol start="7">
+<li><strong>Spring MVC框架(Spring WebMVC)</strong></li>
+</ol>
+<p>MVC框架是一个全功能的构建Web应用程序的MVC实现。通过策略接口，MVC框架变成为高度可配置的。Spring的MVC框架提供清晰的角色划分：控制器、验证器、命令对象、表单对象和模型对象、分发器、处理器映射和视图解析器。Spring支持多种视图技术。</p>
+<h1 id="第二章-ioc思想">第二章-IOC思想</h1>
+<h2 id="1什么是ioc">1什么是IOC？</h2>
+<p>IOC（Inversion of Control）控制反转，是面向对象编程中的一种设计原则，用来减低代码之间的耦合度，是一种设计思想，包含了两个方面：一、控制。二、反转</p>
+<ul>
+<li>控制指的是：<strong>当前对象对内部成员的控制权</strong>。</li>
+<li>反转指的是：这种控制权<strong>不由当前对象管理</strong>了，由其他(类,第三方容器)来管理。</li>
+</ul>
+<p>先看看之前的使用方式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginServiceImpl</span> <span class="kd">implements</span> <span class="n">LoginServiceDao</span> <span class="o">{</span>
+    <span class="n">UserDao</span> <span class="n">mydao</span><span class="o">=</span><span class="k">new</span> <span class="n">MySqImple</span><span class="o">();</span>
+<span class="c1">//假如我要换数据库了，OracleImple()，那么我需要在每个用到MySqlImple的类的都要去修改。
+</span><span class="c1"></span>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">login</span> <span class="o">(){</span>
+    <span class="n">mydao</span><span class="o">.</span><span class="na">checkUser</span><span class="o">(</span><span class="n">String</span> <span class="n">userName</span><span class="o">);</span>
+  <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>再看看IOC依赖容器的方式：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LoginServiceImpl</span> <span class="kd">implements</span> <span class="n">LoginServiceDao</span> <span class="o">{</span>
+    <span class="n">UserDao</span> <span class="n">mydao</span><span class="o">=</span><span class="n">IOCRepository</span><span class="o">.</span><span class="na">getUserDAO</span><span class="o">();</span>
+<span class="c1">//如果我需要更换数据库了。只需要在IOCRepository中更换一下实现类就好了。
+</span><span class="c1"></span>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">login</span> <span class="o">(){</span>
+    <span class="n">mydao</span><span class="o">.</span><span class="na">checkUser</span><span class="o">(</span><span class="n">String</span> <span class="n">userName</span><span class="o">);</span>
+  <span class="o">}</span> 
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>《敏捷软件开发》第11章:</strong>
+依赖倒置原则
+a.高层模块不应该依赖于底层模块，二者都应该依赖于抽象。
+b.抽象不应该依赖于细节，细节应该依赖于抽象。</p>
+</blockquote>
+<h2 id="2-ioc的两种方式">2 IOC的两种方式</h2>
+<p>IOC(inversion of controller)由于它的最佳实现方式就是依赖注入，通常我们所说的IOC和DL是相互转换的。</p>
+<h3 id="21依赖查找dl">2.1依赖查找DL</h3>
+<p>依赖查找（Dependency Lookup）是指对象本身试图查找依赖关系,例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ApplicationContext</span> <span class="n">applicationContext</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;/application-context.xml&#34;</span><span class="o">);</span>
+<span class="n">MyBean</span> <span class="n">bean</span> <span class="o">=</span> <span class="n">applicationContext</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;myBean&#34;</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里,类本身是通过XML初始化ApplicationContext,它在上下文中搜索ApplicationContext中名为myBean的bean.</p>
+<h3 id="22依赖注入di">2.2依赖注入DI</h3>
+<p><strong>Dependency</strong>(/dɪˈpendənsi/) <strong>Injection</strong> 依赖注入在使用Spring容器的时候，容器通过调用set方法或者是构造器来建立对象之间的依赖关系。</p>
+<p>依赖注入也有两种方式<strong>Constructor注入</strong>和<strong>Setter注入</strong></p>
+<p><strong>Constructor注入</strong>VS <strong>Setter注入</strong>
+●Constructor注入能够强制要求调用者注入构造函数中的所有参数,否则在容器初始化时就会
+失败;但是如果要注入的对象过多,就会导致构造函数过于庞大。
+●Setter注入,类似于Builder模式,将原本庞大的构造函数,拆解为了-一个小的构造函数和许
+多个set坊法。setter注 入不能保证对象一定会被注入,但是可以使用@Required注解,强制
+要求使用者注入对象,否则在容器初始化时就会报错。</p>
+<h1 id="第三章-ioc使用">第三章-IOC使用</h1>
+<h2 id="1入门">1入门</h2>
+<h3 id="10案例和知识点">1.0案例和知识点</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">用maven导包
+<span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>spring-webmvc<span class="nt">&lt;/artifactId&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后resouces下建立applicationContext.xml，写两个类，LoginServiceImpl依赖OracleImpl</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--注册Bean  Spring是个IOC的容器，那么这个容器需要放哪些东西，需要我们去容器中注册，这个注册就是Bean--&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;loginServiceDao&#34;</span> <span class="na">class=</span><span class="s">&#34;com.lx.service.LoginServiceImpl&#34;</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">&#34;mydao&#34;</span> <span class="na">ref=</span><span class="s">&#34;oracleImpl&#34;</span><span class="nt">&gt;&lt;/constructor-arg&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;oracleImpl&#34;</span> <span class="na">class=</span><span class="s">&#34;com.lx.dao.OracleImpl&#34;</span><span class="nt">&gt;&lt;/bean&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>bean有id和class，id是唯一的，首字母小写。</p>
+<p>测试: 1创建ApplicationContext有两个类可以实现。有关键字&quot;classpath:&quot;，getBean有一个参数和两个参数区别，要加载多个时，&ldquo;classpath:/*.xml&quot;或者new String[]{&ldquo;112&rdquo;,&ldquo;223&rdquo;}数组方式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ApplicationContext</span> <span class="n">context</span><span class="o">=</span><span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;applicationContext.xml&#34;</span><span class="o">);</span>
+<span class="n">OracleImpl</span> <span class="n">oracle</span><span class="o">=</span><span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;oracleImpl&#34;</span><span class="o">,</span><span class="n">OracleImpl</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">oracle</span><span class="o">.</span><span class="na">getUserName</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="applicationcontext"><strong>ApplicationContext</strong></h4>
+<p>ClassPathXmlApplicationContext基于xm|方式(配置文件在resource下)
+FileSystemXmlApplicationContext基于xml方式(配置文件路径随意)
+AnnotationConfigApplicationContext基于注解方式</p>
+<h4 id="bean的作用范围和生命周期">bean的作用范围和生命周期</h4>
+<p>●单例对象: scope-&ldquo;singleton&rdquo;
+一个应用只有一个对象的实例。它的作用范围就是整个引用。
+生命周期:
+对象出生:当应用加载，创建容器时，对象就被创建了。
+对象活着:只要容器在，对象- -直活着。
+对象死亡:当应用卸载，销毁容器时，对象就被销毁了。
+●多例对象: scope=&quot;prototype&rdquo;
+每次访问对象时，都会重新创建对象实例。
+生命周期:
+对象出生:当使用对象时，创建新的对象实例。
+对象活着:只要对象在使用中，就-直活着。
+对象死亡:当对象长时间不用时，被java的垃圾回收器回收了.</p>
+<h3 id="11构造函数注入">1.1构造函数注入</h3>
+<p>第一个Bean依赖于第二个Bean，这里使用的是构造函数注入。</p>
+<p><constructor-arg>那么对应的第一个Bean所对应的类，需要有无参构造，和有参构造。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">//如何传参，这里可以用name去匹配构造函数的name，也可以用index(从0开始)来标明是第几个参数。
+LoginServiceImpl(UserDao oracleImpl, String name) {}
+<span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">&#34;mydao&#34;</span> <span class="na">ref=</span><span class="s">&#34;oracleImpl&#34;</span><span class="nt">&gt;&lt;/constructor-arg&gt;</span>
+<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">&#34;1&#34;</span> <span class="na">value=</span><span class="s">&#34;oracleImpl&#34;</span><span class="nt">&gt;&lt;/constructor-arg&gt;</span>
+//当参数是一个类时，用ref=&#34;这个类在容器用Bean标签注册的id&#34;。
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="12setter注入">1.2setter注入</h3>
+<p>注意，用setter注入，需要有set方法</p>
+<p><img src="/typoraImg/Spring.assets/springDI.png"  /></p>
+<h3 id="13bean标签xml">1.3Bean标签(xml)</h3>
+<p>Bean标签</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 
+</span><span class="c">Bean属性介绍：
+</span><span class="c">id: 为对象命名，唯一性标识，不能重复，不能使用特殊字符。
+</span><span class="c">name: 和 id 的作用类似，区别在于可是使用特殊字符，可重复，但是不建议重复。
+</span><span class="c">			别名，可以有多个，用逗号或者空格分割。
+</span><span class="c">class: 指定对象的全类名。
+</span><span class="c">init-method: 对象初始化之后立即执行的方法。
+</span><span class="c">destroy-method: 对象销毁之前执行的方法。
+</span><span class="c">scope: 对象的作用范围，可以设置单例 singleton 和多例 prototype。
+</span><span class="c">			默认为单例,特殊情况为多例，比如struts2中的action,创建出来不会存在容器中。
+</span><span class="c">			还有针对web的request,session把创建对象存到request/session域。
+</span><span class="c"> --&gt;</span>
+<span class="nt">&lt;Bean</span> <span class="na">id=</span><span class="s">&#34;&#34;</span> <span class="na">name=</span><span class="s">&#34;&#34;</span> <span class="na">class=</span><span class="s">&#34;全限定类名com.lx.service.LoginServiceImpl&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">&#34;mydao&#34;</span> <span class="na">ref=</span><span class="s">&#34;oracleImpl&#34;</span> <span class="na">type=</span><span class="s">&#34;&#34;</span><span class="nt">&gt;&lt;/constructor-arg&gt;</span>
+<span class="nt">&lt;constructor-arg</span> <span class="na">index=</span><span class="s">&#34;1&#34;</span> <span class="na">value=</span><span class="s">&#34;oracleImpl&#34;</span><span class="nt">&gt;&lt;/constructor-arg&gt;</span>
+<span class="nt">&lt;/Bean&gt;</span>
+<span class="c">&lt;!--
+</span><span class="c">constructor-arg属性：
+</span><span class="c">name:对应构造方法的参数名称
+</span><span class="c">index：对应构造方法的第几个参数，从0开始
+</span><span class="c">type:为参数指定类型，一般不指定，若是基本参数
+</span><span class="c">--&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--别名，如果添如了别名，我们也可以使用别名获取到这个对象--&gt;</span>
+<span class="nt">&lt;alias</span> <span class="na">name=</span><span class="s">&#34;user&#34;</span> <span class="na">alias=</span><span class="s">&#34;userNew&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">导入其他的xml
+<span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&#34;beans. xm1&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="14自动装配">1.4自动装配</h3>
+<ul>
+<li>no：不进行自动装配，手动设置Bean的依赖关系。</li>
+<li>byName：根据Bean的名字进行自动装配。 （id,name和属性的setXXX进行装配，找不到会赋为null）</li>
+<li>byType：根据Bean的类型进行自动装配。（多类型会报错）</li>
+<li>default：由上级标签<beans>的default-autowire属性确定。</li>
+<li>constructor：类似于byType，不过是应用于构造器的参数，如果正好有一个Bean与构造器的参数类型相同则可以自动装配，否则会导致错误。</li>
+<li>autodetect：&lt;/dɪˈtekt/自动检测&gt; 如果有默认的构造器，则通过constructor的方式进行自动装配，否则使用byType的方式进行自动装配。</li>
+<li>**注意：**不能装配基本类型。</li>
+</ul>
+<h2 id="2基于注解的开发">2基于注解的开发</h2>
+<p>前提：使用注解要在applicationContext.xml中导入命名空间，然后加上<strong>&lt;context:annotation-config /&gt;</strong>，开启注解。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">        http://www.springframework.org/schema/context
+</span><span class="s">        http://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class="nt">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>就是把第一行的xmlns复制后，把beans改为context，再在<a href="xsi:schemaLocation">xsi:schemaLocation</a>中把网址复制，把beans修改为context。</p>
+<h3 id="21autowired和resource">2.1@Autowired和@Resource</h3>
+<p>@Resource默认按照名称(name=&rdquo;&quot;)进行装配,名称可以通过@resource的name属性设定，当找不 到与名称匹配的bean才会按类型装配。(IDEA中Resource写name，name必须存在)</p>
+<ul>
+<li>有两个重要的属性：name和type，而Spring将@Resource注解的name属性解析为bean的名字，而type属性则解析为bean的类型。所以，如果使用name属性，则使用byName的自动注入策略，而使用type属性时则使用byType自动注入策略。如果既不制定name也不制定type属性，这时将通过反射机制使用byName自动注入策略</li>
+</ul>
+<p>@Autowired按照默认类型(类名称)装配依赖对象，默认情况下它要求依赖对象必须存在，如果允许为  null,可以设置它的required属性为false。（Autowired有多个类型会报错，除非加入了@Qualifier(&ldquo;id/name&rdquo;)做限制，或者这个属性的名称可以匹配到容器中的Id/name否则在IDEA编译时就报错）</p>
+<ul>
+<li>可以标注在变量，也可以标注在set方法。</li>
+<li>有一个布尔变量的 required 属性，用来决定在依赖注入时候是否检测依赖的 Bean 在 BeanFactory 里面是否存在，默认是 true。</li>
+</ul>
+<p><code>@Qualifier(&quot;容器中的id/name&quot;)</code> ，是用来消除依赖注入冲突的，当@Autowired有多个相同类型时就会报错，这是可以用@Qulifier/ˈkwɑːlɪfaɪər/做一个限定。</p>
+<h3 id="22扫描组件context">2.2扫描组件(context)</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;!--</span><span class="n">开启扫描</span>  <span class="n">已经包含</span><span class="o">&lt;</span><span class="n">context</span><span class="o">:</span><span class="n">annotation</span><span class="o">-</span><span class="n">config</span><span class="o">/&gt;</span><span class="n">这句启用注解</span> <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="n">context</span><span class="o">:</span><span class="n">component</span><span class="o">-</span><span class="n">scan</span> <span class="n">base</span><span class="o">-</span><span class="n">package</span><span class="o">=</span><span class="s">&#34;com.lx.*&#34;</span><span class="o">&gt;&lt;/</span><span class="n">context</span><span class="o">:</span><span class="n">component</span><span class="o">-</span><span class="n">scan</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>&lt;mvc:annotation-driven /&gt;和 &lt;context:annotation-config /&gt;区别</p>
+</blockquote>
+<blockquote>
+<p><strong>&lt;mvc:annotation-driven /&gt; 讲解</strong></p>
+<p>&lt;mvc:annotation-driven /&gt; 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean,是spring MVC为@Controllers分发请求所必须的。
+并提供了：数据绑定支持，@NumberFormatannotation支持，@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）。
+后面，我们处理响应ajax请求时，就使用到了对json的支持。
+后面，对action写JUnit单元测试时，要从spring IOC容器中取DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean，来完成测试，取的时候要知道是&lt;mvc:annotation-driven /&gt;这一句注册的这两个bean。</p>
+</blockquote>
+<blockquote>
+<h4 id="contextannotation-config-讲解">&lt;context:annotation-config /&gt;讲解</h4>
+<p>作用是式地向 Spring 容器注册</p>
+<p>AutowiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor、</p>
+<p>PersistenceAnnotationBeanPostProcessor 以及 RequiredAnnotationBeanPostProcessor 这 4 个BeanPostProcessor。</p>
+<p>注册这4个 BeanPostProcessor的作用，就是为了你的系统能够识别相应的注解</p>
+<p>@ Resource 、@ PostConstruct、@ PreDestroy等注解就必须声明CommonAnnotationBeanPostProcessor</p>
+<p>如果想使用@PersistenceContext注解，就必须声明PersistenceAnnotationBeanPostProcessor的Bean。</p>
+<p>如果想使用 @Required的注解，就必须声明RequiredAnnotationBeanPostProcessor的Bean。同样，传统的声明方式如下：</p>
+<p><code>&lt;bean class=&quot;org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor&quot;/&gt; </code></p>
+<p>一般来说，这些注解我们还是比较常用，尤其是Antowired的注解，在自动注入的时候更是经常使用，所以如果总是需要按照传统的方式一条一条配置显得有些繁琐和没有必要，于是spring给我们提供<strong>&lt;context:annotation-config /&gt;的简化配置方式，自动帮你完成声明。</strong></p>
+</blockquote>
+<h3 id="23bean注解分类">2.3Bean注解分类</h3>
+<p><img src="/typoraImg/Spring.assets/20180908080252982.jpg" alt="img"></p>
+<p>接下来我们可以为要注册为Bean的加上如下几个注解。目前功能相同。</p>
+<p><strong>@Service</strong>用于标注业务层组件</p>
+<p><strong>@Controller</strong>用于标注控制层组件（如struts中的action）</p>
+<p><strong>@Repository</strong>用于标注数据访问组件，即DAO组件</p>
+<p><strong>@Component</strong>泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。</p>
+<p>为<strong>bean注入常见类型</strong>。可以作用在set方法上，相当于</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;lusenlin&#34;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>@Scope</strong>(&ldquo;singleton单例/prototype多例&rdquo;)</p>
+<h2 id="3完全注解">3完全注解</h2>
+<p>我们可以写applicationContext.xml实现Spring，也可以完全的脱离它。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>  <span class="c1">//相当于&lt;beans&gt;标签
+</span><span class="c1">//@ComponentScan(&#34;com.lx.*&#34;)+在包下的类上加@Component注解注册bean
+</span><span class="c1">//也可以按照下面的@Bean 注册
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ApplicationConfig</span> <span class="o">{</span>
+
+
+    <span class="nd">@Bean</span>   <span class="c1">//相当于&lt;bean&gt;标签
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">OracleImpl</span> <span class="nf">getOracleImpl</span><span class="o">(){</span> <span class="c1">//这里相当于id=getOracleImpl
+</span><span class="c1"></span>        <span class="k">return</span> <span class="k">new</span> <span class="n">OracleImpl</span><span class="o">();</span> <span class="c1">//相当于class=“”
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">-----------------</span><span class="n">测试</span><span class="o">---------------</span>
+ <span class="c1">//以class文件来配置的Spring
+</span><span class="c1"></span><span class="n">ApplicationContext</span> <span class="n">context</span><span class="o">=</span><span class="k">new</span> <span class="n">AnnotationConfigApplicationContext</span><span class="o">(</span><span class="n">ApplicationConfig</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">OracleImpl</span> <span class="n">dao</span><span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;getOracleImpl&#34;</span><span class="o">,</span><span class="n">OracleImpl</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">OracleImpl</span> <span class="n">mydao1</span><span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;getOracleImpl&#34;</span><span class="o">,</span><span class="n">OracleImpl</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">dao</span><span class="o">==</span><span class="n">mydao1</span><span class="o">);</span><span class="c1">//true
+</span></code></pre></td></tr></table>
+</div>
+</div><p>@Configuration  //相当于<beans>标签</p>
+<p>@ComponentScan(&ldquo;com.lx.*&quot;)+在包下的类上加@Component注解注册bean</p>
+<p>@Bean   //相当于<bean>标签 默认id为getxxx，也可以自己指定id 需要在方法上写</p>
+<p>@Import(xxx.class)相当于xml中<import>导入其他的配置类</p>
+<h1 id="第四章-aop">第四章-Aop</h1>
+<p>什么是AOP？</p>
+<p>AOP(Aspect Oriented Programming)面向切面编程</p>
+<p>AOP（这里的AOP指的是面向切面编程思想，而不是Spring AOP）主要的的实现技术主要有Spring AOP和AspectJ。</p>
+<p><strong>Aspectj</strong>： AspectJ的底层技术是静态代理，即用一种AspectJ支持的特定语言编写切面，   通过一个命令来编译，生成一个新的代理类，该代理类增强了业务类，这是在编译时增强，相对于下面说的运行时增强，编译时增强的性能更好。</p>
+<p><strong>Spring AOP</strong>：采用的是动态代理，在运行期间对业务方法进行增强，所以不会生成新类，对于动态代理技术，   Spring AOP提供了对JDK动态代理的支持以及CGLib的支持。    JDK动态代理只能为接口创建动态代理实例，而不能对类创建动态代理。需要获得被代理目标类的接口信息   （应用Java的反射技术），生成一个实现了代理接口的动态代理类（字节码），再通过反射机制获得动态代理类的构造函数，利用构造函数生成动态代理类的实例对象，在调用具体方法前调用实现了InvocationHandler接口的方法来处理。																		 		CGLib动态代理需要依赖asm包，把被代理对象类的class文件加载进来，修改其字节码生成子类。把代理对象类的class文件加载进来，通过修改其字节码生成子类来处理。是针对类实现代理，主要是对指定的类生成一个子类，覆盖其中的方法 。 因为是继承，所以该类或方法最好不要声明成final ，final可以阻止继承和多态。</p>
+<blockquote>
+<p>但是Spring AOP基于注解配置的情况下，需要依赖于AspectJ包的标准注解，但是不需要额外的编译   以及AspectJ的织入器，而基于XML配置不需要。</p>
+</blockquote>
+<h2 id="1代理模式">1代理模式</h2>
+<p>为什么学习代理模式？这就是AOP的实现底层原理。</p>
+<p>代理模式分类：</p>
+<ul>
+<li>静态代理：</li>
+<li>动态代理：</li>
+</ul>
+<h3 id="11静态代理">1.1静态代理</h3>
+<p>角色分析:
+●抽象角色: 一般会使用接口或者抽象类来解决。出租
+●真实角色:被代理的角色。  房东
+●代理角色:代理真实角色，代理真实角色后，我们一般会做-一些附属操作。中介
+●客户:访问代理对象的人!。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//抽象角色 就是把真实角色的需求做一个抽象类。  出租
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Rent</span> <span class="o">{</span>
+   <span class="kt">void</span> <span class="nf">rentHouse</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//真实角色
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">House</span> <span class="kd">implements</span> <span class="n">Rent</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rentHouse</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;前方300米处有房出租&#34;</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//代理角色 代理真实角色，可以增强真实角色的功能
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyProxy</span> <span class="kd">implements</span> <span class="n">Rent</span> <span class="o">{</span>                      
+    <span class="kd">private</span> <span class="n">House</span> <span class="n">house</span><span class="o">;</span>                                    
+    <span class="kd">public</span> <span class="nf">MyProxy</span><span class="o">(</span><span class="n">House</span> <span class="n">house</span><span class="o">)</span> <span class="o">{</span>                           
+        <span class="k">this</span><span class="o">.</span><span class="na">house</span> <span class="o">=</span> <span class="n">house</span><span class="o">;</span>                                 
+    <span class="o">}</span>                                                       
+    <span class="nd">@Override</span>                                               
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">rentHouse</span><span class="o">()</span> <span class="o">{</span>                               
+        <span class="n">house</span><span class="o">.</span><span class="na">rentHouse</span><span class="o">();</span>                                  
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;需要的快来找我孙红雷&#34;</span><span class="o">);</span>                   
+    <span class="o">}</span>   
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">  <span class="n">House</span> <span class="n">house</span><span class="o">=</span><span class="k">new</span> <span class="n">House</span><span class="o">();</span>
+  <span class="n">MyProxy</span> <span class="n">proxy</span><span class="o">=</span><span class="k">new</span> <span class="n">MyProxy</span><span class="o">(</span><span class="n">house</span><span class="o">);</span>
+  <span class="n">proxy</span><span class="o">.</span><span class="na">rentHouse</span><span class="o">();</span>
+<span class="c1">//前方300米处有房出租  
+</span><span class="c1">//需要的快来找我孙红雷  代理角色对租房行为提供了增强
+</span></code></pre></td></tr></table>
+</div>
+</div><p>优点：可以把公共的业务交给代理类完成，让真实角色的功能更加纯粹，实现了业务的分工，当公共需求更改时候，只需要改动代理类就可以了。</p>
+<p>缺点：我们每对一个真实角色实行增强，都需要再创建一个代理类，导致类迅速增多，代码量翻倍开发效率变低。</p>
+<h3 id="12动态代理">1.2动态代理</h3>
+<p>●动态代理和静态代理角色一样
+●动态代理的代理类是动态生成的，不是我们直接写好的!
+●Spring AOP动态代理分为两大类:基于接口的动态代理，基于类的动态代理。
+<strong>基于接口</strong>&mdash; jDK动态代理。（接下来所描述的。缺点是必须有接口）只能对实现了接口的类生成代理，而不能针对类。
+<strong>基于类</strong>: cglib。把代理对象类的class文件加载进来，通过修改其字节码生成子类来处理。是针对类实现代理，主要是对指定的类生成一个子类，覆盖其中的方法 。 因为是继承，所以该类或方法最好不要声明成final ，final可以阻止继承和多态。</p>
+<p>需要了解两个类：<strong>Proxy、InvocationHandler</strong>。</p>
+<p><strong>Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(),this);</strong></p>
+<ul>
+<li>1用哪个类加载器去加载代理对象，
+2用被代理的对象的类获得动态代理类需要实现的接口
+3实现了InVocationHandler类的实例 :动态代理方法在执行时，会调用h里面的invoke方法去执行</li>
+</ul>
+<p><strong>InvocationHandler</strong>用来为特定的对象增强方法的功能。</p>
+<p>个人理解：Proxy用前两个参数，类加载器和，接口创建了代理类，用第三个参数，实现了把代理类的方法进行增强后做了返回。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//用这个实现了InvocationHandler的类去生成代理类
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProxyInvocationHandler</span> <span class="kd">implements</span> <span class="n">InvocationHandler</span> <span class="o">{</span>
+<span class="c1">//被代理对象的对象
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">Object</span> <span class="n">obj</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="nf">ProxyInvocationHandler</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">//生成并且获得代理类 需要三个参数，
+</span><span class="c1"></span>    <span class="c1">// 1用哪个类加载器去加载代理对象，
+</span><span class="c1"></span>    <span class="c1">// 2用被代理的对象的类获得动态代理类需要实现的接口
+</span><span class="c1"></span>    <span class="c1">// 3实现了InVocationHandler类的实例 :动态代理方法在执行时，会调用h里面的invoke方法去执行
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">getProxy</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">Proxy</span><span class="o">.</span><span class="na">newProxyInstance</span><span class="o">(</span><span class="n">obj</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getClassLoader</span><span class="o">(),</span> <span class="n">obj</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getInterfaces</span><span class="o">(),</span><span class="k">this</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//处理代理的实例，并且返回
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="n">Object</span> <span class="n">proxy</span><span class="o">,</span> <span class="n">Method</span> <span class="n">method</span><span class="o">,</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+    <span class="c1">//1参数是生成的代理类  2是被增强的方法 3被增强的方法所需要的参数
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">);</span>
+       <span class="n">Object</span> <span class="n">object</span><span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">obj</span><span class="o">,</span><span class="n">args</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;world&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">object</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2aop">2AOP</h2>
+<p>AOP(Aspect Oriented Programming)面向切面编程</p>
+<p>通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。
+AOP是OOP的延续，是软件开发中的一个热点，也是Spring框架中的一个重要内容，是函数式编程的一种衍生范型。利用AOP可以对业务逻辑的各个部分进行隔离，从而使得业务逻辑各部分之间的耦合度降低，提高程序的可重用性，同时提高了开发的效率。</p>
+<h3 id="21专业术语">2.1专业术语</h3>
+<p>​	<strong>target</strong>
+​		目标类：需要被代理的类 比如xxDaoImpl</p>
+<p>​	<strong>Joinpoint(连接点)</strong>
+​		指的那些可能被拦截到的方法（就是被代理对象的接口中的所有方法）</p>
+<p>​	<strong>PointCat切入点</strong>
+​		被增强的连接点（连接点有多个，但真正切入的点可能只是选取连接点中的一部分点）</p>
+<p>​	<strong>advice通知/增强</strong>
+​		拦截到Joinpoint后要做的事情就是通知,分为：前置通知、后置通知、异常通知、最终通知(finally)、环绕通知(切面要完成的功能)</p>
+<p>​	<strong>Weaving织入</strong>
+​		把增强应用到目标对象来创建新的代理对象的过程，把advice和targer结合起来</p>
+<p>​	<strong>Proxy代理</strong>
+​		一个类被AOP织入增强后，产生一个结果代理类</p>
+<p>​	<strong>Aspect切面</strong>
+​		是切入点PointCat和通知advice的结合</p>
+<p>​	<strong>Introduction(引介) :</strong>
+​		引介是一种特殊的通知在不修改类代码的前提下，Introduction 可以在运行期为类动态地添加些方法或Field。
+​</p>
+<h3 id="22通知类">2.2通知类</h3>
+<p>advice常见通知类：<strong>MethodBeforeAdvice前置通知类</strong>、<strong>AfterReturningAdvice后置通知类</strong>、<strong>MethodInterceptor环绕通知</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//前置通知类
+</span><span class="c1"></span><span class="nd">@Component</span><span class="o">(</span><span class="s">&#34;beforeAdvice&#34;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyLog</span> <span class="kd">implements</span> <span class="n">MethodBeforeAdvice</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">before</span><span class="o">(</span><span class="n">Method</span> <span class="n">method</span><span class="o">,</span> <span class="n">Object</span><span class="o">[]</span> <span class="n">args</span><span class="o">,</span> <span class="n">Object</span> <span class="n">target</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+        <span class="c1">//执行方法前增强
+</span><span class="c1"></span>        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">target</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">()+</span><span class="s">&#34;类的&#34;</span><span class="o">+</span><span class="n">method</span><span class="o">.</span><span class="na">getName</span><span class="o">()+</span><span class="s">&#34; ==是在Mylog中被增强的&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">//环绕通知类
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">LogArroundAdvice</span> <span class="kd">implements</span> <span class="n">MethodInterceptor</span><span class="o">{</span>
+	 <span class="kd">private</span> <span class="n">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span> 
+	<span class="kd">public</span> <span class="n">Object</span> <span class="nf">invoke</span><span class="o">(</span><span class="n">MethodInvocation</span> <span class="n">arg0</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
+		<span class="c1">// 在方法前后
+</span><span class="c1"></span>		<span class="n">logger</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span><span class="s">&#34;方法前后都执行 =LogArroundAdvice=&#34;</span><span class="o">+</span><span class="n">arg0</span><span class="o">.</span><span class="na">getMethod</span><span class="o">().</span><span class="na">getName</span><span class="o">());</span>
+		<span class="n">Object</span> <span class="n">obj</span><span class="o">=</span><span class="n">arg0</span><span class="o">.</span><span class="na">proceed</span><span class="o">();</span><span class="c1">//执行目标方法
+</span><span class="c1"></span>		<span class="n">logger</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">Level</span><span class="o">.</span><span class="na">INFO</span><span class="o">,</span><span class="s">&#34;方法前后都执行 =LogArroundAdvice=&#34;</span><span class="o">+</span><span class="n">arg0</span><span class="o">.</span><span class="na">getMethod</span><span class="o">().</span><span class="na">getName</span><span class="o">()+</span><span class="s">&#34;返回值&#34;</span><span class="o">+</span><span class="n">obj</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">obj</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="23springapi接口实现">2.3SpringAPI接口实现</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">使用AOP织入,需要导入jar包
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.aspectj<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>aspectjweaver<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.9.5<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;aop:config&gt;</span>
+    <span class="c">&lt;!--切入点 定义 expression表达式 (..)表示所有方法--&gt;</span>
+   <span class="nt">&lt;aop:pointcut</span> <span class="na">id=</span><span class="s">&#34;mypoi&#34;</span> <span class="na">expression=</span><span class="s">&#34;execution(* com.lx.springproxy.UserServiceImpl.*(..))&#34;</span> <span class="nt">/&gt;</span>
+   
+  <span class="c">&lt;!-- 增强定义，需要有实现了Spring增强接口的类 和切入点   --&gt;</span>
+    <span class="nt">&lt;aop:advisor</span> <span class="na">advice-ref=</span><span class="s">&#34;beforeAdvice&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;mypoi&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;aop:advisor</span> <span class="na">advice-ref=</span><span class="s">&#34;afterAdvice&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;mypoi&#34;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/aop:config&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="24自定义实现aop">2.4自定义实现AOP</h3>
+<p>自定义实现AOP，不需要再通过接口去实现了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--自定义实现代理--&gt;</span>
+<span class="nt">&lt;aop:config</span> <span class="nt">&gt;</span>
+<span class="c">&lt;!--自定义切面 ref要引用的自定义类--&gt;</span>
+<span class="nt">&lt;aop:aspect</span> <span class="na">ref=</span><span class="s">&#34;diyPointcat&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;aop:pointcut</span> <span class="na">id=</span><span class="s">&#34;po1&#34;</span>  <span class="na">expression=</span><span class="s">&#34;execution(* com.lx.springproxy.UserServiceImpl.*(..))&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;aop:after</span> <span class="na">method=</span><span class="s">&#34;after&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;po1&#34;</span><span class="nt">&gt;&lt;/aop:after&gt;</span>最终通知
+    <span class="nt">&lt;aop:before</span> <span class="na">method=</span><span class="s">&#34;before&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;po1&#34;</span><span class="nt">&gt;&lt;/aop:before&gt;</span>前置通知
+   <span class="nt">&lt;aop:after-returning</span> <span class="na">method=</span><span class="s">&#34;&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;po1&#34;</span><span class="nt">&gt;&lt;/aop:after-returning&gt;</span>后置通知
+    <span class="nt">&lt;aop:after-throwing</span> <span class="na">method=</span><span class="s">&#34;&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;po1&#34;</span><span class="nt">&gt;&lt;/aop:after-throwing&gt;</span>异常通知
+    <span class="nt">&lt;aop:around</span> <span class="na">method=</span><span class="s">&#34;aroundMethod&#34;</span> <span class="na">pointcut-ref=</span><span class="s">&#34;po1&#34;</span><span class="nt">&gt;&lt;/aop:after-throwing&gt;</span>环绕通知
+<span class="nt">&lt;/aop:aspect&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>环绕通知这一点有些不一样。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//Spring框架为我们提供了一个接口: ProceedingJoinPointo 该接口有一个方法proceed(),此方法就相当于明确调用切入点方法。
+</span><span class="c1">//该接口可以作为环绕通知的方法参数，在程序执行时，spring框架 会为我们提供该接口的实现类供我们使用。
+</span><span class="c1"></span><span class="kd">public</span> <span class="n">object</span> <span class="nf">aroundPringLog</span><span class="o">(</span><span class="n">ProceedingJoinPoint</span> <span class="n">pjp</span><span class="o">){</span>
+<span class="n">object</span> <span class="n">rtValue</span> <span class="o">=</span> <span class="kc">null</span> <span class="o">;</span>
+<span class="k">try</span><span class="o">{</span>
+<span class="n">Object</span><span class="o">[]</span> <span class="n">args</span> <span class="o">=</span> <span class="n">pjp</span><span class="o">.</span> <span class="nf">getArgs</span><span class="o">();</span><span class="c1">//得到方法执行所需的参数
+</span><span class="c1"></span><span class="n">System</span><span class="o">.</span> <span class="n">out</span> <span class="o">.</span> <span class="n">println</span><span class="o">(</span><span class="s">&#34;Logger类中的aroundPringlog方法开始记录日志了。。。前置&#34;</span><span class="o">);</span>
+<span class="n">rtValue</span> <span class="o">=</span> <span class="n">pjp</span> <span class="o">.</span> <span class="n">proceed</span><span class="o">(</span><span class="n">args</span><span class="o">);</span><span class="c1">//明确调用业务层方法(切入点方法)
+</span><span class="c1"></span> <span class="c1">//这个方法前就是前置，异常就是异常，finall就是最终
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="25注解实现aop暂略">2.5注解实现AOP（暂略）</h3>
+<h2 id="3事务">3事务</h2>
+<h3 id="31事务及其有关概念">3.1事务及其有关概念</h3>
+<p>特性：把一组业务当做一个业务执行，要么都成功，要么都失败。确保数据的完整性和一致性。</p>
+<p>读数据不需要或只为其指定只读事务，而数据的插入，修改，删除就需要事务管理了。</p>
+<h3 id="32spring配置事务方式">3.2Spring配置事务方式</h3>
+<p>根据代理机制的不同，Spring事务的配置又有几种不同的方式：</p>
+<p><strong>第一种方式：每个Bean都有一个代理</strong></p>
+<p><strong>第二种方式：所有Bean共享一个代理基类</strong></p>
+<p><strong>第三种方式：使用拦截器</strong></p>
+<p><strong>第四种方式：使用tx标签配置的拦截器</strong></p>
+<p><strong>第五种方式：全注解</strong></p>
+<p>注意：事务管理器依赖于sessionFactory，需要有tx的命名空间。或通过基于@Transactional注解的方式</p>
+<p>声明式事务：基于SpringAOP方式，也是常用方式。</p>
+<p>编程式事务：改变了原有代码，所以一般不会这样做。</p>
+<p><strong>第三种方式：使用拦截器</strong></p>
+<p><img src="/typoraImg/Spring.assets/image-20200306164933352.png" alt="image-20200306164933352"></p>
+<p><strong>第四种方式：使用tx标签配置的拦截器</strong>：propagationˌ[prɑːpəˈɡeɪʃn]传播，事务传播方式，默认为REQUIRED必须的，如果已经存在一个事务中，加入到这个事务中	如果当前没有事务，就创建一个。</p>
+<p><img src="/typoraImg/Spring.assets/image-20200306165415811.png" alt="image-20200306165415811"></p>
+<p><strong>第五种方式：全注解</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 1创建事务管理器 --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;transactionManager&#34;</span> 
+<span class="na">class=</span><span class="s">&#34;org.springframework.orm.hibernate5.HibernateTransactionManager&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;sessionFactory&#34;</span> <span class="na">ref=</span><span class="s">&#34;sessionFactory&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="c">&lt;!-- 开启事务注解驱动 --&gt;</span>
+<span class="nt">&lt;tx:annotation-driven</span> <span class="na">transaction-manager=</span><span class="s">&#34;transactionManager&#34;</span> 
+                      <span class="na">proxy-target-class=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="33事务传播类型">3.3事务传播类型</h3>
+<table>
+<thead>
+<tr>
+<th>事务传播行为类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>REQUIRED</td>
+<td>如果当前没有事务，就新建一个事务，如果已经存在一个事务中，加入到这个事务中。这是最常见的选择。</td>
+</tr>
+<tr>
+<td>SUPPORTS</td>
+<td>支持当前事务，如果当前没有事务，就以非事务方式执行。</td>
+</tr>
+<tr>
+<td>MANDATORY</td>
+<td>使用当前的事务，如果当前没有事务，就抛出异常。</td>
+</tr>
+<tr>
+<td>REQUIRES_NEW</td>
+<td>新建事务，如果当前存在事务，把当前事务挂起。</td>
+</tr>
+<tr>
+<td>NOT_SUPPORTED</td>
+<td>以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。</td>
+</tr>
+<tr>
+<td>NEVER</td>
+<td>以非事务方式执行，如果当前存在事务，则抛出异常。</td>
+</tr>
+<tr>
+<td>NESTED</td>
+<td>如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类 似的操作。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="第五章-整合">第五章-整合</h1>
+<h2 id="2ssm框架整合">2SSM框架整合</h2>
+<h3 id="21pomxml依赖">2.1pom.xml依赖</h3>
+<p>注意依赖版本号和项目名称</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+  <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+  <span class="nt">&lt;groupId&gt;</span>com.lx<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>ssmbuild<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
+
+  <span class="nt">&lt;name&gt;</span>ssmbuild Maven Webapp<span class="nt">&lt;/name&gt;</span>
+
+  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+    <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+    <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+  <span class="nt">&lt;/properties&gt;</span>
+
+  <span class="nt">&lt;dependencies&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>4.11<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="c">&lt;!--数据库驱动--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>5.1.47<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="c">&lt;!-- 数据库连接池 --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.mchange<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>c3p0<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>0.9.5.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="c">&lt;!--Servlet - JSP --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>2.5<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>jsp-api<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>2.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>jstl<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="c">&lt;!--Mybatis--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.mybatis<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>mybatis<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>3.5.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.mybatis<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>mybatis-spring<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>2.0.2<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="c">&lt;!--Spring--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-webmvc<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>5.1.9.RELEASE<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>5.1.9.RELEASE<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="c">&lt;!--Lombok--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.16.10<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+
+  <span class="nt">&lt;build&gt;</span>
+    <span class="c">&lt;!--Maven资源过滤设置--&gt;</span>
+    <span class="nt">&lt;resources&gt;</span>
+      <span class="nt">&lt;resource&gt;</span>
+        <span class="nt">&lt;directory&gt;</span>src/main/java<span class="nt">&lt;/directory&gt;</span>
+        <span class="nt">&lt;includes&gt;</span>
+          <span class="nt">&lt;include&gt;</span>**/*.properties<span class="nt">&lt;/include&gt;</span>
+          <span class="nt">&lt;include&gt;</span>**/*.xml<span class="nt">&lt;/include&gt;</span>
+        <span class="nt">&lt;/includes&gt;</span>
+        <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+      <span class="nt">&lt;/resource&gt;</span>
+      <span class="nt">&lt;resource&gt;</span>
+        <span class="nt">&lt;directory&gt;</span>src/main/resources<span class="nt">&lt;/directory&gt;</span>
+        <span class="nt">&lt;includes&gt;</span>
+          <span class="nt">&lt;include&gt;</span>**/*.properties<span class="nt">&lt;/include&gt;</span>
+          <span class="nt">&lt;include&gt;</span>**/*.xml<span class="nt">&lt;/include&gt;</span>
+        <span class="nt">&lt;/includes&gt;</span>
+        <span class="nt">&lt;filtering&gt;</span>true<span class="nt">&lt;/filtering&gt;</span>
+      <span class="nt">&lt;/resource&gt;</span>
+    <span class="nt">&lt;/resources&gt;</span>
+
+
+  <span class="nt">&lt;/build&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="22webxml配置">2.2web.xml配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<span class="nt">&lt;web-app</span> <span class="na">xmlns=</span><span class="s">&#34;http://java.sun.com/xml/ns/j2ee&#34;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://java.sun.com/xml/ns/j2ee
+</span><span class="s">         http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&#34;</span>
+         <span class="na">version=</span><span class="s">&#34;2.4&#34;</span><span class="nt">&gt;</span>
+  
+  <span class="c">&lt;!--   springMVC --&gt;</span>
+    <span class="nt">&lt;display-name&gt;</span>Archetype Created Web Application<span class="nt">&lt;/display-name&gt;</span>
+    <span class="nt">&lt;servlet&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>DispatcherServlet<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="nt">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="nt">&lt;/servlet-class&gt;</span>
+        <span class="nt">&lt;init-param&gt;</span>
+            <span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+            <span class="nt">&lt;param-value&gt;</span>classpath:applicationContext.xml<span class="nt">&lt;/param-value&gt;</span>
+        <span class="nt">&lt;/init-param&gt;</span>
+        <span class="nt">&lt;load-on-startup&gt;</span>1<span class="nt">&lt;/load-on-startup&gt;</span>
+    <span class="nt">&lt;/servlet&gt;</span>
+    <span class="nt">&lt;servlet-mapping&gt;</span>
+        <span class="nt">&lt;servlet-name&gt;</span>DispatcherServlet<span class="nt">&lt;/servlet-name&gt;</span>
+        <span class="nt">&lt;url-pattern&gt;</span>/<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;/servlet-mapping&gt;</span>
+
+    <span class="c">&lt;!--encodingFilter--&gt;</span>
+    <span class="nt">&lt;filter&gt;</span>
+        <span class="nt">&lt;filter-name&gt;</span>encodingFilter<span class="nt">&lt;/filter-name&gt;</span>
+        <span class="nt">&lt;filter-class&gt;</span>
+            org.springframework.web.filter.CharacterEncodingFilter
+        <span class="nt">&lt;/filter-class&gt;</span>
+        <span class="nt">&lt;init-param&gt;</span>
+            <span class="nt">&lt;param-name&gt;</span>encoding<span class="nt">&lt;/param-name&gt;</span>
+            <span class="nt">&lt;param-value&gt;</span>utf-8<span class="nt">&lt;/param-value&gt;</span>
+        <span class="nt">&lt;/init-param&gt;</span>
+    <span class="nt">&lt;/filter&gt;</span>
+    <span class="nt">&lt;filter-mapping&gt;</span>
+        <span class="nt">&lt;filter-name&gt;</span>encodingFilter<span class="nt">&lt;/filter-name&gt;</span>
+        <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+    <span class="nt">&lt;/filter-mapping&gt;</span>
+
+  <span class="c">&lt;!-- Spring 在web文件中配置 --&gt;</span>
+	<span class="nt">&lt;context-param&gt;</span>
+		<span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+		<span class="nt">&lt;param-value&gt;</span>classpath:applicationContext.xml<span class="nt">&lt;/param-value&gt;</span>
+	<span class="nt">&lt;/context-param&gt;</span>
+  
+  <span class="c">&lt;!--  加入Spring的监听--&gt;</span>
+  <span class="nt">&lt;listener&gt;</span>
+    <span class="nt">&lt;listener-class&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="nt">&lt;/listener-class&gt;</span>
+  <span class="nt">&lt;/listener&gt;</span>
+  
+    <span class="c">&lt;!--Session过期时间--&gt;</span>
+    <span class="nt">&lt;session-config&gt;</span>
+        <span class="nt">&lt;session-timeout&gt;</span>15<span class="nt">&lt;/session-timeout&gt;</span>
+    <span class="nt">&lt;/session-config&gt;</span>
+    <span class="nt">&lt;/web-app&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="23xml配置书写">2.3xml配置书写</h3>
+<p><img src="/typoraImg/Spring.assets/image-20200604155605144.png" alt="image-20200604155605144" style="zoom:50%;" /></p>
+<p>applicationContext.xml包含三个spring-dao、spring-mvc、spring-service</p>
+<h4 id="总applicationcontext"><strong>总:applicationContext</strong></h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">        http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span class="nt">&gt;</span>
+    
+    <span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&#34;spring-dao.xml&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&#34;spring-service.xml&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;import</span> <span class="na">resource=</span><span class="s">&#34;spring-mvc.xml&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="1spring-dao">1spring-dao</h4>
+<p>数据库文件使用配置文件database.properties</p>
+<p>**注意：**dao接口的名称可能不同。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">jdbc.driver=com.mysql.jdbc.Driver
+#Mysql8.0需要加上url而且需要更换数据库驱动  &amp;serverTimezone=Asia/shanghai
+jdbc.url=jdbc:mysql://localhost:3306/store_ssm_vue?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8
+jdbc.username=root
+jdbc.password=123456
+</code></pre></td></tr></table>
+</div>
+</div><p>spring-dao.xml
+若有多个配置文件写法如下；</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;context:property-placeholder</span> <span class="na">location=</span><span class="s">&#34;classpath*:redis.properties,classpath*:database.properties&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">http://www.springframework.org/schema/context
+</span><span class="s">https://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- 配置整合mybatis --&gt;</span>
+    <span class="c">&lt;!-- 1.关联数据库文件 --&gt;</span>
+    <span class="nt">&lt;context:property-placeholder</span> <span class="na">location=</span><span class="s">&#34;classpath:database.properties&#34;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- 2.数据库连接池 --&gt;</span>
+    <span class="c">&lt;!--数据库连接池
+</span><span class="c">dbcp  半自动化操作  不能自动连接
+</span><span class="c">c3p0  自动化操作（自动的加载配置文件 并且设置到对象里面）
+</span><span class="c">druid
+</span><span class="c">    --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">class=</span><span class="s">&#34;com.mchange.v2.c3p0.ComboPooledDataSource&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 配置连接池属性 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;driverClass&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.driver}&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jdbcUrl&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.url}&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;user&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.username}&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;password&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.password}&#34;</span><span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- c3p0连接池的私有属性 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxPoolSize&#34;</span> <span class="na">value=</span><span class="s">&#34;30&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;minPoolSize&#34;</span> <span class="na">value=</span><span class="s">&#34;10&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 关闭连接后不自动commit --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;autoCommitOnClose&#34;</span> <span class="na">value=</span><span class="s">&#34;false&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 获取连接超时时间 10s--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;checkoutTimeout&#34;</span> <span class="na">value=</span><span class="s">&#34;10000&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 当获取连接失败重试次数 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;acquireRetryAttempts&#34;</span> <span class="na">value=</span><span class="s">&#34;2&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--最大空闲时间，3600秒内未使用则连接被丢弃。若为0则永不丢弃。默认值: 0 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxIdleTime&#34;</span> <span class="na">value=</span><span class="s">&#34;7200&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--每120秒检查所有连接池中的空闲连接。Default: 0 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;idleConnectionTestPeriod&#34;</span> <span class="na">value=</span><span class="s">&#34;120&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!-- 3.配置SqlSessionFactory对象 --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;sqlSessionFactory&#34;</span> <span class="na">class=</span><span class="s">&#34;org.mybatis.spring.SqlSessionFactoryBean&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 注入数据库连接池 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 配置MyBaties全局配置文件:mybatis-config.xml --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;configLocation&#34;</span> <span class="na">value=</span><span class="s">&#34;classpath:mybatis-config.xml&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--也可以不配置MyBatis全局配置文件，再这里说明--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;mapperLocations&#34;</span> <span class="na">value=</span><span class="s">&#34;classpath:com/lsl/mapper/xml/*.xml&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;typeAliasesPackage&#34;</span> <span class="na">value=</span><span class="s">&#34;com.lsl.entity&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!-- 4.配置扫描Dao接口包，动态实现Dao接口注入到spring容器中 --&gt;</span>
+    <span class="c">&lt;!--解释 ： https://www.cnblogs.com/jpfss/p/7799806.html--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.mybatis.spring.mapper.MapperScannerConfigurer&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 注入sqlSessionFactory --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;sqlSessionFactoryBeanName&#34;</span> <span class="na">value=</span><span class="s">&#34;sqlSessionFactory&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 给出需要扫描Dao接口包 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;basePackage&#34;</span> <span class="na">value=</span><span class="s">&#34;com.lsl.mapper&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>mybatis-config.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
+<span class="cp">&lt;!DOCTYPE configuration
+</span><span class="cp">        PUBLIC &#34;-//mybatis.org//DTD Config 3.0//EN&#34;
+</span><span class="cp">        &#34;http://mybatis.org/dtd/mybatis-3-config.dtd&#34;&gt;</span>
+<span class="nt">&lt;configuration&gt;</span>
+    <span class="nt">&lt;settings&gt;</span>
+        <span class="nt">&lt;setting</span> <span class="na">name=</span><span class="s">&#34;logImpl&#34;</span> <span class="na">value=</span><span class="s">&#34;STDOUT_LOGGING&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/settings&gt;</span>
+
+    <span class="c">&lt;!--配置数据源，交给spring去做--&gt;</span>
+    <span class="nt">&lt;typeAliases&gt;</span>
+        <span class="c">&lt;!--&lt;package name=&#34;com.lsl.entity&#34;/&gt;--&gt;</span>
+    <span class="nt">&lt;/typeAliases&gt;</span>
+
+    <span class="nt">&lt;mappers&gt;</span>
+        <span class="c">&lt;!--&lt;mapper resource=&#34;com/lsl/mapper/xml/EmployeeMapper.xml&#34;/&gt;--&gt;</span>
+    <span class="nt">&lt;/mappers&gt;</span>
+<span class="nt">&lt;/configuration&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="2spring-mvc">2spring-mvc</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span class="na">xmlns:mvc=</span><span class="s">&#34;http://www.springframework.org/schema/mvc&#34;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">    http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">    http://www.springframework.org/schema/context
+</span><span class="s">    http://www.springframework.org/schema/context/spring-context.xsd
+</span><span class="s">    http://www.springframework.org/schema/mvc
+</span><span class="s">    https://www.springframework.org/schema/mvc/spring-mvc.xsd&#34;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- 配置SpringMVC --&gt;</span>
+    <span class="c">&lt;!-- 1.开启SpringMVC注解驱动 --&gt;</span>
+    <span class="nt">&lt;mvc:annotation-driven</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- 2.静态资源默认servlet配置--&gt;</span>
+    <span class="nt">&lt;mvc:default-servlet-handler/&gt;</span>
+    <span class="c">&lt;!-- 3.配置jsp 显示ViewResolver视图解析器 --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;viewClass&#34;</span> <span class="na">value=</span><span class="s">&#34;org.springframework.web.servlet.view.JstlView&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;prefix&#34;</span> <span class="na">value=</span><span class="s">&#34;/WEB-INF/jsp/&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;suffix&#34;</span> <span class="na">value=</span><span class="s">&#34;.jsp&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!-- 4.扫描web相关的bean --&gt;</span>
+    <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&#34;com.lx.controller&#34;</span> <span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="3spring-service">3spring-service</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span> <span class="na">xmlns:tx=</span><span class="s">&#34;http://www.springframework.org/schema/tx&#34;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">    http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">    http://www.springframework.org/schema/context
+</span><span class="s">    http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd&#34;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- 扫描service相关的bean --&gt;</span>
+    <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&#34;com.lsl.service&#34;</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!-- 配置事务管理器 --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;transactionManager&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.jdbc.datasource.DataSourceTransactionManager&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 注入数据库连接池 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+    <span class="c">&lt;!-- 开启事务注解驱动 --&gt;</span>
+    <span class="nt">&lt;tx:annotation-driven</span> <span class="na">transaction-manager=</span><span class="s">&#34;transactionManager&#34;</span>
+                          <span class="na">proxy-target-class=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="常见知识点">常见知识点</h1>
+<ol>
+<li>
+<h5 id="beanfactory和applicationcontext的区别">BeanFactory和ApplicationContext的区别</h5>
+<p>●ApplicationContext 是现在使用的工厂
+ApplicationContext context = new
+ClassPathxmlApplicat ionC ontext (&rdquo; applicationContext. xm1&rdquo;);
+●XmIBeanFactory是老版本使用的工厂,目前已经被废弃[了解]
+BeanF actory beanFactory = new XmlBeanF actory(new
+ClassPathResource(&ldquo;applicationContext. xm1&rdquo;));
+两者的区别:
+ApplicationContext加载方式是框架启动时就开始创建所有单例的bean,存到了容器里面
+BeanFactory加载方式是用到bean时再加载(目前已经被废弃)</p>
+</li>
+<li>
+<p><strong>构造方法注入和设值注入有什么区别</strong></p>
+<p>唯一的区别在于2种方式创建合作者的顺序不同。一般把一个Bean设计为构造函数接收依赖对象时，其实表达了2个对象间的一种强的聚合关系：组合关系。就比如一辆车如果没有轮子、引擎等部件那么车也就不存在了。
+如果你的应用中有这样类似的场景那么你应该使用“构造函数注 入”的方式管理他们的关系。“构造函数注入”可以保证合作者先创建，在后再创建自己。若是此时采用设值注入，而忘记设置某个值，这个值为Null，若没注意到这一点，那就等着改BUG吧。
+通过set方法注入的方式表达了2个对象间较弱的依赖关系：聚合关系。就像一辆车，如果没有车内音像车也时可以工作的。当你不要求合作者于自己被创建 时，“set方法注入”注入比较合适。
+使用构造函数依赖注入时，Spring保证所有一个对象所有依赖的对象先实例化后，才实例化这个对象。（没有他们就没有我原则）
+使用set方法依赖注入时，Spring首先实例化对象，然后才实例化所有依赖的对象。</p>
+</li>
+<li>
+<p><strong>知识点1 ApplicationContext</strong>
+ClassPathXmlApplicationContext基于xm|方式(配置文件在resource下)
+FileSystemXmlApplicationContext基于xml方式(配置文件路径随意)
+AnnotationConfigApplicationContext基于注解方式</p>
+</li>
+<li>
+<p><strong>知识点2 bean的作用范围和生命周期</strong></p>
+<p>●单例对象: scope-&ldquo;singleton&rdquo;
+一个应用只有一个对象的实例。它的作用范围就是整个引用。
+生命周期:
+对象出生:当应用加载，创建容器时，对象就被创建了。
+对象活着:只要容器在，对象- -直活着。
+对象死亡:当应用卸载，销毁容器时，对象就被销毁了。
+●多例对象: scope=&quot;prototype&rdquo;
+每次访问对象时，都会重新创建对象实例。
+生命周期:
+对象出生:当使用对象时，创建新的对象实例。
+对象活着:只要对象在使用中，就-直活着。
+对象死亡:当对象长时间不用时，被java的垃圾回收器回收了.</p>
+</li>
+</ol>
+<h2 id="1spring中的事件管理">1Spring中的事件管理</h2>
+<p>Spring提供了事件的发布和订阅，可以使核心业务与子业务进行解耦，也便于后期的业务的扩展。比如用户登录动作，用户登录需要记录登录信息，可增加一个监听事件处理即可，后续可能会增加异地登录通知功能，新增一个监听事件来做就好，不需要修改登录业务。</p>
+<p>（1）自定义Event类，实现ApplicationEvent定义事件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.service.impl</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.context.ApplicationEvent</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRegisterEvent</span> <span class="kd">extends</span> <span class="n">ApplicationEvent</span> <span class="o">{</span>
+<span class="c1">//事件定义:Object是传入的对象
+</span><span class="c1"></span>
+<span class="c1">//ApplicationContext 通过 ApplicationEvent 类和 ApplicationListener 接口进行事件处理。
+</span><span class="c1">// 如果将实现 ApplicationListener 接口的 bean 注入到上下文中(注入到spring中)，
+</span><span class="c1">// 则每次使用 ApplicationContext 发布 ApplicationEvent 时，
+</span><span class="c1">// 都会通知ApplicationListener 接口的 bean。本质上，这是标准的观察者设计模式。
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="nf">UserRegisterEvent</span><span class="o">(</span><span class="n">Object</span> <span class="n">source</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">source</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>（2）调用ApplicationEventPublisher的publishEvent方法发布事件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.service.impl</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lx.entity.User</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lx.mapper.UserMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lx.service.UserService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.baomidou.mybatisplus.extension.service.impl.ServiceImpl</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.ApplicationEventPublisher</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.ApplicationEventPublisherAware</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="cm">/* 服务实现类 */</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserServiceImpl</span> <span class="kd">extends</span> <span class="n">ServiceImpl</span><span class="o">&lt;</span><span class="n">UserMapper</span><span class="o">,</span> <span class="n">User</span><span class="o">&gt;</span>
+        <span class="kd">implements</span> <span class="n">UserService</span><span class="o">,</span> <span class="n">ApplicationEventPublisherAware</span> <span class="o">{</span>
+  <span class="c1">//事件发布者 ApplicationEventPublisher对象
+</span><span class="c1"></span>  
+    <span class="c1">//方式一：用@Autowire或者@Resource获得
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">ApplicationEventPublisher</span> <span class="n">applicationEventPublisher</span><span class="o">;</span>
+
+	<span class="c1">//方式二：用Aware接口获得，然后赋值后给get方法
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setApplicationEventPublisher</span><span class="o">(</span><span class="n">ApplicationEventPublisher</span> <span class="n">applicationEventPublisher</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;UserServiceImpl 我通过Aware获得了 Application的ApplicationEventPublisher接口对象&#34;</span><span class="o">);</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">applicationEventPublisher</span> <span class="o">=</span> <span class="n">applicationEventPublisher</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">ApplicationEventPublisher</span> <span class="nf">getApplicationEventPublisher</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">applicationEventPublisher</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>（3）自定义监听类（方法上加注解@EventListener监听发布的事件也可以）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//事件订阅者(事件监听)  
+</span><span class="c1"></span><span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmailService</span> <span class="kd">implements</span> <span class="n">ApplicationListener</span><span class="o">&lt;</span><span class="n">UserRegisterEvent</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onApplicationEvent</span><span class="o">(</span><span class="n">UserRegisterEvent</span> <span class="n">userRegisterEvent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;邮件服务接到通知，给 &#34;</span> <span class="o">+</span> <span class="n">userRegisterEvent</span><span class="o">.</span><span class="na">getSource</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; 发送邮件...&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>（4）测试类中使用，实际可以在Controller中调用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//事件监听
+</span><span class="c1"></span><span class="nd">@Test</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">applicationListenTest</span><span class="o">(){</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;=======================================分割线===================================&#34;</span><span class="o">);</span>
+  <span class="n">ClassPathXmlApplicationContext</span> <span class="n">context</span><span class="o">=</span><span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="s">&#34;applicationContext.xml&#34;</span><span class="o">);</span>
+  <span class="n">UserServiceImpl</span> <span class="n">userServiceImpl</span><span class="o">=</span> <span class="o">(</span><span class="n">UserServiceImpl</span><span class="o">)</span> <span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;userServiceImpl&#34;</span><span class="o">);</span>
+  <span class="n">userServiceImpl</span><span class="o">.</span><span class="na">getApplicationEventPublisher</span><span class="o">().</span><span class="na">publishEvent</span><span class="o">(</span><span class="k">new</span> <span class="n">UserRegisterEvent</span><span class="o">(</span><span class="s">&#34;你好我是Lusenlin&#34;</span><span class="o">));</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2beanfactory和factorybean">2BeanFactory和FactoryBean</h2>
+<p><strong>BeanFactory</strong>：是IOC容器的顶级父类接口，ApplicationContext就是这个接口的子类，它是一个生产和管理Bean的一个工厂。BeanFactory是IOC容器的核心接口，它的职责包括：实例化、定位、配置应用程序中的对象及建立这些对象间的依赖。BeanFactory只是个接口，并不是IOC容器的具体实现，但是Spring容器给出了很多种实现，如 DefaultListableBeanFactory、XmlBeanFactory、ApplicationContext等。</p>
+<p>原始的BeanFactory无法支持spring的许多插件，<strong>如AOP功能、Web应用等</strong>。ApplicationContext接口,它由BeanFactory接口派生而来，</p>
+<p>ApplicationContext包含BeanFactory的所有功能，通常建议比BeanFactory优先</p>
+<p>ApplicationContext以一种更向面向框架的方式工作以及对上下文进行分层和实现继承，ApplicationContext包还提供了以下的功能：
+• MessageSource, 提供国际化的消息访问
+• 资源访问，如URL和文件
+• 事件传播
+• 载入多个（有继承关系）上下文 ，使得每一个上下文都专注于一个特定的层次，比如应用的web层;</p>
+<hr>
+<p><strong>FactoryBean</strong>:当我们使用<bean>标签去容器中注册bean时，需要指定属性等，若对象的创建比较复杂，属性比较多时，在xml中配置就显得臃肿，这时可以使用<strong>org.springframework.bean.FactoryBean的工厂接口</strong>，用户可以通过实现该接口定制实例化的bean。</p>
+<p><code>T getObejct()</code>: 返回由FactoryBean创建的bean实例，如果isSingleton()返回true，则该实例会放到Spring容器中实例缓存池中。</p>
+<p><code>boolean isSingleton()</code>:返回有FactoryBean创建的bean的实例的作用域是singleton还是prototype，这里默认返回的是true，也就是默认是singleton bean。</p>
+<p><code>Class getObjectType()</code>: 返回FactoryBean创建的 bean的类型。</p>
+<h2 id="3refresh方法">3refresh方法</h2>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">shiro安全框架.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/springboot/">
+            <span class="next-text nav-default">SpringBoot.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

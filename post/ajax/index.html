@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Ajax.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-简介 1什么是AJAX Asynchronous JavaScript and XML(异步的JavaScript和xml) 一种不用重新加载整个页面,就能更新部分网页 产品链条:H5&#43;网页" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/ajax/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Ajax.md" />
+<meta property="og:description" content="第一章-简介 1什么是AJAX Asynchronous JavaScript and XML(异步的JavaScript和xml) 一种不用重新加载整个页面,就能更新部分网页 产品链条:H5&#43;网页" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/ajax/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-18T00:00:00+00:00" />
+<meta itemprop="name" content="Ajax.md">
+<meta itemprop="description" content="第一章-简介 1什么是AJAX Asynchronous JavaScript and XML(异步的JavaScript和xml) 一种不用重新加载整个页面,就能更新部分网页 产品链条:H5&#43;网页">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2050">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ajax.md"/>
+<meta name="twitter:description" content="第一章-简介 1什么是AJAX Asynchronous JavaScript and XML(异步的JavaScript和xml) 一种不用重新加载整个页面,就能更新部分网页 产品链条:H5&#43;网页"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Ajax.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/"> 前端技术 </a>
+            </div>
+          <span class="more-meta"> 约 2050 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-简介">第一章-简介</a>
+      <ul>
+        <li><a href="#1什么是ajax">1什么是AJAX</a>
+          <ul>
+            <li><a href="#用response返回">用Response返回</a></li>
+          </ul>
+        </li>
+        <li><a href="#2json格式">2json格式</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-跨域问题">第二章-跨域问题</a>
+      <ul>
+        <li><a href="#1什么是跨域问题">1什么是跨域问题</a></li>
+        <li><a href="#2什么是同源">2.什么是同源?</a></li>
+        <li><a href="#3如何解决跨域问题">3.如何解决跨域问题?</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三章-应用场景">第三章-应用场景</a>
+      <ul>
+        <li><a href="#strtut2中使用">Strtut2中使用</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading"></a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-简介">第一章-简介</h1>
+<h2 id="1什么是ajax">1什么是AJAX</h2>
+<p>Asynchronous JavaScript and XML(异步的JavaScript和xml)
+一种不用重新加载整个页面,就能更新部分网页
+产品链条:H5+网页+客户端+手机端(Android、IOS)+小程序
+AJAX核心是XMLHttpRequest,只是对它进行了封装
+通过AJXJ可以使用HTTPGet和HTTPPost从远程服务器请求文本、HTML、XML等</p>
+<p>​</p>
+<h3 id="用response返回">用Response返回</h3>
+<p>直接返回：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">{</span>
+<span class="n">Response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">().</span><span class="na">print</span><span class="o">(</span><span class="s">&#34;false&#34;</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>返回json数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">{</span> 
+  <span class="n">depts</span><span class="o">=(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Department</span><span class="o">&gt;)</span> <span class="n">deptDao</span><span class="o">.</span><span class="na">selectAll</span><span class="o">();</span><span class="c1">//查找全部
+</span><span class="c1"></span>		<span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">=</span><span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getResponse</span><span class="o">();</span>
+  <span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">&#34;application/json;charset=utf-8&#34;</span><span class="o">);</span>
+        <span class="n">GsonBuilder</span> <span class="n">gsonBuilder</span><span class="o">=</span><span class="k">new</span> <span class="n">GsonBuilder</span><span class="o">();</span>
+        <span class="n">gsonBuilder</span><span class="o">.</span><span class="na">excludeFieldsWithoutExposeAnnotation</span><span class="o">();</span>
+        <span class="n">Gson</span> <span class="n">gson</span><span class="o">=</span><span class="n">gsonBuilder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;==&#34;</span><span class="o">+</span><span class="n">gson</span><span class="o">.</span><span class="na">toJson</span><span class="o">(</span><span class="n">depts</span><span class="o">));</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">PrintWriter</span> <span class="n">pw</span><span class="o">=</span><span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">();</span>
+            <span class="n">pw</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">gson</span><span class="o">.</span><span class="na">toJson</span><span class="o">(</span><span class="n">depts</span><span class="o">));</span>
+            <span class="n">pw</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2json格式">2json格式</h2>
+<p>介绍:JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式
+规则:JSON是一个标记符的序列。这套标记符包含六个构造字符、字符串、数字和三个字面名。
+构造符号: [{&quot;&quot;:&quot;&rdquo;,&quot;&quot;:&quot;&quot;}]   []表示数组,{}表示对象,分号：分割键值对,逗号,分割对象
+JSON是一个序列化的对象或数组。</p>
+<p>js对象和json对象转换:</p>
+<p><img src="/typoraImg/Ajax.assets/image-20200312135316374.png" alt="image-20200312135316374"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//java中转换
+</span><span class="c1"></span>	<span class="c1">//1加入数组转换json的jar包 gson-2.2.3.jar
+</span><span class="c1"></span><span class="o">{</span>	<span class="n">GsonBuilder</span> <span class="n">builder</span><span class="o">=</span><span class="k">new</span> <span class="n">GsonBuilder</span><span class="o">();</span>
+	<span class="n">builder</span><span class="o">.</span><span class="na">excludeFieldsWithoutExposeAnnotation</span><span class="o">();</span>
+<span class="n">Gson</span> <span class="n">gson</span><span class="o">=</span><span class="n">builder</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+<span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getResponse</span><span class="o">().</span><span class="na">setContentType</span><span class="o">(</span><span class="s">&#34;application/json;charset=utf-8&#34;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">str</span><span class="o">=</span><span class="n">gson</span><span class="o">.</span><span class="na">toJson</span><span class="o">(</span><span class="n">staffs</span><span class="o">);</span><span class="c1">//[{},{}] 
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="第二章-跨域问题">第二章-跨域问题</h1>
+<h2 id="1什么是跨域问题">1什么是跨域问题</h2>
+<p>跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对
+JavaScript施加的安全限制。</p>
+<h2 id="2什么是同源">2.什么是同源?</h2>
+<p>所谓同源是指，域名，协议，端口均相同
+●http://www.qf.com/ -&gt; <a href="http://admin.qf.com/">http://admin.qf.com/</a>跨域
+●http://www.qf.com/ -&gt; <a href="http://www.qf.com/">http://www.qf.com/</a>非跨域
+●http://www.qf.com/ -&gt; <a href="http://www.qf.com">http://www.qf.com</a>:8080/跨域
+●http://www.qf.com/ -&gt; <a href="https://www.qf.com/">https://www.qf.com/</a>跨域</p>
+<h2 id="3如何解决跨域问题">3.如何解决跨域问题?</h2>
+<p><strong>1使用CORS (跨资源共享)解决跨域问题</strong>
+CORS是一个W3C标准，全称是”跨域资源共享”(Cross-origin resource sharing)。它允许浏
+览器向跨源服务器，发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。
+CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE 浏览器不能低于
+IE10。整个CORS通信过程，都是浏览器自动完成，不需要用户参与。对于开发者来说，CORS
+通信与同源的AJAX通信没有差别，代码完全一样。浏览器一-旦发现 AJAX请求跨源，就会自动
+添加一-些附加的头信息，有时还会多出一-次附加的请求，但用户不会有感觉。因此，实现CORS
+通信的关键是服务器。只要服务器实现了CORS接口，就可以跨源通信(在header 中设
+置: (&ldquo;Access-Control-Allow-Origin&rdquo;, &ldquo;*&quot;)</p>
+<p>response 添加 header</p>
+<blockquote>
+<p>我们在 Servlet 请求返回时添加如下代码：
+//表示支持所有网站访问，也可以额外配置相应网站
+resp.setHeader(&ldquo;Access-Control-Allow-Origin&rdquo;, &ldquo;*&quot;);</p>
+</blockquote>
+<p><strong>2SpringMVC解决</strong></p>
+<p>Spring MVC 从4.2版本开始增加了对CORS的支持，在<a href="http://lib.csdn.net/base/javaee">spring</a> MVC 中增加CORS支持非常简单，可以配置全局的规则，也可以使用<code>@CrossOrigin</code>注解进行细粒度的配置。
+使用<code>@CrossOrigin</code>注解,先通过源码看看该注解支持的属性：</p>
+<p><strong>1.1在Controller上使用<code>@CrossOrigin</code>注解</strong></p>
+<blockquote>
+<p>@CrossOrigin(origins = &ldquo;*&rdquo;, maxAge = 3600)
+@CrossOrigin(&ldquo;<a href="http://domain2.com">http://domain2.com</a>&rdquo;)也可以用在方法上，用在Controller和方法上，会两者结合。</p>
+</blockquote>
+<p><strong>1.2用xml方式解决</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 解决API接口跨域问题配置 Spring MVC 版本必须是 4.2 及以上 --&gt;</span>
+<span class="nt">&lt;mvc:cors&gt;</span>
+    <span class="nt">&lt;mvc:mapping</span> <span class="na">path=</span><span class="s">&#34;/**&#34;</span>
+    <span class="na">allowed-origins=</span><span class="s">&#34;*&#34;</span>
+    <span class="na">allowed-methods=</span><span class="s">&#34;POST, GET, OPTIONS, DELETE, PUT&#34;</span>
+    <span class="na">allowed-headers=</span><span class="s">&#34;Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With&#34;</span>
+    <span class="na">allow-credentials=</span><span class="s">&#34;true&#34;</span>
+    <span class="na">max-age=</span><span class="s">&#34;3600&#34;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/mvc:cors&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>JSONP解决</strong></p>
+<p>JSONP(JSON with Padding)是JSON的一种“使用模式”，可用于解决主流浏览器的跨域数据访问的问题。由于同源策略，一般来说位于 server1.example.com 的网页无法与不是 server1.example.com的服务器沟通，而 HTML 的&lt;script&gt; 元素是一个例外。利用 &lt;script&gt; 元素的这个开放策略，网页可以得到从其他来源动态产生的 JSON 资料，而这种使用模式就是所谓的 JSONP。用 JSONP 抓到的资料并不是 JSON，而是任意的JavaScript，用 JavaScript 直译器执行而不是用 JSON 解析器解析（需要目标服务器配合一个callback函数）。</p>
+<p>相对于Springmvc的cors来说，JSONP只支持get请求，对老浏览器的支持比较好。</p>
+<h1 id="第三章-应用场景">第三章-应用场景</h1>
+<h2 id="strtut2中使用">Strtut2中使用</h2>
+<p>strtus2中使用还可以使用最为简单的，reponse直接返回请求。</p>
+<p>1加入依赖，注意版本。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.struts<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>struts2-json-plugin<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.1.8<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2Action中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Boolean</span><span class="o">&gt;</span> <span class="n">jsonMap</span><span class="o">;</span><span class="c1">//注意给其get方法
+</span><span class="c1"></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">checkName</span><span class="o">(){</span>
+   <span class="n">Boolean</span> <span class="n">valid</span><span class="o">=</span> <span class="n">usersDao</span><span class="o">.</span><span class="na">checkName</span><span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getUsers_name</span><span class="o">());</span>
+   <span class="n">jsonMap</span><span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="n">jsonMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;valid&#34;</span><span class="o">,</span><span class="n">valid</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;=========&#34;</span><span class="o">+</span><span class="n">jsonMap</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="k">return</span> <span class="s">&#34;success&#34;</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3struts.xml中</p>
+<p>注意：extends=&quot;json-default&quot;修改继承的拦截器(此拦截器默认继承了struts-default)</p>
+<p>​		type为json，<param name="root">jsonMap</param>name为root，jsonMap是aciton中集合名</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;!--</span>  <span class="n">Json使用</span>  <span class="o">--&gt;</span>
+<span class="o">&lt;</span><span class="kn">package</span> <span class="nn">name</span><span class="o">=</span><span class="s">&#34;ajaxPackage&#34;</span> <span class="kd">extends</span><span class="o">=</span><span class="s">&#34;json-default&#34;</span> <span class="n">namespace</span><span class="o">=</span><span class="s">&#34;/ajax&#34;</span><span class="o">&gt;</span>
+   <span class="o">&lt;</span><span class="n">action</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;register&#34;</span>  <span class="n">class</span><span class="o">=</span><span class="s">&#34;registerAction&#34;</span> <span class="o">&gt;</span>
+       <span class="o">&lt;</span><span class="n">result</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;success&#34;</span> <span class="n">type</span><span class="o">=</span><span class="s">&#34;json&#34;</span> <span class="o">&gt;</span>
+           <span class="o">&lt;!--</span>  <span class="n">成功</span>     <span class="n">xx参数的过滤正则表达式的书写方法xx</span><span class="o">--&gt;</span>
+           <span class="o">&lt;</span><span class="n">param</span> <span class="n">name</span><span class="o">=</span><span class="s">&#34;root&#34;</span><span class="o">&gt;</span><span class="n">jsonMap</span><span class="o">&lt;/</span><span class="n">param</span><span class="o">&gt;</span>
+       <span class="o">&lt;/</span><span class="n">result</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="n">action</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">package</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="heading"></h1>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-18
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/1web%E5%9F%BA%E7%A1%80/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">1web基础.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/bootstrap3/">
+            <span class="next-text nav-default">Bootstrap3.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

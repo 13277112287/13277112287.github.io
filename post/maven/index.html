@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Maven.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-Maven概述 maven知识点https://www.cnblogs.com/kyleinjava/p/9549481.html 1安" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/maven/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Maven.md" />
+<meta property="og:description" content="第一章-Maven概述 maven知识点https://www.cnblogs.com/kyleinjava/p/9549481.html 1安" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/maven/" />
+<meta property="article:published_time" content="2020-05-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-29T00:00:00+00:00" />
+<meta itemprop="name" content="Maven.md">
+<meta itemprop="description" content="第一章-Maven概述 maven知识点https://www.cnblogs.com/kyleinjava/p/9549481.html 1安">
+<meta itemprop="datePublished" content="2020-05-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-29T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1647">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Maven.md"/>
+<meta name="twitter:description" content="第一章-Maven概述 maven知识点https://www.cnblogs.com/kyleinjava/p/9549481.html 1安"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Maven.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-01 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7util/"> 开发工具util </a>
+            </div>
+          <span class="more-meta"> 约 1647 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-maven概述">第一章-Maven概述</a>
+      <ul>
+        <li><a href="#1安装设置maven">1安装设置Maven</a></li>
+        <li><a href="#-dmavenwagonhttpsslinsecuretrue--dmavenwagonhttpsslallowalltrue">-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true</a></li>
+        <li><a href="#2maven组成">2Maven组成</a></li>
+        <li><a href="#3剔除依赖">3剔除依赖</a></li>
+        <li><a href="#eclipse下的配置">Eclipse下的配置</a></li>
+        <li><a href="#idea的阿里云">IDEA的阿里云</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-标签介绍">第二章-标签介绍</a>
+      <ul>
+        <li><a href="#1父子工程">1父子工程</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-maven概述">第一章-Maven概述</h1>
+<p>maven知识点https://www.cnblogs.com/kyleinjava/p/9549481.html</p>
+<h2 id="1安装设置maven">1安装设置Maven</h2>
+<p>下载网址https://maven.apache.org/download.cgi
+点击Link下面的tar.gz(多用于Linux下，Windos下也可以解压)或者zip（Window）。</p>
+<blockquote>
+<p><strong>1环境变量的配置</strong></p>
+<p>win10下右击此电脑，属性&ndash;&gt;高级属性设置&ndash;&gt;环境变量
+然后新建一个系统变量Maven_Home，变量值为maven的解压目录
+再找到系统变量Path,添加%MAVEN_HOME%/bin。（win7系统加上 ;%MAVEN_HOME%/bin），对大小写不敏感。</p>
+<p><img src="/typoraImg/Maven.assets/image-20200501150210826.png" alt="image-20200501150210826"></p>
+<p>编辑完后windon+r输入cmd，然后mvn -v验证maven是否成功。</p>
+</blockquote>
+<blockquote>
+<p><strong>2仓库的设置</strong></p>
+<p>打开apache-maven-3.6.3\conf下的setting.xml
+找到localRepository标签，设置maven本地仓库依赖存放位置。</p>
+<p><strong>设置下载镜像</strong></p>
+<p>由于原本默认的依赖下载不在国内，比较慢。所以要设置镜像mirrors标签下加入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;mirror&gt;</span>
+<span class="nt">&lt;id&gt;</span>alimaven<span class="nt">&lt;/id&gt;</span>
+<span class="nt">&lt;name&gt;</span>aliyun maven<span class="nt">&lt;/name&gt;</span>
+<span class="nt">&lt;url&gt;</span>http://maven.aliyun.com/nexus/content/groups/public/<span class="nt">&lt;/url&gt;</span>
+<span class="nt">&lt;mirrorOf&gt;</span>central<span class="nt">&lt;/mirrorOf&gt;</span>        
+<span class="nt">&lt;/mirror&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>阿里不再支持http下载，只支持https。</p>
+<p>因此，先将maven镜像配置如下：</p>
+<mirror>
+    <id>aliyunmaven</id>
+    <mirrorOf>*</mirrorOf>
+    <name>阿里云公共仓库</name>
+    <url>https://maven.aliyun.com/repository/public</url>
+</mirror>
+然后我还出现了一个问题，由于使用了HTTPS，存在着SSL证书验证的问题，因此我在IDEA中添加了一行配置：
+<p><img src="/typoraImg/Maven.assets/2020022719493843.png" alt="img"></p>
+<p>配置如下：</p>
+<h2 id="-dmavenwagonhttpsslinsecuretrue--dmavenwagonhttpsslallowalltrue">-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true</h2>
+</blockquote>
+<h2 id="2maven组成">2Maven组成</h2>
+<p>构件：依赖和插件等在maven称为构件</p>
+<p>每个构件都有唯一标识,被称为坐标
+坐标基本组成：
+groupld、artifactld、version
+groupld：公司域名+项目名，比如com.ck.studyMaven
+artifatld:项目名称,比如,studyMaven
+version:版本</p>
+<blockquote>
+<p><strong>作用域</strong></p>
+</blockquote>
+<p>表明该包只在编译和测试的时候用：<code>&lt;scope&gt;provided&lt;/scope&gt;</code>
+用maven打包成jar或war包时，不会把依赖的jar包加入到tomcat</p>
+<h2 id="3剔除依赖">3剔除依赖</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.example<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>serviceCXF1-consumer<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+  <span class="nt">&lt;exclusions&gt;</span>
+    <span class="nt">&lt;exclusion&gt;</span>
+      <span class="nt">&lt;artifactId&gt;&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;groupId&gt;&lt;/groupId&gt;</span>
+    <span class="nt">&lt;/exclusion&gt;</span>
+  <span class="nt">&lt;/exclusions&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="eclipse下的配置">Eclipse下的配置</h2>
+<p><img src="/typoraImg/Maven.assets/image-20200501161923627.png" alt="image-20200501161923627"></p>
+<p>然后再点击下面的User Settings，选择setting.xml的设置，直到LocalRespostory显示的文件夹为自己设置的文件夹。</p>
+<h2 id="idea的阿里云">IDEA的阿里云</h2>
+<p><a href="https://blog.csdn.net/HeyWeCome/article/details/104543411">https://blog.csdn.net/HeyWeCome/article/details/104543411</a></p>
+<p><img src="/typoraImg/Maven.assets/2020022719493843-1596011008989.png" alt="img"></p>
+<p>-Dmaven.wagon.http.ssl.insecure=true -Dmaven.wagon.http.ssl.allowall=true</p>
+<h1 id="第二章-标签介绍">第二章-标签介绍</h1>
+<h2 id="1父子工程">1父子工程</h2>
+<p>新建一个maven工程，packaging的pom指的是</p>
+<blockquote>
+<p>以下配置<packaging>pom</packaging>的意思是使用maven分模块管理，都会有一个父级项目，pom文件一个重要的属性就是packaging（打包类型），一般来说所有的父级项目的packaging都为pom，packaging默认类型jar类型，如果不做配置，maven会将该项目打成jar包</p>
+<hr>
+<p>POM是最简单的打包类型。不像一个JAR，SAR，或者EAR，它生成的构件只是它本身。</p>
+<p>打包类型为POM的项目的默认目标。只是为了聚合工程或传递依赖用的。</p>
+</blockquote>
+<blockquote>
+<p>dependencyManagement里只是声明依赖，并不实现引入,因此子项目需要显示的声明需要用的依赖。
+<strong>如果不在子项目中声明依赖，是不会从父项目中继承下来的;只有在子项目中写了该依赖项,并且没有指定具体版本，才会从父项目中继承该项</strong>,并且version和scope都读取自父pom;</p>
+</blockquote>
+<blockquote>
+<p><img src="/typoraImg/Maven.assets/image-20200728144047209.png" alt="image-20200728144047209"></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>com.atguigu.springcloud<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>cloud2020<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;packaging&gt;</span>pom<span class="nt">&lt;/packaging&gt;</span>
+
+    <span class="nt">&lt;modules&gt;</span>
+        <span class="nt">&lt;module&gt;</span>cloud-consumer-order80<span class="nt">&lt;/module&gt;</span>
+    <span class="nt">&lt;/modules&gt;</span>
+
+    <span class="c">&lt;!-- 统一管理jar包版本 --&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+        <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+        <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+        <span class="nt">&lt;junit.version&gt;</span>4.12<span class="nt">&lt;/junit.version&gt;</span>
+        <span class="nt">&lt;log4j.version&gt;</span>1.2.17<span class="nt">&lt;/log4j.version&gt;</span>
+        <span class="nt">&lt;lombok.version&gt;</span>1.16.18<span class="nt">&lt;/lombok.version&gt;</span>
+        <span class="nt">&lt;mysql.version&gt;</span>8.0.21<span class="nt">&lt;/mysql.version&gt;</span>
+        <span class="nt">&lt;druid.version&gt;</span>1.1.16<span class="nt">&lt;/druid.version&gt;</span>
+        <span class="nt">&lt;mybatis.spring.boot.version&gt;</span>1.3.0<span class="nt">&lt;/mybatis.spring.boot.version&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+
+    <span class="c">&lt;!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  --&gt;</span>
+    <span class="nt">&lt;dependencyManagement&gt;</span>
+        <span class="nt">&lt;dependencies&gt;</span>
+            <span class="c">&lt;!--spring boot 2.2.2--&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-boot-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.2.2.RELEASE<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="c">&lt;!--spring cloud Hoxton.SR1--&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.springframework.cloud<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-cloud-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>Hoxton.SR1<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="c">&lt;!--spring cloud alibaba 2.1.0.RELEASE--&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.alibaba.cloud<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>spring-cloud-alibaba-dependencies<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>2.1.0.RELEASE<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+                <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${mysql.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>druid<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${druid.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.mybatis.spring.boot<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>mybatis-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${mybatis.spring.boot.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${junit.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${log4j.version}<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+            <span class="nt">&lt;dependency&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>${lombok.version}<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;optional&gt;</span>true<span class="nt">&lt;/optional&gt;</span>
+            <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;/dependencies&gt;</span>
+    <span class="nt">&lt;/dependencyManagement&gt;</span>
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>父工程创建完成执行mvn:install将父工程发布到仓库方便子工程继承</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/eclipse%E4%BD%BF%E7%94%A8/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Eclipse使用.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/1web%E5%9F%BA%E7%A1%80/">
+            <span class="next-text nav-default">1web基础.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

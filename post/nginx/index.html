@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Nginx.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-Nginx概述 学习视频1小时：https://www.bilibili.com/video/BV1W54y1z7GM?p=4 学习视频" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/nginx/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Nginx.md" />
+<meta property="og:description" content="第一章-Nginx概述 学习视频1小时：https://www.bilibili.com/video/BV1W54y1z7GM?p=4 学习视频" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/nginx/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="name" content="Nginx.md">
+<meta itemprop="description" content="第一章-Nginx概述 学习视频1小时：https://www.bilibili.com/video/BV1W54y1z7GM?p=4 学习视频">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2260">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nginx.md"/>
+<meta name="twitter:description" content="第一章-Nginx概述 学习视频1小时：https://www.bilibili.com/video/BV1W54y1z7GM?p=4 学习视频"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Nginx.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
+            </div>
+          <span class="more-meta"> 约 2260 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-nginx概述">第一章-Nginx概述</a>
+      <ul>
+        <li><a href="#1什么是nginx">1什么是Nginx</a></li>
+        <li><a href="#2linux安装nginx">2linux安装Nginx</a></li>
+        <li><a href="#3nginx事例">3Nginx事例</a></li>
+        <li><a href="#4nginx配置文件">4Nginx配置文件</a></li>
+        <li><a href="#常用命令">常用命令</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-主要技术">第二章-主要技术</a>
+      <ul>
+        <li><a href="#1反向代理">1反向代理</a></li>
+        <li><a href="#2负载均衡">2负载均衡</a></li>
+        <li><a href="#3动静分离">3动静分离</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-nginx概述">第一章-Nginx概述</h1>
+<p>学习视频1小时：https://www.bilibili.com/video/BV1W54y1z7GM?p=4</p>
+<p>学习视频4小时：https://www.bilibili.com/video/BV1zJ411w7SV?from=search&amp;seid=1241391484271225136</p>
+<h2 id="1什么是nginx">1什么是Nginx</h2>
+<p>Nginx 是一个很强大的高性能Web和反向代理服务，它具有很多非常优越的特性：
+在连接高并发的情况下，Nginx是Apache服务不错的替代品：。能够支持高达 50,000 个并发连接数的响应，感谢Nginx为我们选择了 epoll and kqueue作为开发模型。</p>
+<p>三个主要概念：反向代理，负载均衡，动静分离。</p>
+<p><strong>配置文件，主要由6个部分组成：</strong></p>
+<p>main：用于进行nginx全局信息的配置
+events：用于nginx工作模式的配置
+http：用于进行http协议信息的一些配置
+server：用于进行服务器访问信息的配置
+location：用于进行访问路由的配置
+upstream：用于进行负载均衡的配置</p>
+<p>解决问题：</p>
+<p>问题1:客户端到底要将请求发送给哪台服务器。
+问题2:如果所有客户端的请求都发送给了服务器1。
+问题3:客户端发送的请求可能是申请动态资源的，也有申请静态资源。</p>
+<p><img src="/typoraImg/Nginx.assets/image-20200712180545729.png" alt="image-20200712180545729"></p>
+<h2 id="2linux安装nginx">2linux安装Nginx</h2>
+<p>搜索：docker search nginx</p>
+<p>下载：docker pull nginx</p>
+<blockquote>
+<p><strong>启动</strong></p>
+<p>-d: 后台运行
+-p: 端口映射 冒号前是本机端口，冒号后是容器端口</p>
+<p>==docker run -d -p 8787:80 –name nginx-8787 nginx==  启动容器 -name可选 nginx-8787是名称</p>
+<p>若出现IPv4 forwarding is disabled. Networking will not work_   按照以下步骤解决：
+1、编辑 vi /etc/sysctl.conf
+2、添加 net.ipv4.ip_forward=1
+3、重启network服务 systemctl restart network</p>
+<p>然后访问ip+8787出现Wecome to nginx就说明安装成功</p>
+</blockquote>
+<h2 id="3nginx事例">3Nginx事例</h2>
+<p>在服务器中创建以下结构的目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="sr">/home
+</span><span class="sr">    |---mutou
+</span><span class="sr">           |----nginx
+</span><span class="sr">                  |----conf.d
+</span><span class="sr">                  |----html
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>** 2. 在conf.d文件夹下新建default.conf文件，内容如下：**</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">server <span class="o">{</span>
+    listen       80<span class="p">;</span> 
+    server_name  localhost<span class="p">;</span>
+    <span class="c1"># 原来的配置，匹配根路径</span>
+    <span class="c1">#location / {</span>
+    <span class="c1">#    root   /usr/share/nginx/html;</span>
+    <span class="c1">#    index  index.html index.htm;</span>
+    <span class="c1">#}</span>
+    <span class="c1"># 更该配置，匹配/路径，修改index.html的名字，用于区分该配置文件替换了容器中的配置文件</span>
+    location / <span class="o">{</span>
+        root   /usr/share/nginx/html<span class="p">;</span>
+        index  index-test.html index.htm<span class="p">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>3.在html中编写index-test.html，用以判断文件夹映射成功，内容如下：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>it is html1<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接着开启一个nginx容器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">docker</span> <span class="nx">run</span> <span class="o">-</span><span class="nx">d</span> <span class="o">-</span><span class="nx">p</span> <span class="mi">8787</span><span class="o">:</span><span class="mi">80</span> <span class="o">-</span><span class="nx">v</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">mutou</span><span class="o">/</span><span class="nx">nginx</span><span class="o">/</span><span class="nx">conf</span><span class="p">.</span><span class="nx">d</span><span class="o">:</span><span class="err">/etc/nginx/conf.d  -v /home/mutou/nginx/html:/usr/share/nginx/html nginx</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-jsx" data-lang="jsx"><span class="err">#</span><span class="o">-</span><span class="nx">v</span><span class="err">：</span><span class="nx">数据卷绑定</span><span class="err">（</span><span class="nx">将宿主机的配置文件</span><span class="err">，</span><span class="nx">与容器内配置文件进行绑定</span><span class="err">）</span>
+<span class="nx">docker</span> <span class="nx">run</span> <span class="o">-</span><span class="nx">d</span> <span class="o">-</span><span class="nx">p</span> <span class="mi">8787</span><span class="o">:</span><span class="mi">80</span> 
+<span class="o">--</span><span class="nx">name</span> <span class="nx">xxxnginx</span><span class="o">-</span><span class="mi">8787</span>  
+<span class="o">-</span><span class="nx">v</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">mutou</span><span class="o">/</span><span class="nx">nginx</span><span class="o">/</span><span class="nx">conf</span><span class="p">.</span><span class="nx">d</span><span class="o">:</span><span class="err">/etc/nginx/conf.d  </span>
+<span class="o">-</span><span class="nx">v</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">mutou</span><span class="o">/</span><span class="nx">nginx</span><span class="o">/</span><span class="nx">html</span><span class="o">:</span><span class="err">/usr/share/nginx/html  </span>
+<span class="nx">nginx</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="4nginx配置文件">4Nginx配置文件</h2>
+<p>最新版的nginx中配置文件在conf.d下的default.conf中</p>
+<p>配置文件有三部分组成，全局块，events块，http块</p>
+<blockquote>
+<p><strong>全局块</strong></p>
+<p>从配置文件开始到events块之间的内容，主要会设置一些影响nginx服务器整体运行的配置指令。
+比如：woker_processes 2 worker角色的工作进程的个数，master进程是接收并分配请求给worker处理，为cpu核心数甚至其两倍。</p>
+</blockquote>
+<blockquote>
+<p><strong>events块</strong></p>
+<p>events块涉及的指令主要影响Nginx服务器和用户的网络连接，
+如： worker_connections 2048 支持的最大连接数</p>
+</blockquote>
+<blockquote>
+<p><strong><strong>http全局块</strong></strong></p>
+<p>是配置中最频繁的部分，代理，缓存和日志等。
+也可以包括http全局块，server块(虚拟主机配置)</p>
+<p>①<strong>http全局块</strong></p>
+<p>②<strong>server块</strong></p>
+<p>每个server又可以分位全局server，location部分。一个server可配置多个location块</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">80</span><span class="p">;</span>   <span class="c1">#表示监听的端口
+</span><span class="c1"></span>    <span class="kn">server_name</span>  <span class="s">localhost</span><span class="p">;</span> <span class="c1">#本机名称
+</span><span class="c1"></span>   <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>   
+        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
+     		<span class="kn">proxy_pass</span> <span class="s">http://134.175.236.42:8000/store/commodity/showCommodity</span><span class="p">;</span>
+      <span class="c1">#这是上面例中的，此时index不会生效,而是上面生效 index  index-test.html index.htm;
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="常用命令">常用命令</h2>
+<p>使用nginx命令前提是进入nginx目录</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>./nginx -t</td>
+<td>检查配置文件是否正确</td>
+</tr>
+<tr>
+<td>./nginx -s reload</td>
+<td>重新加载nginx配置</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="第二章-主要技术">第二章-主要技术</h1>
+<h2 id="1反向代理">1反向代理</h2>
+<blockquote>
+<p><strong>反向代理案例</strong>(一)</p>
+<p><img src="/typoraImg/Nginx.assets/image-20200426171433040.png" alt="image-20200426171433040"></p>
+<p>修改C:\Windows\System32\drivers\etc下的host文件
+加上<code>134.175.236.42 www.store.com</code>，然后访问<code>www.store.com:8787</code>就可以访问到134.175.236.42:8787了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span>  <span class="s">localhost</span><span class="p">;</span>
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
+	<span class="kn">proxy_pass</span> <span class="s">http://134.175.236.42:8000/store/commodity/showCommodity</span><span class="p">;</span>
+        <span class="c1">#index  index-test.html index.htm;
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p><strong>反向代理案例（二）</strong></p>
+<p>1、实现效果
+使用nginx反向代理，根据访问的路径跳转到不同端口的服务中
+nginx监听端口为9001,</p>
+<p>访问http://134.175.236.42/:8787/store直接跳转到xxx134.175.236.42/:8010/store
+访问http://134.175.236.42/:8787/home直接跳转到xxx134.175.236.42/:8000/index</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">80</span><span class="p">;</span>   <span class="c1">#表示监听的端口
+</span><span class="c1"></span>    <span class="kn">server_name</span>  <span class="s">localhost</span><span class="p">;</span> <span class="c1">#本机名称
+</span><span class="c1"></span>  <span class="kn">location</span> <span class="p">=</span><span class="s">/lsl</span> <span class="p">{</span>   
+        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
+     	<span class="kn">proxy_pass</span> <span class="s">http://134.175.236.42:8000/store/commodity/showCommodity</span><span class="p">;</span>
+    <span class="p">}</span>
+     <span class="kn">location</span> <span class="s">/</span><span class="p">{</span>   
+        <span class="kn">root</span>   <span class="s">/usr/share/nginx/html</span><span class="p">;</span>
+     <span class="c1">#	proxy_pass http://134.175.236.42:8000/store/commodity/showCommodity;
+</span><span class="c1"></span>      <span class="c1">#这是上面例中的，此时index不会生效,而是上面生效 
+</span><span class="c1"></span>      <span class="kn">index</span> <span class="s">index-test.html</span> <span class="s">index.htm</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>修饰符</th>
+<th>功能(用在location = /lsl 中的等号位置)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>精确匹配</td>
+</tr>
+<tr>
+<td>~</td>
+<td>正则表达式模式匹配，区分大小写</td>
+</tr>
+<tr>
+<td>~*</td>
+<td>正则表达式模式匹配，不区分大小写</td>
+</tr>
+<tr>
+<td>^~</td>
+<td>前缀匹配，类似于无修饰符的行为，也是以指定模块开始，不同的是，如果模式匹配，那么就停止搜索其他模式了，不支持正则表达式</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<blockquote>
+<p><strong>去掉端口号</strong></p>
+<p>增加文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="sr">/home
+</span><span class="sr">    |---mutou
+</span><span class="sr">           |----nginx
+</span><span class="sr">                  |----conf.d
+</span><span class="sr">                  |----html
+</span><span class="sr">                  |----conf.d2
+</span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>我们在conf.d2中配置另一个nginx容器的配置文件，文件内容如下：</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span>  <span class="s">localhost</span><span class="p">;</span>
+    <span class="kn">location</span> <span class="s">/mutou</span> <span class="p">{</span>
+        <span class="c1"># 在该位置配置反向代理，将ip/mutou请求拦截，发送给8080端口，如果不是本机请使用公网ip
+</span><span class="c1"></span>        <span class="kn">proxy_pass</span>  <span class="s">http://134.175.236.42:8787/lsl</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>然后再启动一个nginx，用nginx服务器代理80端口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d -p 80:80 <span class="se">\
+</span><span class="se"></span>--name nginx-80 <span class="se">\
+</span><span class="se"></span>-v /home/mutou/nginx/conf.d2:/etc/nginx/conf.d  <span class="se">\
+</span><span class="se"></span>nginx
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="2负载均衡">2负载均衡</h2>
+<h2 id="3动静分离">3动静分离</h2>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/mysql%E4%BC%98%E5%8C%96/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MySQL优化.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/powerdesigner/">
+            <span class="next-text nav-default">PowerDesigner.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

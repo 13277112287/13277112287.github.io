@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>设计模式.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-设计模式概述 https://www.bilibili.com/video/BV1G4411c7N4?p=61 1什么是设计模式 设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="设计模式.md" />
+<meta property="og:description" content="第一章-设计模式概述 https://www.bilibili.com/video/BV1G4411c7N4?p=61 1什么是设计模式 设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" />
+<meta property="article:published_time" content="2020-07-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-15T00:00:00+00:00" />
+<meta itemprop="name" content="设计模式.md">
+<meta itemprop="description" content="第一章-设计模式概述 https://www.bilibili.com/video/BV1G4411c7N4?p=61 1什么是设计模式 设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设">
+<meta itemprop="datePublished" content="2020-07-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="8369">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="设计模式.md"/>
+<meta name="twitter:description" content="第一章-设计模式概述 https://www.bilibili.com/video/BV1G4411c7N4?p=61 1什么是设计模式 设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">设计模式.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-23 </span>
+        <div class="post-category">
+            <a href="/categories/java%E7%AC%94%E8%AE%B0/"> java笔记 </a>
+            </div>
+          <span class="more-meta"> 约 8369 字 </span>
+          <span class="more-meta"> 预计阅读 17 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-设计模式概述">第一章-设计模式概述</a>
+      <ul>
+        <li><a href="#1什么是设计模式">1什么是设计模式</a></li>
+        <li><a href="#2设计模式的原则">2设计模式的原则</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-创建型模式">第二章-创建型模式</a>
+      <ul>
+        <li><a href="#单例模式">单例模式</a></li>
+        <li><a href="#工厂模式">工厂模式</a></li>
+        <li><a href="#原型模式">原型模式</a></li>
+        <li><a href="#建造者模式">建造者模式</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三章-结构型模式">第三章-结构型模式</a>
+      <ul>
+        <li><a href="#适配器">适配器</a></li>
+        <li><a href="#装饰者模式">装饰者模式</a></li>
+        <li><a href="#代理模式">代理模式</a></li>
+        <li><a href="#其它">其它</a></li>
+      </ul>
+    </li>
+    <li><a href="#第四章-行为型模式">第四章-行为型模式</a>
+      <ul>
+        <li><a href="#模版方法模式">模版方法模式</a></li>
+        <li><a href="#观察者模式">观察者模式</a></li>
+        <li><a href="#职责链模式责任链模式">职责链模式(责任链模式)</a></li>
+        <li><a href="#其它-1">其它</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-设计模式概述">第一章-设计模式概述</h1>
+<p><a href="https://www.bilibili.com/video/BV1G4411c7N4?p=61">https://www.bilibili.com/video/BV1G4411c7N4?p=61</a></p>
+<h2 id="1什么是设计模式">1什么是设计模式</h2>
+<p>设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设计模式是软件开发人员在软件开发过程中面临的一般问题的解决方案。这些解决方案是众多软件开发人员经过相当长的一段时间的试验和错误总结出来的。</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">模式 &amp; 描述</th>
+<th align="left">包括</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left"><strong>创建型模式</strong> 这些设计模式提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用 new 运算符直接实例化对象。这使得程序在判断针对某个给定实例需要创建哪些对象时更加灵活。</td>
+<td align="left">工厂模式（Factory Pattern）抽象工厂模式（Abstract Factory Pattern）单例模式（Singleton Pattern）建造者模式（Builder Pattern）原型模式（Prototype Pattern）</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><strong>结构型模式</strong> 这些设计模式关注类和对象的组合。继承的概念被用来组合接口和定义组合对象获得新功能的方式。</td>
+<td align="left">适配器模式（Adapter Pattern）桥接模式（Bridge Pattern）过滤器模式（Filter、Criteria Pattern）组合模式（Composite Pattern）装饰器模式（Decorator Pattern）外观模式（Facade Pattern）享元模式（Flyweight Pattern）代理模式（Proxy Pattern）</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong>行为型模式</strong> 这些设计模式特别关注对象之间的通信。</td>
+<td align="left">责任链模式（Chain of Responsibility Pattern）命令模式（Command Pattern）解释器模式（Interpreter Pattern）迭代器模式（Iterator Pattern）中介者模式（Mediator Pattern）备忘录模式（Memento Pattern）观察者模式（Observer Pattern）状态模式（State Pattern）空对象模式（Null Object Pattern）策略模式（Strategy Pattern）模板模式（Template Pattern）访问者模式（Visitor Pattern）</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><strong>J2EE 模式</strong> 这些设计模式特别关注表示层。这些模式是由 Sun Java Center 鉴定的。</td>
+<td align="left">MVC 模式（MVC Pattern）业务代表模式（Business Delegate Pattern）组合实体模式（Composite Entity Pattern）数据访问对象模式（Data Access Object Pattern）前端控制器模式（Front Controller Pattern）拦截过滤器模式（Intercepting Filter Pattern）服务定位器模式（Service Locator Pattern）传输对象模式（Transfer Object Pattern）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2设计模式的原则">2设计模式的原则</h2>
+<p>单开里依接合迪</p>
+<table>
+<thead>
+<tr>
+<th>设计原则名称</th>
+<th>设计原则简介</th>
+<th>重要性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>单一职责原则</strong>(Single Responsibility Principle, SRP)</td>
+<td>类的职责要单一，不能将太多的职责放在一个类中</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td><strong>开闭原则</strong>(Open-Closed Principle, OCP)</td>
+<td>软件实体对扩展是开放的，但对修改是关闭的，即在不修改一个软件实体的基础上去扩展其功能</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td><strong>里氏代换原则</strong>(Liskov Substitution Principle, LSP)</td>
+<td>在软件系统中，一个可以接受基类对象的地方必然可以接受一个子类对象</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td><strong>依赖倒转原则</strong>(Dependency Inversion Principle, DIP)</td>
+<td>要针对抽象层编程，而不要针对具体类编程</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td><strong>接口隔离原则</strong>(Interface Segregation Principle, ISP)</td>
+<td>使用多个专门的接口来取代一个统一的接口。(若一个类不需要某个接口的方法，就不去实现它)</td>
+<td>★★☆☆☆</td>
+</tr>
+<tr>
+<td><strong>合成复用原则</strong>(Composite Reuse Principle, CRP)</td>
+<td>在系统中应该尽量多使用组合和聚合关联关系，尽量少使用甚至不使用继承关系</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td><strong>迪米特法则</strong>(Law of Demeter, LoD)</td>
+<td>一个软件实体对其他实体的引用越少越好，或者说如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用，而是通过引入一个第三者发生间接交互</td>
+<td>★★★☆☆</td>
+</tr>
+</tbody>
+</table>
+<p>创建 设计模式的原则。</p>
+<blockquote>
+<p>** 1单一原则**</p>
+<p>目的：</p>
+<ul>
+<li>降低类的复杂度，一个类只负责一项职责</li>
+<li>提高类的可读性，可维护性。</li>
+<li>降低变更引起的风险</li>
+<li>通常情况下，应遵守单一职责原则，只有逻辑足够简单，才能在代码违反单一职责原则；只有类中方法数量足够少，可以在方法级别保持单一原则。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>2接口隔离原则</strong></p>
+<p>一个类不应该依赖它不需要的接口方法</p>
+<p>把一个接口拆分为好几个接口，保证各个接口的隔离，实现类不需要就不去实现。</p>
+</blockquote>
+<blockquote>
+<p><strong>3依赖倒转原则</strong></p>
+<p>依赖接口，而不是依赖对象。</p>
+</blockquote>
+<blockquote>
+<p><strong>4里氏代换原则</strong></p>
+<p>在软件系统中，一个可以接受基类对象的地方必然可以接受一个子类对象。</p>
+<p>如果某子类需要用到其它类的方法，可以在这个子类中创建对象，然后使用。</p>
+</blockquote>
+<blockquote>
+<p><strong>5开闭原则</strong></p>
+<p>软件实体对扩展是开放的(对提供方)，但对修改是关闭的，即在不修改一个软件实体的基础上去扩展其功能。</p>
+<p>当软件需求发生变化时，尽量通过扩展来实现变化，而不是通过修改已有代码来实现。</p>
+</blockquote>
+<blockquote>
+<p><strong>6迪米特法则</strong></p>
+<p>也叫最少知道原则</p>
+<p>一个类对自己依赖的类知道的越少越好。</p>
+<p>对于被依赖的类来说，不管其多么复杂，都应该尽量把逻辑封装在类的内部。只对外提供public方法.</p>
+<p>尽量使用直接朋友(属性，参数)，避免出现局部变量(非直接朋友)。</p>
+</blockquote>
+<blockquote>
+<p><strong>7合成复用原则</strong></p>
+<p>尽量使用合成/聚合的方式，而不是使用继承。</p>
+</blockquote>
+<p>聚合（aggregation）关系是一种弱的整体和部分的关系，整体和部分可以相互独立。</p>
+<p>组合（composition）关系是一种强的整体和部分的关系，整体和部分具有相同的生命周期，同生共死。</p>
+<p><strong>依赖关系</strong>：一个类中用到了其它类。</p>
+<blockquote>
+<p><strong>【泛化关系】</strong>： 是一种继承关系，表现在类与类的继承关系；接口与接口的继承关系。驾驶员继承人类。(UML中带三角箭头的实线，箭头指向接口)</p>
+<p><strong>【实现关系】</strong>： 是实现类对接口实现的体现。鸟实现飞行的接口。（带三角箭头的虚线线，箭头指向接口）</p>
+<p><strong>【关联关系】</strong>： 是类与类之间的链接，它使一个类知道另一个类的属性和方法。关联可以是双向的，也可以是单向的。鸟栖息在某片森林。比如：成员变量</p>
+<p><strong>聚合</strong>（aggregation）关系是一种弱的整体和部分的关系，整体和部分可以相互独立。</p>
+<p><strong>组合</strong>（composition）关系是一种强的整体和部分的关系，整体和部分具有相同的生命周期，同生共死。</p>
+</blockquote>
+<h1 id="第二章-创建型模式">第二章-创建型模式</h1>
+<p><strong>单例模式</strong>、抽象工厂模式、原型模式、建造者模式、<strong>工厂模式</strong></p>
+<h2 id="单例模式">单例模式</h2>
+<blockquote>
+<p><strong>饿汉式单例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">SingleInstance</span><span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">single</span><span class="o">=</span><span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">(){</span>
+    <span class="k">return</span> <span class="n">single</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>优点：没有线程安全问题。</p>
+<p>缺点：随着类加载而加载，若没有使用，会造成内存浪费；</p>
+</blockquote>
+<blockquote>
+<p><strong>懒汉式单例</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">singleton</span><span class="o">;</span>
+<span class="kd">private</span> <span class="nf">Singleton</span><span class="o">()</span> <span class="o">{}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="n">getInstancet</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">singleton</span> <span class="o">==</span> <span class="n">nu1l</span><span class="o">)</span> <span class="o">{</span>
+  <span class="kd">synchronized</span> <span class="o">(</span><span class="n">Singleton</span><span class="o">.</span><span class="na">class</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">singleton</span> <span class="o">==</span> <span class="n">nu1l</span><span class="o">)</span> <span class="o">{</span>
+ 		 <span class="n">singleton</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="k">return</span> <span class="n">singleton</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>双重检查保证了线程安全</p>
+</blockquote>
+<blockquote>
+<p><strong>静态内部类的写法</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Singleton</span> <span class="o">{</span>
+<span class="kd">private</span> <span class="nf">Singleton</span><span class="o">()</span> <span class="o">{}</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">SingletonInstance</span> <span class="o">{</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Singleton</span> <span class="n">INSTANCE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Singleton</span><span class="o">();</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="n">Singleton</span> <span class="nf">getInstance</span><span class="o">()</span> <span class="o">{</span>
+<span class="k">return</span> <span class="n">SingletonInstance</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>这种方式采用了类装载的机制来保证初始化实例时只有一个线程。</li>
+<li>静态内部类方式在Singleton类被装载时并不会立即实例化，而是在需要实例化时，调用getInstance方法，才会装载SingletonInstance类，从而完成Singleton的实例化。</li>
+<li>类的静态属性只会在第一次加载类的时候初始化，所以在这里，JVM帮助我们保证了线程的安全性，在类进行初始化时，别的线程是无法进入的</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>enum枚举</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">enum</span> <span class="n">Singleton</span><span class="o">{</span>
+  <span class="n">INSTANCE</span><span class="o">;</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">method</span><span class="o">(){</span>
+   <span class="c1">// xxxx
+</span><span class="c1"></span>  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不仅能避免多线程同步问题，而且还能防止反序列化重新创建新的对象。</p>
+</blockquote>
+<hr>
+<p>在JDK的应用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"> <span class="n">Runtime</span> <span class="n">runtime</span><span class="o">=</span><span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">();</span>
+<span class="c1">//比如这个方法 使用的就是饿汉式单例
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Runtime</span> <span class="o">{</span>
+<span class="kd">private</span> <span class="kd">static</span> <span class="n">Runtime</span> <span class="n">currentRuntime</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Runtime</span><span class="o">();</span>
+  
+ <span class="kd">public</span> <span class="kd">static</span> <span class="n">Runtime</span> <span class="nf">getRuntime</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">currentRuntime</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="工厂模式">工厂模式</h2>
+<blockquote>
+<p><strong>简单工厂模式</strong></p>
+<p>把实例化对象的代码抽取出来</p>
+</blockquote>
+<blockquote>
+<p><strong>工厂方法模式</strong></p>
+<p>对工厂类进行抽象。</p>
+</blockquote>
+<blockquote>
+<p><strong>抽象工厂模式</strong></p>
+<p>对工厂类和产品类进行抽象。形成一个工厂簇和产品簇。</p>
+</blockquote>
+<blockquote>
+<p><strong>在JDK-Calendar应用</strong></p>
+<p>使用了简单工厂模式</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="n">Calendar</span> <span class="nf">createCalendar</span><span class="o">(</span><span class="n">TimeZone</span> <span class="n">zone</span><span class="o">,</span>
+                                           <span class="n">Locale</span> <span class="n">aLocale</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">aLocale</span><span class="o">.</span><span class="na">hasExtensions</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">String</span> <span class="n">caltype</span> <span class="o">=</span> <span class="n">aLocale</span><span class="o">.</span><span class="na">getUnicodeLocaleType</span><span class="o">(</span><span class="s">&#34;ca&#34;</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">caltype</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">switch</span> <span class="o">(</span><span class="n">caltype</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">case</span> <span class="s">&#34;buddhist&#34;</span><span class="o">:</span>
+                <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BuddhistCalendar</span><span class="o">(</span><span class="n">zone</span><span class="o">,</span> <span class="n">aLocale</span><span class="o">);</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="k">case</span> <span class="s">&#34;japanese&#34;</span><span class="o">:</span>
+                    <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JapaneseImperialCalendar</span><span class="o">(</span><span class="n">zone</span><span class="o">,</span> <span class="n">aLocale</span><span class="o">);</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="k">case</span> <span class="s">&#34;gregory&#34;</span><span class="o">:</span>
+                    <span class="n">cal</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GregorianCalendar</span><span class="o">(</span><span class="n">zone</span><span class="o">,</span> <span class="n">aLocale</span><span class="o">);</span>
+                    <span class="k">break</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">cal</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>根据不同的参数，返回不同的对象。</p>
+</blockquote>
+<h2 id="原型模式">原型模式</h2>
+<ol>
+<li>原型模式(Prototype模式)是指：用原型实例指定创建对象的种类，并且通过拷贝这些原型，创建新的对象</li>
+<li>原型模式是一种创建型设计模式，允许一个对象再创建另外一个可定制的对象，无需知道如何创建的细节</li>
+<li>工作原理是:通过将一个原型对象传给那个要发动创建的对象，这个要发动创建的对象通过请求原型对象拷贝它们自己来实施创建，即 对象.clone()</li>
+<li>形象的理解：孙大圣拔出猴毛， 变出其它孙大圣</li>
+</ol>
+<blockquote>
+<p>Spring中用到的原型模式prototype</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;id01&#34;</span>
+<span class="na">class=</span><span class="s">&#34;com.atguigu.spring.bean.Monster&#34;</span>
+<span class="na">scope=</span><span class="s">&#34;prototype&#34;</span><span class="nt">/&gt;</span>
+
+//获取bean
+applicationContext.getBean(&#34;id01&#34;);
+//看是否为原型模式
+else if (mbd.isPrototype()) {
+prototypeInstance = this.createBean(beanName, mbd, args);
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p><strong>浅拷贝</strong>：拷贝对象，对于基本类型成员变量，没影响。对于引用类型的数据，则会拷贝引用，若改变此对象，则影响拷贝的其它对象。</p>
+<p><strong>深拷贝</strong>：拷贝对象，对于基本类型的成员属性，没影响。对于引用类型的数据，也会拷贝对象，改变此对象，不影响拷贝的其它对象。</p>
+<blockquote>
+<p>实现深拷贝的两种方式：
+1实现Cloneable接口，重写clone方法。
+2通过对象序列化实现深拷贝(推荐)</p>
+<p><strong>方法1 clone方法</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">CloneSheep</span> <span class="kd">implements</span> <span class="n">Cloneable</span><span class="o">{</span>
+        <span class="kd">public</span> <span class="n">String</span> <span class="n">string</span><span class="o">=</span><span class="s">&#34;d&#34;</span><span class="o">;</span>
+        <span class="kd">public</span> <span class="n">String</span><span class="o">[]</span> <span class="n">ss</span><span class="o">={</span><span class="s">&#34;1&#34;</span><span class="o">,</span><span class="s">&#34;2&#34;</span><span class="o">};</span>
+        <span class="kd">public</span> <span class="n">CloneSheep</span> <span class="n">sheep</span><span class="o">;</span>
+
+  <span class="nd">@Override</span>
+  <span class="kd">protected</span> <span class="n">Object</span> <span class="nf">clone</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">CloneNotSupportedException</span> <span class="o">{</span>
+<span class="c1">//若拷贝对象属性都是基本类和属性时，可以直接使用父类拷贝
+</span><span class="c1">//若有 对象属性，则需要重写
+</span><span class="c1"></span>    <span class="n">CloneSheep</span> <span class="n">csheep</span><span class="o">=(</span><span class="n">CloneSheep</span><span class="o">)</span><span class="kd">super</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+    <span class="n">csheep</span><span class="o">.</span><span class="na">sheep</span><span class="o">=</span><span class="n">sheep</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+    <span class="c1">//这里麻烦的地方在于，要判断sheep是否为null
+</span><span class="c1"></span>    <span class="c1">//而且若对象复杂，则clone方法会很麻烦
+</span><span class="c1"></span>    <span class="k">return</span> <span class="n">csheep</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>方法2 对象序列化</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//创建流对象
+</span><span class="c1"></span><span class="n">ByteArrayOutputStream</span> <span class="n">bos</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="n">ObjectOutputStream</span> <span class="n">oos</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="n">ByteArrayInputStream</span> <span class="n">bis</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="n">ObjectInputStream</span> <span class="n">ois</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">try</span> <span class="o">{</span>
+<span class="c1">//序列化
+</span><span class="c1"></span><span class="n">bos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayOutputStream</span><span class="o">();</span>
+<span class="n">oos</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="n">bos</span><span class="o">);</span>
+<span class="n">oos</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="k">this</span><span class="o">);</span> <span class="c1">//当前这个对象以对象流的方式输出
+</span><span class="c1">//反序列化
+</span><span class="c1"></span><span class="n">bis</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ByteArrayInputStream</span><span class="o">(</span><span class="n">bos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">());</span>
+<span class="n">ois</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="n">bis</span><span class="o">);</span>
+<span class="n">DeepProtoType</span> <span class="n">copyObj</span> <span class="o">=</span> <span class="o">(</span><span class="n">DeepProtoType</span><span class="o">)</span><span class="n">ois</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+<span class="k">return</span> <span class="n">copyObj</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>创建新的对象比较复杂时，可以利用原型模式简化 对象的创建过程，同时也能够提高效率</li>
+<li>不用重新初始化对象，而是 动态地获得对象运行时的状态</li>
+<li>如果原始对象发生变化(增加或者减少属性)，其它克隆对象的也会发生相应的变化，无需修改代码</li>
+<li>在实现深克隆的时候可能需要比较复杂的代码</li>
+<li>缺点：需要为每一个类配备一个克隆方法，这对全新的类来说不是很难，但对已有的类进行改造时，需要修改
+其源代码，违背了 ocp 原则</li>
+</ol>
+</blockquote>
+<h2 id="建造者模式">建造者模式</h2>
+<p><img src="/typoraImg/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.assets/image-20200724172653026.png" alt="image-20200724172653026" style="zoom:70%;" /></p>
+<blockquote>
+<p>建造者模式在JDK的应用：StringBuilder</p>
+<p>Appendable 接口定义了多个append方法(抽象方法), 即Appendable 为抽象建造者, 定义了抽象方法。</p>
+<p>AbstractStringBuilder 实现了 Appendable 接口方法，这里的AbstractStringBuilder 已经是建造者，只是不能实例化。</p>
+<p>StringBuilder 即充当了指挥者角色，同时充当了具体的建造者，建造方法的实现是由 AbstractStringBuilder 完成, 而StringBuilder 继承了AbstractStringBuilder。</p>
+</blockquote>
+<blockquote>
+<p>注意：</p>
+<p>1 使用程序) 不必知道产品内部组成的细节，将产品本身与产品的创建过程解耦，使得相同的创建过程可以创建不同的产品对 象
+2  每一个具体建造者都相对独立，而与其他的具体建造者无关，因此可以很方便地替换具体建造者或增加新的具体建造者， 用户使用不同的具体建造者即可得到不同的产品对 象
+3 增加新的具体建造者无须修改原有类库的代码，指挥者类针对抽象建造者类编程，系统扩展方便，符合 “开闭原则 ”
+4  建造者模式所创建的产品一般具有较多的共同点，其组成部分相似， 如果产品之间的差异性很大，则不适合使用建造者模式</p>
+</blockquote>
+<h1 id="第三章-结构型模式">第三章-结构型模式</h1>
+<p><strong>适配器</strong>、<strong>装饰者</strong>、<strong>代理</strong>、桥接、组合、外观、享元</p>
+<h2 id="适配器">适配器</h2>
+<ol>
+<li>适配器模式(Adapter Pattern)将某个类的接口转换成客户端期望的另一个接口表示，主的目的是==兼容性，让原本因接口不匹配不能一起工作的两个类可以协同工作==。其别名为包装器(Wrapper)</li>
+<li>适配器模式属于结构型模式</li>
+<li>主要分为三类：类适配器模式、对象适配器模式、接口适配器模式</li>
+</ol>
+<blockquote>
+<p><strong>类适配器和对象适配器</strong>类似，类适配器是通过继承实现被适配对象调用，对象适配器通过属性实现被适配对象调用。</p>
+<p><strong>接口适配器</strong>，当 不需要全部实现接口提供的方法时，可先 设计一个抽象类实现 接口，并为该接口中每个方法提供一个 默认实现（空方法），那么该 抽象类的子类可有选择地覆盖父类的某些方法来实现需求</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//在AbsAdapter 我们将 Interface4 的方法进行默认实现
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">AbsAdapter</span> <span class="kd">implements</span> <span class="n">Interface4</span> <span class="o">{</span>
+
+	<span class="c1">//默认实现
+</span><span class="c1"></span>	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">m1</span><span class="o">()</span> <span class="o">{</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">m2</span><span class="o">()</span> <span class="o">{</span>
+	<span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">m3</span><span class="o">()</span> <span class="o">{</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">//////////
+</span><span class="c1"></span><span class="n">AbsAdapter</span> <span class="n">absAdapter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AbsAdapter</span><span class="o">()</span> <span class="o">{</span>
+			<span class="c1">//只需要去覆盖我们 需要使用 接口方法
+</span><span class="c1"></span>			<span class="nd">@Override</span>
+			<span class="kd">public</span> <span class="kt">void</span> <span class="nf">m1</span><span class="o">()</span> <span class="o">{</span>
+				<span class="c1">// TODO Auto-generated method stub
+</span><span class="c1"></span>				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;使用了m1的方法&#34;</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">};</span>
+<span class="n">absAdapter</span><span class="o">.</span><span class="na">m1</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p><strong>实际应用</strong></p>
+<p>应用一：FutureTask适配Callable 为Runnable</p>
+<p>FutureTask把Callable接口适配为Runnable接口。让其作为Runnable类运行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//FutureTask 实现了RunnableFuture接口
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FutureTask</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> 
+  <span class="kd">implements</span> <span class="n">RunnableFuture</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="n">callable</span><span class="o">;</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+   <span class="n">callable</span><span class="o">.</span><span class="na">call</span><span class="o">();</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="c1">//RunnableFuture 是Runnable接口子类
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">RunnableFuture</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> 
+  <span class="kd">extends</span> <span class="n">Runnable</span><span class="o">,</span> <span class="n">Future</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kt">void</span> <span class="nf">run</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="c1">///使用
+</span><span class="c1"></span><span class="n">FutureTask</span> <span class="n">future</span><span class="o">=</span><span class="k">new</span> <span class="n">FutureTask</span><span class="o">(</span><span class="k">new</span> <span class="n">classble1</span><span class="o">());</span>
+<span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">future</span><span class="o">).</span><span class="na">start</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p><strong>SpringMVC应用</strong>：Handler和HandlerAdapter</p>
+<hr>
+<p>DispatcherServlet中的doDispatch方法</p>
+<p>根据request请求先去HandelMapping中去寻找对应的handel(Controller)然后返回，</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//根据Controller获取相应的HandlerAdapter处理器适配器
+</span><span class="c1"></span><span class="n">HandlerAdapter</span> <span class="n">ha</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getHandlerAdapter</span><span class="o">(</span><span class="n">mappedHandler</span><span class="o">.</span><span class="na">getHandler</span><span class="o">());</span>
+
+<span class="c1">//处理器适配器 调用方法处理请求
+</span><span class="c1"></span><span class="n">mv</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="na">handle</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">mappedHandler</span><span class="o">.</span><span class="na">getHandler</span><span class="o">());</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>不管Controller的类型是Controller还是注解，还是RestController，都可以通过相应的HandlerAdapter进行适配然后调用方法处理请求。</p>
+</blockquote>
+<h2 id="装饰者模式">装饰者模式</h2>
+<p>装饰者模式： 动态的将新功能 附加到对象上。在对象功能扩展方面，它比继承更有弹性，装饰者模式也体现了开闭原则(ocp)</p>
+<blockquote>
+<p><strong>例子</strong>：Decorator /ˈdekəreɪtər 装饰者/  继承Drink<img src="/typoraImg/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.assets/image-20200725231008334.png" alt="image-20200725231008334"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 1. 点一份 LongBlack
+</span><span class="c1"></span>		<span class="n">Drink</span> <span class="n">order</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LongBlack</span><span class="o">();</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;费用1=&#34;</span> <span class="o">+</span> <span class="n">order</span><span class="o">.</span><span class="na">cost</span><span class="o">());</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;描述=&#34;</span> <span class="o">+</span> <span class="n">order</span><span class="o">.</span><span class="na">getDes</span><span class="o">());</span>
+
+		<span class="c1">// 2. order 加入一份牛奶
+</span><span class="c1"></span>		<span class="n">order</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Milk</span><span class="o">(</span><span class="n">order</span><span class="o">);</span>
+
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;order 加入一份牛奶 费用 =&#34;</span> <span class="o">+</span> <span class="n">order</span><span class="o">.</span><span class="na">cost</span><span class="o">());</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;order 加入一份牛奶 描述 = &#34;</span> <span class="o">+</span> <span class="n">order</span><span class="o">.</span><span class="na">getDes</span><span class="o">());</span>
+
+		<span class="c1">// 3. order 加入一份巧克力
+</span><span class="c1"></span>
+		<span class="n">order</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Chocolate</span><span class="o">(</span><span class="n">order</span><span class="o">);</span>
+
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;order 加入一份牛奶 加入一份巧克力  费用 =&#34;</span> <span class="o">+</span> <span class="n">order</span><span class="o">.</span><span class="na">cost</span><span class="o">());</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;order 加入一份牛奶 加入一份巧克力 描述 = &#34;</span> <span class="o">+</span> <span class="n">order</span><span class="o">.</span><span class="na">getDes</span><span class="o">());</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p><strong>装饰者模式 实际应用：IO流</strong></p>
+<p><img src="/typoraImg/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.assets/image-20200725232309705.png" alt="image-20200725232309705"></p>
+<p>public abstract class <strong>InputStream</strong> implements Closeable{} //是一个抽象类，即Component</p>
+<p>public class <strong>FilterInputStream</strong> extends InputStream { //是一个装饰者类Decorator
+其属性protected volatile InputStream in //被装饰的对象 }</p>
+<p>class <strong>DataInputStream</strong> extends FilterInputStream implements DataInput { //FilterInputStream 子类</p>
+</blockquote>
+<h2 id="代理模式">代理模式</h2>
+<blockquote>
+<p><strong>静态代理</strong></p>
+<p>静态代理在使用时,<strong>需要定义接口或者父类</strong>,被代理对象(即目标对象)与代理对象一起实现相同的接口或者是继承相同父类</p>
+<ol>
+<li>优点：在不修改目标对象的功能前提下, 能通过代理对象对目标功能扩展</li>
+<li>缺点：因为代理对象需要与目标对象实现一样的接口,所以会有很多代理类</li>
+<li>一旦接口增加方法,目标对象与代理对象都要维护</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>JDK动态代理</strong></p>
+<ol>
+<li>代理对象,不需要实现接口，但是<strong>目标对象要实现接口，否则不能用动态代理</strong></li>
+<li>代理对象的生成，是利用JDK的API，动态的在内存中构建代理对象</li>
+<li>动态代理也叫做：JDK代理、接口代理</li>
+</ol>
+<p><img src="/typoraImg/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.assets/image-20200726162846257.png" alt="image-20200726162846257"></p>
+</blockquote>
+<blockquote>
+<p><strong>Cglib动态代理</strong></p>
+<ol>
+<li>
+<p>静态代理和JDK代理模式都要求目标对象是实现一个接口,有时候目标对象只是一个单独的对象,并没有实现任何的接口,这时可使用目标对象子类来实现代理-这就是Cglib代理。</p>
+</li>
+<li>
+<p>Cglib代理也叫作子类代理,它是在内存中构建一个子类对象从而实现对目标对象功能扩展,</p>
+</li>
+<li>
+<p>Cglib是一个强大的高性能的代码生成包,它可以在运行期扩展java类与实现java接口.它广泛的被许多AOP的框架使用,例如Spring AOP，实现方法拦截。</p>
+</li>
+</ol>
+<hr>
+<p>注意：</p>
+<ol start="2">
+<li>在内存中动态构建子类，注意代理的类不能为final，否则报错java.lang.IllegalArgumentException:</li>
+<li>目标对象的方法如果为final/static,那么就不会被拦截,即不会执行目标对象额外的业务方法.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p><strong>应用</strong></p>
+<p>例如Spring AOP(Spring的声明式事务)，实现方法拦截。</p>
+<ol>
+<li>目标对象需要实现接口，用JDK代理</li>
+<li>目标对象不需要实现接口，用Cglib代理</li>
+</ol>
+</blockquote>
+<h2 id="其它">其它</h2>
+<p>桥接</p>
+<p>组合</p>
+<p>外观</p>
+<p>享元</p>
+<h1 id="第四章-行为型模式">第四章-行为型模式</h1>
+<p><strong>模版方法模式</strong>、命令模式、访问者模式、迭代器模式、<strong>观察者</strong>
+<strong>模式</strong>、中介者模式、备忘录模式、解释器模式(Interpreter模式) 、状态模
+式、策略模式、<strong>职责链模式(责任链模式)</strong>。</p>
+<h2 id="模版方法模式">模版方法模式</h2>
+<blockquote>
+<p><strong>定义：</strong></p>
+<ol>
+<li>模板方法模式（Template Method Pattern），又叫模板模式(Template Pattern)，在一个抽象类公开定义了执行它的方法的模板。它的子类可以按需要重写方法实现，但调用将以抽象类中定义的方式进行。</li>
+<li>简单说， 模板方法模 式 定义一个操作中的算法的骨架，而将一些步骤延迟到子类中，使得子类可以不改变一个算法的结构，就可以重定义该算法的某些特定步骤。</li>
+</ol>
+<p><img src="/typoraImg/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.assets/image-20200726170552149.png" alt="image-20200726170552149" style="zoom:67%;" /></p>
+</blockquote>
+<blockquote>
+<p>实际应用：SpringIOC容器中</p>
+<p><img src="/typoraImg/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.assets/image-20200726174733497.png" alt="image-20200726174733497" style="zoom:80%;" /></p>
+<p>我们使用的ClassPathXmlApplicationContext的父类为
+AbstractXmlApplicationContext 又继承AbstractRefreshableConfigApplicationContext</p>
+</blockquote>
+<h2 id="观察者模式">观察者模式</h2>
+<blockquote>
+<p>定义：</p>
+<p>观察者模式类似订牛奶业务</p>
+<ol>
+<li>奶站/气象局：Subject</li>
+<li>用户/第三方网站：Observer
+Subject：登记注册、移除和通知</li>
+</ol>
+<p><img src="/typoraImg/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.assets/image-20200726193150561.png" alt="image-20200726193150561" style="zoom:80%;" /></p>
+<p>优点</p>
+<ol>
+<li>观察者模式设计后，会以集合的方式来管理用户(Observer)，包括注册，移除
+和通知。</li>
+<li>这样，我们增加观察者(这里可以理解成一个新的公告板)，就不需要去修改核
+心类WeatherData不会修改代码，遵守了ocp原则。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>实际应用：JDK 的Observable类、web开发的监听</p>
+<ul>
+<li>Observable 的作用和地位等价于 我过 们前面讲过Subject</li>
+<li>Observable 是类，不是接口，类中已经实现了核心的方法 , 即管理Observer
+法 的方法 add.. delete .. notify&hellip;</li>
+<li>Observer 的作用和地位等价于我们前面讲过的 Observer, 有update</li>
+<li>Observable 和 和 Observer 的使用方法和前面讲过的一样，只是Observable  是
+类，通过继承来实现观察者模式</li>
+</ul>
+</blockquote>
+<h2 id="职责链模式责任链模式">职责链模式(责任链模式)</h2>
+<blockquote>
+<p>定义</p>
+<p>使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止.</p>
+<p>职责链可以是一条直线，一个环或者树形结构，常见的是直线型，即沿着一条单向的链来传递请求。客户无需关心请求的处理细节以及请求的传递，只需将请求发送到链上。将请求的发送者和处理者解耦，是职责链模式的动机。</p>
+<p><img src="/typoraImg/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.assets/image-20200727105255178.png" alt="image-20200727105255178"></p>
+<p>Handler中有一个属性，是自己。还有一个方法负责处理请求。当使用时，创建多个Handler的子类，然后设置下级节点(或者形成一个环形链表)，根据请求的参数不同，看是由谁处理，调用者不需要关系由谁处理，只需要设置好责任链就好了。</p>
+</blockquote>
+<blockquote>
+<p>实际应用：OA审批、SpringMVC</p>
+<p>如果金额 小于等于 5000, 由教学主任审批
+如果金额 小于等于 10000, 由院长审批</p>
+<hr>
+<p>DispatcherServlet类中的doDispatch方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doDispatch</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">HttpServletRequest</span> <span class="n">processedRequest</span> <span class="o">=</span> <span class="n">request</span><span class="o">;</span>
+        <span class="n">HandlerExecutionChain</span> <span class="n">mappedHandler</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="kt">boolean</span> <span class="n">multipartRequestParsed</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+        <span class="n">WebAsyncManager</span> <span class="n">asyncManager</span> <span class="o">=</span> <span class="n">WebAsyncUtils</span><span class="o">.</span><span class="na">getAsyncManager</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+
+  <span class="k">try</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="n">ModelAndView</span> <span class="n">mv</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+      <span class="n">Object</span> <span class="n">dispatchException</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">processedRequest</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">checkMultipart</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+        <span class="n">multipartRequestParsed</span> <span class="o">=</span> <span class="n">processedRequest</span> <span class="o">!=</span> <span class="n">request</span><span class="o">;</span>
+        <span class="c1">// 获取该请求的handler，每个handler实为HandlerExecutionChain，它为一个处理链，负责处理整个请求
+</span><span class="c1"></span>        <span class="n">mappedHandler</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getHandler</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mappedHandler</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+          <span class="k">this</span><span class="o">.</span><span class="na">noHandlerFound</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+          <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="n">HandlerAdapter</span> <span class="n">ha</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getHandlerAdapter</span><span class="o">(</span><span class="n">mappedHandler</span><span class="o">.</span><span class="na">getHandler</span><span class="o">());</span>
+        <span class="n">String</span> <span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getMethod</span><span class="o">();</span>
+        <span class="kt">boolean</span> <span class="n">isGet</span> <span class="o">=</span> <span class="s">&#34;GET&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">method</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">isGet</span> <span class="o">||</span> <span class="s">&#34;HEAD&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">method</span><span class="o">))</span> <span class="o">{</span>
+          <span class="kt">long</span> <span class="n">lastModified</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="na">getLastModified</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">mappedHandler</span><span class="o">.</span><span class="na">getHandler</span><span class="o">());</span>
+          <span class="k">if</span> <span class="o">((</span><span class="k">new</span> <span class="n">ServletWebRequest</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">)).</span><span class="na">checkNotModified</span><span class="o">(</span><span class="n">lastModified</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">isGet</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span><span class="o">;</span>
+          <span class="o">}</span>
+        <span class="o">}</span>
+
+ 				<span class="c1">// 责任链执行预处理方法，实则是将请求交给注册的请求拦截器执行
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(!</span><span class="n">mappedHandler</span><span class="o">.</span><span class="na">applyPreHandle</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">,</span> <span class="n">response</span><span class="o">))</span> <span class="o">{</span>
+          <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="c1">// 实际的执行逻辑的部分，也就是你加了@RequestMapping注解的方法
+</span><span class="c1"></span>        <span class="n">mv</span> <span class="o">=</span> <span class="n">ha</span><span class="o">.</span><span class="na">handle</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">mappedHandler</span><span class="o">.</span><span class="na">getHandler</span><span class="o">());</span>
+
+        <span class="k">this</span><span class="o">.</span><span class="na">applyDefaultViewName</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">,</span> <span class="n">mv</span><span class="o">);</span>
+        <span class="c1">// 责任链执行后处理方法，实则是将请求交给注册的请求拦截器执行
+</span><span class="c1"></span>        <span class="n">mappedHandler</span><span class="o">.</span><span class="na">applyPostHandle</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">mv</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">var20</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">dispatchException</span> <span class="o">=</span> <span class="n">var20</span><span class="o">;</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">var21</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">dispatchException</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NestedServletException</span><span class="o">(</span><span class="s">&#34;Handler dispatch failed&#34;</span><span class="o">,</span> <span class="n">var21</span><span class="o">);</span>
+      <span class="o">}</span>
+<span class="c1">// 处理返回的结果，触发责任链上注册的拦截器的AfterCompletion方法，其中也用到了HandlerExecutionChain注册的handler来处理错误结果
+</span><span class="c1"></span>      <span class="k">this</span><span class="o">.</span><span class="na">processDispatchResult</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">mappedHandler</span><span class="o">,</span> <span class="n">mv</span><span class="o">,</span> <span class="o">(</span><span class="n">Exception</span><span class="o">)</span><span class="n">dispatchException</span><span class="o">);</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">var22</span><span class="o">)</span> <span class="o">{</span>
+       <span class="c1">// 触发责任链上注册的拦截器的AfterCompletion方法
+</span><span class="c1"></span>      <span class="k">this</span><span class="o">.</span><span class="na">triggerAfterCompletion</span><span class="o">(</span><span class="n">processedRequest</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="n">mappedHandler</span><span class="o">,</span> <span class="n">var22</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>从上面的代码中我们可以看到，HandlerExecutionChain主要负责请求的拦截器的执行和请求的处理，但是他本身不处理请求，只是将请求分配给在链上注册的处理器执行，这是一种责任链的实现方式，减少了责任链本身与处理逻辑之间的耦合的同时，规范了整个处理请求的流程，下面我们看一下上面代码中涉及到的方法在HandlerExecutionChain类中对应的代码。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kt">boolean</span> <span class="nf">applyPreHandle</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">HandlerInterceptor</span><span class="o">[]</span> <span class="n">interceptors</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getInterceptors</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">ObjectUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">interceptors</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">interceptors</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="k">this</span><span class="o">.</span><span class="na">interceptorIndex</span> <span class="o">=</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+                <span class="n">HandlerInterceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="n">interceptors</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+                <span class="k">if</span> <span class="o">(!</span><span class="n">interceptor</span><span class="o">.</span><span class="na">preHandle</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">handler</span><span class="o">))</span> <span class="o">{</span>
+                    <span class="k">this</span><span class="o">.</span><span class="na">triggerAfterCompletion</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="o">(</span><span class="n">Exception</span><span class="o">)</span><span class="kc">null</span><span class="o">);</span>
+                    <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">applyPostHandle</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">ModelAndView</span> <span class="n">mv</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">HandlerInterceptor</span><span class="o">[]</span> <span class="n">interceptors</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getInterceptors</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">ObjectUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">interceptors</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">interceptors</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">HandlerInterceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="n">interceptors</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+                <span class="n">interceptor</span><span class="o">.</span><span class="na">postHandle</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">handler</span><span class="o">,</span> <span class="n">mv</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">triggerAfterCompletion</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">HandlerInterceptor</span><span class="o">[]</span> <span class="n">interceptors</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getInterceptors</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">ObjectUtils</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">(</span><span class="n">interceptors</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">interceptorIndex</span><span class="o">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">0</span><span class="o">;</span> <span class="o">--</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">HandlerInterceptor</span> <span class="n">interceptor</span> <span class="o">=</span> <span class="n">interceptors</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+
+                <span class="k">try</span> <span class="o">{</span>
+                    <span class="n">interceptor</span><span class="o">.</span><span class="na">afterCompletion</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">handler</span><span class="o">,</span> <span class="n">ex</span><span class="o">);</span>
+                <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Throwable</span> <span class="n">var8</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&#34;HandlerInterceptor.afterCompletion threw exception&#34;</span><span class="o">,</span> <span class="n">var8</span><span class="o">);</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="其它-1">其它</h2>
+<p>命令模式、访问者模式、迭代器模式、、中介者模式、备忘录模式、解释器模式(Interpreter模式) 、状态模
+式、策略模式、</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/springcloud_2020/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SpringCloud_2020.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/jvm/">
+            <span class="next-text nav-default">JVM.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

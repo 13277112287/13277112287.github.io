@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSH框架(不常用) on Even - A super concise theme for Hugo</title>
+    <link>https://13277112287.github.io/categories/ssh%E6%A1%86%E6%9E%B6%E4%B8%8D%E5%B8%B8%E7%94%A8/</link>
+    <description>Recent content in SSH框架(不常用) on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://13277112287.github.io/categories/ssh%E6%A1%86%E6%9E%B6%E4%B8%8D%E5%B8%B8%E7%94%A8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring整合SSH.md</title>
+      <link>https://13277112287.github.io/post/spring%E6%95%B4%E5%90%88ssh/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/spring%E6%95%B4%E5%90%88ssh/</guid>
+      <description>1SSH框架整合strtus2 1.1 pom.xml依赖 jia包，手动在oracle-&amp;gt;jdbc-&amp;gt;lib-&amp;gt;classes12</description>
+    </item>
+    
+    <item>
+      <title>Hibernate.md</title>
+      <link>https://13277112287.github.io/post/hibernate/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/hibernate/</guid>
+      <description>面试题一览 介绍hiberante Hibernate是一个基于Java的开源的持久化中间件，对JDBC做了轻量的封装。 采用ORM(object</description>
+    </item>
+    
+    <item>
+      <title>Strtus2.md</title>
+      <link>https://13277112287.github.io/post/strtus2/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/strtus2/</guid>
+      <description>面试题一览 第一章-Strtus2概述 1什么是Strtus2 Struts 2以WebWork为核心，采用拦截器的机制来处理用户的请求，这样的设计也使得业务</description>
+    </item>
+    
+  </channel>
+</rss>

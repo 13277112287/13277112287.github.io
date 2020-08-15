@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>WebService.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-WebService概述 1什么是WebService 能在不同语言、不同平台之间实现调用，归功于HTTP,XML与SOAP 实现信息在I" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/webservice/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="WebService.md" />
+<meta property="og:description" content="第一章-WebService概述 1什么是WebService 能在不同语言、不同平台之间实现调用，归功于HTTP,XML与SOAP 实现信息在I" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/webservice/" />
+<meta property="article:published_time" content="2020-06-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-23T00:00:00+00:00" />
+<meta itemprop="name" content="WebService.md">
+<meta itemprop="description" content="第一章-WebService概述 1什么是WebService 能在不同语言、不同平台之间实现调用，归功于HTTP,XML与SOAP 实现信息在I">
+<meta itemprop="datePublished" content="2020-06-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2249">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="WebService.md"/>
+<meta name="twitter:description" content="第一章-WebService概述 1什么是WebService 能在不同语言、不同平台之间实现调用，归功于HTTP,XML与SOAP 实现信息在I"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">WebService.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-22 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%A1%86%E6%9E%B6/"> 框架 </a>
+            </div>
+          <span class="more-meta"> 约 2249 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-webservice概述">第一章-WebService概述</a>
+      <ul>
+        <li><a href="#1什么是webservice">1什么是WebService</a></li>
+        <li><a href="#2快速入门">2快速入门</a>
+          <ul>
+            <li><a href="#1-服务提供者provider">1-服务提供者provider</a></li>
+            <li><a href="#2-服务消费者consumer">2-服务消费者consumer</a></li>
+          </ul>
+        </li>
+        <li><a href="#3json数据转换">3JSON数据转换</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-">第二章-</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-webservice概述">第一章-WebService概述</h1>
+<h2 id="1什么是webservice">1什么是WebService</h2>
+<p>能在不同语言、不同平台之间实现调用，归功于HTTP,XML与SOAP</p>
+<p>实现信息在Internate上共享</p>
+<p>SOAP、WSDL、Apache CXF</p>
+<blockquote>
+<p>SOAP （Simple   Object   Access   Protocol）
+简单对象传输协议</p>
+<p>SOAP是一种中立的信息传递协议。SOAP消息都是XML格式的。虽然SOAP协议没有指明一定要用HTTP协议传输消息，但我们一般还是都采用HTTP协议发送请求的SOAP消息和回应的SOAP消息。
+SOAP消息的具体格式：每一个SOAP消息都有一个根元素Envelope（信封），它包含header和body两个部分。Header包含了上下文数据，可以不存在，而body包含了具体的消息，必须存在。下面是一个通过HTTP协议请求Borland公司股票价格的SOAP消息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">POST 网络地址 HTTP/1.1 
+Host:  www.stock.com
+Content-Type: text/xml; charset=&#34;utf-8&#34;
+Content-Length: SOAP消息长度
+SOAPAction: &#34;urn:stock-quote-services&#34;w
+<span class="nt">&lt;SOAP-ENV:Envelope</span> <span class="na">xmlns:SOAP-ENV=</span><span class="s">&#34;命名空间&#34;</span> <span class="na">SOAP-ENV:encodingStyle=</span><span class="s">&#34;命名空间&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;SOAP-ENV:Body&gt;</span> 
+        <span class="nt">&lt;m:GetLastTradePrice</span> <span class="na">xmlns:m=</span><span class="s">&#34;Some-URI&#34;</span><span class="nt">&gt;</span>   
+             <span class="nt">&lt;symbol&gt;</span>Borland公司股票代码<span class="nt">&lt;/symbol&gt;</span>   
+        <span class="nt">&lt;/m:GetLastTradePrice&gt;</span>   
+    <span class="nt">&lt;/SOAP-ENV:Body&gt;</span>   
+<span class="nt">&lt;/SOAP-ENV:Envelope&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p>WSDL （Web Services   Description   Language）
+Web Services 描述语言</p>
+<p>如果你提供了一个很好的Web Services，但是别人不知道你的Web Services能做什么，以及如何调用，那么它一点用都没有，我们必须为他写一个说明文档。WSDL就是做这个的，WSDL采用XML格式描述Web Services的用途，和调用它需要的参数，这样客户端就可以通过WSDL文件获致Web Services的信息。</p>
+</blockquote>
+<blockquote>
+<p>Apache CXF 的前身是叫Apache CeltiXfire
+CXF继承自 Celtix 和 XFire 两大开源项目
+提供对 JAX-WS全面的支持
+提供了多种 Binding 、Data Binding、Transport 以及 Format的支持
+可以采用 Code First 或者 WSDL First 来实现 Web Services 的发布和使用</p>
+</blockquote>
+<h2 id="2快速入门">2快速入门</h2>
+<p>需要有两个模块：provider /prəˈvaɪdər/ 服务提供者、Consumer</p>
+<p>即两个spring boot项目：</p>
+<h3 id="1-服务提供者provider">1-服务提供者provider</h3>
+<blockquote>
+<p>1加入jar  2编写对外提供服务的接口  3编写接口实现类  4编写配置类</p>
+<p>1加入Jar</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;!--</span><span class="n">CXF</span> <span class="n">webservice</span><span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">cxf</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">cxf</span><span class="o">-</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">jaxws</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">3</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">6</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+  
+  <span class="o">&lt;!--</span><span class="n">新版的cxf需要依赖</span> <span class="n">hibernate的验证器</span><span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">hibernate</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">hibernate</span><span class="o">-</span><span class="n">validator</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">6</span><span class="o">.</span><span class="na">1</span><span class="o">.</span><span class="na">5</span><span class="o">.</span><span class="na">Final</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;!--</span><span class="n">springBoot依赖</span> <span class="n">tomcat</span><span class="o">,</span><span class="n">dispatcherServlet</span><span class="o">,</span><span class="n">xml</span> <span class="o">--&gt;</span>
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+      <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">web</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2编写对外提供服务的接口</p>
+<p>可以直接写在 服务提供者里，provider。</p>
+<p>也可以新建一个项目jar包类型，Maven中执行install可以加入maven仓储。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">pom</span><span class="o">.</span><span class="na">xml的坐标</span>  <span class="n">在服务器生产者和服务消费者引用</span>
+<span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">example</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">1</span><span class="o">.</span><span class="na">0</span><span class="o">-</span><span class="n">SNAPSHOT</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">serviceCXF1</span><span class="o">-</span><span class="n">consumer</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">packaging</span><span class="o">&gt;</span><span class="n">jar</span><span class="o">&lt;/</span><span class="n">packaging</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3编写服务实现类</p>
+<p>注意endpointInterface接口全路径要正确</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.service.impl</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.core.JsonProcessingException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.jws.WebService</span><span class="o">;</span>
+
+<span class="nd">@Component</span>
+<span class="nd">@WebService</span><span class="o">(</span><span class="n">serviceName</span> <span class="o">=</span> <span class="s">&#34;empService&#34;</span><span class="o">,</span> <span class="c1">// 对外发布的服务名
+</span><span class="c1"></span>        <span class="c1">// 指定你想要的名称空间，通常使用使用包名反转
+</span><span class="c1"></span>        <span class="n">targetNamespace</span> <span class="o">=</span> <span class="s">&#34;http://service.lx.com&#34;</span><span class="o">,</span>
+        <span class="c1">// 对外提供服务接口全路径
+</span><span class="c1"></span>        <span class="n">endpointInterface</span> <span class="o">=</span> <span class="s">&#34;com.lx.service.EmpService&#34;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmpServiceImpl</span> <span class="kd">implements</span> <span class="n">EmpService</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getEmpById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span>  <span class="o">{</span>
+        <span class="n">ZzEmployee</span> <span class="n">emp</span><span class="o">=</span><span class="k">new</span> <span class="n">ZzEmployee</span><span class="o">();</span>
+        <span class="n">emp</span><span class="o">.</span><span class="na">setOid</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+
+        <span class="n">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">=</span><span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">();</span>
+        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">emp</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JsonProcessingException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>4编写配置类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CxfConfig</span> <span class="o">{</span>
+	<span class="cm">/**@Autowired
+</span><span class="cm">	private Bus bus;
+</span><span class="cm">	@Autowired
+</span><span class="cm">	UserService userService;
+</span><span class="cm">	可以通过属性注入
+</span><span class="cm">	*/</span>
+  
+	<span class="cm">/**
+</span><span class="cm">     * 此方法被注释后:wsdl访问地址为http://127.0.0.1:8080/services/user?wsdl
+</span><span class="cm">     * 去掉注释后：wsdl访问地址为：http://127.0.0.1:8080/soap/user?wsdl
+</span><span class="cm">     */</span>
+    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="s">&#34;all&#34;</span><span class="o">)</span>
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">ServletRegistrationBean</span><span class="o">&lt;</span><span class="n">Servlet</span><span class="o">&gt;</span> <span class="nf">dispatcherServlet</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ServletRegistrationBean</span><span class="o">(</span><span class="k">new</span> <span class="n">CXFServlet</span><span class="o">(),</span> <span class="s">&#34;/soap/*&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">//JAX-WS站点服务
+</span><span class="c1"></span>  <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">Endpoint</span> <span class="nf">endpoint</span><span class="o">(</span><span class="n">Bus</span> <span class="n">bus</span><span class="o">,</span> <span class="n">EmpService</span> <span class="n">empService</span><span class="o">){</span>
+        <span class="n">Endpoint</span> <span class="n">endpoint</span><span class="o">=</span><span class="k">new</span> <span class="n">EndpointImpl</span><span class="o">(</span><span class="n">empService</span><span class="o">);</span>
+        <span class="n">endpoint</span><span class="o">.</span><span class="na">publish</span><span class="o">(</span><span class="s">&#34;/emp&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">endpoint</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意访问地址：http://127.0.0.1:8080/services/user?wsdl</p>
+</blockquote>
+<h3 id="2-服务消费者consumer">2-服务消费者consumer</h3>
+<p>consumer可以是java项目，也可以是web项目</p>
+<p>1加入jar、2调用其它项目接口</p>
+<p>1加入jar</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;parent&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.3.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;relativePath/&gt;</span> <span class="c">&lt;!-- lookup parent from repository --&gt;</span>
+<span class="nt">&lt;/parent&gt;</span>
+
+<span class="nt">&lt;groupId&gt;</span>org.example<span class="nt">&lt;/groupId&gt;</span>
+<span class="nt">&lt;artifactId&gt;</span>serviceCXF1-consumer0<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;packaging&gt;</span>war<span class="nt">&lt;/packaging&gt;</span>
+
+<span class="nt">&lt;name&gt;</span>serviceCXF1-consumer0 Maven Webapp<span class="nt">&lt;/name&gt;</span>
+<span class="c">&lt;!-- FIXME change it to the project&#39;s website --&gt;</span>
+<span class="nt">&lt;url&gt;</span>http://www.example.com<span class="nt">&lt;/url&gt;</span>
+
+<span class="nt">&lt;properties&gt;</span>
+  <span class="nt">&lt;project.build.sourceEncoding&gt;</span>UTF-8<span class="nt">&lt;/project.build.sourceEncoding&gt;</span>
+  <span class="nt">&lt;maven.compiler.source&gt;</span>1.8<span class="nt">&lt;/maven.compiler.source&gt;</span>
+  <span class="nt">&lt;maven.compiler.target&gt;</span>1.8<span class="nt">&lt;/maven.compiler.target&gt;</span>
+<span class="nt">&lt;/properties&gt;</span>
+
+<span class="nt">&lt;dependencies&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>4.11<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+
+  <span class="c">&lt;!--CXF webservice--&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>cxf-spring-boot-starter-jaxws<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.3.6<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>hibernate-validator<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>6.1.5.Final<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+
+  <span class="c">&lt;!--springBoot依赖 tomcat,dispatcherServlet,xml --&gt;</span>
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+
+  <span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.example<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>serviceCXF1-consumer<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2调用其它项目接口：<strong>方式一 通过接口调用(适合同一项目，依赖易导入)</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.factory</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.core.JsonProcessingException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lx.entity.ZzEmployee</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lx.service.EmpService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.cxf.jaxws.JaxWsProxyFactoryBean</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">t1</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//接口地址
+</span><span class="c1"></span>        <span class="n">String</span> <span class="n">address</span><span class="o">=</span><span class="s">&#34;http://localhost:8080/services/emp?wsdl&#34;</span><span class="o">;</span>
+
+        <span class="c1">//代理工厂
+</span><span class="c1"></span>        <span class="n">JaxWsProxyFactoryBean</span> <span class="n">factoryBean</span><span class="o">=</span><span class="k">new</span> <span class="n">JaxWsProxyFactoryBean</span><span class="o">();</span>
+
+        <span class="c1">//设置代理设置
+</span><span class="c1"></span>        <span class="n">factoryBean</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="n">address</span><span class="o">);</span>
+
+        <span class="c1">//设置接口类型
+</span><span class="c1"></span>        <span class="n">factoryBean</span><span class="o">.</span><span class="na">setServiceClass</span><span class="o">(</span><span class="n">EmpService</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+        <span class="c1">//创建一个代理接口实现
+</span><span class="c1"></span>        <span class="n">EmpService</span> <span class="n">emp</span><span class="o">=</span> <span class="o">(</span><span class="n">EmpService</span><span class="o">)</span> <span class="n">factoryBean</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+
+        <span class="c1">//调用代理接口方法并返回结果
+</span><span class="c1"></span>        <span class="n">String</span> <span class="n">result</span><span class="o">=</span><span class="n">emp</span><span class="o">.</span><span class="na">getEmpById</span><span class="o">(</span><span class="n">15</span><span class="o">);</span>
+        <span class="n">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">=</span><span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">();</span>
+        <span class="n">ZzEmployee</span> <span class="n">zzEmployee</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+             <span class="n">zzEmployee</span> <span class="o">=</span> <span class="n">objectMapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">ZzEmployee</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JsonProcessingException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;结果：&#34;</span><span class="o">+</span><span class="n">result</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;对象：&#34;</span><span class="o">+</span><span class="n">zzEmployee</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>3调用其它项目接口：<strong>方式二 动态调用，不需要接口。适合各个不同服务器调用</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.dynamic</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.sun.xml.internal.ws.handler.ClientLogicalHandlerTube</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.cxf.endpoint.Client</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">consumert1</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//创建动态客户端
+</span><span class="c1"></span>        <span class="n">JaxWsDynamicClientFactory</span> <span class="n">dcf</span><span class="o">=</span><span class="n">JaxWsDynamicClientFactory</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+        <span class="n">Client</span> <span class="n">client</span><span class="o">=</span><span class="n">dcf</span><span class="o">.</span><span class="na">createClient</span><span class="o">(</span><span class="s">&#34;http://localhost:8080/services/emp?wsdl&#34;</span><span class="o">);</span>
+
+        <span class="c1">//需要密码情况加上用户名密码
+</span><span class="c1"></span>      <span class="c1">//  boolean add = Client.getOutInterceptors().add(new ClientLogicalHandlerTube(&#34;name&#34;, &#34;password&#34;));
+</span><span class="c1"></span>
+        <span class="n">Object</span><span class="o">[]</span> <span class="n">objs</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">objs</span><span class="o">=</span><span class="n">client</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="s">&#34;getEmpById&#34;</span><span class="o">,</span><span class="n">1</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">objs</span><span class="o">[</span><span class="n">0</span><span class="o">]);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3json数据转换">3JSON数据转换</h2>
+<blockquote>
+<p>java对象&mdash;&gt;JSON     使用Jackson</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">=</span><span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">();</span>
+<span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">emp</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JsonProcessingException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p>JSON&mdash;&gt;java对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">=</span><span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">();</span>
+<span class="n">ZzEmployee</span> <span class="n">zzEmployee</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+<span class="k">try</span> <span class="o">{</span>
+  <span class="n">zzEmployee</span> <span class="o">=</span> <span class="n">objectMapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">result</span><span class="o">,</span> <span class="n">ZzEmployee</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JsonProcessingException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h1 id="第二章-">第二章-</h1>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-06-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/jvm/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JVM.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/juc/">
+            <span class="next-text nav-default">JUC.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>MySQL.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-MySQL概述 5.7版本下载地址https://dev.mysql.com/downloads/file/?id=494047 免安装" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/mysql/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="MySQL.md" />
+<meta property="og:description" content="第一章-MySQL概述 5.7版本下载地址https://dev.mysql.com/downloads/file/?id=494047 免安装" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/mysql/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-23T00:00:00+00:00" />
+<meta itemprop="name" content="MySQL.md">
+<meta itemprop="description" content="第一章-MySQL概述 5.7版本下载地址https://dev.mysql.com/downloads/file/?id=494047 免安装">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2762">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MySQL.md"/>
+<meta name="twitter:description" content="第一章-MySQL概述 5.7版本下载地址https://dev.mysql.com/downloads/file/?id=494047 免安装"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">MySQL.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/database/"> Database </a>
+            </div>
+          <span class="more-meta"> 约 2762 字 </span>
+          <span class="more-meta"> 预计阅读 6 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-mysql概述">第一章-MySQL概述</a>
+      <ul>
+        <li><a href="#1数据类型">1数据类型</a>
+          <ul>
+            <li><a href="#11数值类型"><strong>1.1数值类型</strong></a></li>
+            <li><a href="#12日期和时间类型"><strong>1.2日期和时间类型</strong></a></li>
+            <li><a href="#13字符串类型"><strong>1.3字符串类型</strong></a></li>
+            <li><a href="#14常见错误">1.4常见错误</a></li>
+          </ul>
+        </li>
+        <li><a href="#2快速入门">2快速入门</a>
+          <ul>
+            <li><a href="#21navicat创建数据库">2.1Navicat创建数据库</a></li>
+          </ul>
+        </li>
+        <li><a href="#heading"></a>
+          <ul>
+            <li><a href="#22连接数据库注意">2.2连接数据库注意</a></li>
+          </ul>
+        </li>
+        <li><a href="#3常见sql">3常见SQL</a>
+          <ul>
+            <li><a href="#日期">日期</a></li>
+            <li><a href="#日期函数">日期函数</a></li>
+            <li><a href="#索引添加">索引添加</a></li>
+            <li><a href="#增删改查">增删改查</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第二章-执行引擎">第二章-执行引擎</a>
+      <ul>
+        <li><a href="#1myisam">1、MyISAM</a></li>
+        <li><a href="#2innodb">2InnoDB</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-mysql概述">第一章-MySQL概述</h1>
+<p>5.7版本下载地址https://dev.mysql.com/downloads/file/?id=494047
+免安装版本教程（win10缺少组件）：https://blog.csdn.net/juncailiao/article/details/82706155</p>
+<p>U盘中的安装教程https://blog.csdn.net/weixin_44051608/article/details/85163823
+mysql本机密码：root 123456</p>
+<h2 id="1数据类型">1数据类型</h2>
+<p>MySQL支持多种类型，大致可以分为三类：数值、日期/时间和字符串(字符)类型。</p>
+<h3 id="11数值类型"><strong>1.1数值类型</strong></h3>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">范围（有符号）</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TINYINT</td>
+<td align="left">1 字节</td>
+<td align="left">(-128，127)</td>
+<td align="center">小整数值</td>
+</tr>
+<tr>
+<td align="left">SMALLINT</td>
+<td align="left">2 字节</td>
+<td align="left">(-32 768，32 767)</td>
+<td align="center">大整数值</td>
+</tr>
+<tr>
+<td align="left">MEDIUMINT</td>
+<td align="left">3 字节</td>
+<td align="left">(-8 388 608，8 388 607)</td>
+<td align="center">大整数值</td>
+</tr>
+<tr>
+<td align="left">INT或INTEGER</td>
+<td align="left">4 字节</td>
+<td align="left">(-2 147 483 648，2 147 483 647)</td>
+<td align="center">大整数值</td>
+</tr>
+<tr>
+<td align="left">BIGINT</td>
+<td align="left">8 字节</td>
+<td align="left"></td>
+<td align="center">极大整数值</td>
+</tr>
+<tr>
+<td align="left">FLOAT</td>
+<td align="left">4 字节</td>
+<td align="left"></td>
+<td align="center">单精度 浮点数值</td>
+</tr>
+<tr>
+<td align="left">DOUBLE</td>
+<td align="left">8 字节</td>
+<td align="left"></td>
+<td align="center">双精度 浮点数值</td>
+</tr>
+<tr>
+<td align="left">DECIMAL</td>
+<td align="left">对DECIMAL(M,D) ，<br />如果M&gt;D，为M+2否则为D+2</td>
+<td align="left">依赖于M和D的值</td>
+<td align="center">小数值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="12日期和时间类型"><strong>1.2日期和时间类型</strong></h3>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小 (字节)</th>
+<th align="left">范围</th>
+<th align="left">格式</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DATE</td>
+<td align="left">3</td>
+<td align="left">1000-01-01/9999-12-31</td>
+<td align="left">YYYY-MM-DD</td>
+<td align="left">日期值</td>
+</tr>
+<tr>
+<td align="left">TIME</td>
+<td align="left">3</td>
+<td align="left">&lsquo;-838:59:59&rsquo;/&lsquo;838:59:59&rsquo;</td>
+<td align="left">HH:MM:SS</td>
+<td align="left">时间值或持续时间</td>
+</tr>
+<tr>
+<td align="left">YEAR</td>
+<td align="left">1</td>
+<td align="left">1901/2155</td>
+<td align="left">YYYY</td>
+<td align="left">年份值</td>
+</tr>
+<tr>
+<td align="left">DATETIME</td>
+<td align="left">8</td>
+<td align="left">1000-01-01 00:00:00/9999-12-31 23:59:59</td>
+<td align="left">YYYY-MM-DD HH:MM:SS</td>
+<td align="left">混合日期和时间值</td>
+</tr>
+<tr>
+<td align="left">TIMESTAMP</td>
+<td align="left">4</td>
+<td align="left">1970-01-01 00:00:00/2038<br />结束时间是第 <strong>2147483647</strong> 秒，<br />北京时间 <strong>2038-1-19 11:14:07</strong>，</td>
+<td align="left">YYYYMMDD HHMMSS</td>
+<td align="left">混合日期和时间值，时间戳</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13字符串类型"><strong>1.3字符串类型</strong></h3>
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">大小</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CHAR</td>
+<td align="left">0-255字节</td>
+<td align="left">定长字符串</td>
+</tr>
+<tr>
+<td align="left">VARCHAR</td>
+<td align="left">0-65535 字节</td>
+<td align="left">变长字符串</td>
+</tr>
+<tr>
+<td align="left">TINYBLOB</td>
+<td align="left">0-255字节</td>
+<td align="left">不超过 255 个字符的二进制字符串</td>
+</tr>
+<tr>
+<td align="left">TINYTEXT</td>
+<td align="left">0-255字节</td>
+<td align="left">短文本字符串</td>
+</tr>
+<tr>
+<td align="left">BLOB</td>
+<td align="left">0-65 535字节</td>
+<td align="left">二进制形式的长文本数据</td>
+</tr>
+<tr>
+<td align="left">TEXT</td>
+<td align="left">0-65 535字节</td>
+<td align="left">长文本数据</td>
+</tr>
+</tbody>
+</table>
+<h3 id="14常见错误">1.4常见错误</h3>
+<p>date datetime
+int float double
+varchar char
+TIMESTAMP列必须有默认值
+ps.setNull(3,java.sql.Types.Null);
+当设置null时候,TIMESTAMP列是当前时间
+DATETIME列可以设置为多个，默认可为null</p>
+<blockquote>
+<p><strong>连接超时</strong></p>
+<p>当ssm项目使用c3p0连接池。昨天访问还可以，今天访问就报以下错误。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">The</span> <span class="n">last</span> <span class="n">packet</span> <span class="n">successfully</span> <span class="n">received</span> <span class="n">from</span> <span class="n">the</span> <span class="n">server</span> <span class="n">was58129</span> <span class="n">seconds</span> <span class="n">ago</span><span class="o">.</span>
+<span class="n">The</span> <span class="n">last</span> <span class="n">packet</span> <span class="n">sent</span> <span class="n">successfully</span> <span class="n">to</span> <span class="n">the</span> <span class="n">server</span> <span class="n">was</span> <span class="n">58129</span> <span class="n">seconds</span> <span class="n">ago</span><span class="o">,</span>
+<span class="n">which</span> <span class="n">is</span> <span class="n">longer</span> <span class="n">than</span> <span class="n">the</span> <span class="n">server</span> <span class="n">configured</span> <span class="n">value</span> <span class="n">of</span> <span class="err">&#39;</span><span class="n">wait_timeout</span><span class="err">&#39;</span><span class="o">.</span> 
+<span class="n">You</span> <span class="n">should</span> <span class="n">consider</span> <span class="n">either</span> <span class="n">expiring</span> <span class="n">and</span><span class="o">/</span><span class="n">or</span> <span class="n">testing</span> <span class="n">connection</span> <span class="n">validity</span> <span class="n">before</span> <span class="n">use</span> <span class="n">in</span> <span class="n">your</span> <span class="n">application</span><span class="o">,</span> 
+<span class="n">increasing</span> <span class="n">the</span> <span class="n">server</span> <span class="n">configured</span> <span class="n">values</span> <span class="k">for</span> <span class="n">client</span> <span class="n">timeouts</span><span class="o">,</span>
+<span class="n">or</span> <span class="n">using</span> <span class="n">the</span> <span class="n">Connector</span><span class="o">/</span><span class="n">J</span> <span class="n">connection</span> <span class="n">property</span> <span class="err">&#39;</span><span class="n">autoReconnect</span><span class="o">=</span><span class="kc">true</span><span class="err">&#39;</span> <span class="n">to</span> <span class="n">avoid</span> <span class="k">this</span> <span class="n">problem</span><span class="o">.</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果连接闲置8小时 (8小时内没有进行数据库操作), mysql就会自动断开连接。而连接池却认为该连接还是有效的(因为并未校验连接的有效性)，当应用申请使用该连接时，就会导致上面的报错。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--最大空闲时间，3600秒内未使用则连接被丢弃。若为0则永不丢弃。默认值: 0 --&gt;</span>
+<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxIdleTime&#34;</span> <span class="na">value=</span><span class="s">&#34;7200&#34;</span><span class="nt">/&gt;</span>
+<span class="c">&lt;!--每1800秒检查所有连接池中的空闲连接。Default: 0 --&gt;</span>
+<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;idleConnectionTestPeriod&#34;</span> <span class="na">value=</span><span class="s">&#34;1800&#34;</span><span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p><strong>mysql请求包过大</strong></p>
+<p>Packet for query is too large (2,486 &gt; 1,024)使用mysql5.6数据库进行查询时，请求包过大。</p>
+<p>解决：windos是my.ini文件或者my.cnf(Linux下的/etc/my.cnf) ，在[mysqld]下把max_allowed_packet设置稍大一些即可。重启mysql服务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="p">[</span><span class="n">client</span><span class="p">]</span>
+<span class="n">max_allowed_packet</span><span class="err">＝</span><span class="mi">10240</span>
+<span class="p">[</span><span class="n">mysqld</span><span class="p">]</span>
+<span class="n">max_allowed_packet</span><span class="err">＝</span><span class="mi">10240</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>验证：LInux下进入Mysql，show VARIABLES like &lsquo;%max_allowed_packet%';</p>
+</blockquote>
+<h2 id="2快速入门">2快速入门</h2>
+<h3 id="21navicat创建数据库">2.1Navicat创建数据库</h3>
+<p>创建数据库
+字符集填写utf8 &ndash; UTF-8 Unicode
+排序规则填写utf8_general_ci</p>
+<h2 id="heading"></h2>
+<h3 id="22连接数据库注意">2.2连接数据库注意</h3>
+<blockquote>
+<p>UTC代表的是全球标准时间 ，但是我们使用的时间是北京时区也就是东八区，领先UTC八个小时。</p>
+<p>//北京时间==东八区时间！=北京当地时间
+serverTimezone=GMT%2B8
+//或者使用上海时间
+serverTimezone=Asia/Shanghai</p>
+</blockquote>
+<p>所以:设置时区serverTimezone=GMT%2b8      %2b是+号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#8.0jar包连接数据库需要指定时区</span>
+jdbc:mysql://localhost:3306/mysql1?serverTimezone<span class="o">=</span>GMT%2b8<span class="p">&amp;</span><span class="nv">useSSL</span><span class="o">=</span>false<span class="p">&amp;</span><span class="nv">useUnicode</span><span class="o">=</span>true<span class="p">&amp;</span><span class="nv">characterEncoding</span><span class="o">=</span>utf8
+<span class="c1">#8.0Driver</span>
+com.mysql.cj.jdbc.Driver
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3常见sql">3常见SQL</h2>
+<h3 id="日期">日期</h3>
+<p>查询指定日志，方式一</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="c1"># YEAR查询年，MONTH查询月
+</span><span class="c1"></span><span class="k">SELECT</span>
+    <span class="o">*</span>
+<span class="k">FROM</span>
+    <span class="n">emp</span>
+<span class="k">WHERE</span>
+    <span class="kt">YEAR</span><span class="p">(</span><span class="n">HIREDATE</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39;1981&#39;</span> <span class="k">AND</span> <span class="nf">MONTH</span><span class="p">(</span><span class="n">HIREDATE</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39;2&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>查询指定日期，方式二</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> 
+    <span class="o">*</span>
+<span class="k">FROM</span>
+    <span class="n">emp</span>
+<span class="k">WHERE</span>
+    <span class="nf">DATE_FORMAT</span><span class="p">(</span><span class="n">hiredate</span><span class="p">,</span><span class="s1">&#39;%Y-%m&#39;</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;1981-02&#39;</span>
+<span class="c1">#若hiredate是一个常量，格式为&#39;2020-07-01&#39;
+</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="cp">**</span><span class="w"> </span>MySQL<span class="w"> </span>日期格式<span class="w">
+</span><span class="w">
+</span><span class="w"></span>%Y<span class="w">     </span>​代表四位年份<span class="w">    </span>​%y<span class="w">    </span>​代表两位年份<span class="w">
+</span><span class="w">
+</span><span class="w"></span>%m<span class="w">    </span>​代表月格式(<span class="m">01</span><span class="p">,</span><span class="m">02</span><span class="p">,</span><span class="m">03</span>...<span class="m">12</span>)<span class="w">    </span>​%c<span class="w">    </span>​代表月格式(<span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span>...<span class="m">12</span>)<span class="w">
+</span><span class="w">
+</span><span class="w"></span>%d<span class="w">    </span>​代表日<span class="w">
+</span><span class="w">
+</span><span class="w"></span>%H<span class="w">    </span>​代表24小时制<span class="w">    </span>​%h<span class="w">    </span>​代表12小时制<span class="w">
+</span><span class="w">
+</span><span class="w"></span>%i<span class="w">    </span>​代表分钟(<span class="m">00</span><span class="p">,</span>-<span class="m">01</span><span class="p">,</span><span class="m">02</span>...<span class="m">59</span>)<span class="w">
+</span><span class="w">
+</span><span class="w"></span>%S或%s<span class="w">    </span>​代表秒(<span class="m">00</span><span class="p">,</span><span class="m">01</span><span class="p">,</span><span class="m">02</span>...<span class="m">59</span>)<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="日期函数">日期函数</h3>
+<p>1 获取当前日期，CURDATE() 格式：2020-07-20</p>
+<p>2 获取特定日期，DATE_SUB(CURDATE(), INTERVAL 7 DAY)</p>
+<ul>
+<li>INTERVAL 7 DAY 获取间隔7天的日期(7天前)，若是7天后-7</li>
+<li>DATE_SUB() 返回日期 前一个日期减去后一个日期。</li>
+</ul>
+<h3 id="索引添加">索引添加</h3>
+<p>1.添加PRIMARY KEY（主键索引）：</p>
+<p>ALTER TABLE <code>table_name</code> ADD PRIMARY KEY ( <code>column</code> )</p>
+<p>2.添加UNIQUE(唯一索引) ：</p>
+<p>ALTER TABLE <code>table_name</code> ADD UNIQUE ( <code>column</code> )</p>
+<p>3.添加INDEX(普通索引) ：</p>
+<p>ALTER TABLE <code>table_name</code> ADD INDEX index_name ( <code>column</code> )</p>
+<p>4.添加FULLTEXT(全文索引) ：(几乎不用)</p>
+<p>ALTER TABLE <code>table_name</code> ADD FULLTEXT ( <code>column</code>)</p>
+<p>5.添加多列索引：</p>
+<p>ALTER TABLE <code>table_name</code> ADD INDEX index_name ( <code>column1</code>, <code>column2</code>, <code>column3</code> )</p>
+<h3 id="增删改查">增删改查</h3>
+<blockquote>
+<p>删</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">//</span><span class="err">删除重复语句</span>
+<span class="k">delete</span> <span class="k">from</span> <span class="n">zz_account1</span> <span class="k">where</span> <span class="n">aid</span> <span class="k">not</span> <span class="k">in</span> 
+<span class="p">(</span><span class="k">select</span> <span class="n">aid</span> <span class="k">from</span> 
+<span class="p">(</span><span class="k">select</span> <span class="n">aid</span> <span class="k">from</span> <span class="n">zz_account1</span> <span class="k">group</span> <span class="k">by</span> <span class="n">username</span><span class="p">,</span><span class="n">password</span><span class="p">)</span> <span class="n">a1</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>删除重复语句另一种解决</p>
+<p>先建立一个同样字段的新表newtable，给指定data字段设置好unique约束
+使用如下sql语句将旧表的数据全部INSERT转移到新表，由于使用了IGNORE选项这样遇到重复数据会忽略，直到将所有数据插入完成
+INSERT IGNORE INTO newtable SELECT * FROM oldtable;</p>
+<hr>
+</blockquote>
+<h1 id="第二章-执行引擎">第二章-执行引擎</h1>
+<p>存储引擎是作用在表上的，创建表的时候可以指定存储引擎。</p>
+<p>show engines;可以查询当前数据库支持的引擎以及主要特点，</p>
+<h2 id="1myisam">1、MyISAM</h2>
+<p>有一个重要的特点那就是不支持事务，但是这也意味着他的存储速度更快，如果你的读写操作允许有错误数据的话，只是追求速度，可以选择这个存储引擎。</p>
+<h2 id="2innodb">2InnoDB</h2>
+<p>InnoDB是默认的数据库存储引擎，他的主要特点有：</p>
+<p>（1）可以通过自动增长列，方法是auto_increment。</p>
+<p>（2）支持事务。默认的事务隔离级别为可重复度，通过MVCC（并发版本控制）来实现的。</p>
+<p>（3）使用的锁粒度为行级锁，可以支持更高的并发；</p>
+<p>（4）支持外键约束；外键约束其实降低了表的查询速度，但是增加了表之间的耦合度。</p>
+<p>（5）配合一些热备工具可以支持在线热备份；</p>
+<p>（6）在InnoDB中存在着缓冲管理，通过缓冲池，将索引和数据全部缓存起来，加快查询的速度；</p>
+<p>（7）对于InnoDB类型的表，其数据的物理组织形式是聚簇表。所有的数据按照主键来组织。数据和索引放在一块，都位于B+数的叶子节点上；</p>
+<p>当然InnoDB的存储表和索引也有下面两种形式：</p>
+<p>（1）使用共享表空间存储：所有的表和索引存放在同一个表空间中。</p>
+<p>（2）使用多表空间存储：表结构放在frm文件，数据和索引放在IBD文件中。分区表的话，每个分区对应单独的IBD文件，分区表的定义可以查看我的其他文章。使用分区表的好处在于提升查询效率。</p>
+<p>对于InnoDB来说，最大的特点在于支持事务。但是这是以损失效率来换取的。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-23
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/mybatis/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">MyBatis.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/mysql%E4%BC%98%E5%8C%96/">
+            <span class="next-text nav-default">MySQL优化.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

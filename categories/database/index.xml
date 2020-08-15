@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Database on Even - A super concise theme for Hugo</title>
+    <link>https://13277112287.github.io/categories/database/</link>
+    <description>Recent content in Database on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 15 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://13277112287.github.io/categories/database/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>缓存cache.md</title>
+      <link>https://13277112287.github.io/post/%E7%BC%93%E5%AD%98cache/</link>
+      <pubDate>Mon, 15 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/%E7%BC%93%E5%AD%98cache/</guid>
+      <description>第一章-缓存概述 1什么是缓存 缓存的基本思想其实是以空间换时间。我们知道，IO的读写速度相对内存来说是非常比较慢的，通常一个web应用的瓶颈就</description>
+    </item>
+    
+    <item>
+      <title>MySQL.md</title>
+      <link>https://13277112287.github.io/post/mysql/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/mysql/</guid>
+      <description>第一章-MySQL概述 5.7版本下载地址https://dev.mysql.com/downloads/file/?id=494047 免安装</description>
+    </item>
+    
+    <item>
+      <title>MySQL优化.md</title>
+      <link>https://13277112287.github.io/post/mysql%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/mysql%E4%BC%98%E5%8C%96/</guid>
+      <description>执行流程 mysql执行大概分为4层，client客户端发起请求到达service服务器。连接层，服务层，引擎层，存储层。 innodb：锁的范</description>
+    </item>
+    
+    <item>
+      <title>PowerDesigner.md</title>
+      <link>https://13277112287.github.io/post/powerdesigner/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/powerdesigner/</guid>
+      <description>第一章-PowerDesigner概述 1什么是PowerDesigner 下载地址：https://www.onlinedown.net/so</description>
+    </item>
+    
+    <item>
+      <title>Redis.md</title>
+      <link>https://13277112287.github.io/post/redis/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/redis/</guid>
+      <description>目录 第一章-Redis概述 1介绍和安装 黑马实用教程：https://www.bilibili.com/video/BV1CJ411m7Gc?</description>
+    </item>
+    
+    <item>
+      <title>UML.md</title>
+      <link>https://13277112287.github.io/post/uml/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/uml/</guid>
+      <description>面试题一览 第一章-UML概述 1什么是UML 统一建模语言(Unified Modeling Language，UML)是一种为面向对象系统的产品进行说明、可视化</description>
+    </item>
+    
+  </channel>
+</rss>

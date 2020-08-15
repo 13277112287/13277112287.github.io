@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>微信支付接口.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-微信支付概述 1微信支付的分类 1公众号接入支付 公众号接入支付后，可以通过JSAPI支付产品来完成在公众号、朋友圈、聊天窗口等微信内的收" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="微信支付接口.md" />
+<meta property="og:description" content="第一章-微信支付概述 1微信支付的分类 1公众号接入支付 公众号接入支付后，可以通过JSAPI支付产品来完成在公众号、朋友圈、聊天窗口等微信内的收" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/" />
+<meta property="article:published_time" content="2020-05-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-02T00:00:00+00:00" />
+<meta itemprop="name" content="微信支付接口.md">
+<meta itemprop="description" content="第一章-微信支付概述 1微信支付的分类 1公众号接入支付 公众号接入支付后，可以通过JSAPI支付产品来完成在公众号、朋友圈、聊天窗口等微信内的收">
+<meta itemprop="datePublished" content="2020-05-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3294">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="微信支付接口.md"/>
+<meta name="twitter:description" content="第一章-微信支付概述 1微信支付的分类 1公众号接入支付 公众号接入支付后，可以通过JSAPI支付产品来完成在公众号、朋友圈、聊天窗口等微信内的收"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">微信支付接口.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-04 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/"> 支付接口 </a>
+            </div>
+          <span class="more-meta"> 约 3294 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-微信支付概述">第一章-微信支付概述</a>
+      <ul>
+        <li><a href="#1微信支付的分类">1微信支付的分类</a></li>
+        <li><a href="#2快速入门native方式">2快速入门native方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-微信支付练习">第二章-微信支付练习</a>
+      <ul>
+        <li><a href="#1完整的支付ssm">1完整的支付(ssm)</a>
+          <ul>
+            <li><a href="#-1构建环境待编写">-1构建环境(待编写)</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第三章-依赖技术">第三章-依赖技术</a>
+      <ul>
+        <li><a href="#1zxing二维码图片">1Zxing二维码图片</a></li>
+        <li><a href="#2goeasy">2GoEasy</a>
+          <ul>
+            <li><a href="#-1发送消息">-1发送消息</a></li>
+            <li><a href="#-2接收消息">-2接收消息</a></li>
+          </ul>
+        </li>
+        <li><a href="#3内网穿透">3内网穿透</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-微信支付概述">第一章-微信支付概述</h1>
+<h2 id="1微信支付的分类">1微信支付的分类</h2>
+<blockquote>
+<p>1公众号接入支付</p>
+<p>公众号接入支付后，可以通过JSAPI支付产品来完成在公众号、朋友圈、聊天窗口等<strong>微信内</strong>的收款需求。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>2App接入</p>
+<p>APP接入支付后，商户通过微信提供的SDK调用微信支付模块完成收款需求。目前微信支付支持手机系统有：IOS（苹果）、Android（安卓）和WP（Windows Phone）。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>3PC网站接入支付</p>
+<p>微信支付支持完成域名ICP备案的网站接入支付功能。PC网站接入支付后，可以通过JSAPI支付或Native支付，自行开发生成二维码，用户使用微信“扫一扫”来完成支付。</p>
+</blockquote>
+<h2 id="2快速入门native方式">2快速入门native方式</h2>
+<p><img src="/typoraImg/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3.assets/image-20200506143052677.png" alt="image-20200506143052677"></p>
+<p>一般网站上所使用的是PC网站接入。（native自然）生成支付二维码。</p>
+<p>先去API文档中找到开发文档(2020年5月4日选择V2版本)，然后下载对应的SDK与DEMO。这是一个maven项目，导入到开发软件中.</p>
+<blockquote>
+<p>1在SDK基础上进行编写(注意pom.xml文件)</p>
+<p>2继承WXPayConfig类,生成MyWXPayConfig，配置账号信息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.github.wxpay.sdk</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.io.InputStream</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyWXPayConfig</span> <span class="kd">extends</span> <span class="n">WXPayConfig</span> <span class="o">{</span>
+ <span class="c1">//微信支付的配置类，包含收款商家的账号ID等
+</span><span class="c1"></span> <span class="c1">//这些账号和ID需要公司注册，商家注册微信支付后会生成一个应用ID
+</span><span class="c1"></span>
+ <span class="nd">@Override</span>
+ <span class="n">String</span> <span class="nf">getAppID</span><span class="o">()</span> <span class="o">{</span>
+ <span class="c1">//对于测试号信息中的appID
+</span><span class="c1"></span>     <span class="k">return</span> <span class="s">&#34;wx632c8f211f8122c6&#34;</span><span class="o">;</span>
+ <span class="o">}</span>
+
+ <span class="nd">@Override</span>
+ <span class="n">String</span> <span class="nf">getMchID</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">//商户ID
+</span><span class="c1"></span>     <span class="k">return</span> <span class="s">&#34;1497984412&#34;</span><span class="o">;</span>
+ <span class="o">}</span>
+
+ <span class="nd">@Override</span>
+ <span class="n">String</span> <span class="nf">getKey</span><span class="o">()</span> <span class="o">{</span>
+
+     <span class="k">return</span> <span class="s">&#34;sbNCm1JnevqI36LrEaxFwcaT0hkGxFnC&#34;</span><span class="o">;</span>
+ <span class="o">}</span>
+
+ <span class="nd">@Override</span>
+ <span class="n">InputStream</span> <span class="nf">getCertStream</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">//证书
+</span><span class="c1"></span>     <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+ <span class="o">}</span>
+
+ <span class="nd">@Override</span>
+ <span class="n">IWXPayDomain</span> <span class="nf">getWXPayDomain</span><span class="o">()</span> <span class="o">{</span>
+     <span class="c1">//是一个域
+</span><span class="c1"></span>     <span class="n">MyWXPayDomain</span> <span class="n">wxPayDomain</span><span class="o">=</span><span class="k">new</span> <span class="n">MyWXPayDomain</span><span class="o">();</span>
+     <span class="k">return</span> <span class="n">wxPayDomain</span><span class="o">;</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3实现IWXPayDomain接口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.github.wxpay.sdk</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyWXPayDomain</span> <span class="kd">implements</span> <span class="n">IWXPayDomain</span>  <span class="o">{</span>
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="kt">void</span> <span class="nf">report</span><span class="o">(</span><span class="n">String</span> <span class="n">domain</span><span class="o">,</span> <span class="kt">long</span> <span class="n">elapsedTimeMillis</span><span class="o">,</span> <span class="n">Exception</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+
+ <span class="o">}</span>
+
+ <span class="nd">@Override</span>
+ <span class="kd">public</span> <span class="n">DomainInfo</span> <span class="nf">getDomain</span><span class="o">(</span><span class="n">WXPayConfig</span> <span class="n">config</span><span class="o">)</span> <span class="o">{</span>
+     <span class="c1">//需要两个参数。参数1 微信支付域名 参数2 是否主域名
+</span><span class="c1"></span>     <span class="n">DomainInfo</span> <span class="n">domainInfo</span><span class="o">=</span><span class="k">new</span> <span class="n">DomainInfo</span><span class="o">(</span><span class="s">&#34;api.mch.weixin.qq.com&#34;</span><span class="o">,</span><span class="kc">true</span><span class="o">);</span>
+     <span class="k">return</span> <span class="n">domainInfo</span><span class="o">;</span>
+ <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>4新建一个com.lsl.example包（此例为com.qf.wxpay）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.qf.wxpay</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.github.wxpay.sdk.MyWXPayConfig</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.github.wxpay.sdk.WXPay</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Example</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span><span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">MyWXPayConfig</span> <span class="n">myWXPayConfig</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyWXPayConfig</span><span class="o">();</span>
+        <span class="n">WXPay</span> <span class="n">wxPay</span><span class="o">=</span><span class="k">new</span> <span class="n">WXPay</span><span class="o">(</span><span class="n">myWXPayConfig</span><span class="o">);</span>
+
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">data</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;();</span>
+        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;body&#34;</span><span class="o">,</span><span class="s">&#34;充值测试&#34;</span><span class="o">);</span>
+        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;out_trade_no&#34;</span><span class="o">,</span><span class="s">&#34;20190701160459000000026&#34;</span><span class="o">);</span><span class="c1">//订单编号,
+</span><span class="c1"></span>        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;device_info&#34;</span><span class="o">,</span><span class="s">&#34;&#34;</span><span class="o">);</span><span class="c1">//设备信息
+</span><span class="c1"></span>        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;fee_type&#34;</span><span class="o">,</span><span class="s">&#34;CNY&#34;</span><span class="o">);</span><span class="c1">//货币信息
+</span><span class="c1"></span>        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;total_fee&#34;</span><span class="o">,</span><span class="s">&#34;1&#34;</span><span class="o">);</span><span class="c1">//1分
+</span><span class="c1"></span>        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;spbill_create_ip&#34;</span><span class="o">,</span><span class="s">&#34;123.12.12.123&#34;</span><span class="o">);</span>
+        <span class="c1">//回调接口，获取此次微信支付的信息
+</span><span class="c1"></span>        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;notify_url&#34;</span><span class="o">,</span><span class="s">&#34;http://aejpge.natappfree.cc/wx_pay/notify&#34;</span><span class="o">);</span>
+        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;trade_type&#34;</span><span class="o">,</span><span class="s">&#34;NATIVE&#34;</span><span class="o">);</span><span class="c1">//指定此处为扫码支付
+</span><span class="c1"></span>        <span class="n">data</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;product_id&#34;</span><span class="o">,</span><span class="s">&#34;12&#34;</span><span class="o">);</span><span class="c1">//商品id
+</span><span class="c1"></span>        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">//向微信后台发起支付请求，
+</span><span class="c1"></span>            <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">resp</span><span class="o">=</span><span class="n">wxPay</span><span class="o">.</span><span class="na">unifiedOrder</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
+            <span class="c1">//获得响应数据，得到二维码链接
+</span><span class="c1"></span>            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">resp</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>运行这个Example：会有以下信息(return_msg=OK,result_code=SUCCESS)</p>
+<p><code>{nonce_str=ERc7YmIU2W0jSVqR, code_url=weixin://wxpay/bizpayurl?pr=Mt7KPty, appid=wx632c8f211f8122c6, sign=30084FDE7476833D5A892FE95F2CE0AE042B5446FACE8892A7372736FF360079, trade_type=NATIVE, return_msg=OK, result_code=SUCCESS, mch_id=1497984412, return_code=SUCCESS, prepay_id=wx06103007111030145b56ce4a1339305000}</code></p>
+<p>把code_url进行复制，去网上搜索二维码生成器，进行二维码生成，微信已有提示了。</p>
+<p>5编写场景类实现支付
+重要步骤是回调接口的调用。</p>
+</blockquote>
+<blockquote>
+<p>5编写回调接口</p>
+<p>搭建一个SSM后台项目
+提供一个回调的接口(微信调用，需要有服务器，或者进行内网穿透，内网穿透工具natapp.cn)。</p>
+<blockquote>
+<p><strong>内网穿透的实现：</strong></p>
+<p>建立一个免费隧道，本地端口号为<strong>新创建项目的端口号</strong>。
+下载客户端，解压后在当前目录下打开cmd窗口，输入如下命令<code>natapp -authtoken=c486538cadbfb834</code>就是隧道中的authtoken，然后会生成一个网址，就可以使用了。</p>
+</blockquote>
+<p>把这个网址放到example中的notify_url中，作为支付成功后，微信支付回调的函数。比如：<code>http://aejpge.natappfree.cc/wx_pay/notify</code></p>
+<p>提供的接口为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Controller</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/wx_pay&#34;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WXPayController</span> <span class="o">{</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/notify&#34;</span><span class="o">)</span>
+    <span class="nd">@ResponseBody</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getNotifyURL</span><span class="o">(</span><span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">){</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">response</span><span class="o">+</span><span class="s">&#34;我是支付成功后的回调函数&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="s">&#34;成功了success&#34;</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="cm">/*
+</span><span class="cm">  微信发起的请求会携带信息，可以用输出流打印一下
+</span><span class="cm">  ServletInputStream is request.getInputStream();
+</span><span class="cm">  byte[] b=new byte[1024];
+</span><span class="cm">  int len=0;
+</span><span class="cm">  while((len=is.read(b))!=-1{
+</span><span class="cm">    String s=new String(b,0,len);
+</span><span class="cm">    System.out.print(s);
+</span><span class="cm">  }
+</span><span class="cm">  */</span>
+  
+   <span class="c1">//给微信返回一个标准的回信
+</span><span class="c1"></span>   <span class="c1">//参考文档https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_7&amp;index=8
+</span><span class="c1"></span>   <span class="n">response</span><span class="o">.</span><span class="na">getWriter</span><span class="o">().</span><span class="na">write</span><span class="o">(</span><span class="s">&#34;&lt;xml&gt;&lt;return_code&gt;&lt;![CDATA[SUCCESS]]&gt;&lt;/return_code&gt;&lt;return_msg&gt;&lt;![CDATA[OK]]&gt;&lt;/return_msg&gt;&lt;/xml&gt;&#34;</span><span class="o">);</span>
+
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>支付测试一分钱后，会发现这个方法被微信调用了。</p>
+</blockquote>
+<h1 id="第二章-微信支付练习">第二章-微信支付练习</h1>
+<p><img src="/typoraImg/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3.assets/image-20200531224412818.png" alt="image-20200531224412818"></p>
+<h2 id="1完整的支付ssm">1完整的支付(ssm)</h2>
+<h3 id="-1构建环境待编写">-1构建环境(待编写)</h3>
+<p>1把下载的sdk的包下的java文件进行复制(注意修改路径)
+2构建一个ssm项目。
+3注意导入微信pom.xml的日志以及,依赖</p>
+<h1 id="第三章-依赖技术">第三章-依赖技术</h1>
+<p>QR code QR全称Quick Response</p>
+<h2 id="1zxing二维码图片">1Zxing二维码图片</h2>
+<p>1google.zxing导包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.google.zxing<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.google.zxing<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>javase<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>3.4.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>2java类生成二维码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//生成二维码
+</span><span class="c1"></span>    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;qrcode&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">qrcode</span><span class="o">(</span><span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// 二维码的宽度
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">WIDTH</span> <span class="o">=</span> <span class="n">300</span><span class="o">;</span>
+        <span class="c1">// 二维码的高度
+</span><span class="c1"></span>        <span class="kt">int</span> <span class="n">HEIGHT</span> <span class="o">=</span> <span class="n">300</span><span class="o">;</span>
+        <span class="c1">// 二维码的格式
+</span><span class="c1"></span>        <span class="n">String</span> <span class="n">FORMAT</span> <span class="o">=</span> <span class="s">&#34;png&#34;</span><span class="o">;</span>
+        <span class="c1">// 二维码的内容
+</span><span class="c1"></span>        <span class="n">String</span> <span class="n">TEXT</span> <span class="o">=</span> <span class="s">&#34;Hello！二维码！！！&#34;</span><span class="o">;</span>
+
+         <span class="cm">/*
+</span><span class="cm">           定义二维码的参数
+</span><span class="cm">        */</span>
+        <span class="n">HashMap</span> <span class="n">hashMap</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+        <span class="c1">// 设置二维码字符编码
+</span><span class="c1"></span>        <span class="n">hashMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">EncodeHintType</span><span class="o">.</span><span class="na">CHARACTER_SET</span><span class="o">,</span> <span class="s">&#34;UTF-8&#34;</span><span class="o">);</span>
+        <span class="c1">// 设置二维码纠错等级
+</span><span class="c1"></span>        <span class="n">hashMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">EncodeHintType</span><span class="o">.</span><span class="na">ERROR_CORRECTION</span><span class="o">,</span> <span class="n">ErrorCorrectionLevel</span><span class="o">.</span><span class="na">M</span><span class="o">);</span>
+        <span class="c1">// 设置二维码边距
+</span><span class="c1"></span>        <span class="n">hashMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">EncodeHintType</span><span class="o">.</span><span class="na">MARGIN</span><span class="o">,</span> <span class="n">2</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="c1">// 开始生成二维码
+</span><span class="c1"></span>            <span class="n">BitMatrix</span> <span class="n">bitMatrix</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MultiFormatWriter</span><span class="o">().</span><span class="na">encode</span><span class="o">(</span><span class="n">TEXT</span><span class="o">,</span> <span class="n">BarcodeFormat</span><span class="o">.</span><span class="na">QR_CODE</span><span class="o">,</span> <span class="n">WIDTH</span><span class="o">,</span> <span class="n">HEIGHT</span><span class="o">,</span> <span class="n">hashMap</span><span class="o">);</span>
+            <span class="c1">// 导出到指定目录
+</span><span class="c1"></span>          <span class="c1">//  MatrixToImageWriter.writeToPath(bitMatrix, FORMAT, new File(&#34;D://erweima.png&#34;).toPath());
+</span><span class="c1"></span>            <span class="c1">//导出到响应流  页面上可以，&lt;img src=&#34;这个方法路径&#34; /&gt;
+</span><span class="c1"></span>            <span class="n">MatrixToImageWriter</span><span class="o">.</span><span class="na">writeToStream</span><span class="o">(</span><span class="n">bitMatrix</span><span class="o">,</span> <span class="n">FORMAT</span><span class="o">,</span><span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">());</span>
+
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2goeasy">2GoEasy</h2>
+<p>官方文档:https://www.goeasy.io/cn/doc/client/get-goeasy-js.html
+通过java服务端发送:https://www.goeasy.io/cn/doc/server/publish-java.html</p>
+<p>账号：13277112287
+密码：Goeasy19970520</p>
+<hr>
+<p>创建应用，获得两个key。</p>
+<p><img src="/typoraImg/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3.assets/image-20200602112826836.png" alt="image-20200602112826836" style="zoom:67%;" /></p>
+<h3 id="-1发送消息">-1发送消息</h3>
+<blockquote>
+<p><strong>java服务端发送消息</strong></p>
+<p>1导入依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;!--</span><span class="n">添加goeasy仓库到您的pom</span><span class="o">.</span><span class="na">xml文件</span><span class="o">:--&gt;</span>
+<span class="o">&lt;</span><span class="n">repositories</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">repository</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">id</span><span class="o">&gt;</span><span class="n">goeasy</span><span class="o">&lt;/</span><span class="n">id</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span><span class="n">goeasy</span><span class="o">&lt;/</span><span class="n">name</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">url</span><span class="o">&gt;</span>
+            <span class="n">http</span><span class="o">:</span><span class="c1">//maven.goeasy.io/content/repositories/releases/
+</span><span class="c1"></span>        <span class="o">&lt;/</span><span class="n">url</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">repository</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">repositories</span><span class="o">&gt;</span>
+<span class="nl">然后添加依赖:</span>
+
+<span class="o">&lt;</span><span class="n">dependencies</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">io</span><span class="o">.</span><span class="na">goeasy</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">goeasy</span><span class="o">-</span><span class="n">sdk</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="n">version</span><span class="o">&gt;</span><span class="n">0</span><span class="o">.</span><span class="na">3</span><span class="o">.</span><span class="na">8</span><span class="o">&lt;/</span><span class="n">version</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependencies</span><span class="o">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<ol>
+<li>请不要将goeasy.js下载到本地,GoEasy动态为不同浏览器提供不同内容的goeasy.js,使用下载到本地的goeasy.js,将会导致某些浏览器 不能发送和接收消息。</li>
+</ol>
+<blockquote>
+<p>2编写java代码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//发布消息 第一个参数是,rest服务器地址。  第二个是APP Keys的Common key
+</span><span class="c1"></span><span class="n">GoEasy</span> <span class="n">goEasy</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GoEasy</span><span class="o">(</span> <span class="s">&#34;http://rest-hangzhou.goeasy.io&#34;</span><span class="o">,</span> <span class="s">&#34;BC-7625c34de6644992991801e2e7f482b9&#34;</span><span class="o">);</span>
+<span class="c1">// channel隧道名称 往这个隧道推送消息，各个隧道互不影响(可以用订单编号来生成隧道名,用以区分每个用户)
+</span><span class="c1"></span><span class="n">goEasy</span><span class="o">.</span><span class="na">publish</span><span class="o">(</span><span class="s">&#34;my_channel&#34;</span><span class="o">,</span><span class="s">&#34;Hello, GoEasy!&#34;</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h3 id="-2接收消息">-2接收消息</h3>
+<blockquote>
+<p>1初始化GoEasy对象</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&#34;text/javascript&#34;</span> <span class="nx">src</span><span class="o">=</span><span class="s2">&#34;https://cdn.goeasy.io/goeasy-1.0.6.js&#34;</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+<span class="kd">var</span> <span class="nx">goEasy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GoEasy</span><span class="p">({</span>
+    <span class="nx">host</span><span class="o">:</span><span class="s1">&#39;hangzhou.goeasy.io&#39;</span><span class="p">,</span> <span class="c1">//应用所在的区域地址: 【hangzhou.goeasy.io |singapore.goeasy.io】
+</span><span class="c1"></span>    <span class="nx">appkey</span><span class="o">:</span> <span class="s2">&#34;my_appkey&#34;</span><span class="p">,</span> <span class="c1">//替换为您的应用appkey
+</span><span class="c1"></span>    <span class="nx">otp</span><span class="o">:</span><span class="s1">&#39;您服务器端生成的OTP&#39;</span>
+<span class="p">});</span>
+<span class="c1">//GoEasy-OTP可以对appkey进行有效保护
+</span></code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p>2调用GoEasy对象接收消息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">goEasy</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+    <span class="nx">channel</span><span class="o">:</span> <span class="s2">&#34;my_channel&#34;</span><span class="p">,</span> <span class="c1">//替换为您自己的channel隧道名
+</span><span class="c1"></span>    <span class="nx">onMessage</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">message</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Channel:&#34;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">.</span><span class="nx">channel</span> <span class="o">+</span> <span class="s2">&#34; content:&#34;</span> <span class="o">+</span> <span class="nx">message</span><span class="p">.</span><span class="nx">content</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="3内网穿透">3内网穿透</h2>
+<p>官网：natapp.cn
+账号：13277112287/1115759748@qq.com
+密码：Natapp19970520</p>
+<p>搭建一个SSM后台项目
+提供一个回调的接口(微信调用，需要有服务器，或者进行内网穿透，内网穿透工具natapp.cn)。</p>
+<blockquote>
+<p><strong>内网穿透的实现：</strong></p>
+<p>建立一个免费隧道，本地端口号为<strong>新创建项目的端口号</strong>。
+下载客户端，解压后在当前目录下打开cmd窗口，输入如下命令<code>natapp -authtoken=c486538cadbfb834</code>就是隧道中的authtoken，然后会生成一个网址，就可以使用了。</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-06-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/svn/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">SVN.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/eclipse%E4%BD%BF%E7%94%A8/">
+            <span class="next-text nav-default">Eclipse使用.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

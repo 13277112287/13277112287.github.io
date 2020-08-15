@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Eclipse使用.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-Eclipse概述 1下载安装Eclipse 需要先下载JDK配置JDK环境变量 环境变量配置：https://jingyan.baidu" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/eclipse%E4%BD%BF%E7%94%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Eclipse使用.md" />
+<meta property="og:description" content="第一章-Eclipse概述 1下载安装Eclipse 需要先下载JDK配置JDK环境变量 环境变量配置：https://jingyan.baidu" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/eclipse%E4%BD%BF%E7%94%A8/" />
+<meta property="article:published_time" content="2020-05-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-01T00:00:00+00:00" />
+<meta itemprop="name" content="Eclipse使用.md">
+<meta itemprop="description" content="第一章-Eclipse概述 1下载安装Eclipse 需要先下载JDK配置JDK环境变量 环境变量配置：https://jingyan.baidu">
+<meta itemprop="datePublished" content="2020-05-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1236">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Eclipse使用.md"/>
+<meta name="twitter:description" content="第一章-Eclipse概述 1下载安装Eclipse 需要先下载JDK配置JDK环境变量 环境变量配置：https://jingyan.baidu"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Eclipse使用.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-05-01 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7util/"> 开发工具util </a>
+            </div>
+          <span class="more-meta"> 约 1236 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-eclipse概述">第一章-Eclipse概述</a>
+      <ul>
+        <li><a href="#1下载安装eclipse">1下载安装Eclipse</a></li>
+        <li><a href="#2eclipse同步">2Eclipse同步</a></li>
+        <li><a href="#3数据库">3数据库</a></li>
+        <li><a href="#4安装常用插件">4安装常用插件</a>
+          <ul>
+            <li><a href="#1在线安装">1在线安装</a></li>
+          </ul>
+        </li>
+        <li><a href="#常见问题">常见问题:</a>
+          <ul>
+            <li><a href="#1项目失效问题">1项目失效问题</a></li>
+            <li><a href="#2更换工作空间">2更换工作空间</a></li>
+            <li><a href="#3eclipse中设置模板">3Eclipse中设置模板</a></li>
+            <li><a href="#4项目的jre问题">4项目的jre问题</a></li>
+            <li><a href="#5启动报错">5启动报错</a></li>
+            <li><a href="#6tomcat路径问题">6tomcat路径问题</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第二章-快捷键">第二章-快捷键</a>
+      <ul>
+        <li><a href="#个人常用快捷键">个人常用快捷键</a></li>
+        <li><a href="#修改快捷键属性">修改快捷键属性</a>
+          <ul>
+            <li><a href="#-1注解取消换行">-1注解取消换行</a></li>
+            <li><a href="#-2修改eclipse快捷键">-2修改eclipse快捷键</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-eclipse概述">第一章-Eclipse概述</h1>
+<h2 id="1下载安装eclipse">1下载安装Eclipse</h2>
+<p>需要先下载JDK配置JDK环境变量
+环境变量配置：https://jingyan.baidu.com/article/9f7e7ec0be98b56f281554e9.html</p>
+<h2 id="2eclipse同步">2Eclipse同步</h2>
+<table>
+<thead>
+<tr>
+<th>账号</th>
+<th>密码</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="mailto:1115759748@qq.com">1115759748@qq.com</a></td>
+<td>Eclipse19970520</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200501162240813.png" alt="image-20200501162240813" style="zoom:50%;" /></p>
+<h2 id="3数据库">3数据库</h2>
+<p>Eclipse生成实体类比较慢，建议使用MyEclipse，连接数据库以及hibernate反向生成：
+Eclipse：https://blog.csdn.net/wangpeng047/article/details/6877720
+eclipse(反向生成网址2):https://www.cnblogs.com/pretty-sunshine/p/7219727.html</p>
+<blockquote>
+<p>安装hibernate tools</p>
+<p><a href="https://www.cnblogs.com/yumiaoxia/p/9074904.html">https://www.cnblogs.com/yumiaoxia/p/9074904.html</a>
+打开eclipse，点击help&ndash;&gt;eclipse marketplace,如图输入:Hibernate Tools,再点击Goa按钮，找到JBoss Tools</p>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200508095703210.png" alt="image-20200508095703210"></p>
+<p>选择这两个然后confirm</p>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200508095914216.png" alt="image-20200508095914216"></p>
+</blockquote>
+<blockquote>
+<p>连接数据库</p>
+<p>打开Window-&gt; Show View-&gt;Other，再打开数据库管理器（Data Management）-&gt;Data Source Explorer，再Database Connection上右键New，并连接上数据库</p>
+</blockquote>
+<h2 id="4安装常用插件">4安装常用插件</h2>
+<h3 id="1在线安装">1在线安装</h3>
+<h2 id="常见问题">常见问题:</h2>
+<h3 id="1项目失效问题">1项目失效问题</h3>
+<p>tomcat启动某个项目，都是正确的，但是就是无效。
+切换了工作空间，需要重新把项目clearn
+project-&gt;clearn</p>
+<h3 id="2更换工作空间">2更换工作空间</h3>
+<p>或者切换工作空间后吗，可以把metadate进行cp[y，但新空间会有以前项目，记得删除，但是不要删除文件</p>
+<h3 id="3eclipse中设置模板">3Eclipse中设置模板</h3>
+<p>eclipse &ndash; &gt;perferences 搜索templates
+eclipse &ndash; &gt;perferences - &gt;web -&gt;jsp - jsp files -Editor -&gt;templates:找到jsp的templates</p>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200508145704742.png" alt="image-20200508145704742" style="zoom:50%;" /></p>
+<blockquote>
+<p>jsp资源导入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;meta name=&#34;viewport&#34; content=&#34;width=device-width,initial-scale=1&#34; /&gt;	
+&lt;%@include file=&#34;../module/bootstrapModule.jsp&#34; %&gt;
+&lt;%@include file=&#34;../module/bootstrapValidatorModule.jsp&#34; %&gt;	
+</code></pre></td></tr></table>
+</div>
+</div><p>可以直接在bootstrapModule.jsp引入需要的css和js依赖</p>
+</blockquote>
+<h3 id="4项目的jre问题">4项目的jre问题</h3>
+<p>项目project update后，接口加上@Override后就报错，原因是项目的jre不一致。</p>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200516223626121.png" alt="image-20200516223626121"></p>
+<h3 id="5启动报错">5启动报错</h3>
+<p>项目启动是报错：
+org.springframework.web.context.ContextLoaderListener</p>
+<p>解决方法：</p>
+<p>右键单击工程项目 -&gt;点击 properties
+选择 Deployment Assembly
+点击 Add -&gt; Java Build Path Entries -&gt; Next
+选择 Maven Dependencies -&gt; Finish -&gt; Apply -&gt; OK</p>
+<p>Clean project and server. 重启server</p>
+<h3 id="6tomcat路径问题">6tomcat路径问题</h3>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200530194820649.png" alt="image-20200530194820649"></p>
+<h1 id="第二章-快捷键">第二章-快捷键</h1>
+<h2 id="个人常用快捷键">个人常用快捷键</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ctrl+1</strong></td>
+<td>快速修复（比如import类、try catch包围等）</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Shift+F</strong></td>
+<td>格式化代码</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Shift+M</strong></td>
+<td>添加类的import导入</td>
+</tr>
+<tr>
+<td><strong>Ctrl+Shift+O</strong></td>
+<td>组织类的import导入</td>
+</tr>
+<tr>
+<td><strong>Alt+Shift+M</strong></td>
+<td>把一段函数内的代码抽取成方法</td>
+</tr>
+<tr>
+<td><strong>Alt+Shift+S</strong></td>
+<td>生成构造函数等等</td>
+</tr>
+<tr>
+<td>Ctrl + Q</td>
+<td>定位到最后编辑的地方。</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>eclipse中，我把Ctrl+W关闭当前窗口，取消掉了。
+把ctrl+w换成了选中当前单词(原快捷键为shift+ait+left)</p>
+<h2 id="修改快捷键属性">修改快捷键属性</h2>
+<h3 id="-1注解取消换行">-1注解取消换行</h3>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200531170426951.png" alt="image-20200531170426951"></p>
+<p>然后进行取名，比如：multilineAnnotationFormat,然后对弹出对话框，若没有，就点击Edit，</p>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200531170931849.png" alt="image-20200531170931849"></p>
+<h3 id="-2修改eclipse快捷键">-2修改eclipse快捷键</h3>
+<p>window —&gt; Preferences –&gt;找到Keys(在General下)，然后</p>
+<p><img src="/typoraImg/Eclipse%E4%BD%BF%E7%94%A8.assets/image-20200601081656303.png" alt="image-20200601081656303"></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-06-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E6%8E%A5%E5%8F%A3/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">微信支付接口.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/maven/">
+            <span class="next-text nav-default">Maven.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

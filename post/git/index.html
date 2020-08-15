@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>git.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-git概述 狂神:https://www.bilibili.com/video/BV1FE411P7B3?from=search&amp;am" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/git/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="git.md" />
+<meta property="og:description" content="第一章-git概述 狂神:https://www.bilibili.com/video/BV1FE411P7B3?from=search&am" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/git/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-15T00:00:00+00:00" />
+<meta itemprop="name" content="git.md">
+<meta itemprop="description" content="第一章-git概述 狂神:https://www.bilibili.com/video/BV1FE411P7B3?from=search&am">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="7233">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="git.md"/>
+<meta name="twitter:description" content="第一章-git概述 狂神:https://www.bilibili.com/video/BV1FE411P7B3?from=search&am"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">git.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7util/"> 开发工具util </a>
+            </div>
+          <span class="more-meta"> 约 7233 字 </span>
+          <span class="more-meta"> 预计阅读 15 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-git概述">第一章-git概述</a>
+      <ul>
+        <li><a href="#1什么是版本控制">1什么是版本控制</a></li>
+        <li><a href="#2git与svn的主要区别">2Git与SVN的主要区别</a></li>
+        <li><a href="#3常用的linux命令">3常用的Linux命令</a></li>
+        <li><a href="#4git配置">4git配置</a></li>
+        <li><a href="#5git基本理论重要">5Git基本理论（重要）</a></li>
+        <li><a href="#6工作流程">6工作流程</a></li>
+        <li><a href="#github搜索">github搜索</a></li>
+        <li><a href="#7创建工作目录与常用指令">7创建工作目录与常用指令</a>
+          <ul>
+            <li><a href="#改变文件状态">改变文件状态</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第三章-结合使用">第三章-结合使用</a>
+      <ul>
+        <li><a href="#1githubgitee">1github/gitee</a></li>
+        <li><a href="#2idea连接git">2IDEA连接git</a>
+          <ul>
+            <li><a href="#本地创建">本地创建</a></li>
+            <li><a href="#忽略文件">忽略文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#3git分支">3git分支</a></li>
+        <li><a href="#4常用命令">4常用命令</a>
+          <ul>
+            <li><a href="#登录">登录</a></li>
+            <li><a href="#增加删除文件">增加/删除文件</a></li>
+            <li><a href="#远程同步">远程同步</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第四章-git网站">第四章-Git网站</a>
+      <ul>
+        <li><a href="#使用方法">使用方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-git概述">第一章-git概述</h1>
+<p>狂神:https://www.bilibili.com/video/BV1FE411P7B3?from=search&amp;seid=13518795056103966030
+狂神笔记：https://mp.weixin.qq.com/s/Bf7uVhGiu47uOELjmC5uXQ</p>
+<p>淘宝镜像下载(下面是最新版)：http://npm.taobao.org/mirrors/git-for-windows/</p>
+<h2 id="1什么是版本控制">1什么是版本控制</h2>
+<p>版本控制（Revision control）是一种在开发的过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本的软件工程技术。</p>
+<ul>
+<li>实现跨区域多人协同开发</li>
+<li>追踪和记载一个或者多个文件的历史记录</li>
+<li>组织和保护你的源代码和文档</li>
+<li>统计工作量</li>
+<li>并行开发、提高开发效率</li>
+<li>跟踪记录整个软件的开发过程</li>
+<li>减轻开发人员的负担，节省时间，同时降低人为错误</li>
+</ul>
+<p>简单说就是用于管理多人协同开发项目的技术。</p>
+<p>没有进行版本控制或者版本控制本身缺乏正确的流程管理，在软件开发过程中将会引入很多问题，如软件代码的一致性、软件内容的冗余、软件过程的事物性、软件开发过程中的并发性、软件源代码的安全性，以及软件的整合等问题。</p>
+<p>影响力最大且使用最广泛的是Git与SVN</p>
+<p><strong>1、本地版本控制</strong></p>
+<p>记录文件每次的更新，可以对每个版本做一个快照，或是记录补丁文件，适合个人用，如RCS。</p>
+<p><strong>2、集中版本控制  SVN</strong></p>
+<p>所有的版本数据都保存在服务器上，协同开发者从服务器上同步更新或上传自己的修改。</p>
+<p>所有的版本数据都存在服务器上，用户的本地只有自己以前所同步的版本，如果不连网的话，用户就看不到历史版本，也无法切换版本验证问题，或在不同分支工作。而且，所有数据都保存在单一的服务器上，有很大的风险这个服务器会损坏，这样就会丢失所有的数据，当然可以定期备份。代表产品：SVN、CVS、VSS</p>
+<p><strong>3、分布式版本控制 	Git</strong></p>
+<p>每个人都拥有全部的代码！安全隐患！</p>
+<p>所有版本信息仓库全部同步到本地的每个用户，这样就可以在本地查看所有版本历史，可以离线在本地提交，只需在连网时push到相应的服务器或其他用户那里。由于每个用户那里保存的都是所有的版本数据，只要有一个用户的设备没有问题就可以恢复所有的数据，但这增加了本地存储空间的占用。</p>
+<p>不会因为服务器损坏或者网络问题，造成不能工作的情况！</p>
+<h2 id="2git与svn的主要区别">2Git与SVN的主要区别</h2>
+<p><strong>SVN是集中式版本控制系统</strong>，版本库是集中放在中央服务器的，而工作的时候，用的都是自己的电脑，所以首先要从中央服务器得到最新的版本，然后工作，完成工作后，需要把自己做完的活推送到中央服务器。集中式版本控制系统是必须联网才能工作，对网络带宽要求较高。</p>
+<p><strong>Git是分布式版本控制系统</strong>，没有中央服务器，每个人的电脑就是一个完整的版本库，工作的时候不需要联网了，因为版本都在自己电脑上。协同的方法是这样的：比如说自己在电脑上改了文件A，其他人也在电脑上改了文件A，这时，你们两之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。Git可以直接看到更新了哪些代码和文件！</p>
+<h2 id="3常用的linux命令">3常用的Linux命令</h2>
+<p>**Git Bash：**Unix与Linux风格的命令行，使用最多，推荐最多</p>
+<p>**Git CMD：**Windows风格的命令行</p>
+<p><strong>Git GUI</strong>：图形界面的Git，不建议初学者使用，尽量先熟悉常用命令</p>
+<p>平时一定要多使用这些基础的命令！</p>
+<p>1）、cd : 改变目录。</p>
+<p>2）、cd . . 回退到上一个目录，直接cd进入默认目录</p>
+<p>3）、pwd : 显示当前所在的目录路径。</p>
+<p>4）、ls(ll):  都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。</p>
+<p>5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
+<p>6）、rm:  删除一个文件, rm index.js 就会把index.js文件删除。</p>
+<p>7）、mkdir:  新建一个目录,就是新建一个文件夹。</p>
+<p>8）、rm -r :  删除一个文件夹, rm -r src 删除src目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">rm -rf / 切勿在Linux中尝试！删除电脑中全部文件！
+</code></pre></td></tr></table>
+</div>
+</div><p>9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,必须保证文件和目标文件夹在同一目录下。</p>
+<p>10）、reset 重新初始化终端/清屏。</p>
+<p>11）、clear 清屏。</p>
+<p>12）、history 查看命令历史。</p>
+<p>13）、help 帮助。</p>
+<p>14）、exit 退出。</p>
+<p>15）、#表示注释</p>
+<h2 id="4git配置">4git配置</h2>
+<p>git config -l 显示git配置列表</p>
+<p>查看不同级别的配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cmake" data-lang="cmake"><span class="c">#查看系统config
+</span><span class="c"></span><span class="err">git</span> <span class="err">config</span> <span class="err">--system</span> <span class="err">--list
+</span><span class="err">　　
+</span><span class="err"></span><span class="c">#查看当前用户（global）配置
+</span><span class="c"></span><span class="err">git</span> <span class="err">config</span> <span class="err">--global</span>  <span class="err">--list
+</span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Git相关的配置文件：</strong></p>
+<p>1）、Git\etc\gitconfig  ：Git 安装目录下的 gitconfig   &ndash;system 系统级</p>
+<p>2）、C:\Users\Administrator\ .gitconfig   只适用于当前登录用户的配置  &ndash;global 全局</p>
+<p><strong>==设置用户名与邮箱（用户标识，必要）==</strong></p>
+<p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">git config --global user.name &#34;lusenlin&#34;  #名称
+git config --global user.email 1115759748@qq.com   #邮箱
+</code></pre></td></tr></table>
+</div>
+</div><p>只需要做一次这个设置，如果你传递了&ndash;global 选项，因为Git将总是会使用该信息来处理你在系统中所做的一切操作。如果你希望在一个特定的项目中使用不同的名称或e-mail地址，你可以在该项目中运行该命令而不要&ndash;global选项。总之&ndash;global为全局配置，不加为某个项目的特定配置。</p>
+<h2 id="5git基本理论重要">5Git基本理论（重要）</h2>
+<p><strong>三个区域</strong></p>
+<p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage/Index)、资源库(Repository或Git Directory)。如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：</p>
+<p><img src="/typoraImg/git.assets/640-1585970880520.png" alt="img"  /></p>
+<ul>
+<li>Workspace：工作区，就是你平时存放项目代码的地方</li>
+<li>Index / Stage：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息</li>
+<li>Repository：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</li>
+<li>Remote：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</li>
+</ul>
+<p>本地的三个区域确切的说应该是git仓库中HEAD指向的版本：</p>
+<p><img src="/typoraImg/git.assets/640.png" alt="img"></p>
+<ul>
+<li>Directory：使用Git管理的一个目录，也就是一个仓库，包含我们的工作空间和Git的管理空间。</li>
+<li>WorkSpace：需要通过Git进行版本控制的目录和文件，这些目录和文件组成了工作空间。</li>
+<li>.git：存放Git管理信息的目录，初始化仓库的时候自动创建。</li>
+<li>Index/Stage：暂存区，或者叫待提交更新区，在提交进入repo之前，我们可以把所有的更新放在暂存区。</li>
+<li>Local Repo：本地仓库，一个存放在本地的版本库；HEAD会只是当前的开发分支（branch）。</li>
+<li>Stash：隐藏，是一个工作状态保存栈，用于保存/恢复WorkSpace中的临时状态。</li>
+</ul>
+<h2 id="6工作流程">6工作流程</h2>
+<p>git的工作流程一般是这样的：</p>
+<p>１、在工作目录中添加、修改文件；</p>
+<p>２、将需要进行版本管理的文件放入暂存区域；</p>
+<p>３、将暂存区域的文件提交到git仓库。</p>
+<p>因此，git管理的文件有三种状态：已修改（modified）,已暂存（staged）,已提交(committed)</p>
+<h2 id="github搜索">github搜索</h2>
+<p><a href="https://help.github.com/cn/github/searching-for-information-on-github/searching-for-repositories">https://help.github.com/cn/github/searching-for-information-on-github/searching-for-repositories</a></p>
+<table>
+<thead>
+<tr>
+<th>限定符</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>in:name</code></td>
+<td><a href="https://github.com/search?q=jquery+in%3Aname&amp;type=Repositories"><strong>jquery in:name</strong></a> 匹配其名称中含有 &ldquo;jquery&rdquo; 的仓库。</td>
+</tr>
+<tr>
+<td><code>in:description</code></td>
+<td><a href="https://github.com/search?q=jquery+in%3Aname%2Cdescription&amp;type=Repositories"><strong>jquery in:name,description</strong></a> 匹配其名称或说明中含有 &ldquo;jquery&rdquo; 的仓库。</td>
+</tr>
+<tr>
+<td><code>in:readme</code></td>
+<td><a href="https://github.com/search?q=jquery+in%3Areadme&amp;type=Repositories"><strong>jquery in:readme</strong></a> 匹配其自述文件中提及 &ldquo;jquery&rdquo; 的仓库。</td>
+</tr>
+<tr>
+<td><code>repo:owner/name</code></td>
+<td><a href="https://github.com/search?q=repo%3Aoctocat%2Fhello-world"><strong>repo:octocat/hello-world</strong></a> 匹配特定仓库名称。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>按复刻数量搜索</strong></p>
+<p><code>forks</code> 限定符使用<a href="https://help.github.com/cn/articles/understanding-the-search-syntax">大于、小于和范围限定符</a>指定仓库应具有的复刻数量。</p>
+<table>
+<thead>
+<tr>
+<th>限定符</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>forks:*n*</code></td>
+<td><a href="https://github.com/search?q=forks%3A5&amp;type=Repositories"><strong>forks:5</strong></a> 匹配只有 5 个复刻的仓库。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/search?q=forks%3A%3E%3D205&amp;type=Repositories"><strong>forks:&gt;=205</strong></a> 匹配具有至少 205 个复刻的仓库。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/search?q=forks%3A%3C90&amp;type=Repositories"><strong>forks:&lt;90</strong></a> 匹配具有少于 90 个复刻的仓库。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/search?q=forks%3A10..20&amp;type=Repositories"><strong>forks:10..20</strong></a> 匹配具有 10 到 20 个复刻的仓库。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>按星号数量搜索</strong></p>
+<p>您可以使用<a href="https://help.github.com/cn/articles/understanding-the-search-syntax">大于、小于和范围限定符</a>基于仓库具有的<a href="https://help.github.com/cn/articles/saving-repositories-with-stars">星标</a>数量搜索仓库</p>
+<table>
+<thead>
+<tr>
+<th>限定符</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stars:*n*</code></td>
+<td><a href="https://github.com/search?utf8=%E2%9C%93&amp;q=stars%3A500&amp;type=Repositories"><strong>stars:500</strong></a> 匹配恰好具有 500 个星号的仓库。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/search?q=stars%3A10..20+size%3A%3C1000&amp;type=Repositories"><strong>stars:10..20</strong></a> 匹配具有 10 到 20 个星号、小于 1000 KB 的仓库。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/search?q=stars%3A%3E%3D500+fork%3Atrue+language%3Aphp&amp;type=Repositories"><strong>stars:&gt;=500 fork:true language:php</strong></a> 匹配具有至少 500 个星号，包括复刻的星号（以 PHP 编写）的仓库。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>按仓库创建或上次更新时间搜索</strong></p>
+<p>您可以基于创建时间或上次更新时间过滤仓库。 对于仓库创建，您可以使用 <code>created</code> 限定符；要了解仓库上次更新的时间，您要使用 <code>pushed</code> 限定符。 <code>pushed</code> 限定符将返回仓库列表，按仓库中任意分支上最近进行的提交排序。</p>
+<p>两者均采用日期作为参数。 日期格式必须遵循 <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a>标准，即 <code>YYYY-MM-DD</code>（年-月-日）。 您也可以在日期后添加可选的时间信息 <code>THH:MM:SS+00:00</code>，以便按小时、分钟和秒进行搜索。 这是 <code>T</code>，随后是 <code>HH:MM:SS</code>（时-分-秒）和 UTC 偏移 (<code>+00:00</code>)。</p>
+<p>日期支持<a href="https://help.github.com/cn/articles/understanding-the-search-syntax">大于、小于和范围限定符</a>。</p>
+<table>
+<thead>
+<tr>
+<th>限定符</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>created:*YYYY-MM-DD*</code></td>
+<td><a href="https://github.com/search?q=webos+created%3A%3C2011-01-01&amp;type=Repositories"><strong>webos created:&lt;2011-01-01</strong></a> 匹配具有 &ldquo;webos&rdquo; 字样、在 2011 年之前创建的仓库。</td>
+</tr>
+<tr>
+<td><code>pushed:*YYYY-MM-DD*</code></td>
+<td><a href="https://github.com/search?utf8=%E2%9C%93&amp;q=css+pushed%3A%3E2013-02-01&amp;type=Repositories"><strong>css pushed:&gt;2013-02-01</strong></a> 匹配具有 &ldquo;css&rdquo; 字样、在 2013 年 1 月之后收到推送的仓库。</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://github.com/search?q=case+pushed%3A%3E%3D2013-03-06+fork%3Aonly&amp;type=Repositories"><strong>case pushed:&gt;=2013-03-06 fork:only</strong></a> 匹配具有 &ldquo;case&rdquo; 字样、在 2013 年 3 月 6 日或之后收到推送并且作为复刻的仓库。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>按语言搜索</strong></p>
+<p>您可以基于其编写采用的主要语言搜索仓库。</p>
+<table>
+<thead>
+<tr>
+<th>限定符</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>language:*LANGUAGE*</code></td>
+<td><a href="https://github.com/search?q=rails+language%3Ajavascript&amp;type=Repositories"><strong>rails language:javascript</strong></a> 匹配具有 &ldquo;rails&rdquo; 字样、以 JavaScript 编写的仓库。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>按主题搜索</strong></p>
+<p>您可以查找归类为特定<a href="https://help.github.com/cn/articles/classifying-your-repository-with-topics">主题</a>的所有仓库。</p>
+<table>
+<thead>
+<tr>
+<th>限定符</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>topic:*TOPIC*</code></td>
+<td><a href="https://github.com/search?utf8=%E2%9C%93&amp;q=topic%3Ajekyll&amp;type=Repositories&amp;ref=searchresults"><strong>topic:jekyll</strong></a>匹配已归类为 &ldquo;jekyll&rdquo; 主题的仓库。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7创建工作目录与常用指令">7创建工作目录与常用指令</h2>
+<p>工作目录（WorkSpace)一般就是你希望Git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。</p>
+<p>日常使用只要记住下图6个命令：</p>
+<p><img src="/typoraImg/git.assets/640-1585971000417.png" alt="img"></p>
+<h3 id="改变文件状态">改变文件状态</h3>
+<p><strong>文件的四种状态</strong></p>
+<p>版本控制就是对文件的版本控制，要对文件进行修改、提交等操作，首先要知道文件当前在什么状态，不然可能会提交了现在还不想提交的文件，或者要提交的文件没提交上。</p>
+<ul>
+<li>Untracked: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过git add 状态变为Staged.</li>
+<li>Unmodify: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为Modified. 如果使用git rm移出版本库, 则成为Untracked文件</li>
+<li>Modified: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过git add可进入暂存staged状态, 使用git checkout 则丢弃修改过, 返回到unmodify状态, 这个git checkout即从库中取出文件, 覆盖当前修改 !</li>
+<li>Staged: 暂存状态. 执行git commit则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为Unmodify状态. 执行git reset HEAD filename取消暂存, 文件状态为Modified</li>
+</ul>
+<p><strong>查看文件状态</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">#查看指定文件状态
+git status [filename]
+
+#查看所有文件状态
+git status
+
+# git add .                  添加所有文件到暂存区
+# git commit -m &#34;消息内容&#34;    提交暂存区中的内容到本地仓库 -m 提交信息
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="第三章-结合使用">第三章-结合使用</h1>
+<h2 id="1githubgitee">1github/gitee</h2>
+<p>github 是有墙的，比较慢，在国内的话，我们一般使用 gitee ，公司中有时候会搭建自己的gitlab服务器</p>
+<p>gitee码云下面有教程和命令大全。</p>
+<p>1、设置本机绑定SSH公钥，实现免密码登录！（免密码登录，这一步挺重要的，码云是远程仓库，我们是平时工作在本地仓库！)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">生成公钥命令ssh-keygen -t rsa
+# 进入 C:\Users\Administrator\.ssh目录
+</code></pre></td></tr></table>
+</div>
+</div><p>2把生成的pub文件公钥内容，放到码云SSH公钥上(码云设置中)<code>ssh -T git@github.com</code>测试</p>
+<p>3新建gitee仓库（右上角+号）</p>
+<hr>
+<p>使用http则不用ssh生成密码进行设置</p>
+<p>再本地新建一个文件夹，然后右击git bash here</p>
+<p>origin原点、来源，用来和远程地址进行绑定</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#已经在Gitee上创建了仓库</span>
+<span class="nv">$git</span> init  //初始化一个git 本地仓库此时会在本地创建一个 .git 的文件夹
+$ git remote add <span class="o">[</span>远程仓储名如：origin<span class="o">]</span> <span class="o">[</span>url如：https://gitee.com/用户名/仓库名<span class="o">]</span> <span class="c1">#添加远程仓库地址 叫做origin</span>
+
+$ git pull origin/ˈɔːrɪdʒɪn原点/ master <span class="c1">#把origin远程仓储的master代码 拉取到本地</span>
+ <span class="c1">#将要上传的文件，添加到刚刚创建的文件夹</span>  
+$ git add .  <span class="c1">#(.表示所有的,或者单个文件)把文件保存到缓存区</span>
+$ git commit -m <span class="s2">&#34;提交信息&#34;</span>  <span class="c1">#为上传的文件添加文件描述</span>
+$ git push -u origin <span class="c1">#对应远程地址</span>
+ 
+<span class="c1">#git push -u origin master 将当前分支推送到origin主机的对应分支,如果当前分支与多个主机存在追踪关系，</span>
+<span class="c1">#则可以使用 -u 参数指定一个默认主机，这样后面就可以不加任何参数使用git push，</span>
+ 
+$ git add --all
+$ git commit -m <span class="s2">&#34;信息&#34;</span>
+$ git push
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>提交代码可能发生的错误</p>
+<p>出于隐私保护的考虑，码云后续又推出了「邮箱隐私保护」的功能。用户在「个人设置」-&gt;「基本设置」-&gt;「多邮箱管理」中开启了「不公开我的邮箱地址」后，在网页上修改仓库内容并产生提交时，系统将默认使用上述的隐私邮箱地址作为提交邮箱。</p>
+<p>如果用户推送失败，看到上面的提示信息。可以通过对应码云帐号，在「个人设置」-&gt;「基本设置」-&gt;「多邮箱管理」中取消「禁止命令行推送暴露个人邮箱」选项勾选即可。</p>
+</blockquote>
+<h2 id="2idea连接git">2IDEA连接git</h2>
+<h3 id="本地创建">本地创建</h3>
+<p>1、新建项目，绑定git。IDEA中创建一个仓库</p>
+<p><img src="/typoraImg/git.assets/image-20200814141841872.png" alt="image-20200814141841872" style="zoom:50%;" /></p>
+<p>2直接把git clone url克隆下来的项目中所有文件拷贝到 刚刚的项目中就好了</p>
+<p><img src="/typoraImg/git.assets/image-20200404165756873.png" alt="image-20200404165756873"></p>
+<p>3打开左下角的Version Control就可看到远程仓库所有信息
+右上角的↙和✔</p>
+<blockquote>
+<p>↙是update Project选项
+Merge the incoming changes into the current branch 将传入的更改合并到当前分支中
+Rebase the current branch on top of the incoming changes将当前分支重新置于传入更改之上</p>
+</blockquote>
+<blockquote>
+<p>✔是进行commit 但是没有git push 需要push，可以手动在Terminal进行<img src="/typoraImg/git.assets/image-20200404171742087.png" alt="image-20200404171742087"></p>
+</blockquote>
+<h3 id="忽略文件">忽略文件</h3>
+<p>在ignore下忽略某些文件 <code>*.idea;*.imi;target</code></p>
+<p><img src="/typoraImg/git.assets/image-20200814145605839.png" alt="image-20200814145605839" style="zoom: 50%;" /></p>
+<h2 id="3git分支">3git分支</h2>
+<p>分支在GIT中相对较难，分支就是科幻电影里面的平行宇宙，如果两个平行宇宙互不干扰，那对现在的你也没啥影响。不过，在某个时间点，两个平行宇宙合并了，我们就需要处理一些问题了！</p>
+<p><img src="/typoraImg/git.assets/640-1585992467775.png" alt="img"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git分支中常用指令：
+
+<span class="c1"># 列出所有本地分支</span>
+git branch
+
+<span class="c1"># 列出所有远程分支</span>
+git branch -r
+
+<span class="c1"># 新建一个分支，但依然停留在当前分支</span>
+git branch <span class="o">[</span>branch-name<span class="o">]</span>
+
+<span class="c1"># 新建一个分支，并切换到该分支</span>
+git checkout -b <span class="o">[</span>branch<span class="o">]</span>
+
+<span class="c1"># 合并指定分支到当前分支</span>
+$ git merge <span class="o">[</span>branch<span class="o">]</span>
+
+<span class="c1"># 删除分支</span>
+$ git branch -d <span class="o">[</span>branch-name<span class="o">]</span>
+
+<span class="c1"># 删除远程分支</span>
+$ git push origin --delete <span class="o">[</span>branch-name<span class="o">]</span>
+$ git branch -dr <span class="o">[</span>remote/branch<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="4常用命令">4常用命令</h2>
+<h3 id="登录">登录</h3>
+<blockquote>
+<p>全局命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">**显示当前的Git配置**
+$ git config --list
+
+**编辑Git配置文件**
+$ git config -e <span class="o">[</span>--global<span class="o">]</span>
+
+**设置提交代码时的用户信息**
+$ git config <span class="o">[</span>--global<span class="o">]</span> user.name <span class="s2">&#34;13277112287&#34;</span>
+$ git config <span class="o">[</span>--global<span class="o">]</span> user.email <span class="s2">&#34;1115759748@qq.com&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>&ndash;global 表示全局的，即当前用户都有效，该配置会出现在 ~/.gitconfig 文件中，~表示当前用户的目录，比如我的是：C:\Users\username.gitconfig ，打开该文件你会发现如下图所示的内容：</p>
+<p>去除global表示当前，当前会覆盖全局。它的配置信息会在当前仓库根目录/.git/config文件下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[user]
+	name = lusenlin1997
+	email = 1115759748@qq.com
+</code></pre></td></tr></table>
+</div>
+</div><p>输入命令<code>ssh-keygen -t rsa -C &quot;your@email.com&quot;</code>会出现</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git@github.com: Permission denied <span class="o">(</span>publickey<span class="o">)</span>.
+fatal: Could not <span class="nb">read</span> from remote repository.
+直接回车表示上传时不需要密码
+系统会自动在.ssh文件夹下生成两个文件，id_rsa和id_rsa.pub，用记事本打开id_rsa.pub
+复制后进入Github的setting下的SSH keys添加ssh
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h3 id="增加删除文件">增加/删除文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 添加指定文件到暂存区</span>
+$ git add <span class="o">[</span>file1<span class="o">]</span> <span class="o">[</span>file2<span class="o">]</span> ...
+
+<span class="c1"># 添加指定目录到暂存区，包括子目录</span>
+$ git add <span class="o">[</span>dir<span class="o">]</span>
+
+<span class="c1"># 添加当前目录的所有文件到暂存区</span>
+$ git add .
+
+<span class="c1"># 添加每个变化前，都会要求确认</span>
+<span class="c1"># 对于同一个文件的多处变化，可以实现分次提交</span>
+$ git add -p
+
+<span class="c1"># 删除工作区文件，并且将这次删除放入暂存区 -r删除文件夹</span>
+$ git rm <span class="o">[</span>file1<span class="o">]</span> <span class="o">[</span>file2<span class="o">]</span> ...
+git rm * -r
+
+<span class="c1"># 停止追踪指定文件，但该文件会保留在工作区</span>
+$ git rm --cached <span class="o">[</span>file<span class="o">]</span>
+
+<span class="c1"># 改名文件，并且将这个改名放入暂存区</span>
+$ git mv <span class="o">[</span>file-original<span class="o">]</span> <span class="o">[</span>file-renamed<span class="o">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#从本地删除远程</span>
+<span class="c1">#1先拉取</span>
+git pull
+
+git rm -r --cached 要删除的文件  <span class="c1"># cached不会把本地文件也删除  -r删除目录</span>
+
+git commit -m <span class="s2">&#34;提交删除的文件说明&#34;</span>
+
+git push -u origin master    <span class="c1"># 更新远程仓库</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="远程同步">远程同步</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 下载远程仓库的所有变动</span>
+$ git fetch <span class="o">[</span>remote<span class="o">]</span>
+
+<span class="c1"># 显示所有远程仓库</span>
+$ git remote -v
+
+<span class="c1"># 显示某个远程仓库的信息</span>
+$ git remote show <span class="o">[</span>remote<span class="o">]</span>
+
+<span class="c1"># 增加一个新的远程仓库，并命名</span>
+$ git remote add <span class="o">[</span>shortname<span class="o">]</span> <span class="o">[</span>url<span class="o">]</span>
+
+<span class="c1"># 取回远程仓库的变化，并与本地分支合并</span>
+$ git pull <span class="o">[</span>remote<span class="o">]</span> <span class="o">[</span>branch<span class="o">]</span>
+
+<span class="c1"># 上传本地指定分支到远程仓库</span>
+$ git push <span class="o">[</span>remote<span class="o">]</span> <span class="o">[</span>branch<span class="o">]</span>
+
+<span class="c1"># 强行推送当前分支到远程仓库，即使有冲突</span>
+$ git push <span class="o">[</span>remote<span class="o">]</span> --force
+
+<span class="c1"># 推送所有分支到远程仓库</span>
+$ git push <span class="o">[</span>remote<span class="o">]</span> --all
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="第四章-git网站">第四章-Git网站</h1>
+<h2 id="使用方法">使用方法</h2>
+<p>1下载使用hugo：https://github.com/gohugoio/hugo/releases</p>
+<p>2 环境变量： 我的电脑-》属性-》高级系统设置-》环境变量</p>
+<p>在path中加入hugo的解压后的目录，然后重启cmd</p>
+<p>3生成站点</p>
+<p>当前位置的上一级</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">hugo new site ../blog 
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="/typoraImg/git.assets/image-20200812191702008.png" alt="image-20200812191702008"></p>
+<p>4用git下载主题，然后放到thems里</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone https://github.com/vaga/hugo-theme-m10c.git themes/m10c
+</code></pre></td></tr></table>
+</div>
+</div><p>5启动博客 后访问http://localhost:1313/</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">hugo server -t m10c --buildDrafts
+hugo server --buildDrafts
+</code></pre></td></tr></table>
+</div>
+</div><p>6创建一个md</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">hugo new post/blog.md
+<span class="c1">#在content目录下面,content/post/blog.md</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>7打开github创建 仓库13277112287.github.io ==对于有些主题而言，仓库名必须：用户名.github.io==</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#指定主题</span>
+hugo --theme<span class="o">=</span>m10c --baseUrl<span class="o">=</span><span class="s2">&#34;https://13277112287.github.io/&#34;</span> --buildDrafts
+<span class="c1">#不指定主题，配置文件已经写了</span>
+hugo -D --baseUrl<span class="o">=</span><span class="s2">&#34;https://13277112287.github.io/&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接下来就是把这个public文件传到GitHub上</p>
+<p>进入 public文件夹下面</p>
+<blockquote>
+<p><strong>even主题</strong></p>
+<p>原网站：https://github.com/ahonn/hexo-theme-even/blob/master/README.md</p>
+<p>网站：https://github.com/olOwOlo/hugo-theme-even/blob/master/README-zh.md</p>
+<blockquote>
+<p>注意图片的位置：图片位置：<code>/static/img/hugo/123.png</code>，那么在Markdown中写作<code>![图片说明](/img/hugo/123.png)</code></p>
+</blockquote>
+<blockquote>
+<p>注意有些主题：<code>hugo -D --baseUrl=&quot;https://13277112287.github.io&quot;</code> baseUrl后面不能有路径</p>
+</blockquote>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/elementui/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">ElementUI.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/hibernate/">
+            <span class="next-text nav-default">Hibernate.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

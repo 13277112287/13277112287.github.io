@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Redis.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="目录 第一章-Redis概述 1介绍和安装 黑马实用教程：https://www.bilibili.com/video/BV1CJ411m7Gc?" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/redis/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Redis.md" />
+<meta property="og:description" content="目录 第一章-Redis概述 1介绍和安装 黑马实用教程：https://www.bilibili.com/video/BV1CJ411m7Gc?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/redis/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-12T00:00:00+00:00" />
+<meta itemprop="name" content="Redis.md">
+<meta itemprop="description" content="目录 第一章-Redis概述 1介绍和安装 黑马实用教程：https://www.bilibili.com/video/BV1CJ411m7Gc?">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="9090">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Redis.md"/>
+<meta name="twitter:description" content="目录 第一章-Redis概述 1介绍和安装 黑马实用教程：https://www.bilibili.com/video/BV1CJ411m7Gc?"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Redis.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/database/"> Database </a>
+            </div>
+          <span class="more-meta"> 约 9090 字 </span>
+          <span class="more-meta"> 预计阅读 19 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#第一章-redis概述">第一章-Redis概述</a>
+      <ul>
+        <li><a href="#1介绍和安装">1介绍和安装</a></li>
+        <li><a href="#2数据格式">2数据格式</a>
+          <ul>
+            <li><a href="#1string">1string</a></li>
+            <li><a href="#2hash">2Hash</a></li>
+            <li><a href="#3list">3list</a></li>
+            <li><a href="#4set">4set</a></li>
+            <li><a href="#5sorted_set">5sorted_set</a></li>
+          </ul>
+        </li>
+        <li><a href="#3通用的key">3通用的key</a></li>
+        <li><a href="#4数据库通用操作">4数据库通用操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-redis高级">第二章-Redis高级</a>
+      <ul>
+        <li><a href="#0-jedis">0-Jedis</a></li>
+        <li><a href="#0-整合spring">0-整合spring</a></li>
+        <li><a href="#1linux下使用">1、linux下使用</a>
+          <ul>
+            <li><a href="#1-安装">1-安装</a></li>
+            <li><a href="#2-配置文件">2-配置文件</a></li>
+          </ul>
+        </li>
+        <li><a href="#2持久化">2、持久化</a></li>
+        <li><a href="#3事务">3、事务</a></li>
+        <li><a href="#3-1事务-锁">3-1、事务-锁</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三章-redis部署">第三章-redis部署</a>
+      <ul>
+        <li><a href="#1主从复制">1主从复制</a></li>
+        <li><a href="#2哨兵sentinel">2哨兵sentinel</a></li>
+        <li><a href="#3集群">3集群</a></li>
+        <li><a href="#4redis注意">4redis注意</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="目录">目录</h1>
+<h1 id="第一章-redis概述">第一章-Redis概述</h1>
+<h2 id="1介绍和安装">1介绍和安装</h2>
+<p>黑马实用教程：https://www.bilibili.com/video/BV1CJ411m7Gc?p=23</p>
+<p>笔记网址：https://blog.csdn.net/branwel/article/details/103897256</p>
+<blockquote>
+<p><strong>介绍</strong></p>
+</blockquote>
+<p><strong>关系型数据库</strong>通过外键关联来建立表与表之间的关系。</p>
+<p><strong>非关系型数据库</strong>通常指数据以对象的形式存储在数据库中，而对象之间的关系通过每个对象自身的属性来决定。Nosql Not-Only SQL</p>
+<p>Redis 运行快速的原因</p>
+<ol>
+<li>完全基于内存操作</li>
+<li>数据结构简单，数据操作也简单</li>
+<li>使用多路I/O复用模型</li>
+</ol>
+<p>关系型数据库发展的原因，之前的关系型数据库，关系复杂，扩展性差，不容易维护，不便于大规模集群。磁盘IO性能低下。</p>
+<p>redis作用：应用基于海量用户和海量数据前提下的数据处理问题。
+一般用于，高频，波段性比较强的热点信息。</p>
+<blockquote>
+<p><strong>安装</strong></p>
+<p>Linux:https://redis.io/download
+window:安装和教程https://www.runoob.com/redis/redis-install.html</p>
+<p>还可以安装桌面可视化管理工具进行操作，比如redis desktop manager</p>
+</blockquote>
+<blockquote>
+<p><strong>开启服务：</strong></p>
+<p>redis一般都是在Linux下使用，这里只是作基础的学习。
+在redis解压目录下：cmd+空格 (通过window+r用cd切换到目录也可以)。</p>
+<p>1输入:redis-server.exe redis.windows.conf 会出现一个redis图像
+2不要关闭上一个窗口，再开一个。切换到redis目录
+输入：redis-cli.exe -h 127.0.0.1 -p 6379
+看到前缀变为127.0..:6379
+OK</p>
+</blockquote>
+<p>获取配置
+redis 127.0.0.1:6379&gt;输入CONFIG GET 配置项的名称
+获取全部配置
+CONFIG GET *</p>
+<p>也就是redis.windows.conf Window下的配置</p>
+<p>关闭客户端：shutdown</p>
+<h2 id="2数据格式">2数据格式</h2>
+<p>在redis操作中成功为1，失败为0</p>
+<table>
+<thead>
+<tr>
+<th>类型名称</th>
+<th>redis中类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>字符串</td>
+<td>string</td>
+</tr>
+<tr>
+<td>列表</td>
+<td>list</td>
+</tr>
+<tr>
+<td>散列</td>
+<td>hash</td>
+</tr>
+<tr>
+<td>集合</td>
+<td>set</td>
+</tr>
+<tr>
+<td>有序集合</td>
+<td>sorted_set</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1string">1string</h3>
+<p>key的命名习惯 表名：主键名：主键值：字段名称</p>
+<blockquote>
+<p><strong>单条操作</strong></p>
+</blockquote>
+<ol>
+<li>增：set	key	value</li>
+<li>查：get	key</li>
+<li>删：del	key</li>
+</ol>
+<blockquote>
+<p><strong>多条操作</strong></p>
+</blockquote>
+<ol>
+<li>增改：mset	key	value	[key1	value1]</li>
+<li>查：mget	key	[key1]</li>
+</ol>
+<blockquote>
+<p>** 其他命令**</p>
+</blockquote>
+<p>strlen	key	//获取字符串长度
+append	key	value	//有则追加，无则新建
+setnx	key	value	//不存在就设置，存在就不设置
+incr	key	//自增 1
+incrby	key	num //给key的值增加num（int 类型），num 正数则为加，num 为负数 则为减
+incrbyfloat	key	num	//给key的值增加num（float 类型）
+decr	key //自减 1
+decrby	key	num	//给key的值减num
+setex	key	second	value	//设置key的值为value存活时间为second秒
+psetex	key	millisecond	value	//设置key的值为value存活时间为millisecond毫秒</p>
+<h3 id="2hash">2Hash</h3>
+<blockquote>
+<p>** 单条操作**</p>
+</blockquote>
+<ol>
+<li>增：hset	key	field	value</li>
+<li>查：hget	key	field</li>
+<li>删：hdel	key	field</li>
+</ol>
+<blockquote>
+<p>** 多条操作**</p>
+</blockquote>
+<ol>
+<li>增：hmset	key	field	value	[field1	value2]</li>
+<li>查：hmget	key	field	[field1]</li>
+</ol>
+<blockquote>
+<p><strong>其他命令</strong></p>
+</blockquote>
+<p><strong>hgetall</strong>	key	//获取key的全部的字段和值
+hlen	key	//获取key的值的数量
+hexists	key	field	//是否存在field
+hkeys	key	//所有key的字段（field）
+hvals	key	//所有key的值
+<strong>hincrby</strong>	key	field	num	//给key的field的值增加num （num 为int值）
+hincrybyfloat	key	field	num	//给key的field的值增加num （num 为float）
+hsetnx	key	field	value	//存在不设置，不存在设置</p>
+<hr>
+<p>注意</p>
+<p>Hash类型的value只能存字符串，不允许再嵌套其他类型，如果数据为空为Nil
+每个Hash可以存储232−1 2^{32}-12
+32 −1个键的值对
+Hash类型十分贴近对象的数据存储，并且可以灵活添加、删除对象属性。但Hash类型设计并不是存在量而设计的，切记不可滥用，更不可将Hash作为对象列表使用
+hgetall操作可以获取全部属性，如果内部field过多，遍历整体数据时效率会降低，很有可能成为数据访问的瓶颈</p>
+<h3 id="3list">3list</h3>
+<p>保存多个数据，底层用双向链表存储结构实现。</p>
+<p>key为集合名</p>
+<blockquote>
+<p>** 添加**</p>
+</blockquote>
+<ol>
+<li>lpush	key	value	[value1]	//从左添加</li>
+<li>rpush	key	value	[value1]	//从右添加</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">lpush mylist a1 a2 a3 a4  //从左添加
+lrange mylist <span class="m">0</span> 3					
+a4 a3 a2 a1 
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><strong>获取</strong></p>
+</blockquote>
+<ol>
+<li>lrange	key	start	stop(为-1时获取所有数据)</li>
+<li>lindex	key	index</li>
+<li>llen	key</li>
+</ol>
+<blockquote>
+<p>** 获取并移除**</p>
+</blockquote>
+<ol>
+<li>lpop	key	//从左出</li>
+<li>rpop	key	//从右出</li>
+</ol>
+<blockquote>
+<p>从左边移除count个指定数据</p>
+<p>lrem key count value</p>
+</blockquote>
+<ol>
+<li>list具有索引的概念，但是操作数据时通常以队列的形式进行入队出队操作（或以栈的形式进行入栈出栈操作）</li>
+</ol>
+<blockquote>
+<p>规定时间内,(超过时间返回nil,可以有从多个集合获取)获取并移除数据</p>
+<p>blopop key1 key2 timout</p>
+</blockquote>
+<h3 id="4set">4set</h3>
+<p>存储大量数据，查询方面有更高效率</p>
+<p>增：sadd	key	member	[member1]
+查：smembers	key
+删：srem	key	member	[member1]
+获取总量：scard	key
+判定是否存在：sismember	key	member
+随机获取（原集合保留）：srandmember	key	[count]
+随机获取（原集合不保留）：spop	key
+集合交集：sinter	key	key1	key2
+集合并集：sunion	key	key1	key2
+集合差集：sdiff	key	key1	key2
+存储集合交集：sinterstore	destination	key	key1	key2
+存储集合并集：sunionstore	destination	key	key1	key2
+存储集合差集：sdiffstore	destination	key	key1	key2
+集合元素移动：smove	source	destination	member</p>
+<p>应用场景：访问量统计</p>
+<p>公司对旗下新的网站做推广，统计网站的PV (访问量) ,UV (独立访客) ,IP (独立IP)。
+PV:网站被访问次数,可通过刷新页面提高访问量
+UV:网站被不同用户访问的次数,可通过cookie统计访问量，相同用户切换IP地址, UV不变
+IP:网站被不同IP地址访问的总次数，可通过IP地址统计访问量,相同IP不同用户访问, IP不变</p>
+<h3 id="5sorted_set">5sorted_set</h3>
+<p>zset (sorted set：有序集合)。</p>
+<p>增：zadd	key	score	member	[score1	member1]
+删：zrem	key	member	[member1]</p>
+<blockquote>
+<p>加上withscores意思是会先显示score 再显示member</p>
+</blockquote>
+<p>获取全部（正序）：zrange	key	start	stop	[withscores]
+获取全部（倒序）：zrevrange	key	start	stop	[withscores]</p>
+<p>按条件查（正序）：zrangebyscore	key	min	max	[withscore	limit]
+按条件查（倒序）：zrevrangebyscore	key	max	min	[withscore	limit]</p>
+<p>按条件删除（索引）：zremrangebyrank	key	start	stop
+按条件删除（积分）：zremrangebyscore	key	min	max
+获取集合总量：zcard	key	|	zcount	key	min	max
+存储集合交集：	zinterstore	destination	numkeys	key	key1
+存储集合并集：zunionstore	destination	numkeys	key	key1
+获取索引（正序）：zrank	key	member
+获取索引（倒序）：zrevrank	key	member
+score值获取：zscore	key	member
+score值修改：zincrby	key	num	member</p>
+<h2 id="3通用的key">3通用的key</h2>
+<p>删除：del	key
+判断是否存在：exists	key
+获取key类型：type	key</p>
+<p>指定有效期：
+expire	key	seconds
+pexpire	key	milliseconds
+expireat	key	timestamp
+pexpireat	key	milliseconds-timestamp</p>
+<p>获取有效期：
+ttl	key
+pttl	key</p>
+<p>设置永久：persist	key
+查询key：key	pattern	//*,?,[]
+重命名：rename	key	newkey
+新名称不存在时，才改	renamenx	key	newkey
+对key排序：sort</p>
+<p>key pattern匹配符号解释：
+// *任意数量任意符号，?一个任意符号 []匹配一个指定字符</p>
+<p>keys *查询所有，keys it* 查询以it开头</p>
+<h2 id="4数据库通用操作">4数据库通用操作</h2>
+<p>为了解决随着数据量增大，出现大量数据以及对应key，可能出现的数据名类似。</p>
+<p>redis为每个服务提供16个数据库，从0到15
+每个数据库之间数据相互独立。</p>
+<ol>
+<li>选择数据库：select	index</li>
+<li>数据移动：move	key	db</li>
+<li>数据库大小(查看库中有多少key)：dbsize</li>
+<li>数据清除：
+<ol>
+<li>单库删除：flushdb</li>
+<li>多库删除：flushall</li>
+</ol>
+</li>
+</ol>
+<p>redis安全
+默认连接redis不需要密码
+config set requirepass xxxx设置密码
+config get requirepass 查看密码 若无则是:&ldquo;requirepass&rdquo; &quot;&rdquo;
+auth xxx验证密码</p>
+<h1 id="第二章-redis高级">第二章-Redis高级</h1>
+<h2 id="0-jedis">0-Jedis</h2>
+<blockquote>
+<p>加入jar包</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--jedis客户端依赖jar redis--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>redis.clients<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jedis<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.9.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="c">&lt;!--使用jedis连接池--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.commons<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>commons-pool2<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.8.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p>Jedis简单使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//单机连接redis
+</span><span class="c1"></span><span class="n">Jedis</span> <span class="n">jedis</span><span class="o">=</span><span class="k">new</span> <span class="n">Jedis</span><span class="o">(</span><span class="s">&#34;localhost&#34;</span><span class="o">,</span><span class="n">6379</span><span class="o">);</span>
+
+<span class="c1">//操作redis
+</span><span class="c1"></span><span class="n">String</span> <span class="n">string1</span> <span class="o">=</span> <span class="n">jedis</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;string1&#34;</span><span class="o">);</span>
+<span class="n">jedis</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">&#34;test&#34;</span><span class="o">,</span><span class="s">&#34;汉字能不能用？123456&#34;</span><span class="o">);</span><span class="c1">//redis数据库用cmd窗口会显示编码，java取出汉字
+</span><span class="c1"></span>
+<span class="c1">//关闭
+</span><span class="c1"></span><span class="n">jedis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p>jedis连接池工具类(redis.properties)
+使用配置文件，能够解耦。</p>
+<p><strong>redis.properties</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ADDR=&#34;localhost&#34;
+PORT = 6379
+密码**
+AUTH = null
+
+连接实例的最大连接数**
+MAX_ACTIVE = 1024
+
+控制一个pool最多有多少个状态为idle(空闲的)的jedis实例，默认值也是8。**
+MAX_IDLE = 200
+
+等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException**
+MAX_WAIT = 2000
+
+连接超时的时间　**
+TIMEOUT = 2400
+
+在borrow一个jedis实例时，是否提前进行validate操作；如果为true，则得到的jedis实例均是可用的；**
+TEST_ON_BORROW = true
+
+数据库模式是16个数据库 0~15**
+DEFAULT_DATABASE = 0
+</code></pre></td></tr></table>
+</div>
+</div><p>RedisUtil工具类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.redis</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">redis.clients.jedis.Jedis</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">redis.clients.jedis.JedisPool</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">redis.clients.jedis.JedisPoolConfig</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ResourceBundle</span><span class="o">;</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">RedisUtil</span> <span class="o">{</span>
+
+    <span class="c1">//服务器IP地址
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">ADDR</span> <span class="o">=</span> <span class="s">&#34;localhost&#34;</span><span class="o">;</span>
+
+    <span class="c1">//端口
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">PORT</span> <span class="o">=</span> <span class="n">6379</span><span class="o">;</span>
+
+    <span class="c1">//密码
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="n">String</span> <span class="n">AUTH</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+    <span class="c1">//连接实例的最大连接数
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">MAX_ACTIVE</span> <span class="o">=</span> <span class="n">1024</span><span class="o">;</span>
+
+    <span class="c1">//控制一个pool最多有多少个状态为idle(空闲的)的jedis实例，默认值也是8。
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">MAX_IDLE</span> <span class="o">=</span> <span class="n">200</span><span class="o">;</span>
+
+    <span class="c1">//等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。如果超过等待时间，则直接抛出JedisConnectionException
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">MAX_WAIT</span> <span class="o">=</span> <span class="n">10000</span><span class="o">;</span>
+
+    <span class="c1">//连接超时的时间　　
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">int</span> <span class="n">TIMEOUT</span> <span class="o">=</span> <span class="n">10000</span><span class="o">;</span>
+
+    <span class="c1">// 在borrow一个jedis实例时，是否提前进行validate操作；如果为true，则得到的jedis实例均是可用的；
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">boolean</span> <span class="n">TEST_ON_BORROW</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">JedisPool</span> <span class="n">jedisPool</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="c1">//数据库模式是16个数据库 0~15
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span>  <span class="n">Integer</span> <span class="n">DEFAULT_DATABASE</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="cm">/**
+</span><span class="cm">     * 初始化Redis连接池
+</span><span class="cm">     */</span>
+
+    <span class="kd">static</span> <span class="o">{</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">ResourceBundle</span> <span class="n">rb</span><span class="o">=</span><span class="n">ResourceBundle</span><span class="o">.</span><span class="na">getBundle</span><span class="o">(</span><span class="s">&#34;redis&#34;</span><span class="o">);</span>
+            <span class="n">ADDR</span><span class="o">=</span><span class="n">rb</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&#34;ADDR&#34;</span><span class="o">);</span>
+            <span class="n">PORT</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">rb</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&#34;PORT&#34;</span><span class="o">));</span>
+            <span class="n">MAX_ACTIVE</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">rb</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&#34;MAX_ACTIVE&#34;</span><span class="o">));</span>
+            <span class="n">MAX_IDLE</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">rb</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&#34;MAX_IDLE&#34;</span><span class="o">));</span>
+            <span class="n">MAX_WAIT</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">rb</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&#34;MAX_WAIT&#34;</span><span class="o">));</span>
+            <span class="n">TIMEOUT</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">rb</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&#34;TIMEOUT&#34;</span><span class="o">));</span>
+            <span class="n">TEST_ON_BORROW</span><span class="o">=</span><span class="n">Boolean</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">rb</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&#34;TEST_ON_BORROW&#34;</span><span class="o">));</span>
+            <span class="n">DEFAULT_DATABASE</span><span class="o">=</span><span class="n">Integer</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">rb</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&#34;DEFAULT_DATABASE&#34;</span><span class="o">));</span>
+
+
+            <span class="n">JedisPoolConfig</span> <span class="n">config</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JedisPoolConfig</span><span class="o">();</span>
+            <span class="n">config</span><span class="o">.</span><span class="na">setMaxTotal</span><span class="o">(</span><span class="n">MAX_ACTIVE</span><span class="o">);</span>
+            <span class="n">config</span><span class="o">.</span><span class="na">setMaxIdle</span><span class="o">(</span><span class="n">MAX_IDLE</span><span class="o">);</span>
+            <span class="n">config</span><span class="o">.</span><span class="na">setMaxWaitMillis</span><span class="o">(</span><span class="n">MAX_WAIT</span><span class="o">);</span>
+            <span class="n">config</span><span class="o">.</span><span class="na">setTestOnBorrow</span><span class="o">(</span><span class="n">TEST_ON_BORROW</span><span class="o">);</span>
+            <span class="n">jedisPool</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JedisPool</span><span class="o">(</span><span class="n">config</span><span class="o">,</span> <span class="n">ADDR</span><span class="o">,</span> <span class="n">PORT</span><span class="o">,</span> <span class="n">TIMEOUT</span><span class="o">,</span><span class="n">AUTH</span><span class="o">,</span><span class="n">DEFAULT_DATABASE</span><span class="o">);</span>
+
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 获取Jedis实例
+</span><span class="cm">     */</span>
+
+    <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kd">static</span> <span class="n">Jedis</span> <span class="nf">getJedis</span><span class="o">()</span> <span class="o">{</span>
+
+        <span class="k">try</span> <span class="o">{</span>
+
+            <span class="k">if</span> <span class="o">(</span><span class="n">jedisPool</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">Jedis</span> <span class="n">resource</span> <span class="o">=</span> <span class="n">jedisPool</span><span class="o">.</span><span class="na">getResource</span><span class="o">();</span>
+                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;redis--服务正在运行: &#34;</span><span class="o">+</span><span class="n">resource</span><span class="o">.</span><span class="na">ping</span><span class="o">());</span>
+                <span class="k">return</span> <span class="n">resource</span><span class="o">;</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+            <span class="o">}</span>
+
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="o">}</span>
+
+    <span class="o">}</span>
+
+    <span class="cm">/***
+</span><span class="cm">     *
+</span><span class="cm">     * 释放资源
+</span><span class="cm">     */</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">returnResource</span><span class="o">(</span><span class="kd">final</span> <span class="n">Jedis</span> <span class="n">jedis</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">jedis</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">jedis</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="0-整合spring">0-整合spring</h2>
+<p>先加入jar包依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--redis--&gt;</span>
+ <span class="nt">&lt;dependency&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>org.springframework.data<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>spring-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+   <span class="nt">&lt;version&gt;</span>2.1.9.RELEASE<span class="nt">&lt;/version&gt;</span>
+ <span class="nt">&lt;/dependency&gt;</span>
+
+ <span class="nt">&lt;dependency&gt;</span>
+   <span class="nt">&lt;groupId&gt;</span>redis.clients<span class="nt">&lt;/groupId&gt;</span>
+   <span class="nt">&lt;artifactId&gt;</span>jedis<span class="nt">&lt;/artifactId&gt;</span>
+   <span class="nt">&lt;version&gt;</span>2.9.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>1redis.properties</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">redis.maxTotal=10
+redis.maxIdle=5
+redis.maxWaitMillis=2000
+redis.testOnBorrow=true
+redis.host=localhost
+redis.port=6379
+redis.timeout=5000
+redis.password=null
+redis.testWhileIdle=true 
+redis.timeBetweenEvictionRunsMillis=30000  
+redis.numTestsPerEvictionRun=50 
+</code></pre></td></tr></table>
+</div>
+</div><p>2spring-dao.xml
+<strong>注意没有密码，这是整合的mabatis-plus</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans
+</span><span class="s">http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">http://www.springframework.org/schema/context
+</span><span class="s">https://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;context:property-placeholder</span> <span class="na">location=</span><span class="s">&#34;classpath*:redis.properties,classpath*:database.properties&#34;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- 配置整合mybatis --&gt;</span>
+    <span class="c">&lt;!-- 1.关联数据库文件 --&gt;</span>
+
+
+    <span class="c">&lt;!-- 2.数据库连接池 --&gt;</span>
+    <span class="c">&lt;!--数据库连接池
+</span><span class="c">dbcp  半自动化操作  不能自动连接
+</span><span class="c">c3p0  自动化操作（自动的加载配置文件 并且设置到对象里面）
+</span><span class="c">druid
+</span><span class="c">    --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">class=</span><span class="s">&#34;com.mchange.v2.c3p0.ComboPooledDataSource&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 配置连接池属性 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;driverClass&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.driver}&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jdbcUrl&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.url}&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;user&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.username}&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;password&#34;</span> <span class="na">value=</span><span class="s">&#34;${jdbc.password}&#34;</span><span class="nt">/&gt;</span>
+
+        <span class="c">&lt;!-- c3p0连接池的私有属性 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxPoolSize&#34;</span> <span class="na">value=</span><span class="s">&#34;30&#34;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;minPoolSize&#34;</span> <span class="na">value=</span><span class="s">&#34;10&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 关闭连接后不自动commit --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;autoCommitOnClose&#34;</span> <span class="na">value=</span><span class="s">&#34;false&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 获取连接超时时间 10s--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;checkoutTimeout&#34;</span> <span class="na">value=</span><span class="s">&#34;10000&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 当获取连接失败重试次数 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;acquireRetryAttempts&#34;</span> <span class="na">value=</span><span class="s">&#34;2&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--最大空闲时间，3600秒内未使用则连接被丢弃。若为0则永不丢弃。默认值: 0 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxIdleTime&#34;</span> <span class="na">value=</span><span class="s">&#34;7200&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--每120秒检查所有连接池中的空闲连接。Default: 0 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;idleConnectionTestPeriod&#34;</span> <span class="na">value=</span><span class="s">&#34;120&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!-- 3.配置SqlSessionFactory对象 --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;sqlSessionFactory&#34;</span> <span class="na">class=</span><span class="s">&#34;com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 注入数据库连接池 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span> <span class="na">ref=</span><span class="s">&#34;dataSource&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 配置MyBaties全局配置文件:mybatis-config.xml --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;configLocation&#34;</span> <span class="na">value=</span><span class="s">&#34;classpath:mybatis-config.xml&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!--也可以不配置MyBatis全局配置文件，再这里说明--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;mapperLocations&#34;</span> <span class="na">value=</span><span class="s">&#34;classpath:com/lsl/mapper/xml/*.xml&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;typeAliasesPackage&#34;</span> <span class="na">value=</span><span class="s">&#34;com.lsl.entity&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!-- 4.配置扫描Dao接口包，动态实现Dao接口注入到spring容器中 --&gt;</span>
+    <span class="c">&lt;!--解释 ： https://www.cnblogs.com/jpfss/p/7799806.html--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.mybatis.spring.mapper.MapperScannerConfigurer&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 注入sqlSessionFactory --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;sqlSessionFactoryBeanName&#34;</span> <span class="na">value=</span><span class="s">&#34;sqlSessionFactory&#34;</span><span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 给出需要扫描Dao接口包 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;basePackage&#34;</span> <span class="na">value=</span><span class="s">&#34;com.lsl.mapper&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!-- redis数据源 --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;poolConfig&#34;</span> <span class="na">class=</span><span class="s">&#34;redis.clients.jedis.JedisPoolConfig&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- 最大空闲数 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxIdle&#34;</span> <span class="na">value=</span><span class="s">&#34;${redis.maxIdle}&#34;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 最大空连接数 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxTotal&#34;</span> <span class="na">value=</span><span class="s">&#34;${redis.maxTotal}&#34;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 最大等待时间 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;maxWaitMillis&#34;</span> <span class="na">value=</span><span class="s">&#34;${redis.maxWaitMillis}&#34;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 返回连接时，检测连接是否成功 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;testOnBorrow&#34;</span> <span class="na">value=</span><span class="s">&#34;${redis.testOnBorrow}&#34;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!-- Spring-redis连接池管理工厂 --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;jedisConnectionFactory&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.data.redis.connection.jedis.JedisConnectionFactory&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- IP地址 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hostName&#34;</span> <span class="na">value=</span><span class="s">&#34;${redis.host}&#34;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 端口号 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;port&#34;</span> <span class="na">value=</span><span class="s">&#34;${redis.port}&#34;</span> <span class="nt">/&gt;</span>
+     <span class="c">&lt;!--   &lt;property name=&#34;password&#34; value=&#34;${redis.password}&#34; /&gt;--&gt;</span>
+        <span class="c">&lt;!-- 超时时间 默认2000--&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;timeout&#34;</span> <span class="na">value=</span><span class="s">&#34;${redis.timeout}&#34;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- 连接池配置引用 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;poolConfig&#34;</span> <span class="na">ref=</span><span class="s">&#34;poolConfig&#34;</span> <span class="nt">/&gt;</span>
+        <span class="c">&lt;!-- usePool：是否使用连接池 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;usePool&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!-- redis template definition --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;redisTemplate&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.data.redis.core.RedisTemplate&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;connectionFactory&#34;</span> <span class="na">ref=</span><span class="s">&#34;jedisConnectionFactory&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;keySerializer&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.springframework.data.redis.serializer.StringRedisSerializer&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;valueSerializer&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.springframework.data.redis.serializer.JdkSerializationRedisSerializer&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hashKeySerializer&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.springframework.data.redis.serializer.StringRedisSerializer&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hashValueSerializer&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.springframework.data.redis.serializer.JdkSerializationRedisSerializer&#34;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+        <span class="c">&lt;!--开启事务  --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;enableTransactionSupport&#34;</span> <span class="na">value=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3使用时，在service中使用就好</p>
+<p>template使用：https://blog.csdn.net/sinat_22797429/article/details/89196933</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Autowired</span>
+<span class="n">RedisTemplate</span> <span class="n">template</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：
+存放取出，全部使用Spring。或者对象。</p>
+<p>redisTemplate.opsForHash().increment(&ldquo;lsl1&rdquo;,&ldquo;2&rdquo;,15);进行修改时，若是hset进去的会报错，ERR，因为其采用的序列号方式不一样，在使用increment修改时候，存放的时候也要这个存放。</p>
+<h2 id="1linux下使用">1、linux下使用</h2>
+<h3 id="1-安装">1-安装</h3>
+<p>redis6要先更新c++(然后重启服务器)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yum -y install centos-release-scl
+yum -y install devtoolset-9-gcc devtoolset-9-gcc-c++ devtoolset-9-binutils
+
+<span class="nb">echo</span> <span class="s2">&#34;source /opt/rh/devtoolset-9/enable&#34;</span> &gt;&gt;/etc/profile
+
+</code></pre></td></tr></table>
+</div>
+</div><p>安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ wget http://download.redis.io/releases/redis-6.0.4.tar.gz
+$ tar xzf redis-6.0.4.tar.gz  <span class="c1">#解压</span>
+$ <span class="nb">cd</span> redis-6.0.4			
+$ make   <span class="c1">#编译 make MALLOC=libc</span>
+$ make install <span class="c1">#安装</span>
+
+<span class="c1"># redis-server 启动服务器</span>
+<span class="c1"># redis-cli    启动客户端</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<blockquote>
+<p>服务器换端口启动
+redis-server –port 端口号6380</p>
+<p>这时客户端启动
+就需要指定端口号 redis-cli -p 6380</p>
+</blockquote>
+<h3 id="2-配置文件">2-配置文件</h3>
+<p>redis配置文件在redis-6.0.0.4下的redis-conf，文件原配置文件不要改动，由于里面大量注解，所以需要重新复制一个配置文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">cat redis.conf  <span class="p">|</span> grep -v <span class="s2">&#34;#&#34;</span> <span class="p">|</span> grep -v <span class="s2">&#34;^</span>$<span class="s2">&#34;</span> &gt; redis-6379.conf
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>编辑新创建的配置文件redis-6379.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">port <span class="m">6379</span>
+以守护进程方式启动**
+daemonize yes 
+logfile <span class="s2">&#34;redis-6379.log&#34;</span>
+
+文件存放位置，日志文件，本地存储文件**
+dir /home/redis-log
+
+rdb持久化方式 save指令相关配置 持久化的文件名称**
+dbfilename dump-端口号.rdb
+
+存储到本地数据库时 是否压缩，默认yes 用LZF压缩**
+rdbcompression yes
+
+设置时 是否RDB文件格式校验，读写都进行，默认开启，关闭肯有虽居损坏风险**
+rdbchecksum yes
+
+900秒内 若有一个1key发生变化就进行保存 可多设几个形成互补**
+save <span class="m">900</span> <span class="m">1</span>
+
+是否开启AOP默认不开启**
+appendonly yes/no 
+AOF写数据策略**
+appendfsync always/everysec/no 
+AOF文件名称**
+appendfilename appendonly-端口号.aof文件名称
+
+AOF重写**
+自动重写的最小值**
+auto-aof-rewrite-min-size size   
+自动重写百分比**
+auto-aof-rewrite-percentage percentage 
+当前大小，和重写最小值有关**
+ aof_current_size     
+基础大小，和重写百分比有关  <span class="o">(</span>当前大小-基础大小<span class="o">)</span>基础大小&gt;自动重写百分比**
+ aof_base_size   
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>以配置文件启动服务器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">redis-server redis-6379.conf
+可以在redis-6.0.0.4下创建一个conf文件夹，用来存放各个不同的配置文件。**
+redis-server conf/redis-6379.conf
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="2持久化">2、持久化</h2>
+<p><strong>持久化</strong>：利用永久性存储介质将数据进行保存，在特定的时间将保存的数据进行恢复的工作机制称为持款化。</p>
+<p><strong>为什么持久化</strong>：防止数据意外丢失，确保数据安全性。</p>
+<hr>
+<p><strong>持久化方式</strong></p>
+<blockquote>
+<p><strong>1快照(RDB)</strong></p>
+<p>将当前数据状态进行保存，快照形式，存储数据结果，存储格式简单，关注点在数据。
+10100011100这样的二进制的数据(快照)。</p>
+</blockquote>
+<p>1快照(RDB)保存command为:在客户端使用save
+save命令是阻塞式的，直到完成持久化，若时间过长，后面指令就不会执行。(线上不推荐使用)，可以用<strong>bgsave</strong>。</p>
+<p><strong>关于RDB持久化配置都在配置文件中。</strong></p>
+<p>自动save配置：save second changes
+save 900 1  在900秒内，若有一个Key发生变化就保存。</p>
+<p>缺点：</p>
+<ul>
+<li>基于快照思想，每次读写都是全部数据，当数据量巨大时,效率非			常低。</li>
+<li>大数据量下的IO性能较低</li>
+<li>基于fork创建子进程，内存产生额外消耗</li>
+<li>宕机带来的数据丢失风险</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>2日志(AOF)</strong></p>
+<p>append only file</p>
+<p>将数据的操作过程进行保存，日志形式，存储操作过程,存储格式复杂，关注点在数据的操作过程。</p>
+<p>像文本编辑器的Ctrl+Z  Ctrl+Y都是记录的过程。</p>
+</blockquote>
+<p>●AOF(append only file)持久化: 以独立日志的方式记录每次写命令，重启时再重新执行AOF文件中命令达到恢复数据的目的。
+与RDB相比可以简单描述为改记录数据为记录数据产生的过程
+●AOF的主要作用是解决了数据持久化的实时性，目前已经是Redis持久化的主流方式</p>
+<p>AOF写数据的三种策略：always(每次)、everysec(每秒)、no(系统控制)</p>
+<p>若使用AOP需要在配置文件配置
+appendonly yes/no 是否开启AOP默认不开启
+appendfsync always/everysec/no 写数据策略
+appendfilename appendonly-端口号.aof文件名称</p>
+<hr>
+<p>AOF重写
+降低磁盘使用量，提高持久化效率，提高数据恢复效率。</p>
+<p>手动：bgrewriteaof。</p>
+<p><strong>自动：配置文件配置。</strong></p>
+<ul>
+<li>auto-aof-rewrite-min-size size   自动重写的最小值</li>
+<li>auto-aof-rewrite-percentage percentage 自动重写百分比</li>
+</ul>
+<p>与其对比的参数为</p>
+<ul>
+<li>aof_current_size     当前大小，和重写最小值有关</li>
+<li>aof_base_size      基础大小，和百分比有关</li>
+</ul>
+<p>其触发条件有两个：</p>
+<ul>
+<li>1 最小值&gt;当前大小</li>
+<li>2 (当前大小-基础大小)基础大小&gt;自动重写百分比</li>
+</ul>
+<blockquote>
+<p>如何选择</p>
+<p>RDB当数据量大时，保存快照速度很慢。恢复速度快，适合阶段性有效的程序(比如游戏等，丢失一小时数据可以接受)。</p>
+<p>若对数据敏感，采用默认AOF，使用everysecond，每秒fsync一次，可保证出现问题时，最多丢失0-1秒数据。由于AOF文件存储体积大，恢复速度慢。</p>
+</blockquote>
+<p>也可以都打开，优先用AOF</p>
+<h2 id="3事务">3、事务</h2>
+<blockquote>
+<p><strong>事务基本操作</strong></p>
+<p>开启：<strong>multi</strong></p>
+<p>操作，从开启到执行，中间的操作，都会放到一个事务中执行。</p>
+<p>在事务过程中若发生问题，可以取消事务，<strong>discard</strong>。</p>
+<p>错误1：若语法格式有问题 比如set s1 asb写成seta s1 asb，那么整个事务中的所有命令都不会执行。</p>
+<p>错误2：若命令执行出错误，如对List进行incr操作，
+正确语句会执行，错误将不会执行。需要程序员自己在程序中回滚。。</p>
+<p>执行：<strong>exec</strong></p>
+</blockquote>
+<h2 id="3-1事务-锁">3-1、事务-锁</h2>
+<blockquote>
+<p>锁</p>
+<p>问题：商品的补货有两个人可以进行，若一个人进行了补货，那么其他人就不再进行，如何知道其他人已经补货了呢？</p>
+<p>watch key1 key2 对key进行加锁监控，若发生变化就不执行接下来的事务。</p>
+<p><strong>unwatch</strong> 取消所有key的监视</p>
+<p>注意，<strong>watch</strong>必须在一个事务开启前进行</p>
+</blockquote>
+<p>还可以使用setnx lock-key value设置一个公共锁，操作完毕删除。
+但若宕机，就可能产生死锁，可以使用。
+expire lock-key second 设置时间-秒
+pexpire lock-key millisecond设置时间-毫秒</p>
+<p>操作通常是毫秒/微秒，所以需要测试得出。</p>
+<h1 id="第三章-redis部署">第三章-redis部署</h1>
+<h2 id="1主从复制">1主从复制</h2>
+<p>就是做一个redis集群，由master负责写，slave负责读，提高服务器读写负载能力。</p>
+<p>负载均衡:基于主从结构，配合读写分离,由slave分担master负载, 并根据需求的变化，改变slave的数量,通过多个从节点分担数据读取负载,提高Redis服务器并发量与数据吞吐量。</p>
+<hr>
+<blockquote>
+<p><strong>one master ，two slave</strong></p>
+<p>主从复制</p>
+</blockquote>
+<p>redis默认是主数据，所以master无需配置，我们只需要修改slave的配置即可。</p>
+<p><strong>slave配置</strong>：</p>
+<p>slave配置文件中，设置
+port selfPort6390   自己的端口号
+slaveof masterIP masterPort   主人的IP地址和端口号</p>
+<p>如果master有密码，需要设置：Masterauth 密码</p>
+<p>连接成功后可以info replication查看连接信息</p>
+<h2 id="2哨兵sentinel">2哨兵sentinel</h2>
+<blockquote>
+<p>**哨兵模式sentinel /ˈsentɪnl/ **</p>
+<p>一台主机，两台从机，3/5/7奇数哨兵。</p>
+</blockquote>
+<p>Redis sentinel 是一个分布式系统中监控 redis 主从服务器，并在主服务器下线时自动进行故障转移。其中三个特性：</p>
+<p>监控（Monitoring）:Sentinel 会不断地检查你的主服务器和从服务器是否运作正常。</p>
+<p>哨兵模式启动：哨兵</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#启动哨兵</span>
+redis-server sentinel/sentinel-26379.conf --sentinel
+
+<span class="c1">#启动服务器</span>
+redis-server sentinel/redis6379.conf
+
+<span class="c1">#启动客户端</span>
+redis-cli -p <span class="m">6379</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>windos下5.0redis若启动哨兵不报错，就说明启动成功，只是没有第一次启动的信息。</p>
+<h2 id="3集群">3集群</h2>
+<p>集群工作方式：在redis的每一个节点上，都有这么两个东西，一个是插槽（slot），它的的取值范围是：0-16383。还有一个就是cluster，可以理解为是一个集群管理的插件。当我们的存取的key到达的时候，redis会根据crc16的算法得出一个结果，然后把结果对 16384 求余数，这样每个 key 都会对应一个编号在 0-16383 之间的哈希槽，通过这个值，去找到对应的插槽所对应的节点，然后直接自动跳转到这个对应的节点上进行存取操作。</p>
+<hr>
+<p>1安装rubyinstaller-2.3.3.exe，修改安装地址，三个都勾选。
+2在redis地址gem install redis
+3官网下载源码：redis-trib.rb(当前redis版本的源码src下)
+然后放到redis文件夹下
+4修改配置文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#修改端口号</span>
+port <span class="m">6379</span>
+
+<span class="c1">#不为yes那么在使用JedisCluster集群代码获取的时候，会报错</span>
+cluster-enabled yes
+
+<span class="c1">#nodes-6379.conf 是为该节点的配置信息，这里使用 nodes-端口.</span>
+<span class="c1">#conf命名方法,服务启动后会在目录生成该文件</span>
+
+cluster-config-file nodes-6379.conf
+<span class="c1">#调整为  15000，不设置那么在创建集群的时候，不会超时。</span>
+cluster-node-timeout <span class="m">15000</span>
+appendonly yes
+</code></pre></td></tr></table>
+</div>
+</div><p>5启动这几个服务器后，进行集群操作。
+nredis-trib.rb create &ndash;replicas 1 127.0.0.1:6379 127.0.0.1:6380 127.0.0.1:6381 127.0.0.1:6382 127.0.0.1:6383 127.0.0.1:6384
+replicas 1 表示每个主数据库拥有从数据库个数为1。master节点不能少于3个，所以我们用了6个redis
+然后输入YES。</p>
+<p>6启动客户端进行测试<code>redis-cli -h 127.0.0.1 -p 6379 -c</code>
+set s1 123发现端口号改变就说明集群成功。</p>
+<h2 id="4redis注意">4redis注意</h2>
+<p>雪崩、穿透、击穿。</p>
+<blockquote>
+<p><strong>雪崩</strong></p>
+<p>指redis中很多数据在同一时间过期，导致大量请求同一时刻请求到数据库。</p>
+<p>解决：设置不同的过期时间，在过期时间上加随机数。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>穿透</strong></p>
+<p>产生这个原因是大量的外部攻击，例如：请求大量id不存在的用户进行登录频繁请求接口，导致请求穿透redis频繁请求数据库。</p>
+<p>解决：使用bloom过滤器，把用户Id先读入到bloom过滤器，然后对请求进行拦截，bloom过滤器会进行判断，过滤器判断不存在，那么一定不存在。过滤器判断存在，也有可能不存在，bloom会存在一定的误判率。</p>
+<p>布隆过滤器的原理是，当一个元素被加入集合时，通过K个散列函数将这个元素映射成一个位数组中的K个点，把它们置为1。检索时，我们只要看看这些点是不是都是1就（大约）知道集合中有没有它了：如果这些点有任何一个0，则被检元素一定不在；如果都是1，则被检元素很可能在</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><strong>击穿</strong></p>
+<p>是指一个key非常热点，在不停的扛着大并发，大并发集中对这一个点进行访问，当这个key在失效的瞬间，持续的大并发就穿破缓存，直接请求数据库，就像在一个屏障上凿开了一个洞。</p>
+<p>解决：</p>
+<p>可以使用互斥锁更新，保证同一个进程中针对同一个数据不会并发请求到 DB，减小 DB 压力。</p>
+<p>使用随机退避方式，失效时随机 sleep 一个很短的时间，再次查询，如果失败再执行更新。</p>
+<p>针对多个热点 key 同时失效的问题，可以在缓存时使用固定时间加上一个小的随机数，避免大量热点 key 同一时刻失效。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//压力测试 线程池 
+</span><span class="c1"></span><span class="n">CyclicBarrier</span> <span class="n">cyclicBarrier</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CyclicBarrier</span><span class="o">(</span><span class="n">1000</span><span class="o">);</span>
+
+<span class="n">ExecutorService</span> <span class="n">executorService</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="n">1000</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">1000</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+  <span class="n">executorService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">PressureThread</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">userMapper</span><span class="o">,</span><span class="n">redisTemplate</span><span class="o">,</span>
+                                             <span class="n">cyclicBarrier</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="n">executorService</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+
+<span class="k">while</span><span class="o">(!</span><span class="n">executorService</span><span class="o">.</span><span class="na">isTerminated</span><span class="o">()){</span>
+<span class="o">}</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;程序结束&#34;</span><span class="o">);</span>
+
+<span class="n">cyclicBarrier</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/powerdesigner/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">PowerDesigner.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/">
+            <span class="next-text nav-default">shiro安全框架.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

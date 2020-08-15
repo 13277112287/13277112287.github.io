@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>前端技术 on Even - A super concise theme for Hugo</title>
+    <link>https://13277112287.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/</link>
+    <description>Recent content in 前端技术 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 30 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://13277112287.github.io/categories/%E5%89%8D%E7%AB%AF%E6%8A%80%E6%9C%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>javaScript.md</title>
+      <link>https://13277112287.github.io/post/javascript/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/javascript/</guid>
+      <description>第一章-javascript概述 1什么是javascript 2常用语法 jq没有提交表单方法，所以，可以把jq对象[0]转为js对象。 **提交</description>
+    </item>
+    
+    <item>
+      <title>jQuery.md</title>
+      <link>https://13277112287.github.io/post/jquery/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/jquery/</guid>
+      <description>第一章-xxx概述 1引入 在线教程https://www.runoob.com/jquery/jquery-hide-show.html 1 2 3</description>
+    </item>
+    
+    <item>
+      <title>Echarts.md</title>
+      <link>https://13277112287.github.io/post/echarts/</link>
+      <pubDate>Tue, 19 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/echarts/</guid>
+      <description>第一章-Echarts概述 1什么是Echarts Echartchart /tʃɑːrt/ 图表；海图；图纸 绘制…的图表 官网https://echarts.apach</description>
+    </item>
+    
+    <item>
+      <title>H5&#43;Css3.md</title>
+      <link>https://13277112287.github.io/post/h5&#43;css3/</link>
+      <pubDate>Fri, 15 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/h5&#43;css3/</guid>
+      <description>第一章-HTML5概述 1什么是HTML5 2快速入门 第二章-CSS3 常用颜色网址http://rainyin.com/307.html 配色网：</description>
+    </item>
+    
+    <item>
+      <title>Ajax.md</title>
+      <link>https://13277112287.github.io/post/ajax/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/ajax/</guid>
+      <description>第一章-简介 1什么是AJAX Asynchronous JavaScript and XML(异步的JavaScript和xml) 一种不用重新加载整个页面,就能更新部分网页 产品链条:H5+网页</description>
+    </item>
+    
+    <item>
+      <title>Bootstrap3.md</title>
+      <link>https://13277112287.github.io/post/bootstrap3/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/bootstrap3/</guid>
+      <description>第一章-引用资源 1 2 3 4 5 6 &amp;lt;meta name=&amp;#34;viewport&amp;#34; content=&amp;#34;width=device-width,initial-scale=1&amp;#34; /&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;${pageContext.request.contextPath}/bootstrap-3.3.5/css/bootstrap.css&amp;#34; /&amp;gt; &amp;lt;link rel=&amp;#34;stylesheet&amp;#34; href=&amp;#34;${pageContext.request.contextPath}/bootstrapvalidator/css/bootstrapValidator.css&amp;#34;&amp;gt; &amp;lt;script src=&amp;#34;${pageContext.request.contextPath}/js/jquery-3.4.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;${pageContext.request.contextPath}/bootstrap-3.3.5/js/bootstrap.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#34;${pageContext.request.contextPath}/bootstrapvalidator/js/bootstrapValidator.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 第二章-内容 -1列表组 ** 1普通列表组** 原本是白色，避免看不到效果，特意换了灰</description>
+    </item>
+    
+    <item>
+      <title>ElementUI.md</title>
+      <link>https://13277112287.github.io/post/elementui/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/elementui/</guid>
+      <description>第一章-ElementUI 1初步认识 官网地址：https://element.eleme.cn/#/zh-CN/component/inst</description>
+    </item>
+    
+    <item>
+      <title>Vue.md</title>
+      <link>https://13277112287.github.io/post/vue/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/vue/</guid>
+      <description>第一章-Vue概述 官方文档:https://cn.vuejs.org/v2/guide/ 为什么学习Vue？在以往的ssm+jsp已经可以满足</description>
+    </item>
+    
+  </channel>
+</rss>

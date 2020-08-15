@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Hibernate.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="面试题一览 介绍hiberante Hibernate是一个基于Java的开源的持久化中间件，对JDBC做了轻量的封装。 采用ORM(object" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/hibernate/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Hibernate.md" />
+<meta property="og:description" content="面试题一览 介绍hiberante Hibernate是一个基于Java的开源的持久化中间件，对JDBC做了轻量的封装。 采用ORM(object" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/hibernate/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-21T00:00:00+00:00" />
+<meta itemprop="name" content="Hibernate.md">
+<meta itemprop="description" content="面试题一览 介绍hiberante Hibernate是一个基于Java的开源的持久化中间件，对JDBC做了轻量的封装。 采用ORM(object">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6562">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hibernate.md"/>
+<meta name="twitter:description" content="面试题一览 介绍hiberante Hibernate是一个基于Java的开源的持久化中间件，对JDBC做了轻量的封装。 采用ORM(object"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Hibernate.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/ssh%E6%A1%86%E6%9E%B6%E4%B8%8D%E5%B8%B8%E7%94%A8/"> SSH框架(不常用) </a>
+            </div>
+          <span class="more-meta"> 约 6562 字 </span>
+          <span class="more-meta"> 预计阅读 14 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#面试题一览">面试题一览</a></li>
+    <li><a href="#第一章-hibernate概述">第一章-Hibernate概述</a>
+      <ul>
+        <li><a href="#1什么是hibernate">1什么是Hibernate</a>
+          <ul>
+            <li><a href="#11配置hibernate">1.1配置hibernate</a></li>
+            <li><a href="#12注解设置实体类">1.2注解设置实体类</a></li>
+            <li><a href="#13写基础类">1.3写基础类</a></li>
+          </ul>
+        </li>
+        <li><a href="#2基于注解的关系">2基于注解的关系</a>
+          <ul>
+            <li><a href="#21一对一的关系">2.1一对一的关系</a></li>
+            <li><a href="#22一对多的关系">2.2一对多的关系</a></li>
+            <li><a href="#23多对多的关系">2.3多对多的关系</a></li>
+            <li><a href="#24一对多自联">2.4一对多自联</a></li>
+          </ul>
+        </li>
+        <li><a href="#3关键字的介绍">3关键字的介绍</a></li>
+        <li><a href="#4常见错误">4常见错误</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-hql语句">第二章-hql语句</a>
+      <ul>
+        <li><a href="#1查询方式">1查询方式</a>
+          <ul>
+            <li><a href="#10返回值问题">1.0返回值问题</a></li>
+            <li><a href="#11实例化查询">1.1实例化查询</a></li>
+            <li><a href="#12连接查询fetch">1.2连接查询fetch</a></li>
+            <li><a href="#13聚合函数">1.3聚合函数</a></li>
+            <li><a href="#14分页实现">1.4分页实现</a></li>
+            <li><a href="#15条件查询">1.5条件查询</a></li>
+            <li><a href="#16子查询">1.6子查询</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="面试题一览">面试题一览</h1>
+<ol start="173">
+<li><strong>介绍hiberante</strong></li>
+</ol>
+<blockquote>
+<p>Hibernate是一个基于Java的开源的持久化中间件，对JDBC做了轻量的封装。</p>
+<p>采用ORM(object relational mapping)对象-关系映射机制，负责实现Java对象和关系数据库之间的映射，hibernate可以自动生成SQL语句，并且把数据库返回的结果封装成对象。内部封装了JDBC访问数据库的操作，向上层应用提供了面向对象的数据库访问API.</p>
+<p>优点：以对象的形式操作数据，提高开发效率，不用关心数据库种类（换数据库只要修改配值文件）。</p>
+</blockquote>
+<ol start="174">
+<li><strong>Hibernate的执行流程</strong></li>
+</ol>
+<blockquote>
+<ol>
+<li>通过Configuration().configure();读取并解析hibernate.cfg.xml配置文件。</li>
+<li>由hibernate.cfg.xml中的
+读取解析映射信息。</li>
+<li>通过config.buildSessionFactory();//得到sessionFactory。</li>
+<li>sessionFactory.openSession();//得到session。</li>
+<li>session.beginTransaction();//开启事务。</li>
+<li>persistent operate;</li>
+<li>session.getTransaction().commit();//提交事务</li>
+<li>关闭session;</li>
+<li>关闭sessionFactory;</li>
+</ol>
+</blockquote>
+<p><img src="/typoraImg/Hibernate.assets/979977-20160717101404201-1173390035.png" alt="img"></p>
+<ol start="175">
+<li><strong>JDBC,Hibernate 分页怎样实现?</strong></li>
+</ol>
+<blockquote>
+<ol>
+<li>Hibernate 的分页:
+Query query = session.createQuery(”from Student”);
+query.setFirstResult(firstResult);//设置每页开始的记录号
+query.setMaxResults(resultNumber);//设置每页显示的记录数
+Collection students = query.list();</li>
+<li>JDBC 的分页:根据不同的数据库采用不同的sql 分页语句
+例如: Oracle 中的sql 语句为: “SELECT * FROM (SELECT a.*, rownum r FROM TB_STUDENT) WHERE r between 2 and 10″ 查询从记录号2 到记录号10 之间的所有记录。</li>
+</ol>
+</blockquote>
+<ol start="176">
+<li><strong>hibernate中离线查询去除重复项怎么加条件？</strong></li>
+</ol>
+<blockquote>
+<p>dc.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);</p>
+</blockquote>
+<ol start="177">
+<li><strong>hibernate用get 和load方法 这2个方法来查没有的数据 那么分别会反馈什么样的结果？</strong></li>
+</ol>
+<blockquote>
+<p>get返回null,load classnotfoundException</p>
+</blockquote>
+<ol start="178">
+<li><strong>Hibernate中离线查询与在线查询的区别</strong></li>
+</ol>
+<blockquote>
+<p>Criteria 和 DetachedCriteria 的主要区别在于创建的形式不一样， Criteria 是在线的，所以它是由 Hibernate Session 进行创建的；而 DetachedCriteria 是离线的，创建时无需 Session，DetachedCriteria 提供了 2 个静态方法 forClass(Class) 或 forEntityName(Name) 进行DetachedCriteria 实例的创建。</p>
+</blockquote>
+<ol start="179">
+<li><strong>Hibernate 的初始化.</strong></li>
+</ol>
+<blockquote>
+<p>读取Hibernate 的配置信息-〉创建Session Factory</p>
+<p>1)创建Configeration类的实例。</p>
+<p>它的构造方法：将配置信息(Hibernate config.xml)读入到内存。</p>
+<p>一个Configeration 实例代表Hibernate 所有Java类到Sql数据库映射的集合。</p>
+<p>2)创建SessionFactory实例</p>
+<p>把Configeration 对象中的所有配置信息拷贝到SessionFactory的缓存中。</p>
+<p>SessionFactory的实例代表一个数据库存储员源，创建后不再与Configeration 对象关联。</p>
+<p>缓存(cache):指Java对象的属性(通常是一些集合类型的属性－－占用内存空间。</p>
+</blockquote>
+<ol start="180">
+<li><strong>hibernate的save与saveOrUpdate的区别？get与load的区别？</strong></li>
+</ol>
+<blockquote>
+<p>答案: Transient状态&ndash;离线状态，Persient状态&ndash;持久状态，Detached状态&ndash;脱管状态</p>
+<p>1.save（）方法，调用save方法时，首先会在session缓存中查找保存对象如果实体对象已经处于Persient状态，直接返回，否在实行sql操作，并将保存的实体对象加入session缓存（save方法不会把实体加入二级缓存的），最后对存在的级联关系进行递归处理。</p>
+<p>2.saveOrUpdate（）方法：和save方法一样首先在session缓存中查找，判断对象是否为为保存状态，如果对象处于Persient，不执行操作，处于Transient执行save操作，处于Detached调用save将对象与session重新关联（简单的说就是该方法会先看该对象是否已经存在，如果已经存在就更新，否则新增保存）。</p>
+<p>3.get与load的区别？load会先从缓存中查询，如果不存在再到数据库查询；而get是直接从数据库中查询；load的效率会快点（因为他从缓存中查询）</p>
+</blockquote>
+<ol start="181">
+<li><strong>Hibernate 中的HQL和 criteria的区别？</strong></li>
+</ol>
+<blockquote>
+<p>1.QBC(Query by Criteria)查询对查询条件进行了面向对象封装，符合编程人员的思维方式;</p>
+<p>2．HQL(Hibernate Query Language)查询提供了更加丰富的和灵活的查询特性，在涵盖Criteria查询的所有功能的前提下，提供了类似标准SQL语句的查询方式，同时也提供了更加面向对象的封装;</p>
+</blockquote>
+<ol start="182">
+<li>
+<p><strong>Hibernate有哪几种查询数据的方法？</strong></p>
+<blockquote>
+<p>答:hibernate在查询方式上有三种方式:HQL SQL QBC</p>
+</blockquote>
+</li>
+<li>
+<p><strong>Hrbernate的二级缓存讲述。</strong></p>
+</li>
+</ol>
+<blockquote>
+<p>hibernate的session提供了一级缓存，每个session，对同一个id进行两次load，不会发送两条sql给数据库，但是session关闭的时候，一级缓存就失效了。</p>
+<p>二级缓存是SessionFactory级别的全局缓存，它底下可以使用不同的缓存类库，比如ehcache、oscache等。hibernate在执行任何一次查询的之后，都会把得到的结果集放到缓存中，缓存结构可以看作是一个hash table，key是数据库记录的id，value是id对应的pojo对象。当用户根据id查询对象的时候（load、iterator方法），会首先在缓存中查找，如果没有找到再发起数据库查询。</p>
+</blockquote>
+<h1 id="第一章-hibernate概述">第一章-Hibernate概述</h1>
+<h2 id="1什么是hibernate">1什么是Hibernate</h2>
+<p>object relational mapping</p>
+<blockquote>
+<p>Hibernate是一个基于Java的开源的持久化中间件，对JDBC做了轻量的封装。</p>
+<p>采用ORM(object relational mapping)对象-关系映射机制，负责实现Java对象和关系数据库之间的映射，hibernate可以自动生成SQL语句，并且把数据库返回的结果封装成对象。内部封装了JDBC访问数据库的操作，向上层应用提供了面向对象的数据库访问API.</p>
+<p>优点：以对象的形式操作数据，提高开发效率，不用关心数据库种类（换数据库只要修改配值文件）。</p>
+</blockquote>
+<ul>
+<li>掌握Hiberate的基本配置——即搭建Hiberate开发环境</li>
+<li>掌握Hiberate常用API——即如何使用Hiberate框架进行开发</li>
+<li>掌握Hiberate的关联映射——解决表与表之间存在的关系问题，有1:n(一对多)、 1:1(一对一)、m:n(多对多)关系</li>
+<li>掌握Hiberate的检索方式——即掌握Hiberate的查询</li>
+<li>掌握Hiberate的优化方式——即提高Hiberate的效率</li>
+</ul>
+<h3 id="11配置hibernate">1.1配置hibernate</h3>
+<p>在Spring中配置hibernate，注意不同的dataSource的class，所要注入的属性名称不同。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span>
+	<span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+	<span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+	<span class="na">xmlns:p=</span><span class="s">&#34;http://www.springframework.org/schema/p&#34;</span>
+	<span class="na">xmlns:tx=</span><span class="s">&#34;http://www.springframework.org/schema/tx&#34;</span>
+	<span class="na">xmlns:aop=</span><span class="s">&#34;http://www.springframework.org/schema/aop&#34;</span>
+	<span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span>
+
+	<span class="na">xsi:schemaLocation=</span><span class="s">&#34;
+</span><span class="s">	http://www.springframework.org/schema/beans 
+</span><span class="s">	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+</span><span class="s">	http://www.springframework.org/schema/tx
+</span><span class="s">	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+</span><span class="s">	http://www.springframework.org/schema/aop
+</span><span class="s">	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+</span><span class="s">	http://www.springframework.org/schema/context
+</span><span class="s">http://www.springframework.org/schema/context/spring-context-3.0.xsd
+</span><span class="s">&#34;</span><span class="nt">&gt;</span>
+<span class="c">&lt;!--mysql数据库的配置
+</span><span class="c"> 	&lt;bean id=&#34;dataSource&#34;
+</span><span class="c">		class=&#34;org.springframework.jdbc.datasource.DriverManagerDataSource&#34;&gt;
+</span><span class="c">	 &lt;property name=&#34;driverClassName&#34; value=&#34;${jdbc.driver}&#34;/&gt;
+</span><span class="c">        &lt;property name=&#34;url&#34; value=&#34;${jdbc.url}&#34;/&gt;
+</span><span class="c">        &lt;property name=&#34;username&#34; value=&#34;${jdbc.username}&#34;/&gt;
+</span><span class="c">        &lt;property name=&#34;password&#34; value=&#34;${jdbc.password}&#34;/&gt;
+</span><span class="c">	&lt;/bean&gt;
+</span><span class="c">--&gt;</span>  
+  
+<span class="c">&lt;!--Oracle数据库的配置 --&gt;</span>	
+	<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;dataSource&#34;</span>
+		<span class="na">class=</span><span class="s">&#34;org.springframework.jdbc.datasource.DriverManagerDataSource&#34;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;driverClassName&#34;</span> <span class="na">value=</span><span class="s">&#34;oracle.jdbc.driver.OracleDriver&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+		<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;url&#34;</span>
+			<span class="na">value=</span><span class="s">&#34;jdbc:oracle:thin:@localhost:1521:orcl&#34;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;/property&gt;</span>
+		<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;username&#34;</span> <span class="na">value=</span><span class="s">&#34;scott&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+		<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;password&#34;</span> <span class="na">value=</span><span class="s">&#34;tiger&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+	<span class="nt">&lt;/bean&gt;</span>
+	
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;sessionFactory&#34;</span>
+		<span class="na">class=</span><span class="s">&#34;org.springframework.orm.hibernate5.LocalSessionFactoryBean&#34;</span><span class="nt">&gt;</span>
+		<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dataSource&#34;</span><span class="nt">&gt;&lt;ref</span> <span class="na">bean=</span><span class="s">&#34;dataSource&#34;</span> <span class="nt">/&gt;&lt;/property&gt;</span>
+		<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hibernateProperties&#34;</span><span class="nt">&gt;</span>
+			<span class="nt">&lt;props&gt;</span>
+<span class="c">&lt;!--MySql数据库方言	org.hibernate.dialect.MySQLDialect	--&gt;</span>
+				<span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&#34;hibernate.dialect&#34;</span><span class="nt">&gt;</span>org.hibernate.dialect.Oracle10gDialect<span class="nt">&lt;/prop&gt;</span>
+				<span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&#34;hibernate.show_sql&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/prop&gt;</span> <span class="c">&lt;!--控制台打印sql--&gt;</span>
+				<span class="nt">&lt;prop</span> <span class="na">key=</span><span class="s">&#34;hibernate.format_sql&#34;</span><span class="nt">&gt;</span>true<span class="nt">&lt;/prop&gt;</span>   <span class="c">&lt;!--打印sql格式转换--&gt;</span>
+			<span class="nt">&lt;/props&gt;</span>
+		<span class="nt">&lt;/property&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;packagesToScan&#34;</span><span class="nt">&gt;</span>   <span class="c">&lt;!--扫描关系映射--&gt;</span>
+	<span class="nt">&lt;list&gt;&lt;value&gt;</span>com.lx.vo<span class="nt">&lt;/value&gt;&lt;/list&gt;</span>
+	<span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+	
+<span class="c">&lt;!-- 	启用注解扫描 --&gt;</span>
+<span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&#34;com.lx.controller&#34;</span>  <span class="nt">/&gt;</span>
+<span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&#34;com.lx.impl&#34;</span>  <span class="nt">/&gt;</span>
+<span class="c">&lt;!-- 1创建事务管理器 --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;transactionManager&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.orm.hibernate5.HibernateTransactionManager&#34;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;sessionFactory&#34;</span> <span class="na">ref=</span><span class="s">&#34;sessionFactory&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="c">&lt;!-- 开启事务注解驱动 --&gt;</span>
+<span class="nt">&lt;tx:annotation-driven</span> <span class="na">transaction-manager=</span><span class="s">&#34;transactionManager&#34;</span> <span class="na">proxy-target-class=</span><span class="s">&#34;true&#34;</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="12注解设置实体类">1.2注解设置实体类</h3>
+<p>相关网址：<a href="https://blog.51cto.com/12402717/2087876">网址一</a>  <a href="https://www.cnblogs.com/SaraMoring/p/5638921.html">网址二</a></p>
+<p>1表、主键相关的注解</p>
+<p>注意让Spring扫描</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Entity</span> <span class="c1">//表示为实体类 导入都是此包下的import javax.persistence.*
+</span><span class="c1"></span><span class="nd">@Table</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;users&#34;</span><span class="o">)</span> <span class="c1">//设置数据库中的表名
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Users</span> <span class="o">{</span>
+<span class="c1">//这里使用的数据库是Oracle使用了序列，所以要声明一个序列SequenceGenerator,再设置一个别名，可以引用它
+</span><span class="c1"></span>  <span class="c1">//allocationSize表示每次增长的长度。
+</span><span class="c1"></span><span class="nd">@SequenceGenerator</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;seq_users&#34;</span><span class="o">,</span><span class="n">sequenceName</span><span class="o">=</span><span class="s">&#34;seq_users&#34;</span> <span class="o">,</span><span class="n">allocationSize</span><span class="o">=</span><span class="n">1</span><span class="o">)</span>
+<span class="nd">@Id</span> <span class="c1">//id表示是数据库的主键       strategy表示引用的@SequenceGenerator的名称
+</span><span class="c1"></span><span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span> <span class="o">=</span> <span class="n">GenerationType</span><span class="o">.</span><span class="na">SEQUENCE</span><span class="o">,</span><span class="n">generator</span> <span class="o">=</span> <span class="s">&#34;seq_users&#34;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">Integer</span>	<span class="n">users_id</span>  <span class="o">;</span>
+<span class="c1">//用来限制列名，列唯一，列为null  
+</span><span class="c1"></span><span class="nd">@Column</span><span class="o">(</span><span class="n">name</span> <span class="o">=</span> <span class="s">&#34;id&#34;</span><span class="o">,</span> <span class="n">unique</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">nullable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>@GeneratedValue将指定主键值的来源，其属性strategy用于指定主键的生成策略。其值为系统定义好的四种策略之一。默认为AUTO。@GeneratedValue(strategy = GenerationType.SEQUENCE)</p>
+<p>GenerationType取值有四种：</p>
+<ul>
+<li>AUTO,INDENTITY,SEQUENCE 和 TABLE 4种</li>
+</ul>
+<p>上面是Oracle的例子，下面介绍<strong>MySql</strong>的（id自动增长）</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Id</span>
+<span class="nd">@GeneratedValue</span><span class="o">(</span><span class="n">strategy</span><span class="o">=</span><span class="n">GenerationType</span><span class="o">.</span><span class="na">IDENTITY</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+<p>import com.fasterxml.jackson.annotation.JsonIgnore;
+@JsonIgnore注解
+用于springmvc返回json数据时，忽略该字段。</p>
+<h3 id="13写基础类">1.3写基础类</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.impl</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.hibernate.SessionFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.hibernate.query.Query</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Repository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.transaction.annotation.Transactional</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="nd">@Transactional</span>  <span class="c1">//因为有事务，所以可以不再开启事务。
+</span><span class="c1"></span><span class="nd">@Repository</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaseDaoImpl</span>  <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">SessionFactory</span> <span class="n">sessionFactory</span><span class="o">;</span>
+  <span class="c1">//获得currentSession
+</span><span class="c1"></span>      <span class="kd">public</span> <span class="n">Session</span> <span class="nf">getCurrentSession</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">//删除
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">delete</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">delete</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">//添加
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">save</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">save</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="c1">//通过hql查询
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">List</span> <span class="nf">selectManyByHql</span><span class="o">(</span><span class="n">String</span> <span class="n">hql</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span>     <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">createQuery</span><span class="o">(</span><span class="n">hql</span><span class="o">).</span><span class="na">list</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">//修改
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">update</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//通过Id查找一条
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">selectOneById</span><span class="o">(</span><span class="n">Class</span> <span class="n">cls</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span>     <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="n">cls</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">//通过hql查询一条
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">selectOneByHql</span><span class="o">(</span><span class="n">String</span> <span class="n">hql</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span>     <span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">createQuery</span><span class="o">(</span><span class="n">hql</span><span class="o">).</span><span class="na">uniqueResult</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="c1">//实现分页
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">List</span> <span class="nf">selectByPage</span><span class="o">(</span> <span class="n">String</span> <span class="n">hql</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">current</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">pageSize</span><span class="o">){</span>
+        <span class="n">Query</span> <span class="n">query</span><span class="o">=</span><span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">createQuery</span><span class="o">(</span><span class="n">hql</span><span class="o">);</span>
+        <span class="n">query</span><span class="o">.</span><span class="na">setFirstResult</span><span class="o">(</span><span class="n">current</span><span class="o">);</span>
+        <span class="n">query</span><span class="o">.</span><span class="na">setMaxResults</span><span class="o">(</span><span class="n">pageSize</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">query</span><span class="o">.</span><span class="na">getResultList</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="c1">//统计所有数据条数
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">selectTotalCount</span><span class="o">(</span> <span class="n">String</span> <span class="n">hql</span><span class="o">){</span>
+        <span class="n">Query</span> <span class="n">query</span><span class="o">=</span><span class="n">sessionFactory</span><span class="o">.</span><span class="na">getCurrentSession</span><span class="o">().</span><span class="na">createQuery</span><span class="o">(</span><span class="n">hql</span><span class="o">);</span>
+        <span class="n">Long</span> <span class="n">count</span><span class="o">=(</span><span class="n">Long</span><span class="o">)</span> <span class="n">query</span><span class="o">.</span><span class="na">uniqueResult</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">count</span><span class="o">.</span><span class="na">intValue</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">SessionFactory</span> <span class="nf">getSessionFactory</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">sessionFactory</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2基于注解的关系">2基于注解的关系</h2>
+<h3 id="21一对一的关系">2.1一对一的关系</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//一个短消息，对应一个发送人
+</span><span class="c1"></span><span class="nd">@OneToOne</span><span class="o">(</span><span class="n">fetch</span><span class="o">=</span><span class="n">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">,</span><span class="n">optional</span><span class="o">=</span><span class="kc">false</span><span class="o">)</span>
+<span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;creator&#34;</span><span class="o">,</span><span class="n">insertable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span><span class="n">updatable</span> <span class="o">=</span> <span class="kc">false</span><span class="o">)</span> 
+<span class="kd">private</span> <span class="n">ZzEmployee</span> <span class="n">employee</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>insertable = false,updatable = false，级联插入和修改&ndash;否。
+optional=false插入时字段，可否为null,fase不可以。</p>
+<h3 id="22一对多的关系">2.2一对多的关系</h3>
+<p>集合最好使用，set，HashSet否则无法同时抓取多个。</p>
+<p>一对多://一个短消息，对应多个消息接收</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@OneToMany</span><span class="o">(</span><span class="n">cascade</span><span class="o">=</span><span class="n">CascadeType</span><span class="o">.</span><span class="na">ALL</span><span class="o">,</span><span class="n">fetch</span><span class="o">=</span><span class="n">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+<span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;xiaoxiid&#34;</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">XxXiaoxijieshou</span><span class="o">&gt;</span> <span class="n">receive</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">XxXiaoxijieshou</span><span class="o">&gt;();</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>//多对一，一个消息接收，对应一个消息发送人</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@ManyToOne</span><span class="o">(</span><span class="n">targetEntity</span><span class="o">=</span><span class="n">XxDuanxiaoxi</span><span class="o">.</span><span class="na">class</span><span class="o">,</span><span class="n">fetch</span><span class="o">=</span><span class="n">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">)</span>
+<span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;xiaoxiid&#34;</span><span class="o">,</span><span class="n">insertable</span><span class="o">=</span><span class="kc">false</span><span class="o">,</span><span class="n">updatable</span><span class="o">=</span><span class="kc">false</span><span class="o">)</span>
+<span class="kd">private</span> <span class="n">XxDuanxiaoxi</span> <span class="n">shortInfo</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="23多对多的关系">2.3多对多的关系</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//角色 员工多对多
+</span><span class="c1">//连接第三张表为qx_role_user，没有主键，
+</span><span class="c1">//@JoinColumn第三表中，本bean存储的字段为
+</span><span class="c1">//inverseJoinColumns第三表中，连接员工bean存储的字段为
+</span><span class="c1"></span>	<span class="nd">@ManyToMany</span><span class="o">()</span>
+	<span class="nd">@JoinTable</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;qx_role_user&#34;</span><span class="o">,</span>
+	<span class="n">joinColumns</span><span class="o">=</span> <span class="o">{</span><span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;roleid&#34;</span><span class="o">)},</span>
+	<span class="n">inverseJoinColumns</span><span class="o">=</span> <span class="o">{</span><span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;eid&#34;</span><span class="o">)})</span>
+	<span class="kd">private</span> <span class="n">Set</span><span class="o">&lt;</span><span class="n">ZzEmployee</span><span class="o">&gt;</span> <span class="n">emps</span><span class="o">=</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">ZzEmployee</span><span class="o">&gt;();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="24一对多自联">2.4一对多自联</h3>
+<p>自联结教程https://blog.csdn.net/baidu_28283827/article/details/52789151</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//自关联 一对多，一个父亲功能下，有多个子功能 
+</span><span class="c1">//parentoid为自身bean的Id
+</span><span class="c1"></span>	<span class="nd">@OneToMany</span><span class="o">(</span><span class="n">fetch</span><span class="o">=</span><span class="n">FetchType</span><span class="o">.</span><span class="na">LAZY</span><span class="o">,</span>
+			<span class="n">cascade</span><span class="o">=</span><span class="n">CascadeType</span><span class="o">.</span><span class="na">ALL</span><span class="o">,</span>
+			<span class="n">orphanRemoval</span><span class="o">=</span><span class="kc">true</span><span class="o">)</span>
+	<span class="nd">@JoinColumn</span><span class="o">(</span><span class="n">name</span><span class="o">=</span><span class="s">&#34;parentoid&#34;</span><span class="o">,</span><span class="n">insertable</span><span class="o">=</span><span class="kc">false</span><span class="o">,</span><span class="n">updatable</span><span class="o">=</span><span class="kc">true</span><span class="o">)</span>
+	<span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">QxFunction</span><span class="o">&gt;</span> <span class="n">children</span><span class="o">=</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">QxFunction</span><span class="o">&gt;();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3关键字的介绍">3关键字的介绍</h2>
+<blockquote>
+<p>==cascade==<code>/kæˈskeɪd/小瀑布，瀑布状物；串联</code></p>
+<p>cascade=&quot;all&quot;&gt;默认为none不进行关联,save-update保存或修改关联，为all是增删改都关联。</p>
+<p>(未验证)常常和inverse=&quot;false&quot;连用？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">cascade表示级联操作</span>
+   <span class="n">CascadeType</span><span class="o">.</span><span class="na">MERGE级联更新</span><span class="err">：</span><span class="n">若items属性修改了那么order对象保存时同时修改items里的对象</span><span class="err">。</span><span class="n">对应EntityManager的merge方法</span>
+   <span class="n">CascadeType</span><span class="o">.</span><span class="na">REFRESH级联刷新</span><span class="err">：</span><span class="n">获取order对象里也同时也重新获取最新的items时的对象</span><span class="err">。</span><span class="n">对应EntityManager的refresh</span><span class="o">(</span><span class="n">object</span><span class="o">)</span><span class="n">方法有效</span><span class="err">。</span><span class="n">即会重新查询数据库里的最新数据</span>
+   <span class="n">CascadeType</span><span class="o">.</span><span class="na">PERSIST级联保存</span><span class="err">：</span><span class="n">对order对象保存时也对items里的对象也会保存</span><span class="err">。</span><span class="n">对应EntityManager的presist方法</span>
+   <span class="n">CascadeType</span><span class="o">.</span><span class="na">REMOVE级联删除</span><span class="err">：</span><span class="n">对order对象删除也对items里的对象也会删除</span><span class="err">。</span><span class="n">对应EntityManager的remove方法</span>  
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p>==inverse==<code>/ˌɪnˈvɜːrs/ 相反的；倒转的</code>，关系维护交给对方吗。</p>
+<p>=false为主动维护关系，=true意思是放弃维护关系，交给对方维护。</p>
+<p><strong>注意</strong>：
+默认为：inverse=false维护关系
+<strong>inverse只存在于集合标记的元素中</strong> 。既只在many-to-many中,one-to-many
+Hibernate提供的集合元素包括<code>&lt;set/&gt; &lt;map/&gt; &lt;list/&gt; &lt;array /&gt; &lt;bag /&gt; </code></p>
+<p>例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">单向one-to-many关联关系中，不可以设置inverse=&#34;true&#34;,因为被控方的映射文件中没有主控方的信息。**
+一对多关系时候，department部门表可以通过自己主键,去staff找did=x的员工。**
+
+inverse=false,维护关系
+	save时候,1会先保存员工,2保存experience经历,3为经历设置外键
+	
+inverse=true,放弃维护关系
+	save时候,1会先保存员工,2保存experience经历,
+	若无many-to-one关系，则无法维护关系,experience不会设置staffId
+	
+inverse=true时候,放弃维护关系,
+保存部门时,部门的staffs若有员工,员工会保存到数据库,但员工中没有部门Id,因为此时部门放弃维护关系。
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p>==lazy==</p>
+<p>lazy=true懒加载，一对一为立即加载。</p>
+</blockquote>
+<blockquote>
+<p>==optional=false== 是否允许该字段为null，限制插入时字段。</p>
+<p>optional:是否允许该字段为null,该属性应该根据数据库表的外键约束来确定,默认为true</p>
+<p>optional属性是定义该关联类是否必须存在，
+<strong>值为false 时</strong>，关联类双方都必须存在，如果关系被维护端不存在，查询的结果为null。
+<strong>值为true 时</strong>, 关系被维护端可以不存在，查询的结果仍然会返回关系维护端，在关系维护端中指向关系被维护端的属性为null。</p>
+</blockquote>
+<h2 id="4常见错误">4常见错误</h2>
+<p>should be mapped with insert=&quot;false&rdquo; update=&quot;false&rdquo;
+原因：在建立对象之间的关系的时候定义了外键，又在属性中重复设置了。</p>
+<p>@JoinColumn(name=&quot;accountid&rdquo;)建立对象关系，又在属性中设置了accountid。
+解决办法是，查询时候，先抓取accountid然后，给这个集合取别名，然后别名.oid进行判断。</p>
+<h1 id="第二章-hql语句">第二章-hql语句</h1>
+<h2 id="1查询方式">1查询方式</h2>
+<h3 id="10返回值问题">1.0返回值问题</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">	<span class="n">Object</span> <span class="n">obj</span><span class="o">=</span><span class="n">query</span><span class="o">.</span><span class="na">uniqueResult</span><span class="o">();</span><span class="c1">//不存在 会返回为null
+</span><span class="c1"></span>	<span class="n">List</span> <span class="n">obj</span><span class="o">=</span><span class="n">query</span><span class="o">.</span><span class="na">list</span><span class="o">();</span><span class="c1">//list 即使size=0也不会返回为null
+</span><span class="c1">//在含有一对多集合的关系中，即使抓取的集合为0，集合也不是==null
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="11实例化查询">1.1实例化查询</h3>
+<p>在testDeotBean中要有该查询的构造方法,也要有无参构造方法
+查询多个数据  select new testdeptBean(did,dname) from testdeptBean &quot;
+<strong>注意，实例化查询无法用于join fetch</strong></p>
+<p>对象导航查询：testdeptBean dept=session.get(testdeptBean.class, 26); 不常用</p>
+<h3 id="12连接查询fetch">1.2连接查询fetch</h3>
+<p>​	连接查询-统计条数：select count(s) from Staff s left join  s.account a
+​	连接查询-查找数据:session.createQuery(“from Department dept left join fetch  dept.employees&rdquo;   会把department中的employee抓取出来
+​	注意left join fetch会产生重复数据 需要 select distinct(对象)</p>
+<h3 id="13聚合函数">1.3聚合函数</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Query</span> <span class="n">query</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="s">&#34;select avg(did) from testdeptBean&#34;</span><span class="o">);</span>
+<span class="n">Object</span> <span class="n">obj</span><span class="o">=</span><span class="n">query</span><span class="o">.</span><span class="na">uniqueResult</span><span class="o">();</span> <span class="c1">//可以直接获得结果不需要遍历
+</span><span class="c1"></span><span class="n">COUNT</span> <span class="n">返回Long对象</span> 
+<span class="n">MAX</span> <span class="n">MIN</span> <span class="n">返回类型是跟所使用的字段类型有关</span> 
+<span class="n">AVG</span> <span class="n">返回Double</span>  
+<span class="n">SUM</span> <span class="n">如使用字段是整形</span><span class="err">，</span><span class="n">返回Long</span><span class="o">,</span><span class="n">若字浮点</span><span class="o">,</span><span class="n">返回浮点</span>
+<span class="c1">//是Long时 可以这样处理。
+</span><span class="c1"></span><span class="n">Long</span> <span class="n">obj</span><span class="o">=(</span><span class="n">Long</span><span class="o">)</span><span class="n">obj1</span><span class="o">;</span>
+<span class="n">Integer</span> <span class="n">in</span><span class="o">=</span><span class="n">obj</span><span class="o">.</span><span class="na">intValue</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="14分页实现">1.4分页实现</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//设置开始位置 从0开始  显示两条数据
+</span><span class="c1"></span><span class="n">query</span><span class="o">.</span><span class="na">setFirstResult</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
+<span class="c1">//设置每页记录数
+</span><span class="c1"></span><span class="n">query</span><span class="o">.</span><span class="na">setMaxResults</span><span class="o">(</span><span class="n">2</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="15条件查询">1.5条件查询</h3>
+<p>hibernate5之后，条件查询的限定需要在?后加数字。</p>
+<p><strong>模糊查询</strong>：from 实体类名 where 属性=?  and 属性 like :name
+<code>query.setParameter(&quot;biaoti&quot;, &quot;%&quot;+biaoti+&quot;%&quot;);</code></p>
+<p>方式一：加数字，避免sql注入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Query</span> <span class="n">query</span><span class="o">=</span><span class="n">session</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span>
+  <span class="s">&#34;select new Users(users_name) from Users where users_name=?1&#34;</span><span class="o">);</span>
+<span class="n">query</span><span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">users_name</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>方式二：起别名,（setString等已过时，使用setParameter）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//别名：要求必须以冒号开头:  list.setParameter()/setInteger也可以
+</span><span class="c1"></span><span class="n">String</span> <span class="n">hql</span> <span class="o">=</span> <span class="s">&#34;from Student where age &gt; :myage and score &lt; :myscore&#34;</span><span class="o">;</span>   
+<span class="n">Query</span> <span class="n">createQuery</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">createQuery</span><span class="o">(</span><span class="n">hql</span><span class="o">);</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">createQuery</span>
+  <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&#34;myage&#34;</span><span class="o">,</span> <span class="n">21</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">setParameter</span><span class="o">(</span><span class="s">&#34;myscore&#34;</span><span class="o">,</span> <span class="n">95</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">list</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="16子查询">1.6子查询</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sql" data-lang="sql"><span class="o">//</span><span class="err">操作集合</span><span class="p">:</span><span class="err">查找经历等于二的员工</span><span class="k">size</span><span class="p">:</span> <span class="k">from</span> <span class="n">Staff</span> <span class="n">s</span>  <span class="k">where</span> <span class="n">s</span><span class="p">.</span><span class="n">experiences</span><span class="p">.</span><span class="k">size</span><span class="o">=</span><span class="mi">2</span>
+<span class="o">//</span><span class="err">子查询：查找经历大于</span><span class="mi">1</span><span class="err">的</span><span class="p">:</span> <span class="k">from</span> <span class="n">Staff</span> <span class="n">s</span>  <span class="k">where</span> <span class="mi">1</span><span class="o">&lt;</span><span class="p">(</span><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">from</span> <span class="n">s</span><span class="p">.</span><span class="n">experiences</span> <span class="n">e</span><span class="p">)</span> 
+<span class="o">//</span><span class="k">in</span><span class="p">:</span><span class="err">与”</span><span class="o">=</span><span class="k">any</span><span class="err">”等价</span><span class="p">:</span><span class="err">表示子查询语句返回的所有记录</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/git/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">git.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/idea%E4%BD%BF%E7%94%A8/">
+            <span class="next-text nav-default">IDEA使用.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

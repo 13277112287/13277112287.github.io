@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>1web基础.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-Web基础部分 1tomcat服务器 1.1 是什么 免费的开放源代码的Web 应用服务器 1.2下载以及安装、使用 修改端口号：conf&amp;ndash" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/1web%E5%9F%BA%E7%A1%80/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="1web基础.md" />
+<meta property="og:description" content="第一章-Web基础部分 1tomcat服务器 1.1 是什么 免费的开放源代码的Web 应用服务器 1.2下载以及安装、使用 修改端口号：conf&ndash" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/1web%E5%9F%BA%E7%A1%80/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-30T00:00:00+00:00" />
+<meta itemprop="name" content="1web基础.md">
+<meta itemprop="description" content="第一章-Web基础部分 1tomcat服务器 1.1 是什么 免费的开放源代码的Web 应用服务器 1.2下载以及安装、使用 修改端口号：conf&ndash">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-05-30T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4639">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="1web基础.md"/>
+<meta name="twitter:description" content="第一章-Web基础部分 1tomcat服务器 1.1 是什么 免费的开放源代码的Web 应用服务器 1.2下载以及安装、使用 修改端口号：conf&ndash"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">1web基础.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/java%E7%AC%94%E8%AE%B0/"> java笔记 </a>
+            </div>
+          <span class="more-meta"> 约 4639 字 </span>
+          <span class="more-meta"> 预计阅读 10 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-web基础部分">第一章-Web基础部分</a>
+      <ul>
+        <li><a href="#1tomcat服务器">1tomcat服务器</a>
+          <ul>
+            <li><a href="#11-是什么">1.1 是什么</a></li>
+            <li><a href="#12下载以及安装使用">1.2下载以及安装、使用</a></li>
+            <li><a href="#13-http请求响应">1.3 Http请求/响应</a></li>
+            <li><a href="#14-初始webxml">1.4 初始web.xml</a></li>
+            <li><a href="#15-servlet">1.5 Servlet</a></li>
+            <li><a href="#16servlet和filter区别">1.6Servlet和Filter区别</a></li>
+          </ul>
+        </li>
+        <li><a href="#2内置对象">2内置对象</a>
+          <ul>
+            <li><a href="#cookie">Cookie</a></li>
+          </ul>
+        </li>
+        <li><a href="#el和jstl">El和JSTL</a>
+          <ul>
+            <li><a href="#1el表达式">1EL表达式</a></li>
+            <li><a href="#2jstl表达式">2JSTL表达式</a></li>
+          </ul>
+        </li>
+        <li><a href="#web项目需要的jiar">web项目需要的jiar</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-">第二章-</a>
+      <ul>
+        <li><a href="#1验证码">1验证码</a></li>
+        <li><a href="#2记住密码">2记住密码</a></li>
+        <li><a href="#3获得上次地址">3获得上次地址</a></li>
+        <li><a href="#4filter过滤器">4Filter过滤器</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-web基础部分">第一章-Web基础部分</h1>
+<h2 id="1tomcat服务器">1tomcat服务器</h2>
+<h3 id="11-是什么">1.1 是什么</h3>
+<p>免费的开放源代码的Web 应用服务器</p>
+<h3 id="12下载以及安装使用">1.2下载以及安装、使用</h3>
+<p><img src="/typoraImg/1web%E5%9F%BA%E7%A1%80.assets/image-20200226151634089.png" alt=""></p>
+<p>修改端口号：conf&ndash;&gt;servlet.xml&ndash;&gt;第70行&lt;Connector port=&quot;8088&quot;修改端口号</p>
+<p>放置项目：webapps下放置写好的项目</p>
+<h3 id="13-http请求响应">1.3 Http请求/响应</h3>
+<p>是什么：http（超文本传输协议）是一个简单的请求-响应协议，它通常运行在TCP之上。</p>
+<ul>
+<li>
+<p>文本：HTML，字符串</p>
+</li>
+<li>
+<p>超文本：图片、音乐、视频等。</p>
+</li>
+<li>
+<p>端口号：80</p>
+<p>Https:安全的超文本传输协议。端口号443</p>
+</li>
+</ul>
+<p><strong>1 Http请求</strong></p>
+<p>客户端&ndash;发请求&ndash;服务器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nl">RequestURL:</span><span class="n">https</span><span class="o">:</span><span class="c1">//note.youdao.com/ 请求URL地址
+</span><span class="c1"></span><span class="n">Request</span> <span class="n">Method</span><span class="o">:</span> <span class="n">POST</span>   <span class="n">请求方式</span>
+<span class="n">Status</span> <span class="n">Code</span><span class="o">:</span> <span class="n">200</span> <span class="n">OK</span>    <span class="n">状态码</span>
+<span class="n">Remote</span> <span class="n">Address</span><span class="o">:</span> <span class="n">123</span><span class="o">.</span><span class="na">58</span><span class="o">.</span><span class="na">182</span><span class="o">.</span><span class="na">251</span><span class="o">:</span><span class="n">443</span>  <span class="n">请求IP地址</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>2 Http响应</strong></p>
+<p>服务器&ndash;响应&ndash;客户端</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="o">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span><span class="o">,</span> <span class="n">no</span><span class="o">-</span><span class="n">store</span><span class="o">,</span> <span class="n">must</span><span class="o">-</span><span class="n">revalidate</span>
+<span class="nl">Connection:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Encoding</span><span class="o">:</span> <span class="n">gzip</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="o">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="o">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="n">8</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>2 请求行</strong></p>
+<p>请求方式：Get，Post，Head，Delete，Put，Tract</p>
+<ul>
+<li>Get：请求能携带参数少，大小限制1024KB，在浏览器的URL显示数据,不安全，但是高效。</li>
+<li>Post：请求能携带参数无限制，大小无限制，不会在URL显示数据内容，安全，速度相对GET低。</li>
+</ul>
+<h3 id="14-初始webxml">1.4 初始web.xml</h3>
+<p>根据不同tomcat配置信息不同：在webapp&ndash;&gt;ROOT&ndash;&gt;WEB-INF-&gt;web.xml可以配置初始的信息</p>
+<h3 id="15-servlet">1.5 Servlet</h3>
+<p><strong>servlet介绍</strong>:</p>
+<ul>
+<li>
+<p>Servlet就是sun公司开发动态web的一门技术</p>
+</li>
+<li>
+<p>Sun在这些API中提供-一个接口叫做: Servlet</p>
+<p>使用servlet步骤：1实现servlet的类。2把类部署到web服务器(web.xml中部署)</p>
+</li>
+</ul>
+<p><strong>servlet运行原理：</strong></p>
+<ul>
+<li>
+<p>**创建过程：**先写一个servlet的类，就是实现了servlet接口的类，一般直接继承HttpServle。然后把它放置在web容器中，就是在web.xml写mapping，我们可以用<init-on-startup>标签控制servle的创建时机，是Tomcat启动时创建还是，客户端请求servlet时才创建。</p>
+</li>
+<li>
+<p>**生命周期：**当客户端请求Servlet时，web容器就会去寻找对应的Servlet，创建一个对象，执行init方法初始化，然后再执行service方法，根据对应的请求方式执行doxxx方法，当再此请求这个servlet时候，就去直接执行service方法了，当web容器关闭前，会执行destroy方法进行销毁。</p>
+</li>
+</ul>
+<p><strong>转发/跳转</strong>
+response.sendRedirect(&ldquo;网址&rdquo;)  重定向告诉它待会要跳转到该页面
+req.getRequestDispatcher(&ldquo;网址&rdquo;).forword(req,resp)
+在servlet中将当前req,resp转发到网址</p>
+<h3 id="16servlet和filter区别">1.6Servlet和Filter区别</h3>
+<p>1.共同点
+●都有三个常用方法:初始化,销毁,核心方法( service,doFilter )。
+●它们在核心方法都有request,response.
+●它们都是单例的,一个应用只有一一个对象。
+2.区别点
+■创建时间
+Servlet请求第一次到达时创建 (默认)
+Filter项目启动时创建
+是否资源
+Servet是一一个资源 ,可以通过路径访问
+Filter不是一个资源 ,不可以通过路径访问
+●用范围
+1Servlet能做的, Filter都能做到,但是反过来这不然。</p>
+<h2 id="2内置对象">2内置对象</h2>
+<h3 id="cookie">Cookie</h3>
+<p>我们在实际使用Cookie过程中要注意一些问题：</p>
+<p>　　1. Cookie的兼容性问题</p>
+<p>　　Cookie的格式有2个不同的版本，第一个版本，我们称为Cookie Version 0，是最初由Netscape公司制定的，也被几乎所有的浏览器支持。而较新的版本，Cookie Version 1，则是根据RFC 2109文档制定的。为了确保兼容性，JAVA规定，前面所提到的涉及Cookie的操作都是针对旧版本的Cookie进行的。而新版本的Cookie目前还不被Javax.servlet.http.Cookie包所支持。</p>
+<p>　　2. Cookie的内容</p>
+<p>　　同样的Cookie的内容的字符限制针对不同的Cookie版本也有不同。在Cookie Version 0中，某些特殊的字符，例如：空格，方括号，圆括号，等于号（=），逗号，双引号，斜杠，问号，@符号，冒号，分号都不能作为Cookie的内容。这也就是为什么我们在例子中设定Cookie的内容为“Test_Content”的原因。</p>
+<p>　　虽然在Cookie Version 1规定中放宽了限制，可以使用这些字符，但是考虑到新版本的Cookie规范目前仍然没有为所有的浏览器所支持，因而为保险起见，我们应该在Cookie的内容中尽量避免使用这些字符。</p>
+<h2 id="el和jstl">El和JSTL</h2>
+<h3 id="1el表达式">1EL表达式</h3>
+<p>作用：获取作用域对象的数据
+仅仅获取pageContext、request、session、application四个对象中的数据
+找到了获取，找不到什么都不做,也不报错</p>
+<p>request对象存储了请求数据&ndash;&gt;
+${param.键名}
+paramvalues.键名  返回的是数组</p>
+<p><strong>通过setAttribute方法存储到作用域对象中的数据</strong>
+${键名}返回键名对应的值  若是String返回String</p>
+<p>若是对象返回对象	${键名.属性.属性}</p>
+<p>若是List集合对象	${键名[下标]}</p>
+<p>若是map集合		${集合名.map集合存储的键名}</p>
+<p><strong>默认</strong>:若是相同键则从pageContext开始找，一直往作用域大的找
+${pageScope.键}
+${requestScope.键}
+${sessionScope.键}
+${applicationScope.键}</p>
+<p><strong>EL逻辑运算</strong>:
+${1+3}&ndash;&gt;4    ${a+b}会报错 这里的+-*/是运算 +不是字符连接
+${requestScope.con.name eq &ldquo;张三&rdquo;}
+${receiveInfo.isread == &lsquo;是&rsquo;.charAt(0)} 字符串和字符进行比较</p>
+<p><strong>EL空值判断</strong>
+${empty 键名}  会返回true 和false</p>
+<p>${cardtype.oid==typeid?&lsquo;selected&rsquo;:''}可以直接放在select中的option，不需要再加&rdquo;&rdquo;</p>
+<p><strong>Cookie数据</strong>
+${cookie}返回存储了索引cookie对象的map集合
+${cookie.键}取出对应键的cookie对象 不常用
+${cookie.键.value}取出cookie对象的值
+${cookie.键.name}取出cookie对象的名字</p>
+<h3 id="2jstl表达式">2JSTL表达式</h3>
+<p>1使用前加入依赖   2jsp声明Jstl标签库引入(核心标签库)</p>
+<blockquote>
+<p>&lt;%@ taglib prefix=&quot;c&rdquo;  uri=&quot;http://java.sun.com/jsp/jstl/core&rdquo;%&gt;</p>
+</blockquote>
+<p>注意：JSTL依赖EL,EL只能四个作用域中的变量，所以使用前要先存入作用域中 。</p>
+<p><strong>JSTL&ndash;声明变量</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">输出:相当于&lt;%=${键} %&gt;
+&lt;c:out value=&#34;常量也可以变量${键}&#34; default=&#34;当变量不存在&#34;&gt;&lt;/c:out&gt;
+
+存储:向定义域存储一个变量
+&lt;c:set var=&#34;hello&#34;  value=&#34;hello pageContext&#34; 
+       scope=&#34;page/request/session/application&#34;&gt;&lt;/c:set&gt; 
+
+删除:未指定scope则删除所有
+&lt;c:remove var=&#34;people&#34; scope=&#34;request&#34;&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>JSTL&ndash;if判断</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;c:if test=&#34;${键&gt;0}&#34;&gt;
+符合if条件执行的代码
+&lt;/c:if&gt;
+${list.size()&gt;0}获取list集合的长度
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>JSTL&ndash;choose选择判断</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">当符合某一条件 就不再执行
+&lt;c:choose&gt;
+	&lt;c:when test=&#34;${score&gt;=60&amp;&amp;score&lt;70}&#34;&gt;恭喜及格啦&lt;/c:when&gt;
+		&lt;c:when test=&#34;${score==60}&#34;&gt;你60分&lt;/c:when&gt;
+			&lt;c:otherwise&gt;
+			不符合条件执行:	提升分数请拨打119120110  
+			&lt;/c:otherwise&gt;
+&lt;/c:choose&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>JSTL&ndash;forEach循环</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;!--for循环
+step是步长 varStatus=&#34;状态名如vs&#34;
+vs.index执行下标  vs.count执行次数
+vs.first是否第一次循环  vs.last是否最后一次循环 --&gt;
+ &lt;c:forEach begin=&#34;1&#34; end=&#34;4&#34;  step=&#34;2&#34; varStatus=&#34;vs&#34;&gt;
+卢森林${vs.index }--${vs.count }&lt;br/&gt;
+ &lt;/c:forEach&gt;
+
+&lt;!-- 变量循环
+  items=&#34;${arr}&#34;声明要遍历的对象
+  var=&#34;str&#34;声明每次遍历获得的值的对象
+  如果是map键值对形式,str.key,str.value --&gt;
+&lt;c:forEach items=&#34;${arr}&#34; var=&#34;str&#34;&gt;
+  &lt;br&gt;双双三--${str}
+&lt;/c:forEach&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>format格式化标签</strong>
+需要引入&lt;%@ taglib prefix=&quot;fmt&rdquo;  uri=&quot;http://java.sun.com/jsp/jstl/fmt&rdquo; %&gt;命名空间</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;%@ taglib prefix=&#34;fmt&#34;  uri=&#34;http://java.sun.com/jsp/jstl/fmt&#34; %&gt;
+把Date类型转化为特定的类型
+	&lt;fmt:formatDate value=&#34;${time}&#34; pattern=&#34;yyyy-MM-dd HH:mm:ss&#34; /&gt;
+把Date转为字符串
+	&lt;fmt:formatNumber value=&#34;12.34&#34; pattern=&#34;#0.00&#34; /&gt;   12.34  保留小数点后两位数
+	&lt;fmt:formatNumber value=&#34;12&#34; type=&#34;currency&#34; pattern=&#34;＄.00&#34;/&gt; －－ ＄12.00
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="web项目需要的jiar">web项目需要的jiar</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--jsp依赖--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.servlet.jsp<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.servlet.jsp-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.3.3<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!--servlet依赖--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>javax.servlet<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>javax.servlet-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>4.0.1<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;scope&gt;</span>provided<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!--jstl依赖--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>jstl<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jstl<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="第二章-">第二章-</h1>
+<h2 id="1验证码">1验证码</h2>
+<p>1加入jir包 verifycode.jar</p>
+<p>2jsp页面中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">function changeCode(){
+var name=document.getElementById(&#34;checkImg&#34;);
+name.src=&#34;register!generateVerifyCodeImg?=&#34;+new Date;
+}
+&lt;img id=&#34;checkImg&#34; src=&#34;register!generateVerifyCodeImg&#34; onclick=&#34;changeCode()&#34;&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>3servlet/action/controller</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//action中，每次更换验证码就会生成一次action
+</span><span class="c1"></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">generateVerifyCodeImg</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+<span class="n">String</span> <span class="n">code</span><span class="o">=</span> <span class="n">VerifyCodeUtil</span><span class="o">.</span><span class="na">generateVerifyCode</span><span class="o">(</span><span class="n">4</span><span class="o">);</span>
+<span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getRequest</span><span class="o">().</span><span class="na">getSession</span><span class="o">().</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&#34;code&#34;</span><span class="o">,</span> <span class="n">code</span><span class="o">);</span>
+<span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">=</span><span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getResponse</span><span class="o">();</span>
+<span class="n">VerifyCodeUtil</span><span class="o">.</span><span class="na">outputImage</span><span class="o">(</span><span class="n">100</span><span class="o">,</span> <span class="n">40</span><span class="o">,</span> <span class="n">response</span><span class="o">.</span><span class="na">getOutputStream</span><span class="o">(),</span> <span class="n">code</span><span class="o">);}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2记住密码">2记住密码</h2>
+<p>1servlet/action/controller</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span><span class="o">(</span><span class="n">avoidLogin</span><span class="o">==</span><span class="kc">true</span><span class="o">){</span>
+    <span class="n">Cookie</span> <span class="n">cookieName</span><span class="o">=</span><span class="k">new</span> <span class="n">Cookie</span><span class="o">(</span><span class="s">&#34;userName&#34;</span><span class="o">,</span><span class="n">user</span><span class="o">.</span><span class="na">getUsers_name</span><span class="o">());</span>
+    <span class="n">Cookie</span> <span class="n">cookiePassword</span><span class="o">=</span><span class="k">new</span> <span class="n">Cookie</span><span class="o">(</span><span class="s">&#34;userPassword&#34;</span><span class="o">,</span><span class="n">user</span><span class="o">.</span><span class="na">getUsers_password</span><span class="o">());</span>
+    <span class="n">cookieName</span><span class="o">.</span><span class="na">setMaxAge</span><span class="o">(</span><span class="n">5000</span><span class="o">);</span>
+    <span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getResponse</span><span class="o">().</span><span class="na">addCookie</span><span class="o">(</span><span class="n">cookieName</span><span class="o">);</span>
+
+    <span class="n">cookiePassword</span><span class="o">.</span><span class="na">setMaxAge</span><span class="o">(</span><span class="n">5000</span><span class="o">);</span>
+    <span class="n">ServletActionContext</span><span class="o">.</span><span class="na">getResponse</span><span class="o">().</span><span class="na">addCookie</span><span class="o">(</span><span class="n">cookiePassword</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2jsp中</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="c1">// 判断Cookie中是否有值，有值则回显，反之就不用管了
+</span><span class="c1"></span>    <span class="k">if</span><span class="p">(</span><span class="s2">&#34;${cookie.userName.value}&#34;</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="o">&amp;&amp;</span><span class="s2">&#34;${cookie.userPassword.value}&#34;</span><span class="o">!=</span><span class="s1">&#39;&#39;</span><span class="p">){</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;#users_name&#34;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&#34;${cookie.userName.value}&#34;</span><span class="p">);</span>
+        <span class="nx">$</span><span class="p">(</span><span class="s2">&#34;#users_password&#34;</span><span class="p">).</span><span class="nx">val</span><span class="p">(</span><span class="s2">&#34;${cookie.userPassword.value}&#34;</span><span class="p">);</span>
+        <span class="c1">// 这个事件可以模拟“我”直接触发登录的那个点击事件
+</span><span class="c1"></span>        <span class="c1">//$(&#39;#dl&#39;).trigger(&#34;click&#34;);
+</span><span class="c1"></span>        <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;有么？&#34;</span><span class="o">+</span><span class="nx">$</span><span class="p">{</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">userPassword</span><span class="p">.</span><span class="nx">value</span><span class="p">});</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3获得上次地址">3获得上次地址</h2>
+<p><em>getRequest().getHeader(&ldquo;Referer&rdquo;);</em></p>
+<h2 id="4filter过滤器">4Filter过滤器</h2>
+<p><strong>1java类实现Filter接口</strong></p>
+<ol>
+<li>
+<p>init()方法服务器启动就执行,资源初始化
+arg0.getInitParameter(&ldquo;encod&rdquo;);获得初始化时值</p>
+</li>
+<li>
+<p>doFilter()方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//拦截请求方法,在此方法中可以对资源实现管理
+</span><span class="c1"></span> <span class="c1">//注意要手动放行,
+</span><span class="c1"></span><span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">arg0</span><span class="o">,</span> <span class="n">arg1</span><span class="o">);</span>
+<span class="c1">//在doFilter()后是对响应进行处理
+</span><span class="c1"></span> <span class="n">HttpServletRequest</span> <span class="n">hs</span><span class="o">=(</span><span class="n">HttpServletRequest</span><span class="o">)</span><span class="n">arg0</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">ServlertPath2</span><span class="o">=</span><span class="n">hs</span><span class="o">.</span><span class="na">getServletPath</span><span class="o">();</span> <span class="c1">//   获得 /login.jsp
+</span><span class="c1"></span>   
+<span class="c1">//获取Httpservlet对象
+</span><span class="c1"></span><span class="n">HttpServletRequest</span> <span class="n">hRequert</span><span class="o">=</span> <span class="o">(</span><span class="n">HttpServletRequest</span><span class="o">)</span> <span class="n">request</span><span class="o">;</span>
+<span class="n">HttpServletResponse</span> <span class="n">hResponse</span><span class="o">=(</span><span class="n">HttpServletResponse</span><span class="o">)</span><span class="n">response</span><span class="o">;</span>
+<span class="c1">//常用方法
+</span><span class="c1"></span><span class="n">hRequert</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">().</span><span class="na">forward</span><span class="o">(</span><span class="s">&#34;xxx&#34;</span><span class="o">);</span><span class="c1">//转发
+</span><span class="c1"></span><span class="n">hResponse</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">(</span><span class="s">&#34;book!findAllBook&#34;</span><span class="o">);</span><span class="c1">//重定向 重定向还是会继续执行代码
+</span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>destroy()方法
+服务器关闭的时候执行</p>
+</li>
+</ol>
+<p><strong>2web.xml配置过滤器</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;filter&gt;</span>
+  	<span class="nt">&lt;filter-name&gt;</span>MyFilter<span class="nt">&lt;/filter-name&gt;</span>//过滤器名称要一致
+  	<span class="nt">&lt;filter-class&gt;</span>com.lx.L7.MyFilter<span class="nt">&lt;/filter-class&gt;</span>//过滤器位置
+	<span class="nt">&lt;init-param&gt;</span>
+  		<span class="nt">&lt;param-name&gt;</span>encod<span class="nt">&lt;/param-name&gt;</span>设置filter附带的键值
+  		<span class="nt">&lt;param-value&gt;</span>UTF-8<span class="nt">&lt;/param-value&gt;</span>
+  	<span class="nt">&lt;/init-param&gt;</span>
+<span class="nt">&lt;/filter&gt;</span>
+<span class="nt">&lt;filter-mapping&gt;</span>
+  <span class="nt">&lt;filter-name&gt;</span>MyFilter<span class="nt">&lt;/filter-name&gt;</span>//过滤器名称
+  <span class="nt">&lt;url-pattern&gt;</span>/<span class="nt">&lt;/url-pattern&gt;</span>//表示拦截所有
+<span class="nt">&lt;/filter-mapping&gt;</span>
+		若只拦截部分<span class="nt">&lt;url-pattern&gt;</span>.do<span class="nt">&lt;/url-pattern&gt;</span>拦截.do结尾的
+</code></pre></td></tr></table>
+</div>
+</div><p>​	统一编码格式设置,session管理,权限管理
+资源管理(统一水印)</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-05-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/maven/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Maven.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/ajax/">
+            <span class="next-text nav-default">Ajax.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

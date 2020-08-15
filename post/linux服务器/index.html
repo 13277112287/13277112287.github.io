@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux服务器.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-Linux概述 1什么是Linux 为什么关闭SSH连接，程序就停止运行？ 要想回答这个问题，首先需要知道在Linux系统下有这两个概念：" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux服务器.md" />
+<meta property="og:description" content="第一章-Linux概述 1什么是Linux 为什么关闭SSH连接，程序就停止运行？ 要想回答这个问题，首先需要知道在Linux系统下有这两个概念：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/linux%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="name" content="Linux服务器.md">
+<meta itemprop="description" content="第一章-Linux概述 1什么是Linux 为什么关闭SSH连接，程序就停止运行？ 要想回答这个问题，首先需要知道在Linux系统下有这两个概念：">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="8987">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux服务器.md"/>
+<meta name="twitter:description" content="第一章-Linux概述 1什么是Linux 为什么关闭SSH连接，程序就停止运行？ 要想回答这个问题，首先需要知道在Linux系统下有这两个概念："/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux服务器.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
+            </div>
+          <span class="more-meta"> 约 8987 字 </span>
+          <span class="more-meta"> 预计阅读 18 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-linux概述">第一章-Linux概述</a>
+      <ul>
+        <li><a href="#1什么是linux">1什么是Linux</a></li>
+        <li><a href="#2文件夹属性">2文件夹属性</a>
+          <ul>
+            <li><a href="#1文件内容查看vim">1文件内容查看vim</a></li>
+            <li><a href="#2常用命令">2常用命令</a></li>
+          </ul>
+        </li>
+        <li><a href="#3帐号管理">3帐号管理</a>
+          <ul>
+            <li><a href="#帐号crud">帐号CRUD</a></li>
+            <li><a href="#用户组">用户组</a></li>
+          </ul>
+        </li>
+        <li><a href="#4进程管理">4进程管理</a></li>
+        <li><a href="#5软件安装">5软件安装</a>
+          <ul>
+            <li><a href="#配置环境变量">配置环境变量</a></li>
+            <li><a href="#1-rpm下载jdk">1 RPM(下载JDK)</a></li>
+            <li><a href="#2tar解压tomcat">2tar(解压Tomcat)</a></li>
+            <li><a href="#3yum安装docker">3yum(安装docker)</a></li>
+            <li><a href="#4yum安装mysql80">4yum(安装mysql8.0)</a></li>
+            <li><a href="#5tar安装redis">5tar安装redis</a></li>
+          </ul>
+        </li>
+        <li><a href="#6重要设置">6重要设置</a>
+          <ul>
+            <li><a href="#防火墙">防火墙</a></li>
+          </ul>
+        </li>
+        <li><a href="#7项目发布">7项目发布</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-vmware">第二章-VMware</a>
+      <ul>
+        <li><a href="#1安装使用vmware">1安装使用VMware</a></li>
+      </ul>
+    </li>
+    <li><a href="#第x章-云服务器">第X章-云服务器</a>
+      <ul>
+        <li><a href="#1连接服务器">1连接服务器</a>
+          <ul>
+            <li><a href="#下载ssh工具">下载SSH工具</a></li>
+          </ul>
+        </li>
+        <li><a href="#注意事项">注意事项</a>
+          <ul>
+            <li><a href="#端口号">端口号</a></li>
+            <li><a href="#安全">安全</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-linux概述">第一章-Linux概述</h1>
+<h2 id="1什么是linux">1什么是Linux</h2>
+<blockquote>
+<p><strong>为什么关闭SSH连接，程序就停止运行？</strong>
+要想回答这个问题，首先需要知道在Linux系统下有这两个概念：
+<strong>进程组</strong>：一个或者多个进程的集合，每一个进程组都有唯一一个进程组ID，即进程组长进程的ID。
+<strong>会话期</strong>：一个或多个进程组的集合，有唯一一个会话期首进程。会话期ID为首进程的ID。
+会话期可以有一个单独的控制终端。与控制终端连接的会话期首进程叫做控制进程。当前与终端交互的进程称为前台进程组。其余进程组称为后台进程组。</p>
+<p>挂断信号（SIGHUP）默认的动作是终止程序。
+当终端接口检测到网络连接断开，将挂断信号发送给控制进程。
+如果控制进程终止，则该信号发送到该会话期前台进程组。</p>
+<p>结论：因此当网络断开或终端窗口关闭后，也就是SSH断开以后，控制进程收到SIGHUP信号退出，会导致该会话期内其他进程退出。</p>
+<p>也就是说：当SSH连接开启的时候，bash等都会成为其进程组成员，当ssh关闭后，系统会将所有相关进程kill掉</p>
+</blockquote>
+<p>cat /etc/redhat-release查看当前系统版本</p>
+<blockquote>
+<p><strong>主要文件夹</strong></p>
+</blockquote>
+<ul>
+<li>
+<p><strong>/bin</strong>：bin是Binary的缩写, 这个目录存放着最经常使用的命令。</p>
+</li>
+<li>
+<p><strong>/boot：</strong> 这里存放的是启动Linux时使用的一些核心文件，包括一些连接文件以及镜像文件。</p>
+</li>
+<li>
+<p><strong>/etc：</strong> 这个目录用来存放所有的系统管理所需要的配置文件和子目录。</p>
+</li>
+<li>
+<p><strong>/home</strong>：用户的主目录，在Linux中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的。</p>
+</li>
+<li>
+<p><strong>/opt</strong>：这是给主机额外安装软件所摆放的目录。比如你安装一个ORACLE数据库则就可以放到这个目录下。默认是空的。</p>
+</li>
+<li>
+<p><strong>/tmp</strong>：这个目录是用来存放一些临时文件的。</p>
+</li>
+<li>
+<p><strong>/usr</strong>：这是一个非常重要的目录，用户的很多应用程序和文件都放在这个目录下，类似于windows下的program files目录。</p>
+</li>
+<li>
+<p><strong>/usr/bin：</strong> 系统用户使用的应用程序。</p>
+</li>
+<li>
+<p><strong>/var</strong>：这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件。</p>
+</li>
+<li>
+<p><strong>/run</strong>：是一个临时文件系统，存储系统启动以来的信息。当系统重启时，这个目录下的文件应该被删掉或清除。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>目录管理</strong></p>
+</blockquote>
+<p>Linux的目录结构为树状结构，最顶级的目录为根目录 /。</p>
+<p><strong>绝对路径：</strong></p>
+<p>路径的写法，由根目录 / 写起，例如：/usr/share/doc 这个目录。</p>
+<p><strong>相对路径：</strong></p>
+<p>路径的写法，不是由 / 写起，例如由 /usr/share/doc 要到 /usr/share/man 底下时，可以写成：cd ../man 这就是相对路径的写法啦！</p>
+<p>接下来我们就来看几个常见的处理目录的命令吧：</p>
+<ul>
+<li>mkdir：创建一个新的目录</li>
+<li>rmdir：删除一个空的目录</li>
+<li>cp: 复制文件或目录</li>
+<li>rm: 移除文件或目录</li>
+<li>mv: 移动文件与目录，或修改文件与目录的名称</li>
+</ul>
+<h2 id="2文件夹属性">2文件夹属性</h2>
+<p>ls -l列出所有文件和文件夹以及详细信息</p>
+<p><img src="/typoraImg/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8.assets/image-20200424142158373.png" alt="image-20200424142158373" style="zoom:150%;" /></p>
+<blockquote>
+<p><strong>修改文件属性</strong></p>
+<p><strong>1、chgrp：更改文件属组</strong>
+就是上图的第二个root 就是属主</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">chgrp [-R] 属组名 文件名
+</code></pre></td></tr></table>
+</div>
+</div><p>-R：递归更改文件属组，就是在更改某个目录文件的属组时，如果加上-R的参数，那么该目录下的所有文件的属组都会更改。</p>
+<p><strong>2、chown：更改文件属主，也可以同时更改文件属组</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">chown [–R] 属主名 文件名
+chown [-R] 属主名：属组名 文件名
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p><strong>3、chmod：更改文件9个属性</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">chmod [-R] xyz 文件或目录 例如：chmod 770 filename
+</code></pre></td></tr></table>
+</div>
+</div><p>Linux文件属性有两种设置方法，一种是数字，一种是符号。</p>
+<p>Linux文件的基本权限就有九个，分别是owner/group/others三种身份各有自己的read/write/execute权限。</p>
+<p>先复习一下刚刚上面提到的数据：文件的权限字符为：『-rwxrwxrwx』， 这九个权限是三个三个一组的！其中，我们可以使用数字来代表各个权限，各权限的分数对照表如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">r:4     w:2         x:1
+</code></pre></td></tr></table>
+</div>
+</div><p>每种身份(owner/group/others)各自的三个权限(r/w/x)分数是需要累加的，例如当权限为：[-rwxrwx&mdash;] 分数则是：</p>
+<ul>
+<li>owner = rwx = 4+2+1 = 7</li>
+<li>group = rwx = 4+2+1 = 7</li>
+<li>others= &mdash; = 0+0+0 = 0</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">chmod 770 filename
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="1文件内容查看vim">1文件内容查看vim</h3>
+<p>Linux系统中使用以下命令来查看文件的内容：</p>
+<ul>
+<li>cat 由第一行开始显示文件内容</li>
+<li>tac 从最后一行开始显示，可以看出 tac 是 cat 的倒着写！</li>
+<li>nl  显示的时候，顺道输出行号！</li>
+<li>more 一页一页的显示文件内容</li>
+<li>less 与 more 类似，但是比 more 更好的是，他可以往前翻页！</li>
+<li>head 只看头几行</li>
+<li>tail 只看尾巴几行</li>
+</ul>
+<blockquote>
+<p>** im文本编辑：vim xx文件<img src="/typoraImg/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8.assets/640.jpg" alt="img">**</p>
+<p><strong>一般模式常用命令</strong></p>
+<table>
+<thead>
+<tr>
+<th>输入字母</th>
+<th>表示动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M</td>
+<td>光标移动到这个屏幕的中央那一行的第一个字符</td>
+</tr>
+<tr>
+<td>L</td>
+<td>光标移动到这个屏幕的最下方那一行的第一个字符</td>
+</tr>
+<tr>
+<td>G</td>
+<td>移动到这个档案的最后一行(常用)</td>
+</tr>
+</tbody>
+</table>
+<p>** 编辑模式**</p>
+<table>
+<thead>
+<tr>
+<th>输入字母</th>
+<th>表示动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>i, I</td>
+<td>进入输入模式(Insert mode)：i 为『从目前光标所在处输入』， I 为『在目前所在行的第一个非空格符处开始输入』。(常用)</td>
+</tr>
+<tr>
+<td>a, A</td>
+<td>进入输入模式(Insert mode)：a 为『从目前光标所在的下一个字符处开始输入』， A 为『从光标所在行的最后一个字符处开始输入』。(常用)</td>
+</tr>
+<tr>
+<td>o, O</td>
+<td>进入输入模式(Insert mode)：这是英文字母 o 的大小写。o 为『在目前光标所在的下一行处输入新的一行』；O 为在目前光标所在处的上一行输入新的一行！(常用)</td>
+</tr>
+<tr>
+<td>r, R</td>
+<td>进入取代模式(Replace mode)：r 只会取代光标所在的那一个字符一次；R会一直取代光标所在的文字，直到按下 ESC 为止；(常用)</td>
+</tr>
+<tr>
+<td>[Esc]</td>
+<td>退出编辑模式，回到一般模式中(常用)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>指令行模式，输入:进入指令行模式</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">指令行的储存、离开等指令</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">:w</td>
+<td>将编辑的数据写入硬盘档案中(常用)</td>
+</tr>
+<tr>
+<td align="left">:w!</td>
+<td>若文件属性为『只读』时，强制写入该档案。<br />到底能不能写入， 和对该档案的档案权限有关啊！</td>
+</tr>
+<tr>
+<td align="left">:q</td>
+<td>离开 vi (常用)</td>
+</tr>
+<tr>
+<td align="left">:q!  (!在Vi中，常有强制意思)</td>
+<td>若曾修改过档案，又不想储存，使用 ! 为强制离开不储存档案。</td>
+</tr>
+<tr>
+<td align="left">:wq</td>
+<td>储存后离开，若为 :wq! 则为强制储存后离开 (常用)</td>
+</tr>
+<tr>
+<td align="left">ZZ</td>
+<td>这是大写的 Z 喔！若档案没有更动，则不储存离开<br />若档案已经被更动过，则储存后离开！</td>
+</tr>
+<tr>
+<td align="left">:w [filename]</td>
+<td>将编辑的数据储存成另一个档案（类似另存新档）</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>常用查看命令</strong></p>
+<p>cat filename顺序查看
+tac filename倒叙查看
+nl filename以行号顺序查看
+head -n 20 /etc/csh.login 显示前20行
+tail -n 20 /etc/csh.login  显示后20行</p>
+<h3 id="2常用命令">2常用命令</h3>
+<p>sync保存，将数据由内存同步到硬盘中。</p>
+<blockquote>
+<p>shutdown –h now # 立马关机</p>
+<p>shutdown –h 20:25 # 系统会在今天20:25关机</p>
+<p>shutdown –h +10 # 十分钟后关机</p>
+<p>shutdown –r now # 系统立马重启</p>
+</blockquote>
+<p>cp 时输入 首字母然后按住Tab会自动补全</p>
+<table>
+<thead>
+<tr>
+<th>command(命令)</th>
+<th>parameter(参数)</th>
+<th>example(例子)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ls 列出目录</td>
+<td>-a 全部文件(包含隐藏.开头的)<br />-l 详情列出,属性等</td>
+<td>ls -al</td>
+</tr>
+<tr>
+<td>cd：切换目录</td>
+<td>cd /回到根目录<br />cd ..返回上一级</td>
+<td>cd lusenlin<br />cd ~回到当前家目录</td>
+</tr>
+<tr>
+<td>pwd ( 显示目前所在的目录 )<br /><strong>Print Working Directory</strong></td>
+<td>-P显示确实路径，而非连接(link) 路径。</td>
+<td>pwd -P</td>
+</tr>
+<tr>
+<td>mkdir （创建新目录）</td>
+<td>-m ：文件权限，默认权限 (umask) 将失效<br/>-p ：(包含上级目录)递归创建目录</td>
+<td>mkdir -p test1/test2<br />mkdir -m 711 test2</td>
+</tr>
+<tr>
+<td>rmdir [-p] 删除空目录</td>
+<td>p ：连同上一级『空的』目录也一起删除</td>
+<td>rmdir -p test1/test2</td>
+</tr>
+<tr>
+<td>cp ( 复制文件或目录 )</td>
+<td>-i：增加覆盖询问</td>
+<td>cp -i /root/install.sh /home</td>
+</tr>
+<tr>
+<td>rm ( 移除文件或目录 )</td>
+<td>-f : force意思，忽略不存在的文件，不警告<br />-r ：递归删除啊！最常用在目录的删除了<br />-i ：互动模式，删除前询问使用者</td>
+<td>rm -i install.sh</td>
+</tr>
+<tr>
+<td>mv  ( 移动文件与目录，或修改名称 )</td>
+<td>-u ：若目标文件已经存在，且 source 比较新，才会升级 (update)<br />-f ：force 强制的意思，若已存在，直接覆盖；<br/><br/>-i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！</td>
+<td>mv test mvtest重命名</td>
+</tr>
+</tbody>
+</table>
+<p>rz -y可选上传文件
+rpm -ivh 安装文件[i引导lead <code>li:d</code>]
+touch 创建文件
+tar -zxvf 解压命令
+grep文本内容搜索，find文件或者目录名称等匹配搜索
+ping <a href="http://www.baidu.com">www.baidu.com</a> 检查网络
+ifconfig -a可选 查看ip地址</p>
+<h2 id="3帐号管理">3帐号管理</h2>
+<p>Linux系统是一个多用户多任务的分时操作系统，任何一个要使用系统资源的用户，都必须首先向系统管理员申请一个账号，然后以这个账号的身份进入系统。</p>
+<p>postname 想要的主机名 修改主机名称</p>
+<p><img src="/typoraImg/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8.assets/image-20200424154139748.png" alt="image-20200424154139748"></p>
+<h3 id="帐号crud">帐号CRUD</h3>
+<blockquote>
+<p><strong>添加帐号</strong></p>
+<p>useradd 选项 用户名</p>
+<ul>
+<li>-c comment 指定一段注释性描述。</li>
+<li>-d 目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录。</li>
+<li>-g 用户组 指定用户所属的用户组。</li>
+<li>-G 用户组，用户组 指定用户所属的附加组。</li>
+<li>-m　使用者目录如不存在则自动建立。</li>
+<li>-s Shell文件 指定用户的登录Shell。</li>
+<li>-u 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。</li>
+</ul>
+<p>useradd -m kuangshen
+命令创建了一个用户kuangshen，其中-m选项用来为登录名kuangshen产生一个主目录 /home/kuangshen</p>
+<p>增加用户账号就是在/etc/passwd文件中为新用户增加一条记录，同时更新其他系统文件如/etc/shadow, /etc/group等</p>
+</blockquote>
+<blockquote>
+<p><strong>修改用户</strong></p>
+<p>usermod 选项 用户名
+常用的选项包括-c, -d, -m, -g, -G, -s, -u以及-o等，这些选项的意义与useradd命令中的选项一样，可以为用户指定新的资源值。</p>
+<p>usermod  -d /home/z –g developer kuangshen
+表示把用户为kuangshen的主目录改为/home/z ，用户组为developer</p>
+</blockquote>
+<blockquote>
+<p><strong>修改密码</strong></p>
+<p>useradd 用户名 创建用户</p>
+<p>用root创建账户后</p>
+<p>passwd [操作] 用户名 进行设置密码</p>
+<ul>
+<li>-l 锁定口令，即禁用账号。</li>
+<li>-u 口令解锁。</li>
+<li>-d 使账号无口令。</li>
+<li>-f 强迫用户下次登录时修改口令。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>删除用户</strong></p>
+<p>userdel 选项 用户名</p>
+<p>userdel -r kuangshen
+常用的选项是 <strong>-r</strong>，它的作用是把用户的主目录一起删除。</p>
+</blockquote>
+<blockquote>
+<p><strong>切换命令</strong></p>
+<p>exit退出当前用户 ctrl+d也是执行的exit命令</p>
+<p>su 用户名   切换到xx用户</p>
+</blockquote>
+<h3 id="用户组">用户组</h3>
+<h2 id="4进程管理">4进程管理</h2>
+<p>1、Linux中，每个程序都有一个进程，每个进程都有id。
+2、每个进程都有一个父进程。
+3、进程两种存在方式：前台，后台
+4、一般服务都是后台运行，基本程序是前台运行。</p>
+<p><strong>把java程序运行时，加上nohup 表示后台执行程序</strong></p>
+<p>管道符|，ps -aux|grep mysql 进行过滤</p>
+<p><strong>命令</strong></p>
+<blockquote>
+<p><strong>查看进程</strong></p>
+<p>ps 查看当前系统正在执行的各种进程的信息。(Process Status)</p>
+<p>ps -xx:</p>
+<ul>
+<li>a 显示所有进程
+-a 显示同一终端下的所有程序
+-A 显示所有进程</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ps -aux 查看所有进程，u以用户信息显示进程，x显示后台运行进程的参数**
+grep查找文件中符合条件的字符串**
+ps -aux<span class="p">|</span>grep mysql
+
+pstree -pu   进程树 -p显示父ID，-u显示用户组
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>&ndash;version 显示版本显示</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><strong>结束进程</strong></p>
+<p>kill -9 xx进程id  表示强制结束进程，注意加上-9</p>
+<p>killall -u lusenlin  结束用户lusenlin的所有进程</p>
+</blockquote>
+<blockquote>
+<p><strong>运行进程</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">**执行：startup.sh --&gt;启动tomcat 当连接断开，就关闭。**
+**执行：shutdown.sh --&gt;关闭tomcat**
+**nohup startup.sh <span class="p">&amp;</span>   解释：做为服务后台启动 <span class="p">&amp;</span>表示后台运行**
+./startup.sh 
+./shutdown.sh
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>使用**&amp;**后台运行程序：</p>
+<ul>
+<li>结果会输出到终端</li>
+<li>使用Ctrl + C发送SIGINT信号，程序免疫</li>
+<li>关闭session发送SIGHUP信号，程序关闭(就是关闭ssh连接)</li>
+</ul>
+<p>使用<strong>nohup</strong>运行程序：</p>
+<ul>
+<li>结果默认会输出到nohup.out</li>
+<li>使用Ctrl + C发送SIGINT信号，程序关闭</li>
+<li>关闭session发送SIGHUP信号，程序免疫</li>
+</ul>
+<p><strong>平日线上经常使用nohup和&amp;配合来启动程序</strong>：</p>
+<ul>
+<li>同时免疫SIGINT和SIGHUP信号</li>
+</ul>
+<h2 id="5软件安装">5软件安装</h2>
+<p>软件安装一般有三种方式：rpm(JDK)，解压缩(tomcat)，yum在线安装(docker)</p>
+<blockquote>
+<p>安装软件先查看是否安装</p>
+<p>java -version 查看版本</p>
+<p>有的话需要卸载  rpm -qa|grep jdk 检查JDK版本</p>
+<p>卸载命令：rpm -e &ndash;nodeps jdkxx版本(写上面查出来的) 强制删除</p>
+<p>安装命令：rpm -ivh jdk-8u221-linux-x64.rpm  第三个参数是rpm安装包名</p>
+</blockquote>
+<h3 id="配置环境变量">配置环境变量</h3>
+<p>/etc/profile环境变量在这个路径下配置</p>
+<p>vim /etc/profile 打开这个文件</p>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/java/jdk1.8.0_221-amd64
+<span class="nv">CLASSPATH</span><span class="o">=</span>%JAVA_HOME%/lib:%JAVA_HOME%/jre/lib
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$JAVA_HOME</span>/jre/bin
+<span class="nb">export</span> PATH CLASSPATH JAVA_HOME
+
+**让新增的环境变量生效！**
+<span class="nb">source</span> /etc/profile
+</code></pre></td></tr></table>
+</div>
+</div><p>把环境变量配置到最后，复制后点击鼠标右键，然后ESC退出一般模式，输入:wq保存后退出</p>
+<p>让新增的环境变量生效：source /etc/profile</p>
+</blockquote>
+<h3 id="1-rpm下载jdk">1 RPM(下载JDK)</h3>
+<p>首先去https://www.oracle.com/java/technologies/javase-downloads.html网站下载jdk-14.0.1_linux-x64_bin.rpm选择x64位，rpm安装包。</p>
+<p>然后通过WinSCP放到home文件中</p>
+<p>安装命令：rpm -ivh jdk-8u221-linux-x64.rpm  第三个参数是rpm安装包名</p>
+<p>查询命令：  rpm -qa|grep jdk 检查JDK版本</p>
+<p>卸载命令：rpm -e &ndash;nodeps jdkxx版本(写上面查出来的) 强制删除</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">vi /etc/profile
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/java/jdk1.8.0_241-i586刚刚的路径
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.<span class="p">;</span><span class="nv">$JAVA_HOME</span>/lib:<span class="nv">$JAVA_HOME</span>/lib/tools.jar 
+</code></pre></td></tr></table>
+</div>
+</div><p>/usr/java/jdk1.8.0_241-i586</p>
+<h3 id="2tar解压tomcat">2tar(解压Tomcat)</h3>
+<p>先去下载apache-tomcat-9.0.34.tar.gz，然后传输到linux上，在/usr目录下解压，
+解压命令==tar -zxvf apache-tomcat-9.0.22.tar.gz   # 解压==</p>
+<p>运行Tomcat，进入bin目录 cd usr/apache-tomcat-9.0.34/bin</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 执行：startup.sh --&gt;启动tomcat 当连接断开，就关闭。</span>
+<span class="c1"># 执行：shutdown.sh --&gt;关闭tomcat</span>
+<span class="c1"># nohup ./startup.sh &amp;   解释：做为服务后台启动 &amp;表示后台运行</span>
+./startup.sh 
+./shutdown.sh
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3yum安装docker">3yum(安装docker)</h3>
+<p>yum安装方法：==yum -y install yum源==</p>
+<p>由于yum安装慢，所以设置yum源为阿里源</p>
+<blockquote>
+<p>1备份mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</p>
+<p>2<strong>下载新的CentOS-Base.repo 到/etc/yum.repos.d/</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+</code></pre></td></tr></table>
+</div>
+</div><p>3运行yum makecache生成缓存</p>
+<p>4更新yum -y update</p>
+</blockquote>
+<p>若有之前版本需要卸载，sudo yum remove docker \  …省略，copy官网就好。</p>
+<blockquote>
+<p>1下载yum install -y yum-utils       安装yum工具包</p>
+<p>2设置国内安装地址(官网是国外地址)yum-config-manager &ndash;add-repo <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></p>
+<p>3更新yum软件包索引yum makecache fast
+4安装Docker CE yum -y install docker-ce docker-ce-cli containerd.io</p>
+<p>5启动dockersystemctl start docker
+6测试docker version
+docker run hello-world
+docker images</p>
+</blockquote>
+<h3 id="4yum安装mysql80">4yum(安装mysql8.0)</h3>
+<p>官网地址https://dev.mysql.com/downloads/repo/yum/</p>
+<p>选择RHd Hat linux7，点击Download，来到新页面，右击a标签复制链接。</p>
+<p>因为官网比较慢https://developer.aliyun.com/packageSearch去阿里云官网复制连接,发现阿里云也慢</p>
+<p><strong>Linux中：</strong></p>
+<blockquote>
+<p>1、 wget 链接
+2、rpm -Uvh mysql80-community-release-el7-3.noarch.rpm	进行安装第三个参数在上一步	后面有					-Uvh：升级软件包</p>
+<p>3、选择发行版本进行安装，<strong>默认情况下会选择要安装的最新GA版本MySQL</strong>，可以跳过这一步  	 骤。所有其他系列（例 如，MySQL 5.7系列）的子存储库均被禁用。
+yum repolist all | grep mysql 列出所有版本，发现8.0是enbaled，若要安装5.7需要禁用8.0，启用5.7。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yum-config-manager --disable mysql80-community   <span class="c1">#禁用8.0</span>
+若执行上述命令command not found 是因为yum-config-manager在yum-utils里，需要**
+安装yum-utils  命令为：yum -y install yum-utils**
+yum-config-manager --enable mysql57-community <span class="c1">#启用5.7版本</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>4、安装yum install mysql-community-server
+如果安装过程中提示 Is this ok [y/N] ，输入y即可</p>
+<p>5、mysql &ndash;version安装好后查看版本</p>
+</blockquote>
+<blockquote>
+<p><strong>启动mysql</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">启动mysql服务**
+sudo systemctl start mysqld.service
+查看运行状态  active是活动的**
+sudo systemctl status mysqld.service
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>登录mysql</strong>
+若是上文安装，则有默认密码（也可以在宝塔面板直接设置）
+查看默认密码：grep &ldquo;password&rdquo; /var/log/mysqld.log 可能找不到</p>
+<p><strong>1修改密码</strong>
+在/etc/my.cnf在mysqlID下加入skip-grant-tables就可以直接root免密码登录
+5.7版本修改密码，登录后use mysql 然后执行下面命令
+update mysql.user set authentication_string=password(&lsquo;123456&rsquo;) where user='root&rsquo;;
+8.0版本修改密码，百度。</p>
+<p><strong>2修改密码另一种方式&ndash;推荐</strong></p>
+<p>下载mysql.client 后才能使用下面的命令
+/usr/bin/mysqladmin -u root password &lsquo;new-password&rsquo;</p>
+<p>mysql -h localhost -u root -p   ip地址可选</p>
+<hr>
+<p><strong>远程连接</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">grant all privileges on *.* to root@<span class="s2">&#34;%&#34;</span> identified by <span class="s2">&#34;npiHNftJXXJtPsfc&#34;</span><span class="p">;</span>
+grant all privileges on *.* to root@<span class="s2">&#34;localhost&#34;</span> identified by <span class="s2">&#34;npiHNftJXXJtPsfc&#34;</span><span class="p">;</span>
+flush privileges<span class="p">;</span> <span class="c1">#mysql中刷新系统权限</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然后还需要开启端口号3306，可以在宝塔面板直接开启，也可以Linux手动开启。（云服务器也需要开启）</p>
+<p>或者直接navicat使用shh+mysql账号密码</p>
+<p>大小写敏感https://www.cnblogs.com/micro-chen/p/9165170.html</p>
+</blockquote>
+<h3 id="5tar安装redis">5tar安装redis</h3>
+<ol>
+<li>
+<pre><code>保证虚拟机处于连接互联网状态，执行 yum install gcc-c++ ,Completed !!
+</code></pre>
+</li>
+<li>
+<pre><code>下载redis-tar.gz文件, 执行 tar –xvf redis-5.0.7.tar.gz解压
+</code></pre>
+</li>
+<li>
+<pre><code>进入redis-5.0.7/deps/jemalloc目录执行 ./configure这个可执行文件
+</code></pre>
+</li>
+<li>
+<pre><code>进入解压以后的目录 cd redis-5.0.7,执行make CFLAGS=&quot;-march=i686&quot; 编译redis源码
+</code></pre>
+</li>
+<li>进入 解压的redis-5.0.7/src目录下，执行./redis-server启动redis服务器</li>
+</ol>
+<h2 id="6重要设置">6重要设置</h2>
+<h3 id="防火墙">防火墙</h3>
+<p>Linux中有两种防火墙软件，ConterOS7.0以上使用的是==firewall==，ConterOS7.0以下使用的是iptables。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">命令含义：
+--zone <span class="c1">#作用域</span>
+--add-port<span class="o">=</span>80/tcp  <span class="c1">#添加端口，格式为：端口/通讯协议</span>
+--permanent   <span class="c1">#永久生效，没有此参数重启后失效</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">firewall-cmd --state                           <span class="c1">##查看防火墙状态，是否是running</span>
+firewall-cmd --list-ports  									 <span class="c1">##列出目前开启端口</span>
+firewall-cmd --reload                          <span class="c1">##重新载入配置，比如添加规则之后，需要执行此命令</span>
+firewall-cmd --get-zones                       <span class="c1">##列出支持的zone</span>
+firewall-cmd --get-services                    <span class="c1">##列出支持的服务，在列表中的服务是放行的</span>
+firewall-cmd --query-service ftp               <span class="c1">##查看ftp服务是否支持，返回yes或者no</span>
+firewall-cmd --add-service<span class="o">=</span>ftp                 <span class="c1">##临时开放ftp服务</span>
+firewall-cmd --add-service<span class="o">=</span>ftp --permanent     <span class="c1">##永久开放ftp服务</span>
+firewall-cmd --remove-service<span class="o">=</span>ftp --permanent  <span class="c1">##永久移除ftp服务</span>
+firewall-cmd --add-port<span class="o">=</span>80/tcp --permanent     <span class="c1">##永久添加80端口</span> 
+iptables -L -n                                 <span class="c1">##查看规则，这个命令是和iptables的相同的</span>
+man firewall-cmd                               <span class="c1">##查看帮助</span>
+
+<span class="c1">##开启防火墙：systemctl start firewalld</span>										
+关闭防火墙：systemctl stop firewalld
+<span class="c1">#查看防火墙状态：systemctl status firewalld</span>
+设置开机启动：systemctl <span class="nb">enable</span> firewalld
+<span class="c1">#禁用开机启动：systemctl disable firewalld</span>
+
+<span class="c1">#开放端口（需要重启防火墙可生效）：firewall-cmd --zone=public --add-port=8080/tcp --permanent</span>
+<span class="c1">#查看开放的端口：firewall-cmd --list-ports</span>
+关闭端口：firewall-cmd --zone<span class="o">=</span>public --remove-port<span class="o">=</span>8080/tcp --permanent
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<p>另一种==iptables防火墙==</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1">#开启端口号</span>
+iptables -I INPUT -p tcp --dport <span class="m">8080</span> -j ACCEPT 
+service iptables save <span class="c1">#进行保存</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="7项目发布">7项目发布</h2>
+<blockquote>
+<p>**	Springboot项目**</p>
+</blockquote>
+<p>用idea的package命令打包，targer目录下找到jar文件，上传到服务器中，home/xx用户。
+若是SpringBoot项目，注意要先开启端口号。
+java -jar 文件名  启动项目，ctrl+c关闭项目， 想要后台启动<strong>加上nohup 表示后台执行程序</strong></p>
+<blockquote>
+<p><strong>SSM项目依赖Tomcat服务器+vue前后端</strong></p>
+<p>SSM项目直接把打包war放到Tomcat的webapps目录就好了。
+然后启动Tomcat。（若有docker可以安装tomcat然后挂载一个数据卷，这样每次放到数据卷中就OK了）</p>
+<p>Vue项目
+1安装node环境
+可以在下载页面https://nodejs.org/en/download/中找到下载地址。然后执行指令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">1下载**
+wget https://nodejs.org/dist/v9.3.0/node-v9.3.0-linux-x64.tar.xz
+2依次解压**
+xz -d node-v9.3.0-linux-x64.tar.xz
+tar -xf node-v9.3.0-linux-x64.tar
+
+3先确认你nodejs的路径，我这里的路径为 目录/node-v9.3.0-linux-x64/bin。确认后依次执行**
+进行关联，相当于创建快捷方式。**
+ln -s /usr/node-v9.3.0-linux-x64/bin/node /usr/local/bin/node
+ln -s /usr/node-v9.3.0-linux-x64/bin/npm /usr/local/bin/npm
+
+4把目录/node-v9.3.0-linux-x64/bin配置到用户环境**
+<span class="nb">cd</span> ~	<span class="c1">#切换到根目录</span>
+ls -a <span class="c1">#显示所有文件，包含隐藏</span>
+vi .bash_profile <span class="c1">#修改用户环境变量  在PATH末尾加上:/目录/node-v9.3.0-linux-x64/bin</span>
+<span class="nb">source</span> .bash_profile  <span class="c1">#马上执行这个更改</span>
+5确认版本 node -v    **
+6全局安装模块n 查看n模版的帮助文档n -h**
+npm i -g n
+7可选 安装yarn**
+npm install yarn -g
+ln -s 目录/node-v9.3.0-linux-x64/bin/yarn /usr/bin/yarn
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>让vue项目运行在nginx服务器上</strong></p>
+<p>用docker创建nginx服务器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d -p 9528:80   <span class="se">\
+</span><span class="se"></span>--name<span class="o">=</span>vue-9528    <span class="se">\
+</span><span class="se"></span>-v /home/lsl/dist:/usr/share/nginx/html  <span class="se">\
+</span><span class="se"></span>-v /home/mutou/nginx/conf.vue:/etc/nginx/conf.d <span class="se">\
+</span><span class="se"></span>nginx
+
+</code></pre></td></tr></table>
+</div>
+</div><p>vue-cli安装，cnpm install -g vue-cli
+建立软连接ln -s 目录usr/nodejs/node-v10.19.0/bin/vue /usr/local/bin/vue
+vue -V //查看vue的版本信息</p>
+<p>2打包前端项目（npm run build:prod）    本地压缩后传递到linux上，unzip zipFileName 进行解压</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">安装依赖 或者yarn**
+npm install
+打包项目 或者yarn build **
+npm run build  
+打包后发现多个文件夹 dist,里面就是打包好的静态文件。**
+若报错，则去查看package.json的script有没有Build命令，
+应该运行：npm run build:prod -report 可视化打包，report可视化
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h1 id="第二章-vmware">第二章-VMware</h1>
+<h2 id="1安装使用vmware">1安装使用VMware</h2>
+<p>根据ios镜像安装系统，基本上都是根据向导。</p>
+<blockquote>
+<p>1查看自身ip地址(注意：#是管理员root 123456，$是用户)</p>
+<p>应用-系统工具-终端：ifconfig -a查看端口号</p>
+<p>然后可以使用shell进行登录。(解决乱码，文件-属性-终端-编码)</p>
+</blockquote>
+<h1 id="第x章-云服务器">第X章-云服务器</h1>
+<blockquote>
+<p>** 宝塔面板**</p>
+<p>Bt-Panel: http://134.175.236.42:8888/baota
+username: lusenlin
+password: c9ef94cd</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>attribute</th>
+<th>value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>公网</td>
+<td>134.175.236.42</td>
+</tr>
+<tr>
+<td>内网</td>
+<td>172.16.0.5</td>
+</tr>
+<tr>
+<td>服务器账号：root</td>
+<td>服务器密码：Na~58*85341d</td>
+</tr>
+<tr>
+<td>mysql账号root</td>
+<td>mysql密码:aHDJMt2ApBnKGpA4</td>
+</tr>
+<tr>
+<td>账号：store_ssm_vue</td>
+<td>密码：123456</td>
+</tr>
+<tr>
+<td>账号：mysql1</td>
+<td>密码：123456</td>
+</tr>
+</tbody>
+</table>
+<p>镜像：创建云服务器的模版</p>
+<p><img src="/typoraImg/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8.assets/image-20200424202023684.png" alt="image-20200424202023684"></p>
+<h2 id="1连接服务器">1连接服务器</h2>
+<h3 id="下载ssh工具">下载SSH工具</h3>
+<p>Xshell试用一个月，可以下载puttys使用</p>
+<p>puttys使用技巧，</p>
+<blockquote>
+<p><img src="/typoraImg/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8.assets/image-20200424144353521.png" alt="image-20200424144353521"></p>
+</blockquote>
+<h2 id="注意事项">注意事项</h2>
+<ul>
+<li>打开Linux端口，需要在云服务器上的安全组面板开启对应的出入规则。否则会被服务器商拦截</li>
+</ul>
+<h3 id="端口号">端口号</h3>
+<p>一个计算机最多有65535个端口，端口不能重复。</p>
+<table>
+<thead>
+<tr>
+<th align="left">端口</th>
+<th align="left">服务</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">21</td>
+<td align="left">FTP</td>
+<td align="left">FTP 服务器所开放的端口，用于上传、下载。</td>
+</tr>
+<tr>
+<td align="left">22</td>
+<td align="left">SSH</td>
+<td align="left">22端口就是 SSH 端口，用于通过命令行模式远程连接 Linux 系统服务器。</td>
+</tr>
+<tr>
+<td align="left">25</td>
+<td align="left">SMTP</td>
+<td align="left">SMTP 服务器所开放的端口，用于发送邮件。</td>
+</tr>
+<tr>
+<td align="left">80</td>
+<td align="left">HTTP</td>
+<td align="left">用于网站服务例如 IIS、Apache、Nginx 等提供对外访问。</td>
+</tr>
+<tr>
+<td align="left">443</td>
+<td align="left">HTTPS</td>
+<td align="left">网页浏览端口，能提供加密和通过安全端口传输的另一种 HTTP。</td>
+</tr>
+<tr>
+<td align="left">3306</td>
+<td align="left">MySQL</td>
+<td align="left">3306端口，是 MySQL 数据库的默认端口，用于 MySQL 对外提供服务。</td>
+</tr>
+<tr>
+<td align="left">8080</td>
+<td align="left">代理端口</td>
+<td align="left">8080端口同80端口，是被用于 WWW 代理服务的，可以实现网页浏览，经常在访问某个网站或使用代理服务器的时候，会加上“:8080”端口号。另外 Apache Tomcat web server 安装后，默认的服务端口就是8080。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安全">安全</h3>
+<p>先看云服务器的登录成功日志：last -n 20 ，显示20行
+登录失败的日志：lastb -n 20，发现居然这么多ip在尝试登录自己的服务器</p>
+<blockquote>
+<p>Mysql max_allowed_packet自动重置为1024，实际上我已经自行设置为2M，还是会自动重置，是因为被黑客通过域名+端口进行入侵了。
+先执行sql指令：show variables like &lsquo;%log%';</p>
+<p><img src="/typoraImg/Linux%E6%9C%8D%E5%8A%A1%E5%99%A8.assets/image-20200501214308687.png" alt="image-20200501214308687">这里普通日志记录默认是OFF关闭的，将其打开。==每个人的日志存放位置不同==
+直接开启：set global general_log = ON;（永久修改需要在my.cnf的【mysqld】中添加：general_log = 1）</p>
+<p>然后等待一段时间后，进行查看，看是否有人将其修改过。</p>
+</blockquote>
+<p>设置安全组的入站规则，允许132.57开头的ip访问 132.57.0.0/16</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/jdk%E5%AD%A6%E4%B9%A0/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JDK学习.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/mybatis/">
+            <span class="next-text nav-default">MyBatis.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

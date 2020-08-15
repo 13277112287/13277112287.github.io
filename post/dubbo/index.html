@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>dubbo.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-Dubbo概述 文档：http://dubbo.apache.org/zh-cn/docs/user/quick-start.html" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/dubbo/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="dubbo.md" />
+<meta property="og:description" content="第一章-Dubbo概述 文档：http://dubbo.apache.org/zh-cn/docs/user/quick-start.html" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/dubbo/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-28T00:00:00+00:00" />
+<meta itemprop="name" content="dubbo.md">
+<meta itemprop="description" content="第一章-Dubbo概述 文档：http://dubbo.apache.org/zh-cn/docs/user/quick-start.html">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-28T00:00:00+00:00" />
+<meta itemprop="wordCount" content="7507">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="dubbo.md"/>
+<meta name="twitter:description" content="第一章-Dubbo概述 文档：http://dubbo.apache.org/zh-cn/docs/user/quick-start.html"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">dubbo.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%A1%86%E6%9E%B6/"> 框架 </a>
+            </div>
+          <span class="more-meta"> 约 7507 字 </span>
+          <span class="more-meta"> 预计阅读 15 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-dubbo概述">第一章-Dubbo概述</a>
+      <ul>
+        <li><a href="#1什么是分布式系统">1什么是分布式系统</a></li>
+        <li><a href="#2rpc通讯">2RPC通讯</a></li>
+        <li><a href="#3dubbo介绍">3dubbo介绍</a></li>
+        <li><a href="#4快速开始">4快速开始</a>
+          <ul>
+            <li><a href="#1环境搭建zookeeper">1环境搭建/zookeeper</a></li>
+            <li><a href="#2dubbo--admin可选">2dubbo&ndash;admin(可选)</a></li>
+          </ul>
+        </li>
+        <li><a href="#5dubbozookeeper简">5dubbo+zookeeper(简)</a>
+          <ul>
+            <li><a href="#1注册中心zookeeper">1注册中心：zookeeper</a></li>
+            <li><a href="#2服务提供者">2服务提供者</a></li>
+            <li><a href="#3服务消费者">3服务消费者</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第二章-">第二章-</a>
+      <ul>
+        <li><a href="#1整合springboot">1整合Springboot</a>
+          <ul>
+            <li><a href="#服务提供者">服务提供者</a></li>
+            <li><a href="#服务消费者">服务消费者</a></li>
+            <li><a href="#dubbo注解">dubbo注解</a></li>
+          </ul>
+        </li>
+        <li><a href="#2策略设置">2策略设置</a>
+          <ul>
+            <li><a href="#负载均衡">负载均衡</a></li>
+            <li><a href="#集群容错">集群容错</a></li>
+            <li><a href="#服务降级">服务降级</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-dubbo概述">第一章-Dubbo概述</h1>
+<p>文档：http://dubbo.apache.org/zh-cn/docs/user/quick-start.html</p>
+<p>教学视频：https://www.bilibili.com/video/BV1ns411c7jV?p=19</p>
+<h2 id="1什么是分布式系统">1什么是分布式系统</h2>
+<p>分布式系统是由一组通过网络进行通信、为了完成共同的任务而协调工作的计算机节点组成的系统。分布式系统的出现是为了用廉价的、普通的机器完成单个计算机无法完成的计算、存储任务。其目的是<strong>利用更多的机器，处理更多的数据</strong>。</p>
+<p><strong>分布式系统</strong>（distributed system）是建立在网络之上的软件系统。分布式系统是若干独立计算机的集合，这些计算机对于用户来说就像单个相关系统。</p>
+<p>首先需要明确的是，只有当单个节点的处理能力无法满足日益增长的计算、存储任务的时候，且硬件的提升（加内存、加磁盘、使用更好的CPU）高昂到得不偿失的时候，应用程序也不能进一步优化的时候，我们才需要考虑分布式系统。因为，分布式系统要解决的问题本身就是和单机系统一样的，而由于分布式系统多节点、通过网络通信的拓扑结构，会引入很多单机系统没有的问题，为了解决这些问题又会引入更多的机制、协议，带来更多的问题。。</p>
+<blockquote>
+<p><strong>dubbo文档</strong></p>
+</blockquote>
+<p>随着互联网的发展，网站应用的规模不断扩大，常规的垂直应用架构已无法应对，分布式服务架构以及流动计算架构势在必行，急需<strong>一个治理系统</strong>确保架构有条不紊的演进。</p>
+<p>在Dubbo的官网文档有这样一张图</p>
+<p><img src="/typoraImg/dubbo.assets/dubbo-architecture-roadmap.jpg" alt="image"></p>
+<blockquote>
+<p><strong>单一应用架构</strong></p>
+</blockquote>
+<p>当网站流量很小时，只需一个应用，将所有功能都部署在一起，以减少部署节点和成本。此时，用于简化增删改查工作量的数据访问框架(ORM)是关键。</p>
+<p>适用于小型网站，小型管理系统，将所有功能都部署到一个功能里，简单易用。</p>
+<p><strong>缺点：</strong></p>
+<p>1、性能扩展比较难</p>
+<p>2、协同开发问题</p>
+<p>3、不利于升级维护</p>
+<blockquote>
+<p><strong>垂直应用架构</strong></p>
+</blockquote>
+<p>当访问量逐渐增大，单一应用增加机器带来的加速度越来越小，提升效率的方法之一是将应用拆成互不相干的几个应用，以提升效率。此时，用于加速前端页面开发的Web框架(MVC)是关键。</p>
+<p>通过切分业务来实现各个模块独立部署，降低了维护和部署的难度，团队各司其职更易管理，性能扩展也更方便，更有针对性。</p>
+<p>缺点：公用模块无法重复利用，开发性的浪费</p>
+<blockquote>
+<p><strong>分布式服务架构</strong></p>
+</blockquote>
+<p>当垂直应用越来越多，应用之间交互不可避免，将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，使前端应用能更快速的响应多变的市场需求。此时，用于提高业务复用及整合的分布式服务框架(RPC)是关键。</p>
+<blockquote>
+<p><strong>流动计算架构</strong></p>
+</blockquote>
+<p>当服务越来越多，容量的评估，小服务资源的浪费等问题逐渐显现，此时需增加一个调度中心基于访问压力实时管理集群容量，提高集群利用率。此时，用于提高机器利用率的资源调度和治理中心(SOA)是关键。</p>
+<h2 id="2rpc通讯">2RPC通讯</h2>
+<p>RPC【Remote Procedure Call】是指远程过程调用，是一种进程间通信方式，他是一种技术的思想，而不是规范。它允许程序调用另一个地址空间（通常是共享网络的另一台机器上）的过程或函数，而不用程序员显式编码这个远程调用的细节。即程序员无论是调用本地的还是远程的函数，本质上编写的调用代码基本相同。</p>
+<p>也就是说两台服务器A，B，一个应用部署在A服务器上，想要调用B服务器上应用提供的函数/方法，由于不在一个内存空间，不能直接调用，需要通过网络来表达调用的语义和传达调用的数据。为什么要用RPC呢？就是无法在一个进程内，甚至一个计算机内通过本地调用的方式完成的需求，比如不同的系统间的通讯，甚至不同的组织间的通讯，由于计算能力需要横向扩展，需要在多台机器组成的集群上部署应用。RPC就是要像调用本地的函数一样去调远程函数；</p>
+<p>推荐阅读文章：https://www.jianshu.com/p/2accc2840a1b</p>
+<p><strong>RPC两个核心模块：通讯，序列化</strong></p>
+<p>Dubbo是基于RPC的</p>
+<p>SpringCloud是基于HTTP的</p>
+<h2 id="3dubbo介绍">3dubbo介绍</h2>
+<p>Apache Dubbo |ˈdʌbəʊ| 是一款高性能、轻量级的开源Java RPC框架，它提供了三大核心能力：面向接口的远程方法调用，智能容错和负载均衡，以及服务自动注册和发现。</p>
+<p><img src="/typoraImg/dubbo.assets/architecture.png" alt="img"></p>
+<p><strong>服务提供者</strong>（Provider）：暴露服务的服务提供方，服务提供者在启动时，向注册中心注册自己提供的服务。</p>
+<p><strong>服务消费者</strong>（Consumer）：调用远程服务的服务消费方，服务消费者在启动时，向注册中心订阅自己所需的服务，服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</p>
+<p><strong>注册中心</strong>（Registry）：注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者</p>
+<p><strong>监控中心</strong>（Monitor）：服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心</p>
+<p><strong>调用关系说明</strong></p>
+<p>l 服务容器负责启动，加载，运行服务提供者。</p>
+<p>l 服务提供者在启动时，向注册中心注册自己提供的服务。</p>
+<p>l 服务消费者在启动时，向注册中心订阅自己所需的服务。</p>
+<p>l 注册中心返回服务提供者地址列表给消费者，如果有变更，注册中心将基于长连接推送变更数据给消费者。</p>
+<p>l 服务消费者，从提供者地址列表中，基于软负载均衡算法，选一台提供者进行调用，如果调用失败，再选另一台调用。</p>
+<p>l 服务消费者和提供者，在内存中累计调用次数和调用时间，定时每分钟发送一次统计数据到监控中心。</p>
+<h2 id="4快速开始">4快速开始</h2>
+<p>首先要有有一个注册中心，dubbo推荐使用zookeeper作为注册中心。
+还建议使用redis注册中心。(key、value的键值对)</p>
+<h3 id="1环境搭建zookeeper">1环境搭建/zookeeper</h3>
+<p>Window下载http://zookeeper.apache.org/releases.html#download</p>
+<p>运行/bin/zkServer.cmd</p>
+<p>初次运行会报错，没有则修改zoo.cfg配置文件；</p>
+<blockquote>
+<p>可能遇到问题：闪退 !</p>
+<p>解决方案：编辑zkServer.cmd文件末尾添加pause 。这样运行出错就不会退出，会提示错误信息，方便找到原因。</p>
+<p><img src="/typoraImg/dubbo.assets/640.png" alt="img"></p>
+</blockquote>
+<p>3、修改zoo.cfg配置文件</p>
+<p>将conf文件夹下面的zoo_sample.cfg复制一份改名为zoo.cfg即可。</p>
+<p>注意几个重要位置：</p>
+<p>dataDir=./  临时数据存储的目录（可写相对路径）
+dataLogDir=./ 日志数据存储的目录（可写相对路径）</p>
+<p>clientPort=2181  zookeeper的端口号</p>
+<p>修改完成后再次启动zookeeper(zkServer.cmd Windon系统下启动这个服务，Linux是sh)</p>
+<p><strong>4、再启动zkCli.cmd测试</strong></p>
+<p>ls /：列出zookeeper根下保存的所有节点</p>
+<p>create –e /lusenlin 123：创建一个lusenlin节点，值为123</p>
+<p>get /lusenlin      会获得刚刚设置的节点显示：123</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[zk: 127.0.0.1:2181(CONNECTED) 4] ls /
+[zookeeper]
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>zookeeper集群</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">在开启 服务端 和 消费端 使用集群**
+dubbo.registry.address=zookeeper://192.168.1.198:2181?backup=192.168.1.197:2181,192.168.1.196:2181
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h3 id="2dubbo--admin可选">2dubbo&ndash;admin(可选)</h3>
+<p>dubbo本身并不是一个服务软件。它其实就是一个jar包，能够帮你的java程序连接到zookeeper，并利用zookeeper消费、提供服务。</p>
+<p>但是为了让用户更好的管理监控众多的dubbo服务，官方提供了一个可视化的监控程序dubbo-admin，不过这个监控即使不装也不影响使用。(monitor)</p>
+<p>我们这里来安装一下：</p>
+<p><strong>1、下载dubbo-admin</strong></p>
+<p>地址 ：https://github.com/apache/dubbo-admin/tree/master
+下载dubbo-admin-master
+dubbo-admin是老版，新版本叫devlop</p>
+<blockquote>
+<p>注意：此为新版，以上老版本</p>
+<p>去github下载https://github.com/apache/dubbo-admin
+可以通过dubbo找到dubbo-admin
+新版为前后分离项目：需要Node.js支持。查看dubbo-admin使用教程</p>
+</blockquote>
+<p><strong>2、解压进入目录</strong></p>
+<p>修改 dubbo-admin\src\main\resources \application.properties 指定zookeeper地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">server.port=7001
+spring.velocity.cache=false
+spring.velocity.charset=UTF-8
+spring.velocity.layout-url=/templates/default.vm
+spring.messages.fallback-to-system-locale=false
+spring.messages.basename=i18n/message
+spring.root.password=root
+spring.guest.password=guest
+
+dubbo.registry.address=zookeeper://127.0.0.1:2181
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>3、在项目目录下</strong>打包dubbo-admin</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">mvn</span> <span class="nx">clean</span> <span class="kn">package</span> <span class="o">-</span><span class="nx">Dmaven</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">skip</span><span class="p">=</span><span class="kc">true</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>4、执行 dubbo-admin\target 下的dubbo-admin-0.0.1-SNAPSHOT.jar</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">java -jar dubbo-admin-0.0.1-SNAPSHOT.jar
+</code></pre></td></tr></table>
+</div>
+</div><p>【注意：zookeeper的服务一定要打开！】</p>
+<p>执行完毕，我们去访问一下 http://localhost:7001/ ， 这时候我们需要输入登录账户和密码，我们都是默认的root-root；</p>
+<blockquote>
+<p>knack  /næk 诀窍；本领；熟练技术；巧妙手法 / 窍门</p>
+<p>可以把这个jar放到使用的tomcat的webapp下，然后启动springboot项目就可以直接访问(未验证)</p>
+</blockquote>
+<h2 id="5dubbozookeeper简">5dubbo+zookeeper(简)</h2>
+<p>注册中心：zookeeper</p>
+<p>服务提供者：把服务注册到注册中心(暴露服务)</p>
+<p>服务消费者：通过访问注册中心的服务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 由于我们使用zookeeper作为注册中心，所以需要操作zookeeper
+</span><span class="c">dubbo 2.6以前的版本引入zkclient操作zookeeper 
+</span><span class="c">dubbo 2.6及以后的版本引入curator操作zookeeper
+</span><span class="c">下面两个zk客户端根据dubbo版本2选1即可
+</span><span class="c">--&gt;</span>
+		<span class="nt">&lt;dependency&gt;</span>
+			<span class="nt">&lt;groupId&gt;</span>com.101tec<span class="nt">&lt;/groupId&gt;</span>
+			<span class="nt">&lt;artifactId&gt;</span>zkclient<span class="nt">&lt;/artifactId&gt;</span>
+			<span class="nt">&lt;version&gt;</span>0.10<span class="nt">&lt;/version&gt;</span>
+		<span class="nt">&lt;/dependency&gt;</span>
+		<span class="c">&lt;!-- curator-framework --&gt;</span>
+		<span class="nt">&lt;dependency&gt;</span>
+			<span class="nt">&lt;groupId&gt;</span>org.apache.curator<span class="nt">&lt;/groupId&gt;</span>
+			<span class="nt">&lt;artifactId&gt;</span>curator-framework<span class="nt">&lt;/artifactId&gt;</span>
+			<span class="nt">&lt;version&gt;</span>2.12.0<span class="nt">&lt;/version&gt;</span>
+		<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><hr>
+<h3 id="1注册中心zookeeper">1注册中心：zookeeper</h3>
+<p>zookeeper开启servie服务端和client客户端</p>
+<p>打开dubbo-admin方便查看</p>
+<h3 id="2服务提供者">2服务提供者</h3>
+<p>加入依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--引入dubbo--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>dubbo<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.6.2<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+<span class="c">&lt;!--注册中心zookeeper 引入--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.curator<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>curator-framework<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.12.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>provider.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;beans</span> <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span class="na">xmlns:dubbo=</span><span class="s">&#34;http://dubbo.apache.org/schema/dubbo&#34;</span>
+       <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">       http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd&#34;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!--1指定当前服务/应用名称(不要和其它服务名相同)--&gt;</span>
+    <span class="nt">&lt;dubbo:application</span> <span class="na">name=</span><span class="s">&#34;dubbo1-provider&#34;</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--2zookeeper注册中心位置 还可以有一种写法protocol=&#34;zookeeper&#34;然后就直接写address了 --&gt;</span>
+    <span class="nt">&lt;dubbo:registry</span> <span class="na">address=</span><span class="s">&#34;zookeeper://127.0.0.1:2181&#34;</span><span class="nt">/&gt;</span>
+    <span class="c">&lt;!--3指定端口号--&gt;</span>
+    <span class="nt">&lt;dubbo:protocol</span> <span class="na">name=</span><span class="s">&#34;dubbo&#34;</span> <span class="na">port=</span><span class="s">&#34;20880&#34;</span><span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- 注册实现类--&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;empService&#34;</span> <span class="na">class=</span><span class="s">&#34;com.lx.service.impl.EmpServiceImpl&#34;</span>  <span class="nt">/&gt;</span>
+    <span class="c">&lt;!--   4暴露服务接口，ref指定真正实现 --&gt;</span>
+    <span class="nt">&lt;dubbo:service</span> <span class="na">interface=</span><span class="s">&#34;com.lx.service.EmpService&#34;</span> <span class="na">ref=</span><span class="s">&#34;empService&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>java代码开启:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">ClassPathXmlApplicationContext</span> <span class="n">context</span> <span class="o">=</span>
+            <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span>
+                    <span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;provider.xml&#34;</span><span class="o">});</span>
+    <span class="n">context</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">read</span><span class="o">();</span> <span class="c1">// 按任意键退出
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>把接口和实体类抽取出来成为一个api项目依赖。</p>
+<h3 id="3服务消费者">3服务消费者</h3>
+<p>1加入依赖</p>
+<p>2consumer.xml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+       <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+       <span class="na">xmlns:dubbo=</span><span class="s">&#34;http://dubbo.apache.org/schema/dubbo&#34;</span> <span class="na">xmlns:context=</span><span class="s">&#34;http://www.springframework.org/schema/context&#34;</span>
+       <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd&#34;</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 --&gt;</span>
+    <span class="nt">&lt;dubbo:application</span> <span class="na">name=</span><span class="s">&#34;dubbo1-consumer&#34;</span>  <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- 使用multicast广播注册中心暴露发现服务地址 --&gt;</span>
+    <span class="nt">&lt;dubbo:registry</span> <span class="na">address=</span><span class="s">&#34;zookeeper://127.0.0.1:2181&#34;</span> <span class="nt">/&gt;</span>
+
+    <span class="c">&lt;!-- 生成远程服务代理，可以和本地bean一样使用demoService --&gt;</span>
+    <span class="nt">&lt;dubbo:reference</span> <span class="na">id=</span><span class="s">&#34;empService&#34;</span> <span class="na">interface=</span><span class="s">&#34;com.lx.service.EmpService&#34;</span> <span class="nt">/&gt;</span>
+    <span class="c">&lt;!--扫描--&gt;</span>
+    <span class="nt">&lt;context:component-scan</span> <span class="na">base-package=</span><span class="s">&#34;com.lx.controller&#34;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/beans&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3调用远程方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
+    <span class="n">ClassPathXmlApplicationContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClassPathXmlApplicationContext</span><span class="o">(</span><span class="k">new</span> <span class="n">String</span><span class="o">[]</span> <span class="o">{</span><span class="s">&#34;consumer.xml&#34;</span><span class="o">});</span>
+    <span class="n">context</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+
+    <span class="n">EmpService</span> <span class="n">empService</span> <span class="o">=</span> <span class="o">(</span><span class="n">EmpService</span><span class="o">)</span><span class="n">context</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="s">&#34;empService&#34;</span><span class="o">);</span> <span class="c1">// 获取远程服务代理
+</span><span class="c1"></span>    <span class="n">String</span> <span class="n">hello</span> <span class="o">=</span> <span class="n">empService</span><span class="o">.</span><span class="na">getEmpById</span><span class="o">(</span><span class="n">5</span><span class="o">);</span> <span class="c1">// 执行远程方法
+</span><span class="c1"></span>    <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span> <span class="n">hello</span> <span class="o">);</span> <span class="c1">// 显示调用结果
+</span><span class="c1"></span>
+    <span class="n">System</span><span class="o">.</span><span class="na">in</span><span class="o">.</span><span class="na">read</span><span class="o">();</span> <span class="c1">// 按任意键退出
+</span><span class="c1"></span><span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="第二章-">第二章-</h1>
+<h2 id="1整合springboot">1整合Springboot</h2>
+<p>注册中心：zookeeper</p>
+<p>服务提供者：把服务注册到注册中心(暴露服务)</p>
+<p>服务消费者：</p>
+<p>首先启动zookeeper客户端和服务器、启动dubbo monitor(便于查看)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 由于我们使用zookeeper作为注册中心，所以需要操作zookeeper
+</span><span class="c">dubbo 2.6以前的版本引入zkclient操作zookeeper 
+</span><span class="c">dubbo 2.6及以后的版本引入curator操作zookeeper
+</span><span class="c">下面两个zk客户端根据dubbo版本2选1即可
+</span><span class="c">--&gt;</span>
+		<span class="nt">&lt;dependency&gt;</span>
+			<span class="nt">&lt;groupId&gt;</span>com.101tec<span class="nt">&lt;/groupId&gt;</span>
+			<span class="nt">&lt;artifactId&gt;</span>zkclient<span class="nt">&lt;/artifactId&gt;</span>
+			<span class="nt">&lt;version&gt;</span>0.10<span class="nt">&lt;/version&gt;</span>
+		<span class="nt">&lt;/dependency&gt;</span>
+		<span class="c">&lt;!-- curator-framework --&gt;</span>
+		<span class="nt">&lt;dependency&gt;</span>
+			<span class="nt">&lt;groupId&gt;</span>org.apache.curator<span class="nt">&lt;/groupId&gt;</span>
+			<span class="nt">&lt;artifactId&gt;</span>curator-framework<span class="nt">&lt;/artifactId&gt;</span>
+			<span class="nt">&lt;version&gt;</span>2.12.0<span class="nt">&lt;/version&gt;</span>
+		<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="服务提供者">服务提供者</h3>
+<p>1导入依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"> <span class="nt">&lt;parent&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.3.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;relativePath/&gt;</span> <span class="c">&lt;!-- lookup parent from repository --&gt;</span>
+  <span class="nt">&lt;/parent&gt;</span>
+
+<span class="c">&lt;!--springBoot依赖 tomcat,dispatcherServlet,xml --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="c">&lt;!--依赖自身写的API项目--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.example<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>dubbo1-api<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.apache.dubbo<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>dubbo-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>2.7.3<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.apache.curator<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>curator-framework<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>4.0.1<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.apache.curator<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>curator-recipes<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>2.8.0<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2application.yml
+也可以dubbo.properties优先级是：虚拟机参数，dubbo.pro然后是application.pro</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">dubbo</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>dubbo1-provider<span class="w">
+</span><span class="w">  </span><span class="k">registry</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">address</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="p">:</span><span class="m">2181</span><span class="w">
+</span><span class="w">    </span><span class="k">protocol</span><span class="p">:</span><span class="w"> </span>zookeeper<span class="w">
+</span><span class="w">  </span><span class="k">protocol</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>dubbo<span class="w">
+</span><span class="w">    </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="m">20880</span><span class="w">
+</span><span class="w">  </span><span class="c">#scan:</span><span class="w">
+</span><span class="w">   </span><span class="c"># base-packages: com.lx.service.impl</span><span class="w">
+</span><span class="w"></span><span class="c">#监控中心</span><span class="w">
+</span><span class="w"></span><span class="c">#  monitor:</span><span class="w">
+</span><span class="w"></span><span class="c">#    protocol: registry</span><span class="w">
+</span><span class="w"></span><span class="c">#之前xml中provider需要配置暴露的接口和服务，比较麻烦</span><span class="w">
+</span><span class="w"></span><span class="c">#现在可以在要暴露的服务上标注一个注解,dubbo.@Service</span><span class="w">
+</span><span class="w"></span><span class="c">#主程序 @EnableDubbo开启基于注解的功能</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>3提供服务java类，加上注解@Service
+主程序 @EnableDubbo开启基于注解的功能</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.service.impl</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.core.JsonProcessingException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.databind.ObjectMapper</span><span class="o">;</span>
+
+
+<span class="kn">import</span> <span class="nn">com.lx.entity.ZzEmployee</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lx.service.EmpService</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.dubbo.config.annotation.Service</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+<span class="nd">@Service</span>
+<span class="nd">@Component</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmpServiceImpl</span> <span class="kd">implements</span> <span class="n">EmpService</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getEmpById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">)</span>  <span class="o">{</span>
+        <span class="n">ZzEmployee</span> <span class="n">emp</span><span class="o">=</span><span class="k">new</span> <span class="n">ZzEmployee</span><span class="o">();</span>
+        <span class="n">emp</span><span class="o">.</span><span class="na">setOid</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="n">emp</span><span class="o">.</span><span class="na">setEmpName</span><span class="o">(</span><span class="s">&#34;测试员工&#34;</span><span class="o">);</span>
+
+        <span class="n">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">=</span><span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">();</span>
+        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">objectMapper</span><span class="o">.</span><span class="na">writeValueAsString</span><span class="o">(</span><span class="n">emp</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JsonProcessingException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+
+        <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="服务消费者">服务消费者</h3>
+<p>1依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"> <span class="nt">&lt;parent&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.3.1.RELEASE<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;relativePath/&gt;</span> <span class="c">&lt;!-- lookup parent from repository --&gt;</span>
+  <span class="nt">&lt;/parent&gt;</span>
+
+<span class="c">&lt;!--springBoot依赖 tomcat,dispatcherServlet,xml --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="c">&lt;!--依赖自身写的API项目--&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.example<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>dubbo1-api<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.dubbo<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>dubbo-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.7.3<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.curator<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>curator-framework<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>4.0.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.curator<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>curator-recipes<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.8.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2application.yml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">server</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="m">8081</span><span class="w">
+</span><span class="w">  </span><span class="k">servlet</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">context-path</span><span class="p">:</span><span class="w"> </span>/consumer<span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">dubbo</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">application</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">name</span><span class="p">:</span><span class="w"> </span>dubbo1-consumer<span class="w">
+</span><span class="w">  </span><span class="k">registry</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">address</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="p">:</span><span class="m">2181</span><span class="w">
+</span><span class="w">    </span><span class="k">protocol</span><span class="p">:</span><span class="w"> </span>zookeeper<span class="w">
+</span><span class="w"></span><span class="c">#启动时检查提供者是否存在，true报错，false忽略</span><span class="w">
+</span><span class="w"> </span><span class="c"># spring.dubbo.consumer.check=false</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>3java类中使用</p>
+<p>主程序 @EnableDubbo开启基于注解的功能</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmpController</span> <span class="o">{</span>
+
+    <span class="c1">//当是远程调用 就是使用reference
+</span><span class="c1"></span>    <span class="c1">//@Autowired
+</span><span class="c1"></span>    <span class="nd">@Reference</span>
+    <span class="n">EmpService</span> <span class="n">empService</span><span class="o">;</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;emps1&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">getEmp</span><span class="o">(){</span>
+
+        <span class="k">return</span> <span class="n">empService</span><span class="o">.</span><span class="na">getEmpById</span><span class="o">(</span><span class="n">5</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="dubbo注解">dubbo注解</h3>
+<p>使用注解，需要进行dubbo.scan.base-package，若不扫描，则需要去SpringBoot的启动类@EnableDubbo注解。</p>
+<p>@Service、@Reference【如果没有在配置中写dubbo.scan.base-package,还需要使@EnableDubbo注解】</p>
+<p>@Service(weight=50权重,)</p>
+<p>2.7.7版本以后变成了@DubboReference 、@DubboService</p>
+<hr>
+<blockquote>
+<p><strong>超时：优先机制</strong></p>
+<p>服务提供方：<code>@Service(timeout =500 ,retries = 3)</code>可以设置超时时间和重试次数。</p>
+<p>服务消费方：<code>@Reference(timeout = 1000,retries = 2)</code></p>
+<p>他们的优先级为：方法、接口、全局。<strong>若级别一致，消费方优先</strong>。</p>
+<p>幂等操作可以重试(删改查)，非幂等不可以重试(增),0代表不重试。</p>
+</blockquote>
+<blockquote>
+<p><strong>服务分组</strong></p>
+<p>Consumer方，若有两个相同接口的实现，可以使用group去进行分组。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//服务提供方加入group=&#34;&#34; 用以区分
+</span><span class="c1"></span><span class="nd">@Service</span><span class="o">(</span><span class="n">timeout</span> <span class="o">=</span><span class="n">500</span> <span class="o">,</span><span class="n">retries</span> <span class="o">=</span> <span class="n">3</span><span class="o">,</span><span class="n">group</span><span class="o">=</span><span class="s">&#34;g1&#34;</span><span class="o">)</span>
+<span class="nd">@Service</span><span class="o">(</span><span class="n">timeout</span> <span class="o">=</span><span class="n">500</span> <span class="o">,</span><span class="n">retries</span> <span class="o">=</span> <span class="n">3</span><span class="o">,</span><span class="n">group</span><span class="o">=</span><span class="s">&#34;g2&#34;</span><span class="o">)</span>
+
+<span class="c1">//consumer方调用时
+</span><span class="c1"></span><span class="nd">@Reference</span><span class="o">(</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">2000</span><span class="o">,</span><span class="n">retries</span> <span class="o">=</span> <span class="n">1</span><span class="o">,</span><span class="n">group</span><span class="o">=</span><span class="s">&#34;g2&#34;</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>若服务方没有指定分组时，消费方consumer则会默认使用一个。</p>
+</blockquote>
+<h2 id="2策略设置">2策略设置</h2>
+<blockquote>
+<p>IDEA一个类开启多个实例</p>
+<p><img src="/typoraImg/dubbo.assets/image-20200727175509944.png" alt="image-20200727175509944"></p>
+</blockquote>
+<h3 id="负载均衡">负载均衡</h3>
+<p>Dubbo提供了4中负载均衡策略</p>
+<p>① Random LoadBalance（随机均衡算法）</p>
+<p>② RoundRobin LoadBalance（权重轮询均衡算法）</p>
+<p>③ LeastAction LoadBalance（最少活跃调用数均衡算法）</p>
+<p>④ ConsistentHash LoadBalance（一致性Hash均衡算法）</p>
+<p>缺省时为Random随机调用</p>
+<p>weight=50属性可以设置权重。</p>
+<blockquote>
+<p>① Random LoadBalance（随机均衡算法）==默认==</p>
+<p>随机，按权重设置随机概率。</p>
+<p>在一个截面上碰撞的概率高，但调用量越大分布越均匀，而且按概率使用权重后也比较均匀，有利于动态调整提供者权重。</p>
+</blockquote>
+<blockquote>
+<p>② RoundRobin LoadBalance（权重轮询均衡算法）</p>
+<p>让权重高的服务器，被访问更多次，三个服务器的权重比为1：1：2，那么四次请求分配的次数也是相同的。</p>
+</blockquote>
+<blockquote>
+<p>③ LeastAction LoadBalance（最少活跃调用数均衡算法）</p>
+<p>最少活跃调用数算法，活跃调用数越小，表明该服务提供者效率越高，单位时间内可处理更多的请求这个是比较科学的负载均衡算法。 每个服务提供者对应一个活跃数 active。初始情况下，所有服务提供者活跃数均为 0。 每收到一个请求，活跃数加 1，完成请求后则将活跃数减 1。在服务运行一段时间后， 性能好的服务提供者处理请求的速度更快，因此活跃数下降的也越快，此时这样的服 务提供者能够优先获取到新的服务请求。</p>
+</blockquote>
+<blockquote>
+<p>④ ConsistentHash LoadBalance（一致性Hash均衡算法）</p>
+<p>一致性算法，相同参数的请求总是发到同一提供者 当某一台提供者挂时，原本发往该提供者的请求，基于虚拟节点，平摊到其它提供者， 不会引起剧烈变动。</p>
+</blockquote>
+<h3 id="集群容错">集群容错</h3>
+<p>在分布式网络通信中，容错能力是必须要具备的，什么叫容错呢？ 从字面意思来看： 容：是容忍， 错：是错误。 就是容忍错误的能力。 我们知道网络通信会有很多不确定因素，比如网络延迟、网络中断、服务异常等，会造成当前这次请求出现失败。当服务通信出现这个问题时，需要采取一定的措施应对。 而 dubbo 中提供了容错机制来优雅处理这种错误，在集群调用失败时，Dubbo 提供了多种容错方案，</p>
+<blockquote>
+<p>failover：失败自动切换，当出现失败，重试其它服务器。(缺省) 通常用于读操作，但重试会带来更长延迟。 可通过 retries=“2” 来设置重试次数(不含第一次)。</p>
+<p>failfast:快速失败，只发起一次调用，失败立即报错。 通常用于非幂等性的写操作，比如新增记录。</p>
+<p>failsafe:失败安全，出现异常时，直接忽略。 通常用于写入审计日志等操作。</p>
+<p>failback：失败自动恢复，后台记录失败请求，定时重发。 通常用于消息通知操作。</p>
+<p>forking：并行调用多个服务器，只要一个成功即返回。 通常用于实时性要求较高的读操作，但需要浪费更多服务资源。 可通过 forks=“2” 来设置最大并行数。</p>
+<p>broadcast：广播调用所有提供者，逐个调用，任意一台报错则报错。(2.1.0 开始支持) 通常用于通知所有提供者更新缓存或日志等本地资源信息。</p>
+<p>缺省为 failover 重试。而增删改建议使用 failfast 或者使用 failover (retries=”0”） 策略</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Reference</span><span class="o">(</span><span class="n">cluster</span> <span class="o">=</span> <span class="s">&#34;failsafe&#34;</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="服务降级">服务降级</h3>
+<blockquote>
+<p>当某个非关键服务出现错误时，可以通过降级功能来临时屏蔽这个服务。</p>
+<p>降级可以有几个层面的分类： 自动降级和人工降级；</p>
+<p>按照功能可以分为：读服务降级和写服务 降级</p>
+<hr>
+<ol>
+<li>
+<p>对一些<strong>非核心服务进行人工降级</strong>，在大促之前通过降级开关关闭哪些推荐内容、评 价等对主流程没有影响的功能。</p>
+</li>
+<li>
+<p>故障降级，比如调用的远程服务挂了，网络故障、或者 RPC 服务返回异常。 那么 可以直接降级，降级的方案比如设置默认值、采用兜底数据（系统推荐的行为广告 挂了，可以提前准备静态页面做返回）等等 。</p>
+</li>
+<li>
+<p>限流降级，在秒杀这种流量比较集中并且流量特别大的情况下，因为突发访问量特 别大可能会导致系统支撑不了。这个时候可以采用限流来限制访问量。当达到阀值时，后续的请求被降级，比如进入排队页面，比如跳转到错误页（活动太火爆，稍 后重试等</p>
+</li>
+</ol>
+</blockquote>
+<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//服务调用方  写本地的实现接口的类
+</span><span class="c1"></span><span class="nd">@Reference</span><span class="o">(</span><span class="n">mock</span><span class="o">=</span><span class="s">&#34;全限定类名&#34;</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-28
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/docker/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">docker.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/elementui/">
+            <span class="next-text nav-default">ElementUI.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

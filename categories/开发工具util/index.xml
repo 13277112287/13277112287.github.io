@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>开发工具util on Even - A super concise theme for Hugo</title>
+    <link>https://13277112287.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7util/</link>
+    <description>Recent content in 开发工具util on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://13277112287.github.io/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7util/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>测试.md</title>
+      <link>https://13277112287.github.io/post/%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/%E6%B5%8B%E8%AF%95/</guid>
+      <description>第一章-测试概述 1junit4.12 jar 1 2 3 4 5 6 &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-test&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;5.1.9.RELEASE&amp;lt;/version&amp;gt; &amp;lt;scope&amp;gt;test&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; 使用 1 2 3 4 5 6 7 8 9 10 11 12 13 @RunWith(SpringJUnit4ClassRunner.class) @ContextConfiguration(&amp;#34;classpath:applicationContext.xml&amp;#34;) public class ZzDepartmentMapperTest { @Autowired ZzDepartmentMapper mapper; @Test public void t1(){ mapper.doXX();//这样就不</description>
+    </item>
+    
+    <item>
+      <title>Lombok.md</title>
+      <link>https://13277112287.github.io/post/lombok/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/lombok/</guid>
+      <description>1Lombok 官网文档：https://projectlombok.org/features/all IDEA安装：Setting&amp;ndash;&amp;gt;p</description>
+    </item>
+    
+    <item>
+      <title>SVN.md</title>
+      <link>https://13277112287.github.io/post/svn/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/svn/</guid>
+      <description>第一章-SVN概述 1什么是SVN SVN的全称是Subversion，即版本控制系统。它是最流行的一个开放源代码的版本控制系统。作为一个开源的</description>
+    </item>
+    
+    <item>
+      <title>Eclipse使用.md</title>
+      <link>https://13277112287.github.io/post/eclipse%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/eclipse%E4%BD%BF%E7%94%A8/</guid>
+      <description>第一章-Eclipse概述 1下载安装Eclipse 需要先下载JDK配置JDK环境变量 环境变量配置：https://jingyan.baidu</description>
+    </item>
+    
+    <item>
+      <title>Maven.md</title>
+      <link>https://13277112287.github.io/post/maven/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/maven/</guid>
+      <description>第一章-Maven概述 maven知识点https://www.cnblogs.com/kyleinjava/p/9549481.html 1安</description>
+    </item>
+    
+    <item>
+      <title>git.md</title>
+      <link>https://13277112287.github.io/post/git/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/git/</guid>
+      <description>第一章-git概述 狂神:https://www.bilibili.com/video/BV1FE411P7B3?from=search&amp;am</description>
+    </item>
+    
+    <item>
+      <title>IDEA使用.md</title>
+      <link>https://13277112287.github.io/post/idea%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/idea%E4%BD%BF%E7%94%A8/</guid>
+      <description>第一章-IDEA破解 安装教程 有用的破解 每次启动需要联网。 http://jetbrains-license-server 或者点击discover 目录： idea安装目录 → bin → jetbrains-agent.jar → 解压工具打开 → META-INF → important.txt 将 important.txt 这</description>
+    </item>
+    
+  </channel>
+</rss>

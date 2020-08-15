@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>缓存cache.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-缓存概述 1什么是缓存 缓存的基本思想其实是以空间换时间。我们知道，IO的读写速度相对内存来说是非常比较慢的，通常一个web应用的瓶颈就" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/%E7%BC%93%E5%AD%98cache/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="缓存cache.md" />
+<meta property="og:description" content="第一章-缓存概述 1什么是缓存 缓存的基本思想其实是以空间换时间。我们知道，IO的读写速度相对内存来说是非常比较慢的，通常一个web应用的瓶颈就" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/%E7%BC%93%E5%AD%98cache/" />
+<meta property="article:published_time" content="2020-06-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-06-16T00:00:00+00:00" />
+<meta itemprop="name" content="缓存cache.md">
+<meta itemprop="description" content="第一章-缓存概述 1什么是缓存 缓存的基本思想其实是以空间换时间。我们知道，IO的读写速度相对内存来说是非常比较慢的，通常一个web应用的瓶颈就">
+<meta itemprop="datePublished" content="2020-06-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-06-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3013">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="缓存cache.md"/>
+<meta name="twitter:description" content="第一章-缓存概述 1什么是缓存 缓存的基本思想其实是以空间换时间。我们知道，IO的读写速度相对内存来说是非常比较慢的，通常一个web应用的瓶颈就"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">缓存cache.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-06-15 </span>
+        <div class="post-category">
+            <a href="/categories/database/"> Database </a>
+            </div>
+          <span class="more-meta"> 约 3013 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-缓存概述">第一章-缓存概述</a>
+      <ul>
+        <li><a href="#1什么是缓存">1什么是缓存</a></li>
+        <li><a href="#2缓存分类">2缓存分类</a></li>
+        <li><a href="#3业务缓存">3业务缓存</a>
+          <ul>
+            <li><a href="#service中缓存注解">service中缓存注解</a></li>
+            <li><a href="#service中自定义">service中自定义</a></li>
+          </ul>
+        </li>
+        <li><a href="#4页面缓存">4页面缓存</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-缓存问题">第二章-缓存问题</a>
+      <ul>
+        <li><a href="#1雪崩">1雪崩</a></li>
+        <li><a href="#2穿透">2穿透</a></li>
+        <li><a href="#3击穿">3击穿</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-缓存概述">第一章-缓存概述</h1>
+<h2 id="1什么是缓存">1什么是缓存</h2>
+<p>缓存的基本思想其实是以空间换时间。我们知道，IO的读写速度相对内存来说是非常比较慢的，通常一个web应用的瓶颈就出现在磁盘IO的读写上。那么，如果我们在内存中建立一个存储区，将数据缓存起来，当浏览器端由请求到达的时候，直接从内存中获取相应的数据，这样一来可以降低服务器的压力，二来，可以提高请求的响应速度，提升用户体验。</p>
+<h2 id="2缓存分类">2缓存分类</h2>
+<p>1数据库缓存、2业务缓存、3页面缓存</p>
+<blockquote>
+<p><strong>1数据库缓存</strong></p>
+<p>一级缓存：SqlSession级的缓存，在同一个SqlSession中的相同查询语句，只会查询一次。</p>
+<p>二级缓存：Mapper(namespace)级别的缓存，多个SqlSession去操作同一个Mapper的sql语句，多个SqlSession去操作数据得到数据会存在二级缓存区域，第二次执行相同sql查询语句，将不会通过数据库，而是直接从内存中获取，提高查询效率。</p>
+<p>一级缓存默认开启。
+二级缓存需要实现cache接口，去实现其中方法，并在mapper.xml中添加case标签。由于这个类不属于spring管理，所以需要一个@Service中间类为cache接口注入redisTemplate。这种方式只针对单个节点。</p>
+</blockquote>
+<h2 id="3业务缓存">3业务缓存</h2>
+<blockquote>
+<p>Spring 3.1 引入了激动人心的基于注释（annotation）的缓存（cache）技术，它本质上不是一个具体的缓存实现方案（例如Redis），而是一个对缓存使用的抽象，通过在既有代码中添加少量它定义的各种 annotation，即能够达到缓存方法的返回对象的效果。</p>
+<p>Spring 的缓存技术还具备相当的灵活性，不仅能够使用 SpEL（Spring Expression Language）来定义缓存的 key 和各种 condition，还提供开箱即用的缓存临时存储方案，也支持和主流的专业缓存例如 Redis集成。</p>
+<p>Spring 提供了一套标注来保住我们快速的实现缓存系统：
+注意key的引号问题</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Cacheable</span> <span class="n">触发添加缓存的方法</span>
+<span class="n">可选属性</span><span class="err">，</span><span class="n">不为Null才进行添加</span><span class="err">，</span><span class="n">condition</span> <span class="o">=</span> <span class="s">&#34;#oid!=null&#34;</span>
+
+<span class="nd">@CacheEvict</span> <span class="n">触发删除缓存的方法</span>
+
+<span class="nd">@CachePut</span> <span class="n">在不干涉方法执行的情况下更新缓存</span>
+
+  <span class="c1">//删除多个缓存
+</span><span class="c1"></span><span class="nd">@Caching</span><span class="o">(</span>
+  <span class="n">evict</span><span class="o">={</span>
+ <span class="nd">@CacheEvict</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span><span class="s">&#34;usersInfo&#34;</span><span class="o">,</span><span class="n">key</span><span class="o">=</span><span class="s">&#34;&#39;user🆔&#39;+#user.id&#34;</span><span class="o">),</span>
+ <span class="nd">@CacheEvict</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span><span class="s">&#34;usersInfo&#34;</span><span class="o">,</span><span class="n">key</span><span class="o">=</span><span class="s">&#34;&#39;user🆔all&#39;&#34;</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">)</span>
+<span class="c1">//所有的@Cacheable（）里面都有一个name＝“xxx”的属性，这显然如果方法多了，
+</span><span class="c1">//写起来也是挺累的，如果可以一次性声明完 那就省事了，
+</span><span class="c1">//所以@CacheConfig这个配置，@CacheConfig 不过不用担心，如果你在你的方法写别的名字，那么依然以方法的名字为准。
+</span><span class="c1"></span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h3 id="service中缓存注解">service中缓存注解</h3>
+<p>1加入jar包，注意版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"> <span class="nt">&lt;dependencies&gt;</span>
+ <span class="c">&lt;!--Spring--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-webmvc<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>5.1.9.RELEASE<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-jdbc<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>5.1.9.RELEASE<span class="nt">&lt;/version&gt;</span>
+
+    <span class="c">&lt;!--redis--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework.data<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>1.7.6.RELEASE<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>redis.clients<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>jedis<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>2.9.0<span class="nt">&lt;/version&gt;</span>
+   <span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!--spring测试--&gt;</span>
+<span class="c">&lt;!--    &lt;dependency&gt;
+</span><span class="c">      &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+</span><span class="c">      &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+</span><span class="c">      &lt;version&gt;5.1.9.RELEASE&lt;/version&gt;
+</span><span class="c">      &lt;scope&gt;compile&lt;/scope&gt;
+</span><span class="c">    &lt;/dependency&gt;--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>4.12<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>compile<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+    <span class="c">&lt;!--mybatis-plus--&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>mybatis-plus<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>3.3.1<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-generator<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>3.3.1.tmp<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2修改spring-dao.xml配置
+在redis中加上缓存管理器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--配置redisCacheManager--&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;cacheManager&#34;</span> <span class="na">class=</span><span class="s">&#34;org.springframework.data.redis.cache.RedisCacheManager&#34;</span>
+<span class="nt">&gt;</span>
+    <span class="nt">&lt;constructor-arg</span> <span class="na">name=</span><span class="s">&#34;redisOperations&#34;</span> <span class="na">ref=</span><span class="s">&#34;redisTemplate&#34;</span> <span class="nt">&gt;&lt;/constructor-arg&gt;</span>
+    <span class="c">&lt;!-- 存活时间 秒--&gt;</span>
+    <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;defaultExpiration&#34;</span> <span class="na">value=</span><span class="s">&#34;15&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="nt">&lt;cache:annotation-driven</span> <span class="nt">/&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3service中使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"> <span class="nd">@Override</span>
+ <span class="nd">@Cacheable</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;usersInfo&#34;</span><span class="o">,</span><span class="n">key</span><span class="o">=</span><span class="s">&#34;&#39;user🆔&#39;+#oid&#34;</span><span class="o">)</span>
+ <span class="kd">public</span> <span class="n">User</span> <span class="nf">findUserById</span><span class="o">(</span><span class="n">Integer</span> <span class="n">oid</span><span class="o">){</span>
+     <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;查询一个用户信息，并加到redis&#34;</span><span class="o">+</span><span class="n">oid</span><span class="o">);</span>
+     <span class="k">return</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectById</span><span class="o">(</span><span class="n">oid</span><span class="o">);</span>
+ <span class="o">}</span>
+
+<span class="c1">//修改一个用户信息，删除单个缓存 和全部缓存。
+</span><span class="c1"></span> <span class="c1">//@CacheEvict(value =&#34;usersInfo&#34;,key=&#34;&#39;user🆔&#39;+#user.id&#34;)
+</span><span class="c1"></span> <span class="nd">@Caching</span><span class="o">(</span>
+     <span class="n">evict</span><span class="o">={</span>
+    <span class="nd">@CacheEvict</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span><span class="s">&#34;usersInfo&#34;</span><span class="o">,</span><span class="n">key</span><span class="o">=</span><span class="s">&#34;&#39;user🆔&#39;+#user.id&#34;</span><span class="o">),</span>
+    <span class="nd">@CacheEvict</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span><span class="s">&#34;usersInfo&#34;</span><span class="o">,</span><span class="n">key</span><span class="o">=</span><span class="s">&#34;&#39;user🆔all&#39;&#34;</span><span class="o">)</span>
+     <span class="o">}</span>
+ <span class="o">)</span>
+<span class="kd">public</span> <span class="kt">int</span> <span class="nf">updateUser</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">){</span>
+     <span class="k">return</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">updateById</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+ <span class="o">}</span>
+
+ <span class="nd">@Override</span>
+ <span class="nd">@Cacheable</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span><span class="s">&#34;usersInfo&#34;</span><span class="o">,</span><span class="n">key</span><span class="o">=</span><span class="s">&#34;&#39;user🆔all&#39;&#34;</span><span class="o">)</span>
+ <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">findAllUser</span><span class="o">()</span> <span class="o">{</span>
+     <span class="k">return</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">selectList</span><span class="o">(</span><span class="k">new</span> <span class="n">QueryWrapper</span><span class="o">&lt;&gt;());</span>
+ <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="service中自定义">service中自定义</h3>
+<p>由于上面的注解设置的过期时间是固定的，那么再缓存过期时，将可能产生缓存雪崩，造成瞬间服务器压力过大。解决办法是，设置自定义的时间。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"> <span class="nd">@Override</span>
+    <span class="c1">//编写自定义时间的查询 修改 查询全部
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">User</span> <span class="nf">findUserByIdSurvive</span><span class="o">(</span><span class="n">Integer</span> <span class="n">oid</span><span class="o">){</span>
+        <span class="c1">//若redis中有 就从redis查
+</span><span class="c1"></span>        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="o">(</span><span class="n">User</span><span class="o">)</span> <span class="n">template</span><span class="o">.</span><span class="na">opsForValue</span><span class="o">().</span><span class="na">get</span><span class="o">(</span><span class="s">&#34;user🆔&#34;</span><span class="o">+</span><span class="n">oid</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">user</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+            <span class="c1">//redis存在 直接返回
+</span><span class="c1"></span>            <span class="k">return</span> <span class="n">user</span><span class="o">;</span>
+        <span class="o">}</span><span class="k">else</span> <span class="o">{</span>
+            <span class="n">user</span><span class="o">=</span><span class="n">userMapper</span><span class="o">.</span><span class="na">selectById</span><span class="o">(</span><span class="n">oid</span><span class="o">);</span>
+            <span class="n">template</span><span class="o">.</span><span class="na">opsForValue</span><span class="o">().</span><span class="na">set</span><span class="o">(</span><span class="s">&#34;user🆔&#34;</span><span class="o">+</span><span class="n">oid</span><span class="o">,</span><span class="n">user</span><span class="o">,</span><span class="n">100</span><span class="o">+</span><span class="k">new</span> <span class="n">Random</span><span class="o">().</span><span class="na">nextInt</span><span class="o">(</span><span class="n">30</span><span class="o">),</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;存活时间：&#34;</span><span class="o">+</span><span class="n">template</span><span class="o">.</span><span class="na">getExpire</span><span class="o">(</span><span class="s">&#34;user🆔&#34;</span><span class="o">+</span><span class="n">oid</span><span class="o">,</span><span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">));</span>
+            <span class="k">return</span> <span class="n">user</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="c1">//编写自定义修改
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">updateUserSurvive</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">userMapper</span><span class="o">.</span><span class="na">updateById</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">i</span><span class="o">&gt;</span><span class="n">0</span><span class="o">){</span>
+            <span class="c1">//大于0就进行删除缓存
+</span><span class="c1"></span>            <span class="n">template</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="s">&#34;user🆔&#34;</span><span class="o">+</span><span class="n">user</span><span class="o">.</span><span class="na">getId</span><span class="o">());</span>
+            <span class="n">template</span><span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="s">&#34;user:all&#34;</span><span class="o">);</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;删除了两个&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="4页面缓存">4页面缓存</h2>
+<p>就是把热门的页面，如主页，进行缓存到redis中。</p>
+<h1 id="第二章-缓存问题">第二章-缓存问题</h1>
+<h2 id="1雪崩">1雪崩</h2>
+<blockquote>
+<p><strong>雪崩</strong></p>
+<p>指redis中很多数据在同一时间过期，导致大量请求同一时刻请求到数据库。</p>
+<p>解决：设置不同的过期时间，在过期时间上加随机数。</p>
+</blockquote>
+<h2 id="2穿透">2穿透</h2>
+<hr>
+<blockquote>
+<p><strong>穿透</strong></p>
+<p>产生这个原因是大量的外部攻击，例如：请求大量id不存在的用户进行登录频繁请求接口，导致请求穿透redis频繁请求数据库。</p>
+<p>解决：使用bloom过滤器，把用户Id先读入到bloom过滤器，然后对请求进行拦截，bloom过滤器会进行判断，过滤器判断不存在，那么一定不存在。过滤器判断存在，也有可能不存在，bloom会存在一定的误判率。</p>
+<p>布隆过滤器的原理是，当一个元素被加入集合时，通过K个散列函数将这个元素映射成一个位数组中的K个点，把它们置为1。检索时，我们只要看看这些点是不是都是1就（大约）知道集合中有没有它了：如果这些点有任何一个0，则被检元素一定不在；如果都是1，则被检元素很可能在</p>
+</blockquote>
+<h2 id="3击穿">3击穿</h2>
+<hr>
+<blockquote>
+<p><strong>击穿</strong></p>
+<p>是指一个key非常热点，在不停的扛着大并发，大并发集中对这一个点进行访问，当这个key在失效的瞬间，持续的大并发就穿破缓存，直接请求数据库，就像在一个屏障上凿开了一个洞。</p>
+<p>解决：</p>
+<p>可以使用互斥锁更新，保证同一个进程中针对同一个数据不会并发请求到 DB，减小 DB 压力。</p>
+<p>使用随机退避方式，失效时随机 sleep 一个很短的时间，再次查询，如果失败再执行更新。</p>
+<p>针对多个热点 key 同时失效的问题，可以在缓存时使用固定时间加上一个小的随机数，避免大量热点 key 同一时刻失效。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//压力测试 线程池 
+</span><span class="c1"></span><span class="n">CyclicBarrier</span> <span class="n">cyclicBarrier</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CyclicBarrier</span><span class="o">(</span><span class="n">1000</span><span class="o">);</span>
+
+<span class="n">ExecutorService</span> <span class="n">executorService</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span><span class="n">1000</span><span class="o">);</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span><span class="n">1000</span> <span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+  <span class="n">executorService</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">PressureThread</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="n">userMapper</span><span class="o">,</span><span class="n">redisTemplate</span><span class="o">,</span>
+                                             <span class="n">cyclicBarrier</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="n">executorService</span><span class="o">.</span><span class="na">shutdown</span><span class="o">();</span>
+
+<span class="k">while</span><span class="o">(!</span><span class="n">executorService</span><span class="o">.</span><span class="na">isTerminated</span><span class="o">()){</span>
+<span class="o">}</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;程序结束&#34;</span><span class="o">);</span>
+
+<span class="n">cyclicBarrier</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-06-16
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/juc/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">JUC.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%B5%8B%E8%AF%95/">
+            <span class="next-text nav-default">测试.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

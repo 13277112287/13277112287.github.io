@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java笔记 on Even - A super concise theme for Hugo</title>
+    <link>https://13277112287.github.io/categories/java%E7%AC%94%E8%AE%B0/</link>
+    <description>Recent content in java笔记 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 23 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://13277112287.github.io/categories/java%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>设计模式.md</title>
+      <link>https://13277112287.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 23 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
+      <description>第一章-设计模式概述 https://www.bilibili.com/video/BV1G4411c7N4?p=61 1什么是设计模式 设计模式（Design pattern）代表了最佳的实践，通常被有经验的面向对象的软件开发人员所采用。设</description>
+    </item>
+    
+    <item>
+      <title>JVM.md</title>
+      <link>https://13277112287.github.io/post/jvm/</link>
+      <pubDate>Tue, 21 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/jvm/</guid>
+      <description>第一章-类加载器和类加载过程 尚硅谷JVM周阳视频(简介).https://www.bilibili.com/video/BV1vE411D7</description>
+    </item>
+    
+    <item>
+      <title>JUC.md</title>
+      <link>https://13277112287.github.io/post/juc/</link>
+      <pubDate>Wed, 17 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/juc/</guid>
+      <description>catalog 第一章-JUC概述 1juc、线程介绍 尚硅谷视频：https://www.bilibili.com/video/BV1vE411D7KE?p</description>
+    </item>
+    
+    <item>
+      <title>1web基础.md</title>
+      <link>https://13277112287.github.io/post/1web%E5%9F%BA%E7%A1%80/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/1web%E5%9F%BA%E7%A1%80/</guid>
+      <description>第一章-Web基础部分 1tomcat服务器 1.1 是什么 免费的开放源代码的Web 应用服务器 1.2下载以及安装、使用 修改端口号：conf&amp;ndash</description>
+    </item>
+    
+    <item>
+      <title>JDK学习.md</title>
+      <link>https://13277112287.github.io/post/jdk%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 29 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://13277112287.github.io/post/jdk%E5%AD%A6%E4%B9%A0/</guid>
+      <description>目录 这里记录一下Java语言的新特性，以版本号区分。 介绍一些注解，一些注意Java语言的注意事项。 第二章-多线程 KLT和ULT 线程是调度CP</description>
+    </item>
+    
+  </channel>
+</rss>

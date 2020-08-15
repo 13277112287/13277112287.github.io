@@ -1,0 +1,2633 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>shiro安全框架.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-shiro概述 学习视频:https://www.bilibili.com/video/BV1Dt411g7DZ?p=4 1什么是shi" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="shiro安全框架.md" />
+<meta property="og:description" content="第一章-shiro概述 学习视频:https://www.bilibili.com/video/BV1Dt411g7DZ?p=4 1什么是shi" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-13T00:00:00+00:00" />
+<meta itemprop="name" content="shiro安全框架.md">
+<meta itemprop="description" content="第一章-shiro概述 学习视频:https://www.bilibili.com/video/BV1Dt411g7DZ?p=4 1什么是shi">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="11703">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="shiro安全框架.md"/>
+<meta name="twitter:description" content="第一章-shiro概述 学习视频:https://www.bilibili.com/video/BV1Dt411g7DZ?p=4 1什么是shi"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">shiro安全框架.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%A1%86%E6%9E%B6/"> 框架 </a>
+            </div>
+          <span class="more-meta"> 约 11703 字 </span>
+          <span class="more-meta"> 预计阅读 24 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-shiro概述">第一章-shiro概述</a>
+      <ul>
+        <li><a href="#1什么是shiro">1什么是shiro</a></li>
+        <li><a href="#2快速开始">2快速开始</a></li>
+        <li><a href="#4在web项目中">4在web项目中</a></li>
+        <li><a href="#5认证登录">5认证(登录)</a></li>
+        <li><a href="#6md5加密">6MD5加密</a></li>
+        <li><a href="#7认证策略">7认证策略</a></li>
+        <li><a href="#8授权">8授权</a>
+          <ul>
+            <li><a href="#权限注解">权限注解</a></li>
+            <li><a href="#动态权限管理">动态权限管理</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#第二章-集成">第二章-集成</a>
+      <ul>
+        <li><a href="#1springboot集成">1SpringBoot集成</a>
+          <ul>
+            <li><a href="#1导入jar">1导入jar</a></li>
+            <li><a href="#2yml配置">2yml配置</a></li>
+            <li><a href="#3shiro配置类"><strong>3shiro配置类</strong></a></li>
+            <li><a href="#4realm对象">4realm对象</a></li>
+            <li><a href="#5编写controller">5编写controller</a></li>
+            <li><a href="#说明">说明</a></li>
+          </ul>
+        </li>
+        <li><a href="#2集成spring">2集成Spring</a></li>
+        <li><a href="#3权限名称">3权限名称</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-shiro概述">第一章-shiro概述</h1>
+<p>学习视频:https://www.bilibili.com/video/BV1Dt411g7DZ?p=4</p>
+<h2 id="1什么是shiro">1什么是shiro</h2>
+<p><img src="/typoraImg/shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6.assets/2.png" alt="img"></p>
+<p>Apache的强大灵话的开源安全框架</p>
+<p>认证、授权、企业会话管理、安全加密</p>
+<p>w3c教程https://www.w3cschool.cn/shiro/skex1if6.html</p>
+<p>过滤和shiro由来详解:https://www.cnblogs.com/jpfss/p/8352031.html</p>
+<p>shiro的英语词汇：https://www.cnblogs.com/caohanren/p/11445295.html</p>
+<p><strong>Subject</strong>：主体，代表了当前 “用户”，这个用户不一定是一个具体的人，与当前应用交互的任何东西都是 Subject，如网络爬虫，机器人等；即一个抽象概念；所有 Subject 都绑定到 SecurityManager，与 Subject 的所有交互都会委托给 SecurityManager；可以把 Subject 认为是一个门面；SecurityManager 才是实际的执行者；</p>
+<p><strong>SecurityManager</strong>：安全管理器；即所有与安全有关的操作都会与 SecurityManager 交互；且它管理着所有 Subject；可以看出它是 Shiro 的核心，它负责与后边介绍的其他组件进行交互，如果学习过 SpringMVC，你可以把它看成 DispatcherServlet 前端控制器；</p>
+<p><strong>Realm</strong>：域，Shiro 从从 Realm 获取安全数据（如用户、角色、权限），就是说 SecurityManager 要验证用户身份，那么它需要从 Realm 获取相应的用户进行比较以确定用户身份是否合法；也需要从 Realm 得到用户相应的角色 / 权限进行验证用户是否能进行操作；可以把 Realm 看成 DataSource，即安全数据源。</p>
+<p>也就是说对于我们而言，最简单的一个 Shiro 应用：</p>
+<ol>
+<li>应用代码通过 Subject 来进行认证和授权，而 Subject 又委托给 SecurityManager；</li>
+<li>我们需要给 Shiro 的 SecurityManager 注入 Realm，从而让 SecurityManager 能得到合法的用户及其权限进行判断。</li>
+</ol>
+<p><strong>从以上也可以看出，Shiro 不提供维护用户 / 权限，而是通过 Realm 让开发人员自己注入。</strong></p>
+<p><img src="/typoraImg/shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6.assets/image-20200812112541129.png" alt="image-20200812112541129"></p>
+<h2 id="2快速开始">2快速开始</h2>
+<p>找到shiro的官网https://github.com/apache/shiro 跳转Github</p>
+<p>来到 shiro/samples/quickstart/src/main/resources/</p>
+<p>1导入jar</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--shior安全框架--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.shiro<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>shiro-core<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.5.2<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+   <span class="c">&lt;!-- configure logging --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>jcl-over-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>slf4j-log4j12<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+把scope和runtime去掉
+</code></pre></td></tr></table>
+</div>
+</div><p>2配置文件shiro.ini 放到resource目录下</p>
+<p>3QuickStart(三个文件都可以在github中的shiro/samples/quickstart/src找到)</p>
+<p>在集成SpringBoot中可以选中下面的主要方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kd">transient</span> <span class="n">Logger</span> <span class="n">log</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">Quickstart</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">//0加载配置文件
+</span><span class="c1"></span>        <span class="n">Factory</span><span class="o">&lt;</span><span class="n">SecurityManager</span><span class="o">&gt;</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">IniSecurityManagerFactory</span><span class="o">(</span><span class="s">&#34;classpath:shiro.ini&#34;</span><span class="o">);</span>
+        <span class="n">SecurityManager</span> <span class="n">securityManager</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="na">getInstance</span><span class="o">();</span>
+
+        <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">setSecurityManager</span><span class="o">(</span><span class="n">securityManager</span><span class="o">);</span>
+
+        <span class="c1">// Now that a simple Shiro environment is set up, let&#39;s see what you can do:
+</span><span class="c1"></span>
+
+        <span class="c1">// 1获得当前的subject
+</span><span class="c1"></span>        <span class="n">Subject</span> <span class="n">currentUser</span> <span class="o">=</span> <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+
+        <span class="c1">//2获得当前用户的session Do some stuff with a Session (no need for a web or EJB container!!!)
+</span><span class="c1"></span>        <span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">currentUser</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
+        <span class="n">session</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&#34;someKey&#34;</span><span class="o">,</span> <span class="s">&#34;aValue&#34;</span><span class="o">);</span>
+        <span class="n">String</span> <span class="n">value</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span> <span class="n">session</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">&#34;someKey&#34;</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">&#34;aValue&#34;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;Retrieved the correct value! [&#34;</span> <span class="o">+</span> <span class="n">value</span> <span class="o">+</span> <span class="s">&#34;]&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// let&#39;s login the current user so we can check against roles and permissions:
+</span><span class="c1"></span>        <span class="c1">//3判断当前用户是否被认证
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(!</span><span class="n">currentUser</span><span class="o">.</span><span class="na">isAuthenticated</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">UsernamePasswordToken</span> <span class="n">token</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UsernamePasswordToken</span><span class="o">(</span><span class="s">&#34;lonestarr&#34;</span><span class="o">,</span> <span class="s">&#34;vespa&#34;</span><span class="o">);</span>
+            <span class="n">token</span><span class="o">.</span><span class="na">setRememberMe</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">currentUser</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">UnknownAccountException</span> <span class="n">uae</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;There is no user with username of &#34;</span> <span class="o">+</span> <span class="n">token</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">());</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IncorrectCredentialsException</span> <span class="n">ice</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;Password for account &#34;</span> <span class="o">+</span> <span class="n">token</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; was incorrect!&#34;</span><span class="o">);</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">LockedAccountException</span> <span class="n">lae</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;The account for username &#34;</span> <span class="o">+</span> <span class="n">token</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34; is locked.  &#34;</span> <span class="o">+</span>
+                        <span class="s">&#34;Please contact your administrator to unlock it.&#34;</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="c1">// ... catch more exceptions here (maybe custom ones specific to your application?
+</span><span class="c1"></span>            <span class="k">catch</span> <span class="o">(</span><span class="n">AuthenticationException</span> <span class="n">ae</span><span class="o">)</span> <span class="o">{</span>
+                <span class="c1">//unexpected condition?  error?
+</span><span class="c1"></span>            <span class="o">}</span>
+        <span class="o">}</span>
+
+        <span class="c1">//say who they are:
+</span><span class="c1"></span>        <span class="c1">//print their identifying principal (in this case, a username):
+</span><span class="c1"></span>        <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;User [&#34;</span> <span class="o">+</span> <span class="n">currentUser</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">()</span> <span class="o">+</span> <span class="s">&#34;] logged in successfully.&#34;</span><span class="o">);</span>
+
+        <span class="c1">//4当前用户所获得的角色
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">currentUser</span><span class="o">.</span><span class="na">hasRole</span><span class="o">(</span><span class="s">&#34;schwartz&#34;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;May the Schwartz be with you!&#34;</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;Hello, mere mortal.&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">//test a typed permission (not instance-level)
+</span><span class="c1"></span>        <span class="c1">//获取当前用户权限
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">currentUser</span><span class="o">.</span><span class="na">isPermitted</span><span class="o">(</span><span class="s">&#34;lightsaber:wield&#34;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;You may use a lightsaber ring.  Use it wisely.&#34;</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;Sorry, lightsaber rings are for schwartz masters only.&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">//a (very powerful) Instance Level permission:
+</span><span class="c1"></span>        <span class="k">if</span> <span class="o">(</span><span class="n">currentUser</span><span class="o">.</span><span class="na">isPermitted</span><span class="o">(</span><span class="s">&#34;winnebago:drive:eagle5&#34;</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;You are permitted to &#39;drive&#39; the winnebago with license plate (id) &#39;eagle5&#39;.  &#34;</span> <span class="o">+</span>
+                    <span class="s">&#34;Here are the keys - have fun!&#34;</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&#34;Sorry, you aren&#39;t allowed to drive the &#39;eagle5&#39; winnebago!&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">//all done - log out!
+</span><span class="c1"></span>        <span class="n">currentUser</span><span class="o">.</span><span class="na">logout</span><span class="o">();</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="na">exit</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>主要的Subject的方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 1获得当前的subject
+</span><span class="c1"></span><span class="n">Subject</span> <span class="n">currentUser</span> <span class="o">=</span> <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+
+<span class="c1">//2获得当前用户的session 
+</span><span class="c1"></span><span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="n">currentUser</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
+
+<span class="c1">//3判断当前用户是否被认证
+</span><span class="c1"></span><span class="n">currentUser</span><span class="o">.</span><span class="na">isAuthenticated</span><span class="o">();</span>
+
+<span class="c1">//4当前用户是否拥有某角色
+</span><span class="c1"></span><span class="n">currentUser</span><span class="o">.</span><span class="na">hasRole</span><span class="o">(</span><span class="s">&#34;schwartz&#34;</span><span class="o">);</span>
+  
+<span class="c1">//当前用户是否有某个权限
+</span><span class="c1"></span><span class="n">currentUser</span><span class="o">.</span><span class="na">isPermitted</span><span class="o">(</span><span class="s">&#34;lightsaber:wield&#34;</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="4在web项目中">4在web项目中</h2>
+<p>web.xml中需要有一个shiroFilter的过滤器,然后再shiro.xml中进行配置同名的filter bean，因为shiro会去IOC容器中查找和filter-name名对应的filter bean</p>
+<blockquote>
+<p><strong>4URL匹配模式</strong></p>
+</blockquote>
+<p>URL模式使用Ant风格模式
+Ant路径通配符支持?、*、**  通配符匹配不包括目录分割符号&rdquo;/&rdquo;</p>
+<p>?匹配一个字符,/admin?匹配admin1，但不匹配/admin/1
+*匹配0或多个字符,如/admin*匹配/admin123
+**匹配路径中的0个或多个路径，如/admin/**匹配/admin/a或者admin/a/b</p>
+<p>匹配原则:第一次匹配优先，前面若匹配成功会覆盖后面匹配</p>
+<h2 id="5认证登录">5认证(登录)</h2>
+<blockquote>
+<p>1认证步骤,在Controller登录中执行(jsp的表单)</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">// 1获得当前的subject
+</span><span class="c1"></span>        <span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">shiro</span><span class="o">.</span><span class="na">subject</span><span class="o">.</span><span class="na">Subject</span> <span class="n">currentUser</span> <span class="o">=</span> <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+
+    <span class="c1">// let&#39;s login the current user so we can check against roles and permissions:
+</span><span class="c1"></span>    <span class="c1">//3判断当前用户是否被认证   (会去执行Realm接口 token执行方法)
+</span><span class="c1"></span>    <span class="k">if</span> <span class="o">(!</span><span class="n">currentUser</span><span class="o">.</span><span class="na">isAuthenticated</span><span class="o">())</span> <span class="o">{</span>
+        <span class="n">UsernamePasswordToken</span> <span class="n">token</span> <span class="o">=</span> <span class="k">new</span> <span class="n">UsernamePasswordToken</span><span class="o">(</span><span class="s">&#34;lonestarr&#34;</span><span class="o">,</span> <span class="s">&#34;vespa&#34;</span><span class="o">);</span>
+        <span class="c1">//remember me记住我
+</span><span class="c1"></span>        <span class="n">token</span><span class="o">.</span><span class="na">setRememberMe</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="k">try</span> <span class="o">{</span>
+        	<span class="c1">//执行登录
+</span><span class="c1"></span>            <span class="n">currentUser</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">AuthenticationException</span> <span class="n">ae</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;登录失败&#34;</span><span class="o">+</span><span class="n">ae</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>2会跳到public class ThirdRealm extends AuthorizingRealm  Realm类中执行方法</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="n">AuthenticationInfo</span> <span class="nf">doGetAuthenticationInfo</span><span class="o">(</span><span class="n">AuthenticationToken</span> <span class="n">token</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">AuthenticationException</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34; AuthorizingRealm ------token认证&#34;</span><span class="o">);</span>
+
+		 <span class="c1">//1把认证的authenticationToken转化为用户名密码令牌
+</span><span class="c1"></span>		 <span class="n">UsernamePasswordToken</span> <span class="n">upToken</span> <span class="o">=</span> <span class="o">(</span><span class="n">UsernamePasswordToken</span><span class="o">)</span> <span class="n">token</span><span class="o">;</span>
+
+		 <span class="c1">//2从UsernamePasswordToken取出username
+</span><span class="c1"></span>		 <span class="n">String</span> <span class="n">tokenAccount</span><span class="o">=</span><span class="n">upToken</span><span class="o">.</span><span class="na">getUsername</span><span class="o">();</span>
+
+		 <span class="c1">//3从数据库取出用户名密码 ，这里方便演示。写固定
+</span><span class="c1"></span>		 <span class="n">String</span> <span class="n">username</span><span class="o">=</span><span class="s">&#34;April&#34;</span><span class="o">;</span> 
+    <span class="n">String</span> <span class="n">password</span><span class="o">=</span><span class="s">&#34;third&#34;</span><span class="o">;</span>
+
+		 <span class="c1">//4若用户不存在(数据库对象为null),则可以抛出UnknowAccountException,返回null自动抛出
+</span><span class="c1"></span>		 <span class="k">if</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">tokenAccount</span><span class="o">))</span> <span class="o">{</span>
+			 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;用户不存在&#34;</span><span class="o">);</span>
+			 <span class="k">throw</span> <span class="k">new</span> <span class="n">UnknownAccountException</span><span class="o">(</span><span class="s">&#34;用户不存在&#34;</span><span class="o">);</span><span class="c1">//返回null自动抛出异常 UnknowAccountException
+</span><span class="c1"></span>		 <span class="o">}</span>
+		 
+		 <span class="c1">//5根据用户信息情况,决定是否抛出其他AccountException
+</span><span class="c1"></span>		 <span class="k">if</span><span class="o">(</span><span class="s">&#34;monster&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">tokenAccount</span><span class="o">)){</span>
+			 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;用户被锁定&#34;</span><span class="o">);</span>
+		     <span class="k">throw</span> <span class="k">new</span> <span class="n">LockedAccountException</span><span class="o">(</span><span class="s">&#34;用户被锁定&#34;</span><span class="o">);</span>
+		 <span class="o">}</span>
+		 
+		 <span class="c1">//6根据用户情况,构建AuthenticationInfo,最常用的是SimpleAuthenticationInfo
+</span><span class="c1"></span>		 <span class="c1">//以下信息从数据库中获取的
+</span><span class="c1"></span>		 <span class="c1">//参数1 principal认证的实体信息,可以是username,也可以是数据表对应的实体对象。
+</span><span class="c1"></span>    			<span class="c1">//可在authorization方法中principals.getPrimaryPrincipal()
+</span><span class="c1"></span>		 <span class="c1">//参数2 credentials 密码,从数据库中获取的
+</span><span class="c1"></span>		 <span class="c1">//参数3 realmName 当前realmName,当前realm对象的name,调用父类的getName()
+</span><span class="c1"></span>		 <span class="n">String</span> <span class="n">realmName</span><span class="o">=</span><span class="n">getName</span><span class="o">();</span>
+		 <span class="n">SimpleAuthenticationInfo</span>  <span class="n">authentication</span><span class="o">=</span> <span class="k">new</span> <span class="n">SimpleAuthenticationInfo</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span><span class="s">&#34;&#34;</span><span class="o">);</span>
+		 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;登录成功&#34;</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">authentication</span><span class="o">;</span>
+	<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在第六步，构建SimpleAuthenticationInfo进行比对密码时，是shiro帮我们去完成的，可以在SimpleAuthenticationInfo的getCredentials()方法加断点，查看如何进行比对的。
+可以知道是通过AuthenticatingRealm的assertCredentialsMatch方法，对CredentialsMatcher属性直接进行比对的。(但数据库里面的密码一般是加密后的密码。)</p>
+<blockquote>
+<p>问题:登录后不跳到successUrl原因是，自动去Controller中去执行ModelAndView中的返回结果。</p>
+</blockquote>
+<h2 id="6md5加密">6MD5加密</h2>
+<p>在上面的第六步，构建SimpleAuthenticationInfo进行比对密码时，是shiro帮我们去完成的，可以在SimpleAuthenticationInfo的getCredentials()方法加断点，查看如何进行比对的。
+可以知道是通过AuthenticatingRealm的assertCredentialsMatch方法，对CredentialsMatcher属性直接进行比对的。(但数据库里面的密码一般是加密后的密码。)</p>
+<hr>
+<p>1如何把字符串加密为MD5。（这里是把token的密码加密为MD5）
+2替换当前Realm的creadentialsMatcher属性，直接使用HashedCredentialsMatcher对象，并设置加密算法即可。</p>
+<blockquote>
+<p>1配置文件设置 （二选一）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--1.2 实现的realm接口  --&gt;</span>
+   <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;thirdRealm&#34;</span> <span class="na">class=</span><span class="s">&#34;com.lanxin.qx.realm.ThirdRealm&#34;</span><span class="nt">&gt;</span>
+    <span class="c">&lt;!-- 配置密码匹配器 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;credentialsMatcher&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.apache.shiro.authc.credential.HashedCredentialsMatcher&#34;</span><span class="nt">&gt;</span>
+                <span class="c">&lt;!-- 加密算法为MD5 --&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hashAlgorithmName&#34;</span> <span class="na">value=</span><span class="s">&#34;MD5&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+                <span class="c">&lt;!-- 加密次数 --&gt;</span>
+                <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;hashIterations&#34;</span> <span class="na">value=</span><span class="s">&#34;1024&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+            <span class="nt">&lt;/bean&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+   <span class="nt">&lt;/bean&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<blockquote>
+<p>2用类设置（二选一）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">CustomAuthorizingRealm</span> <span class="n">authorizingRealm</span><span class="o">=</span><span class="k">new</span> <span class="n">CustomAuthorizingRealm</span><span class="o">();</span>
+<span class="c1">//设置证书匹配器
+</span><span class="c1"></span><span class="n">HashedCredentialsMatcher</span> <span class="n">credentialsMatcher</span><span class="o">=</span><span class="k">new</span> <span class="n">HashedCredentialsMatcher</span><span class="o">();</span>
+<span class="n">credentialsMatcher</span><span class="o">.</span><span class="na">setHashAlgorithmName</span><span class="o">(</span><span class="s">&#34;md5&#34;</span><span class="o">);</span>
+<span class="n">credentialsMatcher</span><span class="o">.</span><span class="na">setHashIterations</span><span class="o">(</span><span class="n">1024</span><span class="o">);</span>
+<span class="n">authorizingRealm</span><span class="o">.</span><span class="na">setCredentialsMatcher</span><span class="o">(</span><span class="n">credentialsMatcher</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p><img src="/typoraImg/shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6.assets/image-20200525235448887.png" alt="image-20200525235448887"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//查看123456使用MD5加密1024次后的值
+</span><span class="c1">//放入数据库
+</span><span class="c1">//方法1 推荐
+</span><span class="c1"></span><span class="n">String</span> <span class="n">username</span><span class="o">=</span><span class="s">&#34;lusenlin&#34;</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">password</span><span class="o">=</span><span class="s">&#34;123456&#34;</span><span class="o">;</span>
+<span class="n">Md5Hash</span> <span class="n">md5Hash</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Md5Hash</span><span class="o">(</span><span class="n">password</span><span class="o">,</span> <span class="n">username</span><span class="o">,</span> <span class="n">1024</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">md5Hash</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+
+<span class="c1">//方法2
+</span><span class="c1"></span><span class="n">String</span> <span class="n">hashAlonrithmName</span><span class="o">=</span><span class="s">&#34;MD5&#34;</span><span class="o">;</span>
+		<span class="n">Object</span> <span class="n">credentials</span><span class="o">=</span><span class="s">&#34;123456&#34;</span><span class="o">;</span>
+		<span class="n">Object</span> <span class="n">salt</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span><span class="c1">//ByteSource.Util.bytes(&#34;April&#34;);//一般使用username进行加盐
+</span><span class="c1"></span>		<span class="kt">int</span> <span class="n">hashIterations</span><span class="o">=</span><span class="n">1024</span><span class="o">;</span>
+		<span class="n">Object</span> <span class="n">result</span><span class="o">=</span><span class="k">new</span> <span class="n">SimpleHash</span><span class="o">(</span><span class="n">hashAlonrithmName</span><span class="o">,</span> <span class="n">credentials</span><span class="o">,</span> <span class="n">salt</span><span class="o">,</span> <span class="n">hashIterations</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>MD5盐值加密</p>
+<p>出现原因：MD5加密的话，即使加密1024次，若密码相同，获得的MD5值也是相同的。</p>
+<p>实现方法：在Realm的doGetAuthenticationInfo方法创建SimpleAuthenticationInfo(principal, hashedCredentials, credentialsSalt, realmName)对象。
+使用ByteSource.Util.bytes()计算盐值，盐值需要唯一，一般使用username</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">SimpleAuthenticationInfo</span> <span class="n">authentication</span><span class="o">=</span> <span class="k">new</span> <span class="n">SimpleAuthenticationInfo</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">,</span> <span class="n">password</span><span class="o">,</span><span class="n">getName</span><span class="o">());</span>
+<span class="n">ByteSource</span> <span class="n">salt</span> <span class="o">=</span> <span class="n">ByteSource</span><span class="o">.</span><span class="na">Util</span><span class="o">.</span><span class="na">bytes</span><span class="o">(</span><span class="n">username</span><span class="o">);</span>
+<span class="n">authentication</span><span class="o">.</span><span class="na">setCredentialsSalt</span><span class="o">(</span><span class="n">salt</span><span class="o">);</span>
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>若有多种加密，比如在多个数据库中验证，每个数据库中的加密方式不同，可以创建多Realm进行验证。securityManager中添加authenticator属性</p>
+<h2 id="7认证策略">7认证策略</h2>
+<p>AuthenticationStrategy认证策略</p>
+<p><strong>Shiro有3中认证策略的具体实现</strong>
+AuthenticationStrategy类：</p>
+<p>AtLeastOneSuccessfulStrategy（默认）
+只要一个或者多个Realm认证通过，则整体身份认证就会视为成功。</p>
+<p>FirstSuccessfulStrategy
+只有第一个验证通过，才会视为整体认证通过。其他的会被忽略。</p>
+<p>AllSuccessfulStrategy
+只有所有的Realm认证成功，才会被视为认证通过。</p>
+<p>自定义策略：继承org.apache.shiro.authc.pam.AbstractAuthenticationStrategy。
+Realm顺序对认证是有影响的(从第一个Realm到第二个Realm)</p>
+<p>认证策略的修改也是在shiro.xml中的多Realm配置中设置。</p>
+<h2 id="8授权">8授权</h2>
+<blockquote>
+<p>概念</p>
+</blockquote>
+<p>授权，也叫做访问控制，即在应用中控制谁能访问哪些资源（如访问页面、编辑数据、页面操作等）。在授权中需要了解几个关键对象：<strong>主体</strong>（Subject）、<strong>资源</strong>（Resource）、权限（Permission）、角色（Role）。</p>
+<p><strong>主体</strong>：
+主体，即访问应用的用户，在Shiro中使用Subject代表用户。用户只有授权后才允许访问相应的资源。</p>
+<p><strong>资源</strong>：
+在应用中用户可以访问的任何东西都称为资源。用户只有授权后才能访问。</p>
+<p><strong>权限</strong>：
+安全策略中的原子授权单位，通过权限我们可以表示在应用中用户有没有操作某个资源的权利。即权限表示在应用中用户能不能访问某个资源。
+shiro支持粗颗粒度权限（如用户模块的所有权限）和细颗粒度权限（操作某个用户的权限，即实例级别的）。</p>
+<p><strong>角色</strong>：
+角色代表了操作集合，可以理解为权限的集合，一般情况下我们会赋予用户角色而不是权限，即这样用户可以拥有一组权限。不同的角色拥有一组不同的权限。</p>
+<p>shiro支持三种方式的授权：编程(if/else授权代码完成)、注解(在java方法防止相应的注解，没有权限抛出异常)、JSP/GSP(页面通过相应标签完成)。</p>
+<hr>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThirdRealm</span> <span class="kd">extends</span> <span class="n">AuthorizingRealm</span> <span class="o">{</span>
+<span class="c1">//授权
+</span><span class="c1"></span>    <span class="kd">protected</span> <span class="n">AuthorizationInfo</span> <span class="nf">doGetAuthorizationInfo</span><span class="o">(</span><span class="n">PrincipalCollection</span> <span class="n">principals</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;authorization授权方法&#34;</span><span class="o">);</span>
+
+        <span class="c1">//可以获得认证传来的第一个参数
+</span><span class="c1"></span>        <span class="n">Object</span> <span class="n">primaryPrincipal</span> <span class="o">=</span> <span class="n">principals</span><span class="o">.</span><span class="na">getPrimaryPrincipal</span><span class="o">();</span>
+        <span class="c1">//根据对象 进行数据库查找角色、权限
+</span><span class="c1"></span>        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">roles</span><span class="o">=</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+        <span class="n">roles</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;person&#34;</span><span class="o">);</span>
+        <span class="n">roles</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;monster&#34;</span><span class="o">);</span>
+
+        <span class="n">Set</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">permissions</span><span class="o">=</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+        <span class="n">permissions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;person:producing&#34;</span><span class="o">);</span>
+        <span class="n">permissions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;person:kill &#34;</span><span class="o">);</span>
+
+        <span class="c1">//对认证的主体 授权角色、权限
+</span><span class="c1"></span>        <span class="n">SimpleAuthorizationInfo</span> <span class="n">authentication</span><span class="o">=</span><span class="k">new</span> <span class="n">SimpleAuthorizationInfo</span><span class="o">();</span>
+        <span class="n">authentication</span><span class="o">.</span><span class="na">addRoles</span><span class="o">(</span><span class="n">roles</span><span class="o">);</span>
+        <span class="n">authentication</span><span class="o">.</span><span class="na">addStringPermissions</span><span class="o">(</span><span class="n">permissions</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">authentication</span><span class="o">;</span>
+    <span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>jsp标签</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">首先引入命名空间
+&lt;%@taglib prefix=&#34;shiro&#34; uri=&#34;http://shiro.apache.org/tags&#34; %&gt;
+
+当前登录principal&lt;shiro:principal&gt;&lt;/shiro:principal&gt;&lt;br&gt;
+
+&lt;shiro:hasRole name=&#34;fruits&#34;&gt;
+若有fruits权限就显示
+&lt;a href=&#34;${pageContext.request.contextPath}/view/fruits.jsp&#34;&gt;fruits水果类&lt;/a&gt;
+&lt;/shiro:hasRole&gt;
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<p>权限控制一共有三种方式，1 shiro.xml中进行shiroFilter静态配置 或者 对Map进行动态添加，2 对Controller进行权限注解控制。 3jsp页面用标签进行控制。</p>
+<h3 id="权限注解">权限注解</h3>
+<p>SSM需要在shiro/xml和spring-mvc中加入</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!--shiro.xml中加入
+</span><span class="c"> 3.开启Spring AOC Shiro注解支持
+</span><span class="c"> --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor&#34;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;securityManager&#34;</span> <span class="na">ref=</span><span class="s">&#34;securityManager&#34;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="c">&lt;!--  springmvc中加入
+</span><span class="c">开启shiro中aop注解 --&gt;</span>
+<span class="nt">&lt;aop:config</span> <span class="na">proxy-target-class=</span><span class="s">&#34;true&#34;</span><span class="nt">&gt;&lt;/aop:config&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Realm中的权限控制</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//1使用该注解标注的类，实例，方法在访问或调用时，当前Subject必须在当前session中已经过认证。
+</span><span class="c1">//即currentUser.isAuthenticated()=true
+</span><span class="c1"></span><span class="nd">@RequiresAuthentication</span>
+
+<span class="c1">//2表示当前Subject已经身份验证或者通过记住我登录的
+</span><span class="c1"></span><span class="nd">@RequiresUser</span>
+
+<span class="c1">//3使用该注解标注的类，实例，方法在访问或调用时，
+</span><span class="c1">//当前Subject可以是“gust”游客身份，不需要经过认证或者在原先的session中存在记录。
+</span><span class="c1"></span><span class="nd">@RequiresGuest</span><span class="o">:</span>
+ 
+<span class="c1">//4表示当前需要fruits角色，若数组中是{&#34;fruits&#34;,&#34;user&#34;}
+</span><span class="c1">//则需要两个角色，若Logical.OR则说明只需要一个
+</span><span class="c1"></span><span class="nd">@RequiresRoles</span><span class="o">(</span><span class="n">value</span><span class="o">={</span><span class="s">&#34;fruits&#34;</span><span class="o">},</span> <span class="n">logical</span><span class="o">=</span> <span class="n">Logical</span><span class="o">.</span><span class="na">AND</span><span class="o">)</span>
+
+<span class="c1">//5表示当前Subject需要权限当前Subject需要user:b或者user:a权限
+</span><span class="c1">//如果当前Subject不具有这样的权限，则方法不会被执行。
+</span><span class="c1"></span><span class="nd">@RequiresPermissions</span><span class="o">(</span><span class="n">value</span><span class="o">={</span><span class="s">&#34;user:a&#34;</span><span class="o">,</span><span class="s">&#34;user:b&#34;</span><span class="o">},</span> <span class="n">logical</span><span class="o">=</span> <span class="n">Logical</span><span class="o">.</span><span class="na">OR</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="动态权限管理">动态权限管理</h3>
+<p>进行权限管理时，一般都是通过查询数据库进行配置的。
+shiro.xml中配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- 4配置shiroFilter ,Id必须和web.xml中的delegatingFilterProxy的&lt;fileter-name&gt;一致  --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;shiroFilter&#34;</span> <span class="na">class=</span><span class="s">&#34;org.apache.shiro.spring.web.ShiroFilterFactoryBean&#34;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;unauthorizedUrl&#34;</span> <span class="na">value=</span><span class="s">&#34;/login/unAuthorize&#34;</span><span class="nt">/&gt;</span><span class="c">&lt;!-- 未授权的页面 --&gt;</span>
+<span class="c">&lt;!--动态添加权限控制  --&gt;</span>
+<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;filterChainDefinitionMap&#34;</span> <span class="na">ref=</span><span class="s">&#34;filterChainDefinitionMap&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;filterChainDefinitions&#34;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;value&gt;</span>   
+            <span class="nt">&lt;/value&gt;</span>
+        <span class="nt">&lt;/property&gt;</span>
+<span class="nt">&lt;/bean&gt;</span>
+
+<span class="c">&lt;!-- 配置一个Bean，这个bean 实际上是一个Map,通过实例工厂方法的方式 --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;filterChainDefinitionMap&#34;</span> 
+<span class="na">factory-bean=</span><span class="s">&#34;filterChainDefinitionMapBuilder&#34;</span>
+<span class="na">factory-method=</span><span class="s">&#34;buildFilterChainDefinitionMapBuilder&#34;</span><span class="nt">&gt;&lt;/bean&gt;</span>
+
+<span class="c">&lt;!-- 把自己写的返回LinkedHashMap的类交给spring管理，也可以使用@Component --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;filterChainDefinitionMapBuilder&#34;</span>  <span class="na">class=</span><span class="s">&#34;com.lanxin.util.FilterChainDefinitionMapBuilder&#34;</span><span class="nt">&gt;&lt;/bean&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>这里写实例工厂的方法（最好删除xml中的权限控制）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">FilterChainDefinitionMapBuilder</span> <span class="o">{</span>
+
+	
+	<span class="kd">public</span> <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">buildFilterChainDefinitionMapBuilder</span><span class="o">(){</span>
+		
+		<span class="c1">//在这里通过数据库查询
+</span><span class="c1"></span>		<span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span>  <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;();</span>
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/login/login&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">);</span>
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/view/login.jsp&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">);</span>
+    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/view/user.jsp&#34;</span><span class="o">,</span> <span class="s">&#34;perms[删除角色]&#34;</span><span class="o">);</span>
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/login/index&#34;</span><span class="o">,</span> <span class="s">&#34;perms[删除角色]&#34;</span><span class="o">);</span>
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/index.jsp&#34;</span><span class="o">,</span> <span class="s">&#34;perms[删除角色]&#34;</span><span class="o">);</span>
+    
+    <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/view/*.jsp&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">);</span>
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/**&#34;</span><span class="o">,</span> <span class="s">&#34;roles[role123]&#34;</span><span class="o">);</span>
+    
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/**&#34;</span><span class="o">,</span> <span class="s">&#34;authc&#34;</span><span class="o">);</span>
+		
+		<span class="k">return</span> <span class="n">map</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="第二章-集成">第二章-集成</h1>
+<h2 id="1springboot集成">1SpringBoot集成</h2>
+<blockquote>
+<p><strong>集成了redis、session</strong></p>
+</blockquote>
+<h3 id="1导入jar">1导入jar</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0&#34;</span>
+         <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&#34;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+
+    <span class="nt">&lt;groupId&gt;</span>org.example<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>advenced_shiro<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;parent&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>spring-boot-parent<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>2.2.4.RELEASE<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/parent&gt;</span>
+
+    <span class="nt">&lt;dependencies&gt;</span>
+        <span class="c">&lt;!-- springboot-web --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="c">&lt;!-- druid --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.alibaba<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>druid-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.1.21<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="c">&lt;!--  mysql数据库--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>5.1.46<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="c">&lt;!--整合Mybatis plus--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>com.baomidou<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>mybatis-plus-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.1.1<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="c">&lt;!--springboot整合 shiro --&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.shiro<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>shiro-spring<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>1.5.3<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+        <span class="c">&lt;!--springboot整合redis 整合shiro--&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.crazycake<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>shiro-redis<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.2.3<span class="nt">&lt;/version&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+
+
+        <span class="nt">&lt;dependency&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.projectlombok<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>lombok<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;/dependencies&gt;</span>
+
+<span class="nt">&lt;/project&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2yml配置">2yml配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">server</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="m">8200</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">spring</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">datasource</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">username</span><span class="p">:</span><span class="w"> </span>root<span class="w">
+</span><span class="w">    </span><span class="k">password</span><span class="p">:</span><span class="w"> </span><span class="m">123456</span><span class="w">
+</span><span class="w">    </span><span class="k">url</span><span class="p">:</span><span class="w"> </span>jdbc<span class="p">:</span>mysql<span class="p">:</span>//localhost<span class="p">:</span><span class="m">3306</span>/oa1<span class="p">?</span>serverTimezone=UTC<span class="cp">&amp;useUnicode=true&amp;characterEncoding=utf-8</span><span class="w">
+</span><span class="w">    </span><span class="k">driver-class-name</span><span class="p">:</span><span class="w"> </span>com.mysql.jdbc.Driver<span class="w">
+</span><span class="w">    </span><span class="k">type</span><span class="p">:</span><span class="w"> </span>com.alibaba.druid.pool.DruidDataSource<span class="w"> </span><span class="c"># 自定义数据源</span><span class="w">
+</span><span class="w"></span><span class="c">#集成redis</span><span class="w">
+</span><span class="w">  </span><span class="k">redis</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">host</span><span class="p">:</span><span class="w"> </span><span class="m">127.0.0.1</span><span class="w">
+</span><span class="w">    </span><span class="k">port</span><span class="p">:</span><span class="w"> </span><span class="m">6379</span><span class="w">
+</span><span class="w">    </span><span class="k">timeout</span><span class="p">:</span><span class="w"> </span><span class="m">5000</span><span class="w">
+</span><span class="w">    </span><span class="k">jedis</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span><span class="k">pool</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span><span class="k">max-active</span><span class="p">:</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="c">#最大连接</span><span class="w">
+</span><span class="w">        </span><span class="k">max-idle</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="c">#最大空闲</span><span class="w">
+</span><span class="w">        </span><span class="k">time-between-eviction-runs</span><span class="p">:</span><span class="w"> </span><span class="m">60000</span><span class="w"> </span><span class="c">#运行期间的回收时间</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">mybatis-plus</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">mapper-locations</span><span class="p">:</span><span class="w"> </span>classpath<span class="p">:</span>mapper/<span class="cp">*.xml</span><span class="w">
+</span><span class="w">  </span><span class="k">configuration</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="k">log-impl</span><span class="p">:</span><span class="w"> </span>org.apache.ibatis.logging.stdout.StdOutImpl<span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3shiro配置类"><strong>3shiro配置类</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.config</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.lx.shiro.CustomAuthorizingRealm</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.credential.HashedCredentialsMatcher</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.mgt.SecurityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.spring.web.ShiroFilterFactoryBean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.web.mgt.DefaultWebSecurityManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.web.session.mgt.DefaultWebSessionManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.crazycake.shiro.RedisCacheManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.crazycake.shiro.RedisManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.crazycake.shiro.RedisSessionDAO</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Value</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Bean</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.HashMap</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Map</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShiroConfig</span> <span class="o">{</span>
+    <span class="c1">//权限管理，配置主要是Realm的管理认证
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">SecurityManager</span> <span class="nf">securityManager</span><span class="o">(</span><span class="n">CustomAuthorizingRealm</span> <span class="n">realm</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">DefaultWebSecurityManager</span> <span class="n">securityManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultWebSecurityManager</span><span class="o">();</span>
+        <span class="n">securityManager</span><span class="o">.</span><span class="na">setRealm</span><span class="o">(</span><span class="n">realm</span><span class="o">);</span><span class="c1">//1设置realm
+</span><span class="c1"></span>        <span class="n">securityManager</span><span class="o">.</span><span class="na">setSessionManager</span><span class="o">(</span><span class="n">sessionManager</span><span class="o">());</span><span class="c1">//2设置会话管理
+</span><span class="c1"></span>        <span class="n">securityManager</span><span class="o">.</span><span class="na">setCacheManager</span><span class="o">(</span><span class="n">cacheManager</span><span class="o">());</span><span class="c1">//3设置缓存管理器
+</span><span class="c1"></span>        <span class="k">return</span> <span class="n">securityManager</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//1自定义realm
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">CustomAuthorizingRealm</span> <span class="nf">customRealm</span><span class="o">(</span><span class="n">HashedCredentialsMatcher</span> <span class="n">credentialsMatcher</span><span class="o">){</span>
+        <span class="n">CustomAuthorizingRealm</span> <span class="n">realm</span><span class="o">=</span><span class="k">new</span> <span class="n">CustomAuthorizingRealm</span><span class="o">();</span>
+        <span class="c1">//设置密码匹配器
+</span><span class="c1"></span>        <span class="n">realm</span><span class="o">.</span><span class="na">setCredentialsMatcher</span><span class="o">(</span><span class="n">credentialsMatcher</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">realm</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//过滤条件******** 可以查询所有权限，程序开启只运行一次。这样就不需要shiro权限注解了
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">ShiroFilterFactoryBean</span> <span class="nf">shiroFilter</span><span class="o">(</span><span class="n">SecurityManager</span> <span class="n">securityManager</span><span class="o">){</span>
+        <span class="n">ShiroFilterFactoryBean</span> <span class="n">shiroFilter</span><span class="o">=</span><span class="k">new</span> <span class="n">ShiroFilterFactoryBean</span><span class="o">();</span>
+        <span class="n">shiroFilter</span><span class="o">.</span><span class="na">setSecurityManager</span><span class="o">(</span><span class="n">securityManager</span><span class="o">);</span>
+
+        <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">filterMap</span><span class="o">=</span><span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;();</span>
+        <span class="c1">//设置退出 具体代码shiro已经实现
+</span><span class="c1"></span>        <span class="n">filterMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/logout&#34;</span><span class="o">,</span><span class="s">&#34;anon&#34;</span><span class="o">);</span>
+
+        <span class="c1">//设置不会被拦截的连接
+</span><span class="c1"></span>        <span class="n">filterMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/login&#34;</span><span class="o">,</span><span class="s">&#34;anon&#34;</span><span class="o">);</span>
+        <span class="n">filterMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/**&#34;</span><span class="o">,</span><span class="s">&#34;authc&#34;</span><span class="o">);</span>
+
+        <span class="c1">//设置默认登录界面 前后端分离中后端仅仅返回json数据(页面前端控制)
+</span><span class="c1"></span>        <span class="n">shiroFilter</span><span class="o">.</span><span class="na">setFilterChainDefinitionMap</span><span class="o">(</span><span class="n">filterMap</span><span class="o">);</span>
+        <span class="n">shiroFilter</span><span class="o">.</span><span class="na">setLoginUrl</span><span class="o">(</span><span class="s">&#34;/unauth&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">shiroFilter</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//密码匹配器
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">HashedCredentialsMatcher</span> <span class="nf">hashedCredentialsMatcher</span><span class="o">(){</span>
+        <span class="n">HashedCredentialsMatcher</span> <span class="n">matcher</span><span class="o">=</span><span class="k">new</span> <span class="n">HashedCredentialsMatcher</span><span class="o">();</span>
+        <span class="n">matcher</span><span class="o">.</span><span class="na">setHashIterations</span><span class="o">(</span><span class="n">1024</span><span class="o">);</span>
+        <span class="n">matcher</span><span class="o">.</span><span class="na">setHashAlgorithmName</span><span class="o">(</span><span class="s">&#34;md5&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">matcher</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//======开启shiro aop注解支持=====
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">AuthorizationAttributeSourceAdvisor</span> <span class="nf">authorizationAdvison</span><span class="o">(</span><span class="n">SecurityManager</span> <span class="n">securityManager</span><span class="o">){</span>
+        <span class="n">AuthorizationAttributeSourceAdvisor</span> <span class="n">authorization</span><span class="o">=</span><span class="k">new</span> <span class="n">AuthorizationAttributeSourceAdvisor</span><span class="o">();</span>
+        <span class="n">authorization</span><span class="o">.</span><span class="na">setSecurityManager</span><span class="o">(</span><span class="n">securityManager</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">authorization</span><span class="o">;</span>
+    <span class="o">}</span>
+
+
+    <span class="c1">//=====让controller层实现注解控制=====
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">DefaultAdvisorAutoProxyCreator</span> <span class="nf">advisorAutoProxyCreator</span><span class="o">(){</span>
+        <span class="n">DefaultAdvisorAutoProxyCreator</span> <span class="n">advisor</span><span class="o">=</span><span class="k">new</span> <span class="n">DefaultAdvisorAutoProxyCreator</span><span class="o">();</span>
+        <span class="n">advisor</span><span class="o">.</span><span class="na">setProxyTargetClass</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">advisor</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="cm">/*
+</span><span class="cm">     * SessionManager
+</span><span class="cm">     * 使用shiro-redis插件
+</span><span class="cm">     * */</span>
+    <span class="c1">//2会话管理
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">DefaultWebSessionManager</span> <span class="nf">sessionManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">DefaultWebSessionManager</span> <span class="n">sessionManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultWebSessionManager</span><span class="o">();</span>
+        <span class="n">sessionManager</span><span class="o">.</span><span class="na">setSessionIdUrlRewritingEnabled</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
+        <span class="n">sessionManager</span><span class="o">.</span><span class="na">setSessionDAO</span><span class="o">(</span><span class="n">redisSessionDAO</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">sessionManager</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">//会话管理依赖的 --&gt;2
+</span><span class="c1"></span>    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="n">RedisSessionDAO</span> <span class="nf">redisSessionDAO</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">RedisSessionDAO</span> <span class="n">redisSessionDAO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RedisSessionDAO</span><span class="o">();</span>
+        <span class="n">redisSessionDAO</span><span class="o">.</span><span class="na">setRedisManager</span><span class="o">(</span><span class="n">redisManager</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">redisSessionDAO</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">//缓存管理器依赖的--&gt;3
+</span><span class="c1"></span>    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${spring.redis.host}&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">host</span><span class="o">;</span>
+    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${spring.redis.port}&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">port</span><span class="o">;</span>
+    <span class="nd">@Value</span><span class="o">(</span><span class="s">&#34;${spring.redis.timeout}&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">timeout</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="n">RedisManager</span> <span class="nf">redisManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">RedisManager</span> <span class="n">redisManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RedisManager</span><span class="o">();</span>
+        <span class="n">redisManager</span><span class="o">.</span><span class="na">setHost</span><span class="o">(</span><span class="n">host</span><span class="o">+</span><span class="s">&#34;:&#34;</span><span class="o">+</span><span class="n">port</span><span class="o">);</span>
+        <span class="n">redisManager</span><span class="o">.</span><span class="na">setTimeout</span><span class="o">(</span><span class="n">timeout</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">redisManager</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">//使用redis-shiro完毕
+</span><span class="c1"></span>
+    <span class="c1">//3缓存管理器
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">RedisCacheManager</span> <span class="nf">cacheManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">RedisCacheManager</span> <span class="n">redisCacheManager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">RedisCacheManager</span><span class="o">();</span>
+        <span class="n">redisCacheManager</span><span class="o">.</span><span class="na">setRedisManager</span><span class="o">(</span><span class="n">redisManager</span><span class="o">());</span>
+        <span class="k">return</span> <span class="n">redisCacheManager</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4realm对象">4realm对象</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.config</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.lx.mapper.AccountMapper</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.SecurityUtils</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.*</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authz.AuthorizationInfo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authz.SimpleAuthorizationInfo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.realm.AuthorizingRealm</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.subject.PrincipalCollection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.subject.Subject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRealm</span> <span class="kd">extends</span> <span class="n">AuthorizingRealm</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="n">AccountMapper</span> <span class="n">accountMapper</span><span class="o">;</span>
+
+    <span class="c1">//授权
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">AuthorizationInfo</span> <span class="nf">doGetAuthorizationInfo</span><span class="o">(</span><span class="n">PrincipalCollection</span> <span class="n">principalCollection</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了授权&#34;</span><span class="o">);</span>
+        <span class="c1">//这边应该有个权限表什么的，然后进行授权
+</span><span class="c1"></span>        <span class="c1">//controller--&gt;先认证--&gt;再授权，如何获得认证的用户呢，可以用Session,
+</span><span class="c1"></span>        <span class="c1">//也可以在SimpleAuthenticationInfo(&#34;&#34;,account.getPassword(),&#34;&#34;);第一个参数传过来
+</span><span class="c1"></span>        <span class="c1">//然后取出 subject.getPrincipal();可以强转。
+</span><span class="c1"></span>        <span class="n">SimpleAuthorizationInfo</span> <span class="n">info</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleAuthorizationInfo</span><span class="o">();</span>
+        <span class="c1">//添加授权 可以添加多个
+</span><span class="c1"></span>        <span class="n">info</span><span class="o">.</span><span class="na">addStringPermission</span><span class="o">(</span><span class="s">&#34;user.add&#34;</span><span class="o">);</span>
+
+        <span class="n">Subject</span> <span class="n">subject</span><span class="o">=</span><span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+        <span class="n">subject</span><span class="o">.</span><span class="na">getPrincipal</span><span class="o">();</span>
+        <span class="n">info</span><span class="o">.</span><span class="na">addStringPermission</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">info</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="c1">//认证
+</span><span class="c1"></span>    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="n">AuthenticationInfo</span> <span class="nf">doGetAuthenticationInfo</span><span class="o">(</span><span class="n">AuthenticationToken</span> <span class="n">authenticationToken</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">AuthenticationException</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;执行了认证方法==&gt;  &#34;</span><span class="o">);</span>
+
+        <span class="c1">//把认证的authenticationToken转化为用户名密码令牌
+</span><span class="c1"></span>        <span class="n">UsernamePasswordToken</span> <span class="n">token</span> <span class="o">=</span> <span class="o">(</span><span class="n">UsernamePasswordToken</span><span class="o">)</span> <span class="n">authenticationToken</span><span class="o">;</span>
+
+        <span class="c1">//根据帐号查找account 连接数据库
+</span><span class="c1"></span>        <span class="n">com</span><span class="o">.</span><span class="na">lx</span><span class="o">.</span><span class="na">vo</span><span class="o">.</span><span class="na">Account</span> <span class="n">account</span> <span class="o">=</span> <span class="n">accountMapper</span><span class="o">.</span><span class="na">getAccountByUsername</span><span class="o">(</span><span class="n">token</span><span class="o">.</span><span class="na">getUsername</span><span class="o">());</span>
+
+        <span class="c1">//用户名密码 ，可以在数据库中取出，这里方便演示。写固定
+</span><span class="c1"></span>       <span class="c1">// String username=&#34;April&#34;; String password=&#34;thirteen&#34;;
+</span><span class="c1"></span>
+        <span class="c1">//判断帐号是否正确
+</span><span class="c1"></span>        <span class="k">if</span><span class="o">(</span><span class="n">account</span><span class="o">==</span><span class="kc">null</span><span class="o">){</span>
+            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span><span class="c1">//自动抛出异常 UnknowAccountException
+</span><span class="c1"></span>        <span class="o">}</span>
+        <span class="c1">//密码认证，shiro自动帮做
+</span><span class="c1"></span>        <span class="k">return</span> <span class="k">new</span> <span class="n">SimpleAuthenticationInfo</span><span class="o">(</span><span class="s">&#34;&#34;</span><span class="o">,</span><span class="n">account</span><span class="o">.</span><span class="na">getPassword</span><span class="o">(),</span><span class="s">&#34;&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5编写controller">5编写controller</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lx.controller</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.lx.util.CommonResult</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.SecurityUtils</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.UsernamePasswordToken</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authz.annotation.RequiresPermissions</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authz.annotation.RequiresRoles</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.subject.Subject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="o">;</span>
+
+<span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ShiroController</span> <span class="o">{</span>
+
+
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;login&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">CommonResult</span> <span class="nf">login</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">password</span><span class="o">){</span>
+        <span class="n">Subject</span> <span class="n">currentUser</span> <span class="o">=</span> <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+
+        <span class="n">UsernamePasswordToken</span> <span class="n">token</span><span class="o">=</span><span class="k">new</span> <span class="n">UsernamePasswordToken</span><span class="o">(</span><span class="n">name</span><span class="o">,</span><span class="n">password</span><span class="o">);</span>
+        <span class="n">currentUser</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">CommonResult</span><span class="o">.</span><span class="na">getSuccess</span><span class="o">(</span><span class="s">&#34;登录成功&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;unauth&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">CommonResult</span> <span class="nf">unauth</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">CommonResult</span><span class="o">.</span><span class="na">getFail</span><span class="o">(</span><span class="n">12</span><span class="o">,</span><span class="s">&#34;没有权限 请登录&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@RequiresRoles</span><span class="o">({</span><span class="s">&#34;卢森林&#34;</span><span class="o">})</span>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/role/deleteRole&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">CommonResult</span> <span class="nf">deleteRole</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">CommonResult</span><span class="o">.</span><span class="na">getSuccess</span><span class="o">(</span><span class="s">&#34;删除角色成功&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="nd">@RequiresPermissions</span><span class="o">({</span><span class="s">&#34;/role/addRole&#34;</span><span class="o">})</span>
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;/role/addRole&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">CommonResult</span> <span class="nf">addRole</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">CommonResult</span><span class="o">.</span><span class="na">getSuccess</span><span class="o">(</span><span class="s">&#34;添加角色成功&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;logout&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">CommonResult</span> <span class="nf">logout</span><span class="o">(){</span>
+        <span class="n">Subject</span> <span class="n">currentUser</span> <span class="o">=</span> <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+        <span class="n">currentUser</span><span class="o">.</span><span class="na">logout</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">CommonResult</span><span class="o">.</span><span class="na">getSuccess</span><span class="o">(</span><span class="s">&#34;登出成功&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="说明">说明</h3>
+<p><strong>配置类别说明</strong></p>
+<p>/user/add设置的为anon任何人都可以访问，
+/user/update为authc必须认证才可访问</p>
+<p>没有认证就会到/toLogin页面
+//设置登录Url shiroFilterFactoryBean.setLoginUrl(&quot;/toLogin&rdquo;);</p>
+<blockquote>
+<p>filterMap.put(&quot;/user/add&rdquo;,&ldquo;anon&rdquo;);
+filterMap.put(&quot;/user/update&rdquo;,&ldquo;authc&rdquo;);</p>
+</blockquote>
+<p><strong>controller说明</strong></p>
+<p>subject.login(token);会到realm对象中去认证，认证中抛出异常，或者认证成功做出不同响应。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">String</span> <span class="nf">login</span><span class="o">(</span><span class="n">String</span> <span class="n">username</span><span class="o">,</span><span class="n">String</span> <span class="n">password</span><span class="o">,</span><span class="n">Model</span> <span class="n">model</span><span class="o">){</span>
+    <span class="c1">//获取当前用户
+</span><span class="c1"></span>    <span class="n">Subject</span> <span class="n">subject</span><span class="o">=</span> <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+    <span class="c1">//封装用户登录数据
+</span><span class="c1"></span>    <span class="n">UsernamePasswordToken</span> <span class="n">token</span><span class="o">=</span><span class="k">new</span> <span class="n">UsernamePasswordToken</span><span class="o">(</span><span class="n">username</span><span class="o">,</span><span class="n">password</span><span class="o">);</span>
+    <span class="k">try</span> <span class="o">{</span>
+      <span class="c1">//执行登录方法，没异常就好了
+</span><span class="c1"></span>      <span class="n">subject</span><span class="o">.</span><span class="na">login</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+    <span class="o">}</span><span class="k">catch</span><span class="o">(){</span>
+      <span class="c1">//  xxxx
+</span><span class="c1"></span>    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>realm对象</strong></p>
+<p>认证方法：把AuthenticationToken转为UsernamePasswordToken对象，然后获取帐号，去数据库进行查找。</p>
+<p>退出登录<code>currentUser.logout();</code></p>
+<h2 id="2集成spring">2集成Spring</h2>
+<blockquote>
+<p>一 环境的配置，1pom.xml，2web.xml，3application.xml</p>
+</blockquote>
+<p>1需要导入 shiro-spring 及 spring-context 依赖，具体请参考 pom.xml。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="c">&lt;!-- shiro安全框架  --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.apache.shiro<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>shiro-core<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.5.3<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.shiro<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>shiro-spring<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.5.3<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.apache.shiro<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>shiro-web<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.5.3<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="c">&lt;!-- 日志 --&gt;</span>
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>log4j<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>log4j<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.2.17<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>jcl-over-slf4j<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.7.25<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>org.slf4j<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>slf4j-log4j12<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>1.7.25<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>2在web.xml加入shiro的过滤，可以把Github上的shiro克隆下来，然后进行查看。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="cp">&lt;!DOCTYPE xml&gt;</span>
+<span class="nt">&lt;web-app</span> <span class="na">version=</span><span class="s">&#34;2.5&#34;</span> <span class="na">xmlns=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee&#34;</span>
+	<span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+	<span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://java.sun.com/xml/ns/javaee 
+</span><span class="s">&#34;</span><span class="nt">&gt;</span>
+
+	<span class="c">&lt;!-- Springmvc 在web文件中配置 --&gt;</span>
+	<span class="nt">&lt;servlet&gt;</span>
+		<span class="nt">&lt;servlet-name&gt;</span>springmvc<span class="nt">&lt;/servlet-name&gt;</span>
+		<span class="nt">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet
+		<span class="nt">&lt;/servlet-class&gt;</span>
+		
+		<span class="nt">&lt;init-param&gt;</span>
+			<span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+			<span class="nt">&lt;param-value&gt;</span>classpath:springmvc.xml<span class="nt">&lt;/param-value&gt;</span>
+		<span class="nt">&lt;/init-param&gt;</span>
+
+	<span class="nt">&lt;/servlet&gt;</span>
+	<span class="nt">&lt;servlet-mapping&gt;</span>
+		<span class="nt">&lt;servlet-name&gt;</span>springmvc<span class="nt">&lt;/servlet-name&gt;</span>
+		<span class="nt">&lt;url-pattern&gt;</span>/<span class="nt">&lt;/url-pattern&gt;</span>
+	<span class="nt">&lt;/servlet-mapping&gt;</span>
+	
+	<span class="c">&lt;!-- 配置Springmvc Post请求乱码 --&gt;</span>	
+	<span class="nt">&lt;filter&gt;</span>	
+		<span class="nt">&lt;filter-name&gt;</span>CharacterEncodingFilter<span class="nt">&lt;/filter-name&gt;</span>
+		<span class="nt">&lt;filter-class&gt;</span>org.springframework.web.filter.CharacterEncodingFilter
+		<span class="nt">&lt;/filter-class&gt;</span>
+		<span class="nt">&lt;init-param&gt;</span>
+			<span class="nt">&lt;param-name&gt;</span>encoding<span class="nt">&lt;/param-name&gt;</span>
+			<span class="nt">&lt;param-value&gt;</span>utf-8<span class="nt">&lt;/param-value&gt;</span>
+		<span class="nt">&lt;/init-param&gt;</span>
+	<span class="nt">&lt;/filter&gt;</span>
+	<span class="nt">&lt;filter-mapping&gt;</span>
+		<span class="nt">&lt;filter-name&gt;</span>CharacterEncodingFilter<span class="nt">&lt;/filter-name&gt;</span>
+		<span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+	<span class="nt">&lt;/filter-mapping&gt;</span>
+
+	<span class="c">&lt;!-- Spring 在web文件中配置 --&gt;</span>
+	<span class="nt">&lt;context-param&gt;</span>
+		<span class="nt">&lt;param-name&gt;</span>contextConfigLocation<span class="nt">&lt;/param-name&gt;</span>
+		<span class="nt">&lt;param-value&gt;</span>classpath:applicationContext.xml<span class="nt">&lt;/param-value&gt;</span>
+	<span class="nt">&lt;/context-param&gt;</span>
+
+	
+	<span class="c">&lt;!-- 配置shiro过滤器 --&gt;</span>
+	 	<span class="nt">&lt;filter&gt;</span>
+	  <span class="nt">&lt;filter-name&gt;</span>shiroFilter<span class="nt">&lt;/filter-name&gt;</span>
+	  <span class="nt">&lt;filter-class&gt;</span>
+	      org.springframework.web.filter.DelegatingFilterProxy
+	   <span class="nt">&lt;/filter-class&gt;</span>
+	  <span class="nt">&lt;init-param&gt;</span>
+	    <span class="nt">&lt;param-name&gt;</span>targetFilterLifecycle<span class="nt">&lt;/param-name&gt;</span>
+	    <span class="nt">&lt;param-value&gt;</span>true<span class="nt">&lt;/param-value&gt;</span>
+	  <span class="nt">&lt;/init-param&gt;</span>
+	<span class="nt">&lt;/filter&gt;</span>
+	<span class="nt">&lt;filter-mapping&gt;</span>
+	  <span class="nt">&lt;filter-name&gt;</span>shiroFilter<span class="nt">&lt;/filter-name&gt;</span>
+	  <span class="nt">&lt;url-pattern&gt;</span>/*<span class="nt">&lt;/url-pattern&gt;</span>
+	<span class="nt">&lt;/filter-mapping&gt;</span>
+	
+    <span class="c">&lt;!-- spring监听 --&gt;</span>
+    <span class="nt">&lt;listener&gt;</span>
+		<span class="nt">&lt;listener-class&gt;</span>
+			org.springframework.web.context.ContextLoaderListener
+		<span class="nt">&lt;/listener-class&gt;</span>
+	<span class="nt">&lt;/listener&gt;</span>
+    
+  <span class="nt">&lt;display-name&gt;</span>Archetype Created Web Application<span class="nt">&lt;/display-name&gt;</span>
+<span class="nt">&lt;/web-app&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>3application.xml的spring项目，在spring-hibernate中查看(首先配置SecurityManager,由于没用到Ehcase，就不进行配置，该网址是有Ehcase的https://www.cnblogs.com/xiaoliangup/p/10434372.html)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span class="nt">&lt;beans</span> <span class="na">xmlns=</span><span class="s">&#34;http://www.springframework.org/schema/beans&#34;</span>
+    <span class="na">xmlns:xsi=</span><span class="s">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+     	<span class="na">xmlns:aop=</span><span class="s">&#34;http://www.springframework.org/schema/aop&#34;</span>
+    <span class="na">xsi:schemaLocation=</span><span class="s">&#34;http://www.springframework.org/schema/beans 
+</span><span class="s">    http://www.springframework.org/schema/beans/spring-beans.xsd
+</span><span class="s">  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd&#34;</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- 
+</span><span class="c">    1. 配置 SecurityManager!  
+</span><span class="c">    若有多个realm可以用 realms /relm/ 领域，范围；王国。
+</span><span class="c">    可以自行继承AuthorizingRealm（其是Realm接口的子孙类，Realm 接口是Shiro中所有Realm的顶级接口）
+</span><span class="c">    --&gt;</span>     
+   <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;securityManager&#34;</span> <span class="na">class=</span><span class="s">&#34;org.apache.shiro.web.mgt.DefaultWebSecurityManager&#34;</span><span class="nt">&gt;</span>
+        <span class="c">&lt;!-- Single realm app (realm configured next, below).  If you have multiple realms, use the &#39;realms&#39;
+</span><span class="c">      property instead. --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;realm&#34;</span> <span class="na">ref=</span><span class="s">&#34;thirdRealm&#34;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;sessionManager&#34;</span> <span class="na">ref=</span><span class="s">&#34;sessionManager&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+<span class="c">&lt;!--1.1 session会话管理  --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;sessionManager&#34;</span> <span class="na">class=</span><span class="s">&#34;org.apache.shiro.web.session.mgt.DefaultWebSessionManager&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;sessionIdUrlRewritingEnabled&#34;</span> <span class="na">value=</span><span class="s">&#34;false&#34;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+<span class="c">&lt;!--1.2 实现的realm接口  --&gt;</span>
+   <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;thirdRealm&#34;</span> <span class="na">class=</span><span class="s">&#34;com.lanxin.qx.realm.ThirdRealm&#34;</span><span class="nt">&gt;</span>
+
+   <span class="nt">&lt;/bean&gt;</span>
+
+    <span class="c">&lt;!--2配置lifecycleBeanPostProcessor ,可以自动调用配置在Ioc容器中的shiro bean的生命周期方法
+</span><span class="c">     Post processor that automatically invokes init() and destroy() methods --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;lifecycleBeanPostProcessor&#34;</span> <span class="na">class=</span><span class="s">&#34;org.apache.shiro.spring.LifecycleBeanPostProcessor&#34;</span><span class="nt">/&gt;</span>
+
+   <span class="c">&lt;!-- 3使用shiro安全检查注解 --&gt;</span>
+	<span class="nt">&lt;bean</span> <span class="na">class=</span><span class="s">&#34;org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator&#34;</span> <span class="na">depends-on=</span><span class="s">&#34;lifecycleBeanPostProcessor&#34;</span> <span class="nt">/&gt;</span>
+    
+    <span class="c">&lt;!-- 4配置shiroFilter ,Id必须和web.xml中的delegatingFilterProxy的&lt;fileter-name&gt;一致  --&gt;</span>
+    <span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;shiroFilter&#34;</span> <span class="na">class=</span><span class="s">&#34;org.apache.shiro.spring.web.ShiroFilterFactoryBean&#34;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;securityManager&#34;</span> <span class="na">ref=</span><span class="s">&#34;securityManager&#34;</span><span class="nt">/&gt;</span> 
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;loginUrl&#34;</span> <span class="na">value=</span><span class="s">&#34;/view/login.jsp&#34;</span> <span class="nt">/&gt;</span><span class="c">&lt;!-- 登录页面 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;successUrl&#34;</span>  <span class="na">value=</span><span class="s">&#34;/login/shouye&#34;</span> <span class="nt">/&gt;</span><span class="c">&lt;!-- 登录成功页面 --&gt;</span>
+        <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;unauthorizedUrl&#34;</span> <span class="na">value=</span><span class="s">&#34;/function/showMyFunction?state=shiro&#34;</span><span class="nt">/&gt;</span><span class="c">&lt;!-- 未授权的页面 --&gt;</span>
+<span class="c">&lt;!--  --&gt;</span>
+		<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;filterChainDefinitionMap&#34;</span> <span class="na">ref=</span><span class="s">&#34;filterChainDefinitionMap&#34;</span><span class="nt">&gt;&lt;/property&gt;</span>
+    <span class="nt">&lt;/bean&gt;</span>
+
+<span class="c">&lt;!-- 配置一个Bean，这个bean 实际上是一个Map,通过实例工厂方法的方式 --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;filterChainDefinitionMap&#34;</span> 
+<span class="na">factory-bean=</span><span class="s">&#34;filterChainDefinitionMapBuilder&#34;</span>
+<span class="na">factory-method=</span><span class="s">&#34;buildFilterChainDefinitionMapBuilder&#34;</span><span class="nt">&gt;&lt;/bean&gt;</span>
+
+<span class="c">&lt;!-- 把自己写的返回LinkedHashMap的类交给spring管理，也可以使用@Component --&gt;</span>
+<span class="nt">&lt;bean</span> <span class="na">id=</span><span class="s">&#34;filterChainDefinitionMapBuilder&#34;</span>  <span class="na">class=</span><span class="s">&#34;com.lanxin.util.FilterChainDefinitionMapBuilder&#34;</span><span class="nt">&gt;&lt;/bean&gt;</span>
+
+<span class="nt">&lt;/beans&gt;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>这里表示哪些页面放行，哪些页面需要权限。</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lanxin.util</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.LinkedHashMap</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Component</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.lanxin.qx.bean.QxFunction</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.qx.dao.FunctionDao</span><span class="o">;</span>
+
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">FilterChainDefinitionMapBuilder</span> <span class="o">{</span>
+
+	<span class="nd">@Autowired</span>
+	<span class="n">FunctionDao</span> <span class="n">funDao</span><span class="o">;</span>
+	
+	<span class="kd">public</span> <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span> <span class="nf">buildFilterChainDefinitionMapBuilder</span><span class="o">(){</span>
+		
+		<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">QxFunction</span><span class="o">&gt;</span> <span class="n">funs</span><span class="o">=</span>	<span class="n">funDao</span><span class="o">.</span><span class="na">findAllChildrenAuthority</span><span class="o">();</span>
+		
+		<span class="c1">//在这里通过数据库查询
+</span><span class="c1"></span>		<span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;</span>  <span class="n">map</span><span class="o">=</span><span class="k">new</span> <span class="n">LinkedHashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">&gt;();</span>
+		
+		<span class="c1">//放行的
+</span><span class="c1"></span>		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/view/login.jsp&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">);</span>
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/login/login&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">);</span>
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/view/**&#34;</span><span class="o">,</span> <span class="s">&#34;anon&#34;</span><span class="o">);</span><span class="c1">//静态资源放行
+</span><span class="c1"></span>				
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/login/droptout&#34;</span><span class="o">,</span> <span class="s">&#34;logout&#34;</span><span class="o">);</span><span class="c1">//退出
+</span><span class="c1"></span>		
+		<span class="c1">//需要权限的 从数据库查出
+</span><span class="c1"></span>		<span class="k">if</span><span class="o">(</span><span class="n">funs</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">for</span><span class="o">(</span><span class="n">QxFunction</span> <span class="n">f</span><span class="o">:</span><span class="n">funs</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="na">getMethod</span><span class="o">(),</span> <span class="s">&#34;perms[&#34;</span><span class="o">+</span><span class="n">f</span><span class="o">.</span><span class="na">getFunctionName</span><span class="o">()+</span><span class="s">&#34;]&#34;</span><span class="o">);</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34; f.getMethod():&#34;</span><span class="o">+</span><span class="n">f</span><span class="o">.</span><span class="na">getMethod</span><span class="o">()+</span><span class="s">&#34;   方法名称:&#34;</span><span class="o">+</span><span class="s">&#34;perms[&#34;</span><span class="o">+</span><span class="n">f</span><span class="o">.</span><span class="na">getFunctionName</span><span class="o">()+</span><span class="s">&#34;]&#34;</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+				
+		<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;/**&#34;</span><span class="o">,</span> <span class="s">&#34;authc&#34;</span><span class="o">);</span>
+		
+		<span class="k">return</span> <span class="n">map</span><span class="o">;</span>
+	<span class="o">}</span>
+	
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>AuthorizingRealm 授权范围类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.lanxin.qx.realm</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.HashSet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.Set</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.shiro.SecurityUtils</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.AuthenticationException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.AuthenticationInfo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.AuthenticationToken</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.LockedAccountException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.SimpleAuthenticationInfo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.UnknownAccountException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authc.UsernamePasswordToken</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authz.AuthorizationInfo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.authz.SimpleAuthorizationInfo</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.crypto.hash.SimpleHash</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.realm.AuthorizingRealm</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.realm.Realm</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.session.Session</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.subject.PrincipalCollection</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.shiro.util.ByteSource</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.lanxin.lc.dao.ILcApprovalDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.lc.dao.ILcFlowDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.qx.bean.QxFunction</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.qx.bean.QxRole</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.qx.controller.FunctionController</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.qx.dao.FunctionDao</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.qx.impl.FunctionDaoImpl</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.rs.bean.ZzAccount</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.lanxin.rs.bean.ZzEmployee</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ThirdRealm</span> <span class="kd">extends</span> <span class="n">AuthorizingRealm</span> <span class="o">{</span>
+
+	<span class="c1">//查询账号方法
+</span><span class="c1"></span>	<span class="nd">@Autowired</span>
+	<span class="n">ILcApprovalDao</span> <span class="n">approvalDao</span><span class="o">;</span>
+	
+	<span class="c1">//通过账号查询员工
+</span><span class="c1"></span>	<span class="nd">@Autowired</span>
+	<span class="n">ILcFlowDao</span> <span class="n">LcFlowDao</span><span class="o">;</span>
+	
+	<span class="c1">//用于获取当前的权限
+</span><span class="c1"></span>	<span class="nd">@Autowired</span>
+ 	<span class="n">FunctionDao</span> <span class="n">funDao</span><span class="o">;</span>
+	
+	<span class="c1">//用于授权方法
+</span><span class="c1"></span>	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="n">AuthorizationInfo</span> <span class="nf">doGetAuthorizationInfo</span><span class="o">(</span><span class="n">PrincipalCollection</span> <span class="n">principals</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34; AuthorizingRealm ------principals认证&#34;</span><span class="o">);</span>
+		
+		
+		
+		<span class="n">SimpleAuthorizationInfo</span> <span class="n">info</span><span class="o">=</span><span class="k">new</span> <span class="n">SimpleAuthorizationInfo</span><span class="o">();</span>
+		<span class="c1">//1从PrincipalConllection中获得登录用户信息
+</span><span class="c1"></span>		<span class="n">ZzEmployee</span> <span class="n">principal</span> <span class="o">=</span> <span class="o">(</span><span class="n">ZzEmployee</span><span class="o">)</span> <span class="n">principals</span><span class="o">.</span><span class="na">getPrimaryPrincipal</span><span class="o">();</span><span class="c1">// 获取认证方法传来的第一个参数，一般为用户对象
+</span><span class="c1"></span>		<span class="n">Set</span><span class="o">&lt;</span><span class="n">QxFunction</span><span class="o">&gt;</span> <span class="n">funs</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getAuthoritysByEid</span><span class="o">(</span><span class="n">principal</span><span class="o">.</span><span class="na">getOid</span><span class="o">());</span>
+		<span class="k">if</span> <span class="o">(</span><span class="n">funs</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">for</span> <span class="o">(</span><span class="n">QxFunction</span> <span class="n">f</span> <span class="o">:</span> <span class="n">funs</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">info</span><span class="o">.</span><span class="na">addStringPermission</span><span class="o">(</span><span class="n">f</span><span class="o">.</span><span class="na">getFunctionName</span><span class="o">());</span>
+				<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34; 添加了方法-------&#34;</span><span class="o">+</span><span class="n">f</span><span class="o">.</span><span class="na">getFunctionName</span><span class="o">());</span>
+			<span class="o">}</span>
+		<span class="o">}</span>
+
+		<span class="c1">//4返回SimpleAuthorizationInfo对象		
+</span><span class="c1"></span>		<span class="k">return</span> <span class="n">info</span><span class="o">;</span>
+	<span class="o">}</span>
+
+	<span class="c1">//用于认证方法
+</span><span class="c1"></span>	<span class="nd">@Override</span>
+	<span class="kd">protected</span> <span class="n">AuthenticationInfo</span> <span class="nf">doGetAuthenticationInfo</span><span class="o">(</span><span class="n">AuthenticationToken</span> <span class="n">token</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">AuthenticationException</span> <span class="o">{</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34; AuthorizingRealm ------token认证&#34;</span><span class="o">);</span>
+		<span class="c1">//获得当前的 Subject主体
+</span><span class="c1"></span>		<span class="n">org</span><span class="o">.</span><span class="na">apache</span><span class="o">.</span><span class="na">shiro</span><span class="o">.</span><span class="na">subject</span><span class="o">.</span><span class="na">Subject</span> <span class="n">currentUser</span> <span class="o">=</span> <span class="n">SecurityUtils</span><span class="o">.</span><span class="na">getSubject</span><span class="o">();</span>
+		<span class="c1">//通过主题获得session
+</span><span class="c1"></span>		<span class="n">Session</span> <span class="n">session</span><span class="o">=</span><span class="n">currentUser</span><span class="o">.</span><span class="na">getSession</span><span class="o">();</span>
+		 <span class="c1">//1把认证的authenticationToken转化为用户名密码令牌
+</span><span class="c1"></span>		 <span class="n">UsernamePasswordToken</span> <span class="n">upToken</span> <span class="o">=</span> <span class="o">(</span><span class="n">UsernamePasswordToken</span><span class="o">)</span> <span class="n">token</span><span class="o">;</span>
+
+		 <span class="c1">//2从UsernamePasswordToken取出username
+</span><span class="c1"></span>		 <span class="n">String</span> <span class="n">tokenUsername</span><span class="o">=</span><span class="n">upToken</span><span class="o">.</span><span class="na">getUsername</span><span class="o">();</span>
+		 <span class="n">String</span> <span class="n">tokenPassword</span><span class="o">=</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">upToken</span><span class="o">.</span><span class="na">getPassword</span><span class="o">());</span>
+
+		 <span class="c1">//3从数据库取出用户名密码 ，这里方便演示。写固定
+</span><span class="c1"></span>		 <span class="n">ZzAccount</span> <span class="n">account</span><span class="o">=</span><span class="n">LcFlowDao</span><span class="o">.</span><span class="na">selectUniqueDl</span><span class="o">(</span><span class="n">tokenUsername</span><span class="o">,</span> <span class="n">tokenPassword</span><span class="o">);</span>
+		 <span class="n">String</span> <span class="n">username</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span> 
+		 <span class="n">String</span> <span class="n">password</span><span class="o">=</span><span class="kc">null</span><span class="o">;</span>
+		 <span class="k">if</span><span class="o">(</span><span class="n">account</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+		 <span class="n">username</span><span class="o">=</span><span class="n">tokenUsername</span><span class="o">;</span> 
+		  <span class="n">password</span><span class="o">=</span><span class="n">tokenPassword</span><span class="o">;</span>
+		 <span class="o">}</span>
+		<span class="cm">/*
+</span><span class="cm">		 * //4若用户不存在(数据库对象为null),则可以抛出UnknowAccountException,返回null自动抛出
+</span><span class="cm">		 * if(&#34;&#34;.equals(tokenAccount)) { System.out.println(&#34;用户不存在&#34;); throw new
+</span><span class="cm">		 * UnknownAccountException(&#34;用户不存在&#34;);//自动抛出异常 UnknowAccountException }
+</span><span class="cm">		 */</span>
+		 
+		 <span class="k">if</span><span class="o">(</span><span class="n">account</span><span class="o">==</span><span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+			 <span class="k">throw</span> <span class="k">new</span> <span class="n">UnknownAccountException</span><span class="o">(</span><span class="s">&#34;用户不存在,或密码错误&#34;</span><span class="o">);</span>
+		 <span class="o">}</span>
+
+		 <span class="c1">//5根据用户信息情况,决定是否抛出其他AccountException
+</span><span class="c1"></span>		 <span class="k">if</span><span class="o">(!</span><span class="s">&#34;1&#34;</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getInactive</span><span class="o">()))){</span>
+		     <span class="k">throw</span> <span class="k">new</span> <span class="n">LockedAccountException</span><span class="o">(</span><span class="s">&#34;用户被锁定&#34;</span><span class="o">);</span>
+		 <span class="o">}</span>
+		 
+		 
+		 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;登录成功&#34;</span><span class="o">);</span>
+		 <span class="c1">//存放到session
+</span><span class="c1"></span>		 <span class="n">session</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&#34;account&#34;</span><span class="o">,</span> <span class="n">account</span><span class="o">);</span><span class="c1">//存放账号
+</span><span class="c1"></span>		 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;=========存放账号=====&#34;</span><span class="o">);</span>
+		 <span class="n">ZzEmployee</span> <span class="n">emp</span><span class="o">=</span><span class="n">approvalDao</span><span class="o">.</span><span class="na">selectEmpId</span><span class="o">(</span><span class="n">account</span><span class="o">.</span><span class="na">getUid</span><span class="o">());</span><span class="c1">//得到员工信息
+</span><span class="c1"></span>		 <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;=========存放账号结束=====&#34;</span><span class="o">);</span>
+
+		  <span class="n">session</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&#34;emp&#34;</span><span class="o">,</span> <span class="n">emp</span><span class="o">);</span><span class="c1">//存放员工
+</span><span class="c1"></span>		  <span class="n">session</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">&#34;username&#34;</span><span class="o">,</span> <span class="n">emp</span><span class="o">.</span><span class="na">getEmpName</span><span class="o">());</span><span class="c1">//存放员工
+</span><span class="c1"></span>		  
+		  <span class="n">SimpleAuthenticationInfo</span>  <span class="n">authentication</span><span class="o">=</span> <span class="k">new</span> <span class="n">SimpleAuthenticationInfo</span><span class="o">(</span><span class="n">emp</span><span class="o">,</span> <span class="n">tokenPassword</span><span class="o">,</span><span class="n">getName</span><span class="o">());</span>
+		<span class="k">return</span> <span class="n">authentication</span><span class="o">;</span>
+	<span class="o">}</span>
+
+
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="n">String</span> <span class="n">hashAlonrithmName</span><span class="o">=</span><span class="s">&#34;MD5&#34;</span><span class="o">;</span>
+		<span class="n">Object</span> <span class="n">credentials</span><span class="o">=</span><span class="s">&#34;123456&#34;</span><span class="o">;</span>
+		<span class="n">Object</span> <span class="n">salt</span><span class="o">=</span><span class="n">ByteSource</span><span class="o">.</span><span class="na">Util</span><span class="o">.</span><span class="na">bytes</span><span class="o">(</span><span class="s">&#34;April&#34;</span><span class="o">);</span><span class="c1">//使用username
+</span><span class="c1"></span>		<span class="kt">int</span> <span class="n">hashIterations</span><span class="o">=</span><span class="n">1024</span><span class="o">;</span>
+		<span class="n">Object</span> <span class="n">result</span><span class="o">=</span><span class="k">new</span> <span class="n">SimpleHash</span><span class="o">(</span><span class="n">hashAlonrithmName</span><span class="o">,</span> <span class="n">credentials</span><span class="o">,</span> <span class="n">salt</span><span class="o">,</span> <span class="n">hashIterations</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">result</span><span class="o">);</span>
+	<span class="o">}</span>
+
+	<span class="c1">// 获取当前员工的 权限方法  抽取出来，
+</span><span class="c1"></span>		<span class="kd">public</span>  <span class="n">Set</span><span class="o">&lt;</span><span class="n">QxFunction</span><span class="o">&gt;</span> <span class="nf">getAuthoritysByEid</span><span class="o">(</span><span class="n">Integer</span> <span class="n">eid</span><span class="o">){</span>
+			<span class="c1">//根据EID查询这个员工，然后取出该员工的角色
+</span><span class="c1"></span>					<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">ZzEmployee</span><span class="o">&gt;</span> <span class="n">emps</span><span class="o">=</span><span class="n">funDao</span><span class="o">.</span><span class="na">findAuthorityByEid</span><span class="o">(</span><span class="n">eid</span><span class="o">);</span> 
+					<span class="n">Set</span><span class="o">&lt;</span><span class="n">QxRole</span><span class="o">&gt;</span> <span class="n">roleSet</span><span class="o">=</span> <span class="n">emps</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">0</span><span class="o">).</span><span class="na">getRoles</span><span class="o">();</span>
+				
+					<span class="c1">//权限方法的集合
+</span><span class="c1"></span>					<span class="n">Set</span><span class="o">&lt;</span><span class="n">QxFunction</span><span class="o">&gt;</span> <span class="n">funSet</span><span class="o">=</span><span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">roleSet</span><span class="o">.</span><span class="na">size</span><span class="o">()&gt;</span><span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+						<span class="k">for</span><span class="o">(</span><span class="n">QxRole</span> <span class="n">role</span><span class="o">:</span><span class="n">roleSet</span><span class="o">)</span> <span class="o">{</span>
+							<span class="n">funSet</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">role</span><span class="o">.</span><span class="na">getAuthority</span><span class="o">());</span>
+						<span class="o">}</span>
+					<span class="o">}</span>
+			<span class="k">return</span> <span class="n">funSet</span><span class="o">;</span>
+		<span class="o">}</span>
+	
+<span class="o">}</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="3权限名称">3权限名称</h2>
+<blockquote>
+<p>注意 shiro.ini</p>
+<p><img src="/typoraImg/shiro%E5%AE%89%E5%85%A8%E6%A1%86%E6%9E%B6.assets/3e08ae88a0274708bf36d52e1aab5bf9.png" alt="img"></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">这个问题出现的原有是web.xml配置不一致.</span>
+<span class="c1">#报错：Caused by: org.apache.shiro.env.RequiredTypeException: </span>
+<span class="c1">#Object named &#39;filterChainResolver&#39; is not of required type [org.apache.shiro.web.filter.mgt.FilterChainResolver].</span>
+<span class="k">[urls]</span>
+<span class="na">/index.jsp</span> <span class="o">=</span> <span class="s">authc</span>
+<span class="na">/</span> <span class="o">=</span> <span class="s">authc</span>
+<span class="na">/admin.jsp</span> <span class="o">=</span> <span class="s">authc,roles[role1]</span>
+<span class="na">/login</span> <span class="o">=</span> <span class="s">anon</span>
+<span class="na">/logout</span> <span class="o">=</span> <span class="s">logout</span>
+
+<span class="na">anon: 无需认证即可访问</span>
+<span class="na">authc: 需要认证才可访问</span>
+<span class="na">user: 点击“记住我”功能可访问</span>
+<span class="na">perms: 拥有权限才可以访问</span>
+<span class="na">roles: 拥有某个角色权限才能访问</span>
+<span class="na">logout:登出</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-08-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/redis/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Redis.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/spring/">
+            <span class="next-text nav-default">Spring.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

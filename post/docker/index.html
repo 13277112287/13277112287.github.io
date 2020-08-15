@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>docker.md - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="卢森林" /><meta name="description" content="第一章-Docker概述 学习视频-前锋：https://www.bilibili.com/video/BV1sK4y1s7Cj?from=s" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://13277112287.github.io/post/docker/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.8c3cbcb0324c2bb4875ceccba4007cbad4b4ac8377f33af9953c3e7684534a50.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="docker.md" />
+<meta property="og:description" content="第一章-Docker概述 学习视频-前锋：https://www.bilibili.com/video/BV1sK4y1s7Cj?from=s" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://13277112287.github.io/post/docker/" />
+<meta property="article:published_time" content="2020-04-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="name" content="docker.md">
+<meta itemprop="description" content="第一章-Docker概述 学习视频-前锋：https://www.bilibili.com/video/BV1sK4y1s7Cj?from=s">
+<meta itemprop="datePublished" content="2020-04-29T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-12T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3231">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="docker.md"/>
+<meta name="twitter:description" content="第一章-Docker概述 学习视频-前锋：https://www.bilibili.com/video/BV1sK4y1s7Cj?from=s"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">forest森林</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">时间轴</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">forest森林</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">时间轴</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">docker.md</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%BF%90%E7%BB%B4/"> 运维 </a>
+            </div>
+          <span class="more-meta"> 约 3231 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#第一章-docker概述">第一章-Docker概述</a>
+      <ul>
+        <li><a href="#1docker介绍">1Docker介绍</a></li>
+        <li><a href="#2linux安装docker">2linux安装docker</a></li>
+        <li><a href="#3命令大全">3命令大全</a>
+          <ul>
+            <li><a href="#-1常用命令">-1常用命令</a></li>
+            <li><a href="#-2镜像相关命令">-2镜像相关命令</a></li>
+            <li><a href="#-3容器相关命令">-3容器相关命令</a></li>
+          </ul>
+        </li>
+        <li><a href="#4docker容器数据卷">4Docker容器数据卷</a>
+          <ul>
+            <li><a href="#-数据卷介绍">-数据卷介绍</a></li>
+            <li><a href="#-数据卷配置">-数据卷配置</a></li>
+            <li><a href="#-数据卷容器">-数据卷容器</a></li>
+          </ul>
+        </li>
+        <li><a href="#使用docker安装软件">使用docker安装软件</a>
+          <ul>
+            <li><a href="#安装nginx">安装nginx</a></li>
+          </ul>
+        </li>
+        <li><a href="#安装mysql">安装mysql</a></li>
+      </ul>
+    </li>
+    <li><a href="#第二章-cicd">第二章-CICD</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="第一章-docker概述">第一章-Docker概述</h1>
+<p>学习视频-前锋：https://www.bilibili.com/video/BV1sK4y1s7Cj?from=search&amp;seid=8313785717449262117</p>
+<p>学习-狂神：https://www.bilibili.com/video/BV1og4y1q7M4?from=search&amp;seid=6062267095260519281</p>
+<p>解决的问题：</p>
+<blockquote>
+<p>1本地运行没问题。(环境不一致的问题)</p>
+<p>2多用户的操作系统，会相互影响。(比如linux)</p>
+<p>3运维成本过高。(每次新服务器都要进行部署)</p>
+<p>4学习一门技术，学习安装成本高</p>
+</blockquote>
+<h2 id="1docker介绍">1Docker介绍</h2>
+<p><strong>Docker</strong>是一个开源的应用容器引擎；是一个轻量级容器技术；</p>
+<p>Docker支持将软件编译成一个镜像；然后在镜像中各种软件做好配置，将镜像发布出去，其他使用者可以直接使用这个镜像；</p>
+<p>运行中的这个镜像称为容器，容器启动是非常快速的。</p>
+<ol>
+<li>
+<p>官网安装参考手册：https://docs.docker.com/install/linux/docker-ce/centos/</p>
+</li>
+<li>
+<p>确定你是CentOS7及以上版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@192 Desktop<span class="o">]</span><span class="c1"># cat /etc/redhat-release</span>
+CentOS Linux release 7.2.1511 <span class="o">(</span>Core<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p><strong>docker三个重要概念</strong></p>
+<ul>
+<li>
+<p><strong>仓库（Repository）</strong>：仓库可看着一个代码控制中心，用来保存镜像。</p>
+</li>
+<li>
+<p><strong>镜像（Image）</strong>：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。</p>
+</li>
+<li>
+<p><strong>容器（Container）</strong>：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Docker架构</strong></p>
+</blockquote>
+<h2 id="2linux安装docker">2linux安装docker</h2>
+<p><strong>yum(安装docker)</strong></p>
+<p>若有之前版本需要卸载，sudo yum remove docker \  …省略，copy官网就好。</p>
+<blockquote>
+<p>1下载yum install -y yum-utils       安装yum工具包</p>
+<p>2设置国内安装地址(官网是国外地址)yum-config-manager &ndash;add-repo <a href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a></p>
+<p>3更新yum软件包索引yum makecache fast
+4安装Docker CE: yum -y install docker-ce docker-ce-cli containerd.io</p>
+<p>5启动docker: systemctl start docker
+开启开机自动启动：systemctl enable docker
+6测试docker version:
+docker run hello-world或
+docker images</p>
+</blockquote>
+<h2 id="3命令大全">3命令大全</h2>
+<h3 id="-1常用命令">-1常用命令</h3>
+<p>全部命令：https://www.runoob.com/docker/docker-command-manual.html</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker search xxx[比如nginx]</td>
+<td>搜索</td>
+</tr>
+<tr>
+<td>docker pull xxx[比如nginx]</td>
+<td>下载</td>
+</tr>
+<tr>
+<td>docker images</td>
+<td>显示本地镜像</td>
+</tr>
+<tr>
+<td>docker ps   [-a]      参数-a表示显示所有容器</td>
+<td>显示运行的容器</td>
+</tr>
+<tr>
+<td>docker stop 容器前几位id/name</td>
+<td>关闭docker容器</td>
+</tr>
+<tr>
+<td>docker restart xxx[比如nginx]</td>
+<td>重新启动x容器</td>
+</tr>
+<tr>
+<td>docker rm $(docker ps -a -q)</td>
+<td>删除所有已经停止的容器</td>
+</tr>
+<tr>
+<td>systemctl status docker</td>
+<td>查看docker进程状态</td>
+</tr>
+<tr>
+<td>systemctl stop docker</td>
+<td>停止docker进程</td>
+</tr>
+<tr>
+<td>systemctl start/restart docker</td>
+<td>启动/重启docker进程</td>
+</tr>
+<tr>
+<td>systemctl enable docker</td>
+<td>开机启动docker</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-2镜像相关命令">-2镜像相关命令</h3>
+<p>指定版本号时候，需要正确的版本号，搜索网址：https://hub.docker.com/</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker images [-q只显示所有id]</td>
+<td>显示所有本地镜像</td>
+</tr>
+<tr>
+<td>docker search xxx[比如nginx]</td>
+<td>搜索镜像</td>
+</tr>
+<tr>
+<td>docker pull xxx[比如nginx]<br />可以指定版本号nginx:13.3</td>
+<td>下载</td>
+</tr>
+<tr>
+<td>docker rmi IMAGEID[需镜像ID]<br />docker rmi `sdocker images -q` | 卸载本地镜像<br />卸载本地所有镜像 |</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>docker可以对镜像进行导入导出</p>
+</blockquote>
+<h3 id="-3容器相关命令">-3容器相关命令</h3>
+<p>镜像相当于java中的class，容器相当于java中的object。</p>
+<p><strong>创建容器</strong>:docker run 参数  [/bin/bash]
+其中的/bin/bash的作用是因为docker后台必须运行一个进程，否则容器就会退出，在这里表示启动容器后启动bash。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#docker run 参数详解  -it一般称为交互式 -id一般称为守护式</span>
+-i, --interactive<span class="o">=</span>false， 打开STDIN，用于控制台交互
+
+-t, --tty<span class="o">=</span>false， 分配tty设备，该可以支持终端登录，默认为false,常和-i一起用 -it
+	<span class="c1">#-it创建的容器，会跳转到容器内部进行交互，然后exit退出后就关闭了</span>
+
+-d, --detach<span class="o">=</span>false， 指定容器运行于前台还是后台，默认为false
+	<span class="c1">#-id创建的容器，可交互(交互命令为docker exec -it 容器名 /bin/bash)，exit退出还会运行</span>
+
+--name<span class="o">=</span>docker1 为容器起名称 --name空格name也可以
+</code></pre></td></tr></table>
+</div>
+</div><p>前面一个是宿主机的端口号</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># docker运行tomcat，无法直接访问宿主机上的文件，可以放到 下面的/usr/local/tomcat/webapps中</span>
+docker run -d -p 8111:8080 --name<span class="o">=</span>tomcat_8111  <span class="se">\
+</span><span class="se"></span>-v /home/lsl/docker_tomcat7:/usr/local/tomcat/webapps  <span class="se">\
+</span><span class="se"></span>tomcat:7.0.57-jre8
+</code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docker run tomcat:7.0.57-jre8</td>
+<td>创建并启动容器</td>
+</tr>
+<tr>
+<td>docker ps [-a所有，包含关闭的 -q只显示id]</td>
+<td>查看运行的容器</td>
+</tr>
+<tr>
+<td>docker stop 容器name/容器id</td>
+<td>停止容器</td>
+</tr>
+<tr>
+<td>docker start 容器name/id</td>
+<td>启动已创建容器</td>
+</tr>
+<tr>
+<td>docker rm 容器name/id<br />docker rm $(docker ps -aq)</td>
+<td>删除容器<br />删除所有容器<br />==删除前要stop==</td>
+</tr>
+<tr>
+<td>docker inspect 容器名称</td>
+<td>查看容器详细信息</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>把宿主文件转到容器内部（不推荐）</p>
+<p>docker cp 文件名称 容器id:容器内部路径
+比如：docker cp t1.txt fe:/usr/local/tomcat/webapps/</p>
+<h2 id="4docker容器数据卷">4Docker容器数据卷</h2>
+<h3 id="-数据卷介绍">-数据卷介绍</h3>
+<p>Docker容器删除后,在容器中产生的数据也会随之销毁
+Docker容器和外部机器可以直接交换文件吗?
+容器之间想要进行数据交互?</p>
+<blockquote>
+<p><strong>什么是数据卷</strong></p>
+<p>数据卷是宿主机中的一个目录或文件
+当容器目录和数据卷目录绑定后，对方的修改会立即同步
+一个数据卷可以被多个容器同时挂载
+一个容器也可以被挂载多个数据卷</p>
+<p><img src="/typoraImg/docker.assets/image-20200426104506749.png" alt="image-20200426104506749"></p>
+</blockquote>
+<h3 id="-数据卷配置">-数据卷配置</h3>
+<p>创建启动容器时，可以用-v参数设置数据卷</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker run … -v 宿主机目录:容器内目录 …
+
+docker run -id –name<span class="o">=</span>c_nginx <span class="se">\
+</span><span class="se"></span>-p 访问端口8080:主机端口80 <span class="se">\
+</span><span class="se"></span>-v <span class="nv">$PWD</span>/conf/nginx.conf:/etc/nginx/nginx.conf <span class="se">\
+</span><span class="se"></span>-v <span class="nv">$PWD</span>/logs:/var/log/nginx
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：
+1目录必须是绝对路径。
+2若目录不存在，会自动创建。
+3可以挂载多个数据卷。</p>
+<p>$PWD可以表示当前宿主机目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#1创建数据卷，</span>
+docker volume create 数据卷名称
+
+<span class="c1">#创建数据卷后 默认会存放在某目录下，</span>
+/var/lib/docker/volumes/数据卷名称/_data
+
+<span class="c1">#查看数据卷名称</span>
+docker volume inspect 数据卷名称
+
+</code></pre></td></tr></table>
+</div>
+</div><p>-v /volume没有设置宿主机挂载目录时，宿主机会自动分配一个。
+具体可以 docker inspect 容器名称 ,查看mounts中的，source查看目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#1查看全部数据卷</span>
+docker volume ls
+
+<span class="c1">#2删除数据卷</span>
+docker volume rm 数据卷名称
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="-数据卷容器">-数据卷容器</h3>
+<p>多容器进行数据交换
+1.多个容器挂载同一个数据卷,上文的-v参数。
+2.数据卷容器，（c1,c2挂载c3，c3挂载宿主机的数据卷。相当于c1,c2挂载的数据卷）</p>
+<p><img src="/typoraImg/docker.assets/image-20200426110358854.png" alt="image-20200426110358854"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#1.创建启动c3数据卷容器，使用-v参数设置数据卷</span>
+docker run -it --name<span class="o">=</span>c3 -v /volume centos:7 /bin/bash
+<span class="c1">#2.创建启动c1 c2容器，使用--volumes-from参数设置数据卷</span>
+docker run -it --name<span class="o">=</span>cl --volumes-from c3 centos: <span class="m">7</span> /bin/bash
+docker run -it --name<span class="o">=</span>c2 --volumes-from c3 centos: <span class="m">7</span> /bin/bash
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="使用docker安装软件">使用docker安装软件</h2>
+<h3 id="安装nginx">安装nginx</h3>
+<p>搜索：docker search nginx</p>
+<p>下载：docker pull nginx</p>
+<blockquote>
+<p><strong>启动</strong></p>
+<p>-d: 后台运行
+-p: 端口映射 冒号前是本机端口，冒号后是容器端口</p>
+<p>==docker run -d -p 8787:80 –name nginx-8787 nginx==  启动容器 -name可选 nginx-8787是名称</p>
+<p>若出现IPv4 forwarding is disabled. Networking will not work_   按照以下步骤解决：
+1、编辑 vi /etc/sysctl.conf
+2、添加 net.ipv4.ip_forward=1
+3、重启network服务 systemctl restart network</p>
+<p>然后访问ip+8787出现Wecome to nginx就说明安装成功</p>
+</blockquote>
+<blockquote>
+<p>** 部署nginx**</p>
+<p>$PWD表示当前目录，也可以手动
+-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf表示把当前主机的conf/nginx.conf挂载到容器的/etc/nginx/nginx.conf配置目录
+-v $PWD/logs:/var/log/nginx把主机当前目录下的logs目录挂摘到容器的/var/log/nginx</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -id –name<span class="o">=</span>c_nginx <span class="se">\
+</span><span class="se"></span>-p 访问端口8080:主机端口80 <span class="se">\
+</span><span class="se"></span>-v <span class="nv">$PWD</span>/conf/nginx.conf:/etc/nginx/nginx.conf <span class="se">\
+</span><span class="se"></span>-v <span class="nv">$PWD</span>/logs:/var/log/nginx
+</code></pre></td></tr></table>
+</div>
+</div></blockquote>
+<h2 id="安装mysql">安装mysql</h2>
+<p><a href="https://hub.docker.com">https://hub.docker.com</a>搜索mysql</p>
+<p>找到对应版本下载docker pull mysql:5.7.30</p>
+<p>然后启动：docker run -itd &ndash;name mysql -p 3336:3306 -e MYSQL_ROOT_PASSWORD=密码123456 mysql:版本号</p>
+<p>这样就可以直接通过ip+3336进行访问</p>
+<h1 id="第二章-cicd">第二章-CICD</h1>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">卢森林</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/bootstrap3/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Bootstrap3.md</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/dubbo/">
+            <span class="next-text nav-default">dubbo.md</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:1115759748@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://gitee.com/lusenlin1997" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://https://github.com/13277112287" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://13277112287.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">卢森林</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
